@@ -11,6 +11,14 @@ export type Article = {
 /** Open Floor education library — single source for the /learn hub + sitemap. */
 export const articles: Article[] = [
   {
+    slug: "erectile-function-signal",
+    title: "Erectile function is a signal",
+    summary:
+      "Often the first visible sign of a vascular or metabolic problem — years before a heart attack or a diabetes diagnosis. Why the body flags it here first, and why it's a reason to get a workup, not to feel shame.",
+    grade: "established",
+    section: "Why it matters",
+  },
+  {
     slug: "what-it-costs",
     title: "What it costs — and how to get real value",
     summary:
