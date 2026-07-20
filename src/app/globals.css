@@ -33,3 +33,69 @@ body {
   background: var(--sos-copper-deep);
   color: #fff;
 }
+
+/* ---- SOS brand type/layout utilities (education "Open Floor" surface) ---- */
+.sos-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 96px;
+}
+.sos-kicker {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+}
+.sos-kicker b {
+  color: var(--sos-copper);
+  font-weight: 600;
+}
+.sos-h1 {
+  font-family: var(--sos-sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+}
+.sos-h2 {
+  font-family: var(--sos-sans);
+  font-weight: 700;
+  font-stretch: 90%;
+  font-size: 14.5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+}
+.sos-prose {
+  font-family: var(--sos-serif);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--sos-text-md);
+}
+.sos-prose strong {
+  color: var(--sos-text-hi);
+  font-weight: 600;
+}
+.sos-prose a,
+.sos-note a {
+  color: var(--sos-copper);
+}
+.sos-note {
+  font-family: var(--sos-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--sos-text-lo);
+}
+.sos-card {
+  background: var(--sos-e2);
+  border: 1px solid var(--sos-line);
+  border-radius: 10px;
+  padding: 24px;
+}
+.sos-card--deep {
+  background: var(--sos-e1);
+}

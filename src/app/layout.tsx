@@ -99,6 +99,56 @@ export default function RootLayout({
           </a>
         </header>
         <div className="flex flex-1 flex-col">{children}</div>
+        <footer
+          style={{
+            borderTop: "1px solid var(--sos-line-soft)",
+            padding: "28px 24px 40px",
+            marginTop: "40px",
+          }}
+        >
+          <nav
+            style={{
+              display: "flex",
+              gap: "20px",
+              flexWrap: "wrap",
+              marginBottom: "16px",
+            }}
+          >
+            {[
+              { href: "/support", label: "Get support" },
+              { href: "/learn/product-forms", label: "What you're buying" },
+            ].map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                style={{
+                  fontFamily: "var(--sos-mono)",
+                  fontSize: "12px",
+                  letterSpacing: "0.08em",
+                  color: "var(--sos-text-md)",
+                  textDecoration: "none",
+                }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <p
+            style={{
+              fontFamily: "var(--sos-mono)",
+              fontSize: "11.5px",
+              lineHeight: 1.7,
+              color: "var(--sos-text-lo)",
+              maxWidth: "68ch",
+            }}
+          >
+            © Skin Over Steel. Education, not medical advice — bridges toward your
+            clinician, never around them. Not a pharmacy and not a seller. Where
+            we list licensed providers, we may earn a referral fee, always
+            disclosed at the link; a paid relationship never changes an evidence
+            grade or a ranking.
+          </p>
+        </footer>
       </body>
     </html>
   );
