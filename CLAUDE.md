@@ -77,6 +77,43 @@ Voice:
 - Pseudonymity by design: auto-generated handles, initials avatars with copper
   ring, tenure marks ("member · 8 mo · 3 logs").
 
+## Safety layer + referral/monetization model
+
+Thesis: get ahead of the harm, put the solution front-and-center, and earn trust
+that later converts to transparent referral revenue. Reducing harm IS the funnel.
+
+- **Safety layer ("Get support now"):** harm-reduction first, permanent nav.
+  Flagship = trimix priapism emergency. Prolonged erection (>4 hrs) is a true
+  emergency (ischemic priapism → permanent damage). Present the PRESCRIBER's /
+  pharmacy's OWN official patient instructions (e.g. Empower Pharmacy trimix
+  reversal sheet), attributed, plus unambiguous ER-escalation. Frame as "follow
+  your prescriber's instructions / seek emergency care" — NEVER our own
+  self-administered pharmacological reversal dosing (respects hard line #1/#2).
+  Mental-health/crisis resources live here too.
+- **Product-form transparency (consumer protection):** teach users to read what
+  they're actually buying — gray-market "ziplock of premix" (red flag) vs
+  licensed-pharmacy lyophilized vial vs properly reconstituted peptide hormone —
+  for bremelanotide, trimix, etc. This is a quality/safety literacy tool, NOT a
+  sourcing guide for gray-market product.
+- **Referral/affiliate directory (the revenue):** transparent, competitive
+  directory of LICENSED providers who compete on the trust standard, never
+  pay-to-rank: blood testing (androgen monitoring + insulin/metabolic panels),
+  compounding pharmacies, and telemedicine (the legitimate Rx channel). FTC
+  disclosure required; a paid relationship can NEVER move an evidence grade or a
+  ranking. Gate every listing on legitimacy (licensed, prescription-based).
+  See sibling model in american-peptide affiliate notes.
+- **Drug-tier guardrail (critical — differentiate by legal status):**
+  - Trimix = legitimately compounded Rx (alprostadil/papaverine/phentolamine).
+    OK for education + licensed-pharmacy/telemed referral.
+  - Bremelanotide = FDA-approved as Vyleesi (premenopausal women, HSDD);
+    off-label in men; also compounded. Education + licensed referral with
+    off-label disclosure.
+  - Retatrutide = INVESTIGATIONAL (Lilly, Phase 3), NOT FDA-approved and NOT
+    lawfully compoundable. EDUCATION-ONLY, EMERGING/ANECDOTE grade, explicit
+    "no legitimate pharmacy channel exists" warning. Do NOT build buy/referral
+    flows for it. Revisit only if it earns approval. (Verify status at build
+    time — investigational status changes.)
+
 ## Build phases (cost-effective path)
 
 Original brief suggested: 1) Open Floor static (Astro/Eleventy), 2) self-hosted
