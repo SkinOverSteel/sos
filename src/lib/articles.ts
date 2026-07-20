@@ -19,6 +19,14 @@ export const articles: Article[] = [
     section: "Why it matters",
   },
   {
+    slug: "read-your-labs",
+    title: "Read your labs",
+    summary:
+      "You got the workup — now decode it. What total and free testosterone, SHBG, LH/FSH, fasting insulin, HbA1c, and hs-CRP actually mean, enough to have a real conversation with your clinician instead of guessing.",
+    grade: "established",
+    section: "The workup",
+  },
+  {
     slug: "pde5-long-term",
     title: "PDE5 inhibitors, long term",
     summary:
