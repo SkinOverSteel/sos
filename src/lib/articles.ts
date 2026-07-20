@@ -19,6 +19,14 @@ export const articles: Article[] = [
     section: "Why it matters",
   },
   {
+    slug: "pde5-long-term",
+    title: "PDE5 inhibitors, long term",
+    summary:
+      "When they seem to stop working, the drug usually hasn't worn out — your vasculature has changed. The emerging case for long-term vascular benefit, and why your blood-pressure drug choice (nebivolol, telmisartan) matters when you have both ED and hypertension.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+  },
+  {
     slug: "what-it-costs",
     title: "What it costs — and how to get real value",
     summary:
