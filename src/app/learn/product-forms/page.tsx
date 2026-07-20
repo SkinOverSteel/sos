@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "What you're actually buying: forms, quality & red flags",
@@ -8,9 +10,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "/learn/product-forms" },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  name: "What you're actually buying: forms, quality & red flags",
+  url: `${SITE.url}/learn/product-forms`,
+  description:
+    "How the form of an injectable peptide or ED medication (lyophilized vial, pre-mixed solution, or gray-market premix) reveals its source and quality.",
+  audience: { "@type": "Patient" },
+  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+};
+
 export default function ProductFormsPage() {
   return (
     <article className="sos-container">
+      <JsonLd data={jsonLd} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Learn · <b>Quality &amp; safety</b>
       </p>

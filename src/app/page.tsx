@@ -1,6 +1,18 @@
+import { JsonLd } from "@/components/JsonLd";
+import { SITE } from "@/lib/site";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.tagline,
+};
+
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
+      <JsonLd data={jsonLd} />
       <main className="flex max-w-2xl flex-col items-center gap-8">
         <p
           className="uppercase"

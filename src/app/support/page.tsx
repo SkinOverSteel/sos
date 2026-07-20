@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Get support now",
   description:
     "Prolonged erection (priapism) after a penile injection is a medical emergency. What to do, how to lower the risk, and when to go to the ER.",
   alternates: { canonical: "/support" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  name: "Prolonged erection (priapism): emergency guidance",
+  url: `${SITE.url}/support`,
+  description:
+    "When a prolonged erection after penile injection therapy becomes a medical emergency, how to lower the risk, and when to go to the ER.",
+  about: { "@type": "MedicalCondition", name: "Priapism" },
+  audience: { "@type": "Patient" },
+  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 const mono = "var(--sos-mono)";
@@ -14,6 +28,7 @@ const sans = "var(--sos-sans)";
 export default function SupportPage() {
   return (
     <div className="w-full">
+      <JsonLd data={jsonLd} />
       <div
         style={{
           maxWidth: "760px",
