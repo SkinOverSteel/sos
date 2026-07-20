@@ -11,6 +11,14 @@ export type Article = {
 /** Open Floor education library — single source for the /learn hub + sitemap. */
 export const articles: Article[] = [
   {
+    slug: "what-it-costs",
+    title: "What it costs — and how to get real value",
+    summary:
+      "The price is a stack: labs, a consult, the product, and the markup on top. Follow the journey layer by layer, see where the prescriber's cut hides, and learn how to get the most value inside the legal channel in your jurisdiction.",
+    grade: "established",
+    section: "Money & value",
+  },
+  {
     slug: "product-forms",
     title: "What you're actually buying",
     summary:
