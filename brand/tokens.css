@@ -1,0 +1,81 @@
+/* Skin Over Steel — design tokens v2.0
+   Single source of truth. Both brand guides render these values.
+   Dark theme is canonical for the app; light theme for marketing/education. */
+
+:root {
+  /* type */
+  --sos-serif: 'Source Serif 4', Georgia, serif;      /* body / human voice */
+  --sos-sans: 'Archivo', system-ui, sans-serif;       /* display / headings */
+  --sos-mono: 'IBM Plex Mono', ui-monospace, monospace; /* data / UI voice */
+
+  --sos-display-weight: 850;
+  --sos-display-width: 78%;    /* font-stretch */
+  --sos-heading-weight: 750;
+  --sos-heading-width: 88%;
+
+  /* evidence grades — outline badges only, never filled */
+  --sos-grade-established: #5FA983;
+  --sos-grade-emerging: #CFA145;
+  --sos-grade-anecdote: #8B95A0;
+  /* --sos-grade-highrisk: TBD red-family, v2.1 addendum */
+}
+
+/* ---- dark (app canonical) ---- */
+:root, [data-theme="dark"] {
+  --sos-e0: #12161A;   /* page / forge floor */
+  --sos-e1: #191E24;   /* panel */
+  --sos-e2: #21272E;   /* card */
+  --sos-e3: #2A313A;   /* raised / hover */
+  --sos-line: #333B44;
+  --sos-line-soft: #272E36;
+  --sos-text-hi: #E8EAEC;   /* bone */
+  --sos-text-md: #AEB6BD;
+  --sos-text-lo: #78828B;
+  --sos-copper: #C97438;      /* the one warm voice, ~10% of any screen */
+  --sos-copper-hot: #E08A47;  /* hover / pressed */
+  --sos-copper-deep: #8A4519;
+  --sos-copper-glow: rgba(201, 116, 56, 0.14);
+}
+
+/* ---- light (marketing / education) ---- */
+[data-theme="light"] {
+  --sos-e0: #EFF1F2;   /* cold sheet — cool gray, never cream */
+  --sos-e1: #E6E9EB;
+  --sos-e2: #FFFFFF;
+  --sos-e3: #D5D9DC;
+  --sos-line: #D5D9DC;
+  --sos-line-soft: #E6E9EB;
+  --sos-text-hi: #1B2026;
+  --sos-text-md: #242A31;
+  --sos-text-lo: #5C6873;
+  --sos-copper: #B15C24;
+  --sos-copper-hot: #8A4519;
+  --sos-copper-deep: #8A4519;
+  --sos-copper-glow: #F3E3D6;
+  --sos-grade-established: #3E7A5A;
+  --sos-grade-emerging: #A87B1E;
+  --sos-grade-anecdote: #5C6873;
+}
+
+/* ---- signature: morse SOS divider (··· ––– ···) ---- */
+.sos-morse { display: flex; align-items: center; gap: 9px; }
+.sos-morse i { display: block; height: 5px; border-radius: 3px; background: var(--sos-copper); }
+.sos-morse .dot { width: 5px; }
+.sos-morse .dash { width: 26px; }
+
+/* ---- evidence badge base ---- */
+.sos-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sos-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 999px;
+  border: 1.5px solid currentColor; background: transparent;
+}
+.sos-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.sos-badge--established { color: var(--sos-grade-established); }
+.sos-badge--emerging { color: var(--sos-grade-emerging); }
+.sos-badge--anecdote { color: var(--sos-grade-anecdote); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

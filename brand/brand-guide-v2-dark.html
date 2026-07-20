@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Over Steel — Brand Identity v2 · Dark Utility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* elevation scale — dark steel */
+    --e0:#12161A;   /* page */
+    --e1:#191E24;   /* panel */
+    --e2:#21272E;   /* card */
+    --e3:#2A313A;   /* raised / hover */
+    --line:#333B44;
+    --line-soft:#272E36;
+    --tx-hi:#E8EAEC;
+    --tx-md:#AEB6BD;
+    --tx-lo:#78828B;
+    --copper:#C97438;      /* brightened for dark bg */
+    --copper-hot:#E08A47;  /* hover */
+    --copper-deep:#8A4519;
+    --copper-glow:rgba(201,116,56,.14);
+    --est:#5FA983;
+    --emg:#CFA145;
+    --anc:#8B95A0;
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'Archivo', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation:none!important;transition:none!important;}
+  }
+  body{
+    background:var(--e0);
+    color:var(--tx-md);
+    font-family:var(--serif);
+    font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--copper);}
+  ::selection{background:var(--copper-deep);color:#fff;}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px;}
+
+  .morse{display:flex;align-items:center;gap:9px;}
+  .morse i{display:block;background:var(--copper);height:5px;border-radius:3px;}
+  .morse .dot{width:5px;}
+  .morse .dash{width:26px;}
+  .morse.dim i{background:var(--line);}
+
+  header{
+    background:
+      radial-gradient(900px 420px at 18% -10%, var(--copper-glow), transparent 60%),
+      linear-gradient(180deg,var(--e1) 0%,var(--e0) 100%);
+    border-bottom:1px solid var(--line-soft);
+    padding:66px 0 74px;
+  }
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx-lo);margin-bottom:26px;}
+  .kicker b{color:var(--copper);font-weight:600;}
+  h1.hero-title{
+    font-family:var(--sans);font-weight:850;font-stretch:78%;
+    font-size:clamp(46px,7.4vw,84px);line-height:.96;
+    letter-spacing:-.015em;text-transform:uppercase;color:var(--tx-hi);
+  }
+  h1 .skin{font-family:var(--serif);font-style:italic;font-weight:560;text-transform:none;color:var(--copper);letter-spacing:0;}
+  .hero-sub{max-width:58ch;margin-top:26px;font-size:19px;color:var(--tx-md);}
+  .hero-sub strong{color:var(--tx-hi);font-weight:600;}
+
+  section{padding:66px 0;border-bottom:1px solid var(--line-soft);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:10px;flex-wrap:wrap;}
+  .sec-no{font-family:var(--mono);font-size:12px;color:var(--copper);letter-spacing:.12em;}
+  h2{font-family:var(--sans);font-weight:800;font-stretch:84%;font-size:clamp(24px,3vw,32px);letter-spacing:-.01em;color:var(--tx-hi);}
+  .lede{max-width:66ch;color:var(--tx-md);margin-bottom:34px;}
+  h3{font-family:var(--sans);font-weight:700;font-stretch:90%;font-size:14.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--tx-hi);margin:0 0 10px;}
+  .note{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--tx-lo);}
+
+  .grid{display:grid;gap:20px;}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+  .card{background:var(--e2);border:1px solid var(--line);border-radius:10px;padding:26px;}
+  .card.deep{background:var(--e1);}
+
+  /* heritage mapping */
+  .map-row{display:grid;grid-template-columns:1fr 46px 1fr;align-items:center;border-bottom:1px solid var(--line-soft);}
+  .map-row:last-child{border-bottom:none;}
+  .map-cell{padding:16px 18px;font-size:15px;}
+  .map-cell .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px;color:var(--tx-lo);}
+  .map-cell.then{color:var(--tx-lo);}
+  .map-cell.now{color:var(--tx-md);}
+  .map-cell.now b{color:var(--tx-hi);font-family:var(--sans);font-stretch:90%;font-weight:700;}
+  .map-arrow{color:var(--copper);font-family:var(--mono);text-align:center;}
+  @media(max-width:640px){
+    .map-row{grid-template-columns:1fr;}
+    .map-arrow{text-align:left;padding:0 18px;}
+  }
+
+  .plate{
+    display:flex;align-items:center;justify-content:center;
+    min-height:190px;border-radius:8px;margin-bottom:16px;
+    border:1px solid var(--line);
+    background:
+      linear-gradient(var(--line-soft) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:22px 22px;background-color:var(--e1);
+  }
+  .caption{font-family:var(--mono);font-size:12px;color:var(--tx-lo);line-height:1.6;}
+
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+  .sw{border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--e2);}
+  .sw .chip{height:88px;}
+  .sw .meta{padding:12px 14px;}
+  .sw .nm{font-family:var(--sans);font-weight:700;font-stretch:90%;font-size:13.5px;color:var(--tx-hi);}
+  .sw .hx{font-family:var(--mono);font-size:12px;color:var(--tx-lo);}
+  .sw .use{font-size:13px;color:var(--tx-md);margin-top:4px;line-height:1.45;}
+
+  /* app shell mock */
+  .app{
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    background:var(--e1);box-shadow:0 24px 60px rgba(0,0,0,.35);
+  }
+  .app-bar{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--line-soft);background:var(--e0);}
+  .app-bar .dot-nav{display:flex;gap:6px;}
+  .app-bar .dot-nav span{width:9px;height:9px;border-radius:50%;background:var(--line);}
+  .app-brand{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:800;font-stretch:82%;font-size:13px;letter-spacing:.04em;color:var(--tx-hi);text-transform:uppercase;}
+  .app-brand svg{display:block;}
+  .app-tabs{margin-left:auto;display:flex;gap:4px;}
+  .app-tabs span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:6px 11px;border-radius:6px;color:var(--tx-lo);}
+  .app-tabs span.on{background:var(--e2);color:var(--copper);border:1px solid var(--line);}
+  .app-body{display:grid;grid-template-columns:220px 1fr;min-height:340px;}
+  @media(max-width:760px){.app-body{grid-template-columns:1fr;}.app-side{display:none;}}
+  .app-side{border-right:1px solid var(--line-soft);padding:18px 14px;background:var(--e1);}
+  .side-item{font-family:var(--mono);font-size:12px;color:var(--tx-lo);padding:9px 12px;border-radius:6px;display:flex;gap:10px;align-items:center;}
+  .side-item.on{background:var(--e2);color:var(--tx-hi);border:1px solid var(--line);}
+  .side-item .k{color:var(--copper);}
+  .app-main{padding:22px 24px;background:var(--e1);}
+
+  .log{background:var(--e2);border:1px solid var(--line);border-radius:10px;padding:20px 22px;max-width:640px;}
+  .log-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px;}
+  .log-head h4{font-family:var(--sans);font-weight:750;font-stretch:88%;font-size:17px;color:var(--tx-hi);}
+  .log-meta{font-family:var(--mono);font-size:11.5px;color:var(--tx-lo);margin-bottom:14px;}
+  .log-data{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0;}
+  .datum{background:var(--e1);border:1px solid var(--line-soft);border-radius:8px;padding:10px 12px;}
+  .datum .v{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--tx-hi);}
+  .datum .v em{font-style:normal;font-size:11px;color:var(--est);}
+  .datum .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx-lo);margin-top:2px;}
+  .log p.body{font-size:15px;color:var(--tx-md);}
+
+  .badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1.5px solid;background:transparent;}
+  .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;}
+  .b-est{color:var(--est);border-color:var(--est);}
+  .b-emg{color:var(--emg);border-color:var(--emg);}
+  .b-anc{color:var(--anc);border-color:var(--anc);}
+
+  .cred{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+  .cred .pip{font-family:var(--mono);font-size:11.5px;color:var(--tx-lo);border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:var(--e1);}
+  .cred .pip b{color:var(--copper);font-weight:600;}
+
+  .tier{border:1px solid var(--line);border-radius:10px;background:var(--e2);padding:24px;position:relative;}
+  .tier.vip{border-color:var(--copper-deep);background:linear-gradient(180deg,rgba(201,116,56,.08),var(--e2) 55%);}
+  .tier .tname{font-family:var(--sans);font-weight:800;font-stretch:82%;font-size:19px;text-transform:uppercase;color:var(--tx-hi);}
+  .tier .tprice{font-family:var(--mono);font-size:12px;color:var(--copper);margin:4px 0 12px;}
+  .tier ul{list-style:none;}
+  .tier li{font-size:14.5px;padding:6px 0;border-bottom:1px solid var(--line-soft);color:var(--tx-md);}
+  .tier li:last-child{border-bottom:none;}
+
+  .stack td,.stack th{padding:11px 14px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--line-soft);}
+  .stack th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-lo);font-weight:500;}
+  .stack td:first-child{font-family:var(--sans);font-stretch:90%;font-weight:700;color:var(--tx-hi);white-space:nowrap;}
+  .stack td .m{font-family:var(--mono);font-size:12px;color:var(--copper);}
+  .stack{width:100%;border-collapse:collapse;background:var(--e2);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .stack tr:last-child td{border-bottom:none;}
+
+  footer{padding:44px 0 64px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Brand identity · <b>v2.0 dark utility</b> · est. 2004, rebuilt 2026</div>
+    <div class="morse" style="margin-bottom:34px" aria-hidden="true">
+      <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <i class="dash"></i><i class="dash"></i><i class="dash"></i>
+      <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+    </div>
+    <h1 class="hero-title"><span class="skin">Skin</span> over Steel</h1>
+    <p class="hero-sub">Twenty years ago this name lived on dark forums — <strong>training logs, rep power, private sections, earned trust</strong>. v2 keeps that DNA and rebuilds it as a modern utility application for men's sexual health: log-driven, evidence-graded, pseudonymous, and cheap to run. <strong>Not a content site. A tool with a community inside it.</strong></p>
+  </div>
+</header>
+
+<section id="heritage">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">01</span><h2>Heritage → Utility</h2></div>
+    <p class="lede">The 2004-era private bodybuilding community already invented the mechanics that matter. We don't imitate the old look — we translate its social physics into product features. Every row below is a feature spec, not nostalgia.</p>
+    <div class="card deep" style="padding:6px 0">
+      <div class="map-row">
+        <div class="map-cell then"><span class="lbl">2004 forum</span>The training / supplement log thread: baseline stats, fixed protocol, dated updates, before-vs-after</div>
+        <div class="map-arrow">→</div>
+        <div class="map-cell now"><span class="lbl">2026 app</span><b>The Log</b> — the core utility. Structured n=1 protocol tracker: baseline, intervention, metrics, outcome. Private by default, publishable in one tap.</div>
+      </div>
+      <div class="map-row">
+        <div class="map-cell then"><span class="lbl">2004 forum</span>Rep Power — credibility earned slowly from other members</div>
+        <div class="map-arrow">→</div>
+        <div class="map-cell now"><span class="lbl">2026 app</span><b>Signal Score</b> — earned by logs completed, sources cited, and "heard you" signals received. Never purchasable.</div>
+      </div>
+      <div class="map-row">
+        <div class="map-cell then"><span class="lbl">2004 forum</span>Join date + post count under every avatar</div>
+        <div class="map-arrow">→</div>
+        <div class="map-cell now"><span class="lbl">2026 app</span><b>Tenure marks</b> — "member · 8 mo · 3 logs" — visible history without identity.</div>
+      </div>
+      <div class="map-row">
+        <div class="map-cell then"><span class="lbl">2004 forum</span>Private VIP sections behind earned or paid access</div>
+        <div class="map-arrow">→</div>
+        <div class="map-cell now"><span class="lbl">2026 app</span><b>The Vault</b> — member tier with the log tools, community, and deep-dive library. Public education stays free.</div>
+      </div>
+      <div class="map-row">
+        <div class="map-cell then"><span class="lbl">2004 forum</span>Dark vBulletin skin, dense, utilitarian, no decoration</div>
+        <div class="map-arrow">→</div>
+        <div class="map-cell now"><span class="lbl">2026 app</span><b>This visual system</b> — dark steel elevation scale, mono data voice, zero marketing gloss.</div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px">Heritage line for the footer &amp; about page: "SKIN OVER STEEL · logging protocols since 2004."</p>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">02</span><h2>Marks on dark</h2></div>
+    <p class="lede">Same three marks as v1 — the system was built to invert. Copper brightens one step (#C97438) to hold contrast on steel; the hexagon stroke lightens so the monogram doesn't sink.</p>
+    <div class="grid g3">
+      <div>
+        <div class="plate">
+          <svg width="270" height="120" viewBox="0 0 270 120" role="img" aria-label="Skin over Steel wordmark, dark version">
+            <text x="10" y="52" font-family="'Source Serif 4',Georgia,serif" font-style="italic" font-weight="600" font-size="46" fill="#C97438">Skin</text>
+            <text x="106" y="46" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2" fill="#78828B">OVER</text>
+            <text x="10" y="102" font-family="'Archivo',sans-serif" font-weight="850" font-size="50" letter-spacing="1" fill="#E8EAEC">STEEL</text>
+          </svg>
+        </div>
+        <p class="caption">A · Wordmark. STEEL flips to bone-white; Skin stays copper. The warm voice is the only color on the page.</p>
+      </div>
+      <div>
+        <div class="plate">
+          <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="SOS monogram, dark version">
+            <polygon points="75,14 128,44 128,106 75,136 22,106 22,44" fill="none" stroke="#78828B" stroke-width="5"/>
+            <circle cx="75" cy="75" r="36" fill="#C97438"/>
+            <text x="75" y="86" text-anchor="middle" font-family="'Archivo',sans-serif" font-weight="850" font-size="30" fill="#12161A">S</text>
+          </svg>
+        </div>
+        <p class="caption">B · Monogram / app icon. The S counter goes gunmetal so the mark reads as punched metal. This is the favicon and PWA icon.</p>
+      </div>
+      <div>
+        <div class="plate">
+          <svg width="220" height="60" viewBox="0 0 220 60" role="img" aria-label="SOS morse signal mark, dark version">
+            <circle cx="14" cy="30" r="6" fill="#E8EAEC"/>
+            <circle cx="34" cy="30" r="6" fill="#E8EAEC"/>
+            <circle cx="54" cy="30" r="6" fill="#E8EAEC"/>
+            <rect x="72" y="24" width="26" height="12" rx="6" fill="#C97438"/>
+            <rect x="106" y="24" width="26" height="12" rx="6" fill="#C97438"/>
+            <rect x="140" y="24" width="26" height="12" rx="6" fill="#C97438"/>
+            <circle cx="184" cy="30" r="6" fill="#E8EAEC"/>
+            <circle cx="204" cy="30" r="6" fill="#E8EAEC"/>
+          </svg>
+        </div>
+        <p class="caption">C · Signal mark. On dark it doubles as the app's loading state: dots pulse in Morse rhythm. Discreet to outsiders, unmistakable to members.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="color">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">03</span><h2>Dark palette — an elevation system</h2></div>
+    <p class="lede">Utility apps need depth, not decoration. Four steel elevations replace the light theme's single background; copper stays the lone warm voice at ~10% of any screen. Nothing is pure black — steel always has blue-gray in it.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#12161A"></div><div class="meta"><div class="nm">E0 · Forge Floor</div><div class="hx">#12161A</div><div class="use">Page background, app chrome</div></div></div>
+      <div class="sw"><div class="chip" style="background:#191E24"></div><div class="meta"><div class="nm">E1 · Panel</div><div class="hx">#191E24</div><div class="use">Sidebars, section fields</div></div></div>
+      <div class="sw"><div class="chip" style="background:#21272E"></div><div class="meta"><div class="nm">E2 · Card</div><div class="hx">#21272E</div><div class="use">Logs, posts, modules</div></div></div>
+      <div class="sw"><div class="chip" style="background:#2A313A"></div><div class="meta"><div class="nm">E3 · Raised</div><div class="hx">#2A313A</div><div class="use">Hover, active, dropdowns</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E8EAEC"></div><div class="meta"><div class="nm">Bone</div><div class="hx">#E8EAEC</div><div class="use">Primary text, STEEL wordmark</div></div></div>
+      <div class="sw"><div class="chip" style="background:#C97438"></div><div class="meta"><div class="nm">Copper (dark-tuned)</div><div class="hx">#C97438</div><div class="use">Links, CTAs, Skin, dashes — the one warmth</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E08A47"></div><div class="meta"><div class="nm">Copper Hot</div><div class="hx">#E08A47</div><div class="use">Hover / pressed states</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5FA983"></div><div class="meta"><div class="nm">Grade tones</div><div class="hx">#5FA983 · #CFA145 · #8B95A0</div><div class="use">Established / Emerging / Anecdote — outline badges only</div></div></div>
+    </div>
+    <p class="note" style="margin-top:18px">Contrast floor: body text ≥ 7:1 on E0–E2 (Bone on Forge Floor = ~13:1). Copper is for interaction and identity, never for paragraphs. Evidence colors never fill — outline badges only, so grades read as instrumentation, not mood.</p>
+  </div>
+</section>
+
+<section id="app">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">04</span><h2>The utility surface</h2></div>
+    <p class="lede">The product is a tool first: track a protocol, grade the evidence, compare notes. Here's the app shell with the brand applied — and The Log, the direct descendant of the 2004 forum log thread.</p>
+
+    <div class="app" role="img" aria-label="Mockup of the Skin Over Steel app interface">
+      <div class="app-bar">
+        <div class="dot-nav" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="app-brand">
+          <svg width="20" height="20" viewBox="0 0 150 150" aria-hidden="true">
+            <polygon points="75,14 128,44 128,106 75,136 22,106 22,44" fill="none" stroke="#78828B" stroke-width="10"/>
+            <circle cx="75" cy="75" r="36" fill="#C97438"/>
+          </svg>
+          Skin<span style="color:var(--copper)">/</span>Steel
+        </div>
+        <div class="app-tabs" aria-hidden="true">
+          <span class="on">MY LOGS</span><span>LIBRARY</span><span>COMMUNITY</span><span>VAULT</span>
+        </div>
+      </div>
+      <div class="app-body">
+        <div class="app-side" aria-hidden="true">
+          <div class="side-item on"><span class="k">▸</span> Active protocol</div>
+          <div class="side-item"><span class="k">·</span> Baselines</div>
+          <div class="side-item"><span class="k">·</span> Completed logs (3)</div>
+          <div class="side-item"><span class="k">·</span> Compare notes</div>
+          <div class="side-item"><span class="k">·</span> Clinician export</div>
+          <div class="side-item" style="margin-top:18px;opacity:.7"><span class="k">⚑</span> Get support now</div>
+        </div>
+        <div class="app-main">
+          <div class="log">
+            <div class="log-head">
+              <h4>Zone-2 cardio · 12-week protocol</h4>
+              <span class="badge b-est" style="margin-left:auto">Established</span>
+            </div>
+            <div class="log-meta">Meridian_07 · week 9 of 12 · private · started 2026-05-18</div>
+            <div class="log-data">
+              <div class="datum"><div class="v">58 <em>▼6</em></div><div class="k">Resting HR</div></div>
+              <div class="datum"><div class="v">4 <em>▲1</em></div><div class="k">Sessions / wk</div></div>
+              <div class="datum"><div class="v">7.2 <em>▲0.9</em></div><div class="k">Sleep hrs avg</div></div>
+              <div class="datum"><div class="v">+2 <em>self-rated</em></div><div class="k">Function score</div></div>
+            </div>
+            <p class="body">Week 9 note: consistency beat intensity again. Numbers exportable as a one-page PDF to bring to a clinician visit.</p>
+            <div class="cred" aria-hidden="true">
+              <span class="pip">SIGNAL SCORE <b>412</b></span>
+              <span class="pip">LOGS COMPLETED <b>3</b></span>
+              <span class="pip">MEMBER <b>8 MO</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:16px">Product rules baked into the brand: logs are private by default · publishing a log auto-attaches its evidence grade · "Get support now" (mental-health &amp; crisis resources) is a permanent nav item, never buried · clinician export is a first-class feature — the app's job is to make the doctor visit better, not replace it.</p>
+  </div>
+</section>
+
+<section id="tiers">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">05</span><h2>Access — the VIP model, modernized</h2></div>
+    <p class="lede">The old private-section instinct was right: intimacy needs a wall. But education must stay open — for the mission, and because open evidence-graded pages are what search engines and AI agents can cite. The wall goes around the tools and the room, not the knowledge.</p>
+    <div class="grid g3">
+      <div class="tier">
+        <div class="tname">Open Floor</div>
+        <div class="tprice">FREE · PUBLIC · INDEXABLE</div>
+        <ul>
+          <li>Full education library, evidence-graded</li>
+          <li>Read-only community highlights</li>
+          <li>Structured data + citations (SEO / AI-agent surface)</li>
+        </ul>
+      </div>
+      <div class="tier vip">
+        <div class="tname">The Vault</div>
+        <div class="tprice">MEMBERSHIP · THE PRODUCT</div>
+        <ul>
+          <li>The Log — protocol tracker + clinician export</li>
+          <li>Full pseudonymous community, signals, compare-notes</li>
+          <li>Deep-dive research briefs &amp; member Q&amp;As</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tname">Charter</div>
+        <div class="tprice">EARNED · NOT SOLD</div>
+        <ul>
+          <li>High Signal Score members: moderation privileges</li>
+          <li>Early features, input on research briefs</li>
+          <li>The modern "rep power elite" — status via contribution only</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">06</span><h2>Cost-effective build path</h2></div>
+    <p class="lede">The identity is engineered to run on a lean, mostly open-source stack — three system fonts' worth of Google Fonts, SVG marks, CSS tokens, no image-heavy design language. Indicative path from zero to utility app:</p>
+    <table class="stack">
+      <tr><th>Phase</th><th>What ships</th><th>Stack</th><th>Indicative cost</th></tr>
+      <tr><td>1 · Open Floor</td><td>Education library, brand, waitlist</td><td>Static site (Astro/Eleventy) + free-tier hosting</td><td><span class="m">≈ $0–20/mo + domain</span></td></tr>
+      <tr><td>2 · The Room</td><td>Pseudonymous community, signals, moderation</td><td>Self-hosted Discourse (open source), themed with these tokens</td><td><span class="m">≈ $20–50/mo VPS</span></td></tr>
+      <tr><td>3 · The Log</td><td>Protocol tracker, exports, Signal Score</td><td>Lightweight app (SvelteKit/Next + Postgres via Supabase or similar)</td><td><span class="m">≈ $25–100/mo until scale</span></td></tr>
+    </table>
+    <p class="note" style="margin-top:16px">Design tokens in this document map 1:1 to CSS custom properties — the brand guide is literally the start of the stylesheet. Membership revenue (Vault) funds phases 2–3; no supplement affiliates required to keep the lights on.</p>
+  </div>
+</section>
+
+<section id="voice">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">07</span><h2>Voice, unchanged — register, tuned</h2></div>
+    <p class="lede">v1 voice rules stand: candid, evidence-led, unashamed, no hype, no shame, hard lines on dosing content. Dark utility adds one register shift — the app speaks like a good instrument.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Instrument voice (UI)</h3>
+        <p style="font-size:15.5px">Terse, mono, factual. "Log saved. Week 9 of 12." · "3 sources attached." · "Export ready." The interface never cheers, congratulates with confetti, or guilt-trips a missed week. Respect is the tone.</p>
+      </div>
+      <div class="card">
+        <h3>Human voice (editorial &amp; community)</h3>
+        <p style="font-size:15.5px">Warm serif, first person welcome, direct about anatomy and feelings alike. The italic copper voice carries anything vulnerable. Members are members; asking for help is the smart move, said plainly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="morse" aria-hidden="true" style="margin-bottom:18px">
+      <i class="dot" style="background:var(--tx-hi)"></i><i class="dot" style="background:var(--tx-hi)"></i><i class="dot" style="background:var(--tx-hi)"></i>
+      <i class="dash"></i><i class="dash"></i><i class="dash"></i>
+      <i class="dot" style="background:var(--tx-hi)"></i><i class="dot" style="background:var(--tx-hi)"></i><i class="dot" style="background:var(--tx-hi)"></i>
+    </div>
+    <p class="note">SKIN OVER STEEL · logging protocols since 2004 · Brand identity v2.0 dark utility · Fonts: Archivo · Source Serif 4 · IBM Plex Mono (open source) · Tokens ready for CSS custom properties · Next: app icon exports, Discourse theme kit, Log data model.</p>
+  </div>
+</footer>
+
+</body>
+</html>

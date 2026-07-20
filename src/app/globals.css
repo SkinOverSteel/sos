@@ -1,26 +1,35 @@
 @import "tailwindcss";
+@import "../../brand/tokens.css";
 
+/* Map next/font variables onto the SOS type tokens (single source of truth
+   for the families stays in /brand/tokens.css; these just prepend the
+   self-hosted next/font faces). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --sos-serif: var(--font-source-serif), "Source Serif 4", Georgia, serif;
+  --sos-sans: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  --sos-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--sos-sans);
+  --font-serif: var(--sos-serif);
+  --font-mono: var(--sos-mono);
+  --color-e0: var(--sos-e0);
+  --color-e1: var(--sos-e1);
+  --color-e2: var(--sos-e2);
+  --color-e3: var(--sos-e3);
+  --color-copper: var(--sos-copper);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Dark is the canonical app theme (tokens default :root to the dark scale). */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--sos-e0);
+  color: var(--sos-text-md);
+  font-family: var(--sos-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--sos-copper-deep);
+  color: #fff;
 }

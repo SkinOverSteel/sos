@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Over Steel — Brand Identity v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --steel-950:#1B2026;
+    --steel-900:#242A31;
+    --steel-700:#3C454F;
+    --steel-500:#5C6873;
+    --steel-300:#B9C0C6;
+    --steel-200:#D5D9DC;
+    --steel-100:#E6E9EB;
+    --steel-050:#EFF1F2;
+    --copper:#B15C24;
+    --copper-deep:#8A4519;
+    --copper-tint:#F3E3D6;
+    --est:#3E7A5A;
+    --emg:#A87B1E;
+    --anc:#5C6873;
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'Archivo', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation:none!important;transition:none!important;}
+  }
+  body{
+    background:var(--steel-050);
+    color:var(--steel-900);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--copper-deep);}
+  ::selection{background:var(--copper-tint);}
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px;}
+
+  /* ---- Morse signature ---- */
+  .morse{display:flex;align-items:center;gap:9px;}
+  .morse i{display:block;background:var(--copper);height:5px;border-radius:3px;}
+  .morse .dot{width:5px;}
+  .morse .dash{width:26px;}
+  .morse.dim i{background:var(--steel-300);}
+  .morse.ink i{background:var(--steel-900);}
+
+  /* ---- Header / hero ---- */
+  header{
+    background:linear-gradient(180deg,var(--steel-100) 0%,var(--steel-050) 100%);
+    border-bottom:1px solid var(--steel-200);
+    padding:64px 0 72px;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--steel-500);
+    margin-bottom:26px;
+  }
+  .hero-mark{margin:0 0 34px;}
+  h1.hero-title{
+    font-family:var(--sans);
+    font-weight:850;
+    font-stretch:78%;
+    font-size:clamp(46px,7.4vw,84px);
+    line-height:.96;
+    letter-spacing:-.015em;
+    text-transform:uppercase;
+    color:var(--steel-950);
+  }
+  h1 .skin{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:560;
+    text-transform:none;
+    color:var(--copper);
+    letter-spacing:0;
+  }
+  .hero-sub{
+    max-width:56ch;
+    margin-top:26px;
+    font-size:19px;
+    color:var(--steel-700);
+  }
+  .hero-sub strong{color:var(--steel-900);}
+
+  /* ---- Sections ---- */
+  section{padding:66px 0;border-bottom:1px solid var(--steel-200);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:10px;flex-wrap:wrap;}
+  .sec-no{
+    font-family:var(--mono);font-size:12px;color:var(--copper);
+    letter-spacing:.12em;
+  }
+  h2{
+    font-family:var(--sans);
+    font-weight:800;font-stretch:84%;
+    font-size:clamp(24px,3vw,32px);
+    letter-spacing:-.01em;
+    color:var(--steel-950);
+  }
+  .lede{max-width:64ch;color:var(--steel-700);margin-bottom:34px;}
+  h3{
+    font-family:var(--sans);font-weight:700;font-stretch:90%;
+    font-size:15px;letter-spacing:.02em;text-transform:uppercase;
+    color:var(--steel-900);margin:0 0 10px;
+  }
+  .note{
+    font-family:var(--mono);font-size:12.5px;line-height:1.6;
+    color:var(--steel-500);
+  }
+
+  /* ---- Cards / grid ---- */
+  .grid{display:grid;gap:22px;}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+  .card{
+    background:#fff;
+    border:1px solid var(--steel-200);
+    border-radius:10px;
+    padding:26px;
+  }
+  .card.steel{background:var(--steel-950);border-color:var(--steel-950);color:var(--steel-100);}
+  .card.steel h3{color:#fff;}
+  .card.steel .note{color:var(--steel-300);}
+
+  /* ---- Logo plates ---- */
+  .plate{
+    display:flex;align-items:center;justify-content:center;
+    min-height:190px;border-radius:8px;margin-bottom:16px;
+    border:1px solid var(--steel-200);
+    background:
+      linear-gradient(var(--steel-100) 1px,transparent 1px),
+      linear-gradient(90deg,var(--steel-100) 1px,transparent 1px);
+    background-size:22px 22px;background-color:#fff;
+  }
+  .plate.dark{
+    background:
+      linear-gradient(#2B323A 1px,transparent 1px),
+      linear-gradient(90deg,#2B323A 1px,transparent 1px);
+    background-size:22px 22px;background-color:var(--steel-950);
+    border-color:var(--steel-950);
+  }
+  .caption{font-family:var(--mono);font-size:12px;color:var(--steel-500);line-height:1.6;}
+
+  /* ---- Swatches ---- */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+  .sw{border-radius:8px;overflow:hidden;border:1px solid var(--steel-200);background:#fff;}
+  .sw .chip{height:92px;}
+  .sw .meta{padding:12px 14px;}
+  .sw .nm{font-family:var(--sans);font-weight:700;font-stretch:90%;font-size:13.5px;}
+  .sw .hx{font-family:var(--mono);font-size:12px;color:var(--steel-500);}
+  .sw .use{font-size:13px;color:var(--steel-700);margin-top:4px;line-height:1.45;}
+
+  /* ---- Type specimens ---- */
+  .spec{border-top:1px solid var(--steel-200);padding:22px 0;display:grid;grid-template-columns:190px 1fr;gap:20px;align-items:baseline;}
+  .spec:first-of-type{border-top:none;}
+  .spec .label{font-family:var(--mono);font-size:12px;color:var(--steel-500);line-height:1.6;}
+  @media(max-width:640px){.spec{grid-template-columns:1fr;gap:6px;}}
+  .spec-display{font-family:var(--sans);font-weight:850;font-stretch:78%;font-size:clamp(30px,4.6vw,52px);line-height:1;text-transform:uppercase;letter-spacing:-.01em;}
+  .spec-h{font-family:var(--sans);font-weight:750;font-stretch:88%;font-size:24px;line-height:1.2;}
+  .spec-body{font-family:var(--serif);font-size:17.5px;max-width:58ch;}
+  .spec-mono{font-family:var(--mono);font-size:13.5px;color:var(--steel-700);}
+
+  /* ---- Evidence badges ---- */
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:11.5px;font-weight:600;
+    letter-spacing:.09em;text-transform:uppercase;
+    padding:6px 12px;border-radius:999px;border:1.5px solid;
+  }
+  .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;}
+  .b-est{color:var(--est);border-color:var(--est);background:#EAF2EE;}
+  .b-emg{color:var(--emg);border-color:var(--emg);background:#F7EFDC;}
+  .b-anc{color:var(--anc);border-color:var(--anc);background:var(--steel-100);}
+
+  /* ---- Voice table ---- */
+  .voice-row{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--steel-200);border-radius:10px;overflow:hidden;margin-bottom:14px;background:#fff;}
+  .voice-cell{padding:18px 22px;}
+  .voice-cell.no{background:var(--steel-100);color:var(--steel-500);border-right:1px solid var(--steel-200);}
+  .voice-cell .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px;}
+  .voice-cell.no .tag{color:var(--steel-500);}
+  .voice-cell.yes .tag{color:var(--copper);}
+  .voice-cell p{font-size:15.5px;}
+  @media(max-width:640px){.voice-row{grid-template-columns:1fr;}.voice-cell.no{border-right:none;border-bottom:1px solid var(--steel-200);}}
+
+  /* ---- Community component demo ---- */
+  .post{
+    background:#fff;border:1px solid var(--steel-200);border-radius:10px;
+    padding:22px 24px;max-width:640px;
+  }
+  .post-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .avatar{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--steel-900);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:12px;font-weight:600;
+    border:2px solid var(--copper);
+  }
+  .post-meta .handle{font-family:var(--sans);font-weight:700;font-stretch:90%;font-size:14.5px;}
+  .post-meta .sub{font-family:var(--mono);font-size:11.5px;color:var(--steel-500);}
+  .post h4{font-family:var(--sans);font-weight:750;font-stretch:90%;font-size:18px;margin:6px 0 8px;}
+  .post p{font-size:15.5px;color:var(--steel-700);}
+  .post-foot{display:flex;gap:16px;margin-top:14px;align-items:center;flex-wrap:wrap;}
+  .post-foot .act{font-family:var(--mono);font-size:12px;color:var(--steel-500);}
+
+  /* ---- Taglines ---- */
+  .tags-list{display:grid;gap:0;border:1px solid var(--steel-200);border-radius:10px;overflow:hidden;background:#fff;}
+  .tag-item{padding:22px 26px;border-bottom:1px solid var(--steel-200);display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;}
+  .tag-item:last-child{border-bottom:none;}
+  .tag-item .t{font-family:var(--sans);font-weight:800;font-stretch:82%;font-size:clamp(19px,2.6vw,26px);text-transform:uppercase;letter-spacing:-.005em;}
+  .tag-item .t em{font-family:var(--serif);font-style:italic;font-weight:560;text-transform:none;color:var(--copper);}
+  .tag-item .use{font-family:var(--mono);font-size:11.5px;color:var(--steel-500);text-align:right;}
+  @media(max-width:640px){.tag-item{grid-template-columns:1fr;}.tag-item .use{text-align:left;}}
+
+  footer{padding:44px 0 64px;}
+  ul.plain{list-style:none;}
+  ul.plain li{padding:7px 0;border-bottom:1px solid var(--steel-100);font-size:15.5px;}
+  ul.plain li:last-child{border-bottom:none;}
+  ul.plain b{font-family:var(--sans);font-stretch:90%;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Brand identity · v1.0 · working draft</div>
+    <div class="hero-mark morse" aria-hidden="true">
+      <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <i class="dash"></i><i class="dash"></i><i class="dash"></i>
+      <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+    </div>
+    <h1 class="hero-title"><span class="skin">Skin</span> over Steel</h1>
+    <p class="hero-sub">A community for men's sexual health that puts <strong>the human before the machine</strong> — evidence-graded education, biohacker curiosity, and pseudonymous peer support. The name is the thesis: what's warm and alive outranks what's rigid and armored. The abbreviation is the promise: <strong>SOS — a signal, answered.</strong></p>
+  </div>
+</header>
+
+<section id="foundation">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">01</span><h2>Foundation</h2></div>
+    <p class="lede">Everything in the identity is derived from two ideas already inside the name.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Skin / Steel duality</h3>
+        <p>Every surface pairs a <em>warm, organic voice</em> (serif, italic, copper) with a <em>rigid, engineered structure</em> (condensed grotesque, gunmetal). The warm element always sits on top or in front — skin over steel, never the reverse. This is the layout rule, the logo rule, and the editorial rule: humanity leads, hardware supports.</p>
+      </div>
+      <div class="card steel">
+        <h3>SOS · the answered signal</h3>
+        <div class="morse" style="margin:10px 0 14px" aria-label="Morse code for SOS">
+          <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+          <i class="dash"></i><i class="dash"></i><i class="dash"></i>
+          <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+        </div>
+        <p style="color:var(--steel-300);font-size:15.5px">The initials happen to be the world's oldest distress call. We claim it deliberately: asking for help here is normal, expected, and answered. The Morse pattern <span style="font-family:var(--mono)">··· ––– ···</span> is the brand's signature device — used as a divider, a loading state, and a discreet mark members recognize.</p>
+      </div>
+    </div>
+    <div style="margin-top:22px" class="card">
+      <h3>Personality in five words</h3>
+      <p><b style="font-family:var(--sans);font-stretch:90%">Candid · Evidence-led · Unashamed · Curious · Discreet.</b> The brand talks like a well-read friend who trains, reads the studies, and doesn't flinch — never like a pharma ad, a locker room, or a supplement funnel.</p>
+    </div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">02</span><h2>Logo system</h2></div>
+    <p class="lede">Three coordinated marks. The wordmark leads on editorial surfaces; the monogram works at avatar and favicon sizes; the signal mark is the members-only shorthand.</p>
+    <div class="grid g3">
+      <div>
+        <div class="plate">
+          <svg width="270" height="120" viewBox="0 0 270 120" role="img" aria-label="Skin over Steel wordmark">
+            <text x="10" y="52" font-family="'Source Serif 4',Georgia,serif" font-style="italic" font-weight="600" font-size="46" fill="#B15C24">Skin</text>
+            <text x="106" y="46" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2" fill="#5C6873">OVER</text>
+            <text x="10" y="102" font-family="'Archivo',sans-serif" font-weight="850" font-size="50" letter-spacing="1" fill="#242A31">STEEL</text>
+          </svg>
+        </div>
+        <p class="caption">A · Primary wordmark. Italic serif "Skin" in copper physically overlaps the gunmetal "STEEL" block — the name performed, not just set.</p>
+      </div>
+      <div>
+        <div class="plate dark">
+          <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="SOS monogram">
+            <polygon points="75,14 128,44 128,106 75,136 22,106 22,44" fill="none" stroke="#5C6873" stroke-width="5"/>
+            <circle cx="75" cy="75" r="36" fill="#B15C24"/>
+            <text x="75" y="86" text-anchor="middle" font-family="'Archivo',sans-serif" font-weight="850" font-size="30" fill="#FFFFFF">S</text>
+          </svg>
+        </div>
+        <p class="caption">B · Monogram. A warm circle (skin) laid over a steel hexagon (structure). Scales to favicon; the hexagon nods to lab/engineering without turning clinical.</p>
+      </div>
+      <div>
+        <div class="plate">
+          <svg width="220" height="60" viewBox="0 0 220 60" role="img" aria-label="SOS morse signal mark">
+            <circle cx="14" cy="30" r="6" fill="#242A31"/>
+            <circle cx="34" cy="30" r="6" fill="#242A31"/>
+            <circle cx="54" cy="30" r="6" fill="#242A31"/>
+            <rect x="72" y="24" width="26" height="12" rx="6" fill="#B15C24"/>
+            <rect x="106" y="24" width="26" height="12" rx="6" fill="#B15C24"/>
+            <rect x="140" y="24" width="26" height="12" rx="6" fill="#B15C24"/>
+            <circle cx="184" cy="30" r="6" fill="#242A31"/>
+            <circle cx="204" cy="30" r="6" fill="#242A31"/>
+            <circle cx="224" cy="30" r="6" fill="#242A31" opacity="0"/>
+            <circle cx="212" cy="30" r="6" fill="#242A31" opacity="0"/>
+          </svg>
+        </div>
+        <p class="caption">C · Signal mark. Morse SOS with copper dashes. Divider between article sections, loading animation, sticker, and profile flair. Deliberately illegible to outsiders — discretion is a feature.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:18px">Rules: never place STEEL over Skin · minimum clear space = height of one dash · monogram never carries a tagline · signal mark never recolored outside palette.</p>
+  </div>
+</section>
+
+<section id="color">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">03</span><h2>Color</h2></div>
+    <p class="lede">Cool steel field, one warm living metal. Copper is the only "skin" color — it's a metal that stays warm, conducts, and changes with age, which is the whole brand in one material. No pharma blue, no supplement black-and-red.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#1B2026"></div><div class="meta"><div class="nm">Gunmetal 950</div><div class="hx">#1B2026</div><div class="use">Dark surfaces, footer, monogram field</div></div></div>
+      <div class="sw"><div class="chip" style="background:#242A31"></div><div class="meta"><div class="nm">Steel Ink</div><div class="hx">#242A31</div><div class="use">Primary text, wordmark STEEL</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5C6873"></div><div class="meta"><div class="nm">Machined 500</div><div class="hx">#5C6873</div><div class="use">Secondary text, metadata, strokes</div></div></div>
+      <div class="sw"><div class="chip" style="background:#D5D9DC"></div><div class="meta"><div class="nm">Brushed 200</div><div class="hx">#D5D9DC</div><div class="use">Borders, dividers, disabled states</div></div></div>
+      <div class="sw"><div class="chip" style="background:#EFF1F2"></div><div class="meta"><div class="nm">Cold Sheet</div><div class="hx">#EFF1F2</div><div class="use">Page background — cool, not cream</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B15C24"></div><div class="meta"><div class="nm">Copper</div><div class="hx">#B15C24</div><div class="use">The one warm voice: links, CTAs, "Skin," dashes</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8A4519"></div><div class="meta"><div class="nm">Patina</div><div class="hx">#8A4519</div><div class="use">Hover/pressed copper, small text on light</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F3E3D6"></div><div class="meta"><div class="nm">Warm Cast</div><div class="hx">#F3E3D6</div><div class="use">Copper tint fills, selection, highlights</div></div></div>
+    </div>
+    <p class="note" style="margin-top:18px">Ratio rule: ~90% steel neutrals / ~10% copper. If a screen feels cold, the fix is more warmth in the words, not more copper.</p>
+  </div>
+</section>
+
+<section id="type">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">04</span><h2>Typography</h2></div>
+    <p class="lede">Three voices, one per material. All open-source (Google Fonts), so the system is free to deploy anywhere.</p>
+    <div class="card">
+      <div class="spec">
+        <div class="label">DISPLAY · "STEEL"<br>Archivo · 850 · 78% width<br>uppercase, tight</div>
+        <div class="spec-display">Built human,<br>backed by evidence</div>
+      </div>
+      <div class="spec">
+        <div class="label">HEADINGS<br>Archivo · 700–750 · 88%</div>
+        <div class="spec-h">What the research actually says about pelvic floor training</div>
+      </div>
+      <div class="spec">
+        <div class="label">BODY · "SKIN"<br>Source Serif 4 · 400/560<br>italic = the warm voice</div>
+        <div class="spec-body">Erectile function is a health signal, not a verdict. Around <em>half of men over forty</em> experience some degree of change — and most of the drivers are measurable, discussable, and improvable.</div>
+      </div>
+      <div class="spec">
+        <div class="label">UTILITY · "LAB"<br>IBM Plex Mono · 400–600<br>data, tags, evidence, meta</div>
+        <div class="spec-mono">EVIDENCE: ESTABLISHED · SOURCES: 12 · REVIEWED: 2026-07 · THREAD: N=214</div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:18px">Pairing logic: Archivo compressed = machined steel structure · Source Serif italic = the human voice laid over it · Plex Mono = the biohacker's lab notebook. Never let the mono voice deliver emotional content; never let the italic serif deliver data.</p>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">05</span><h2>Evidence grading — a brand component</h2></div>
+    <p class="lede">Trust is the product. Every claim on the site carries one of three visible grades, styled as brand objects so readers learn the system at a glance. This is also what separates SOS from supplement marketing in the eyes of readers, search engines, and AI agents.</p>
+    <div class="grid g3">
+      <div class="card">
+        <span class="badge b-est">Established</span>
+        <p style="margin-top:14px;font-size:15px">Consistent clinical evidence, guideline-level. Example: cardiovascular exercise, sleep, and pelvic floor therapy as first-line factors.</p>
+      </div>
+      <div class="card">
+        <span class="badge b-emg">Emerging</span>
+        <p style="margin-top:14px;font-size:15px">Early or mixed research; promising but unproven. Clearly framed as "what the studies show so far," never as a protocol to copy.</p>
+      </div>
+      <div class="card">
+        <span class="badge b-anc">Community anecdote</span>
+        <p style="margin-top:14px;font-size:15px">One member's experience, n = 1. Valuable for morale and questions to bring to a clinician — visually fenced off from medical content.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voice">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">06</span><h2>Voice &amp; tone</h2></div>
+    <p class="lede">Write like the friend who read the study. Direct about anatomy, generous with context, allergic to hype and shame alike.</p>
+
+    <div class="voice-row">
+      <div class="voice-cell no"><span class="tag">Not this</span><p>"Struggling in the bedroom? Reclaim your masculinity with this one ancient trick doctors won't tell you."</p></div>
+      <div class="voice-cell yes"><span class="tag">This</span><p>"ED has a cause, and causes can be found. Here's the workup a good clinician runs — and what you can start measuring tonight."</p></div>
+    </div>
+    <div class="voice-row">
+      <div class="voice-cell no"><span class="tag">Not this</span><p>"Erectile dysfunction affects patients' quality-of-life outcomes across multiple psychosocial domains."</p></div>
+      <div class="voice-cell yes"><span class="tag">This</span><p>"This affects how you feel about yourself, your relationship, and your future. That's worth taking seriously — so let's."</p></div>
+    </div>
+    <div class="voice-row">
+      <div class="voice-cell no"><span class="tag">Not this</span><p>"Stack these 5 compounds for guaranteed results 🚀"</p></div>
+      <div class="voice-cell yes"><span class="tag">This</span><p>"Here's what the evidence grades say — and why 'guaranteed' is the word that should make you close the tab."</p></div>
+    </div>
+
+    <div style="margin-top:26px" class="grid g2">
+      <div class="card">
+        <h3>Vocabulary</h3>
+        <ul class="plain">
+          <li><b>Say:</b> erectile function, members, evidence grade, signal, workup, protocol (for measurable habits only)</li>
+          <li><b>Avoid:</b> "performance," "manhood," "cure," "hack" as a noun, any euphemism that implies shame</li>
+          <li><b>Members are:</b> members. No cute collective noun. Discretion beats branding here.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Hard lines</h3>
+        <ul class="plain">
+          <li><b>Never</b> dosing instructions for prescription or gray-market compounds — in editorial or UGC</li>
+          <li><b>Always</b> "talk to a clinician" framed as the smart move, not a legal disclaimer mumble</li>
+          <li><b>Always</b> a visible path to mental-health resources; low mood and ED travel together</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">07</span><h2>Community surface</h2></div>
+    <p class="lede">Pseudonymity is a design principle, not a setting. Auto-generated handles, initials-only avatars ringed in copper, and evidence badges on every thread.</p>
+    <div class="post">
+      <div class="post-top">
+        <div class="avatar" aria-hidden="true">M7</div>
+        <div class="post-meta">
+          <div class="handle">Meridian_07</div>
+          <div class="sub">member · 8 mo · Recovery &amp; Habits</div>
+        </div>
+        <span class="badge b-anc" style="margin-left:auto">Anecdote</span>
+      </div>
+      <h4>Six months of zone-2 cardio — what actually changed</h4>
+      <p>Sharing my n=1 with numbers: resting HR, sleep, and where function improved and where it didn't. Not advice — bring your own data and let's compare notes.</p>
+      <div class="post-foot morse dim" aria-hidden="true" style="gap:7px">
+        <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+        <i class="dash"></i><i class="dash"></i><i class="dash"></i>
+        <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+        <span class="act" style="margin-left:12px">42 replies · 19 signals</span>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px">"Signals" replace "likes" — sending someone a signal means <em>heard, you're not alone</em>. The Morse divider marks the boundary between a member's story and the replies.</p>
+  </div>
+</section>
+
+<section id="taglines">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-no">08</span><h2>Taglines</h2></div>
+    <p class="lede">One primary, three situational. All follow the duality: warm italic serif inside hard uppercase steel.</p>
+    <div class="tags-list">
+      <div class="tag-item"><div class="t">The signal, <em>answered.</em></div><div class="use">PRIMARY · hero, social bios</div></div>
+      <div class="tag-item"><div class="t">Built <em>human.</em></div><div class="use">merch, monogram lockup</div></div>
+      <div class="tag-item"><div class="t">Evidence first. <em>No shame.</em></div><div class="use">editorial masthead, about page</div></div>
+      <div class="tag-item"><div class="t">Strong is <em>soft-tissue.</em></div><div class="use">campaign / launch line</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="morse ink" aria-hidden="true" style="margin-bottom:18px">
+      <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+      <i class="dash" style="background:var(--copper)"></i><i class="dash" style="background:var(--copper)"></i><i class="dash" style="background:var(--copper)"></i>
+      <i class="dot"></i><i class="dot"></i><i class="dot"></i>
+    </div>
+    <p class="note">SKIN OVER STEEL · skinoversteel.com · Brand identity v1.0 · Fonts: Archivo, Source Serif 4, IBM Plex Mono (open source) · Next: favicon/app-icon exports, social templates, community guidelines document, editorial style guide.</p>
+  </div>
+</footer>
+
+</body>
+</html>
