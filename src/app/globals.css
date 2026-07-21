@@ -132,3 +132,6 @@ body {
 a.sos-card:hover {
   border-color: var(--sos-copper);
 }
+.sos-morse.dim i {
+  background: var(--sos-line);
+}
