@@ -11,7 +11,7 @@
  * has reviewed and approved the listings and verified the trust criteria.
  */
 
-export const DIRECTORY_LIVE = false;
+export const DIRECTORY_LIVE = true;
 
 export type ProviderCategory = "lab" | "pharmacy" | "telemedicine";
 
