@@ -99,3 +99,36 @@ body {
 .sos-card--deep {
   background: var(--sos-e1);
 }
+
+.sos-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sos-mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.sos-btn--primary {
+  background: var(--sos-copper);
+  color: var(--sos-e0);
+  font-weight: 600;
+}
+.sos-btn--primary:hover {
+  background: var(--sos-copper-hot);
+}
+.sos-btn--ghost {
+  border: 1px solid var(--sos-line);
+  color: var(--sos-text-hi);
+}
+.sos-btn--ghost:hover {
+  border-color: var(--sos-copper);
+  color: var(--sos-copper);
+}
+a.sos-card:hover {
+  border-color: var(--sos-copper);
+}
