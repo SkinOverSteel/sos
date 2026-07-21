@@ -59,6 +59,14 @@ export const articles: Article[] = [
     section: "Money & value",
   },
   {
+    slug: "generic-pde5-value",
+    title: "Generic PDE5, filled for less",
+    summary:
+      "The molecule went generic years ago — the gap between $3 and $400 is markup, not medicine. Transparent-pricing pharmacies like Cost Plus Drugs, the 90-day lever, and why a higher strength can cost less per dose (a prescriber conversation, not a DIY recipe).",
+    grade: "established",
+    section: "Money & value",
+  },
+  {
     slug: "product-forms",
     title: "What you're actually buying",
     summary:
