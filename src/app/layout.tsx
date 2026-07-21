@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -151,6 +152,7 @@ export default function RootLayout({
             grade or a ranking.
           </p>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
