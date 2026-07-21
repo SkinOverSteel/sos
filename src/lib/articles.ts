@@ -35,6 +35,14 @@ export const articles: Article[] = [
     section: "Treatment & pharmacology",
   },
   {
+    slug: "bremelanotide-pde5",
+    title: "Bremelanotide + PDE5: two different levers",
+    summary:
+      "One works on desire in the brain, the other on the erection itself — so combining them has real pharmacological logic, and early trials helped PDE5 non-responders. But bremelanotide raises blood pressure, it's off-label in men, and most of what's sold isn't the approved drug. The honest picture.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+  },
+  {
     slug: "what-it-costs",
     title: "What it costs — and how to get real value",
     summary:
