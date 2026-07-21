@@ -92,6 +92,9 @@ export default function Home() {
           <Link href="/learn" className="sos-btn sos-btn--primary">
             Explore the library
           </Link>
+          <Link href="/directory" className="sos-btn sos-btn--ghost">
+            Find a provider
+          </Link>
         </div>
 
         <div

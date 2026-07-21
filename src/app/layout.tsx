@@ -115,9 +115,10 @@ export default function RootLayout({
             }}
           >
             {[
-              { href: "/support", label: "Support" },
               { href: "/learn", label: "Learn" },
               { href: "/directory", label: "Find a provider" },
+              { href: "/about", label: "About" },
+              { href: "/support", label: "Support" },
             ].map((l) => (
               <a
                 key={l.href}
