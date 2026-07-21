@@ -89,13 +89,13 @@ export default function RootLayout({
             style={{
               fontFamily: "var(--sos-mono)",
               fontSize: "12px",
-              fontWeight: 600,
+              fontWeight: 500,
               letterSpacing: "0.1em",
-              color: "var(--sos-copper)",
+              color: "var(--sos-text-lo)",
               textDecoration: "none",
             }}
           >
-            Get support now
+            Support
           </a>
         </header>
         <div className="flex flex-1 flex-col">{children}</div>
@@ -115,7 +115,7 @@ export default function RootLayout({
             }}
           >
             {[
-              { href: "/support", label: "Get support" },
+              { href: "/support", label: "Support" },
               { href: "/learn", label: "Learn" },
             ].map((l) => (
               <a

@@ -92,9 +92,6 @@ export default function Home() {
           <Link href="/learn" className="sos-btn sos-btn--primary">
             Explore the library
           </Link>
-          <Link href="/support" className="sos-btn sos-btn--ghost">
-            Get support now
-          </Link>
         </div>
 
         <div
@@ -184,7 +181,7 @@ export default function Home() {
 
       {/* Evidence grades */}
       <section>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
+        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "80px" }}>
           <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
             Every claim carries a grade
           </h2>
@@ -204,23 +201,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Support reassurance */}
-      <section>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "72px" }}>
-          <div className="sos-card" style={{ borderLeft: "3px solid var(--sos-copper)" }}>
-            <h2 className="sos-h2" style={{ marginBottom: "10px" }}>
-              Something wrong right now?
-            </h2>
-            <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "14px" }}>
-              A prolonged or painful erection after an injection is a medical
-              emergency, and crisis support is always one click away.
-            </p>
-            <Link href="/support" className="sos-btn sos-btn--ghost">
-              Get support now
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
