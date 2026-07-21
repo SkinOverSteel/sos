@@ -27,6 +27,14 @@ export const articles: Article[] = [
     section: "The workup",
   },
   {
+    slug: "testosterone-therapy",
+    title: "Testosterone therapy, done right",
+    summary:
+      "Most of the difference between safe TRT and the gray zone is a real diagnosis and real monitoring. What it is (and isn't), the labs that keep it safe, how to make it affordable through legitimate coverage and cash levers — and the hard line between replacement and anabolic enhancement.",
+    grade: "established",
+    section: "Treatment & pharmacology",
+  },
+  {
     slug: "pde5-long-term",
     title: "PDE5 inhibitors, long term",
     summary:
