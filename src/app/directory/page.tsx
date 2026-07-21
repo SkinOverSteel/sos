@@ -3,23 +3,22 @@ import {
   CATEGORY_LABELS,
   CATEGORY_ORDER,
   TRUST_CRITERIA,
+  DIRECTORY_LIVE,
   type Provider,
   rankedByCategory,
   trustScore,
-  hasRealListings,
 } from "@/lib/providers";
 
-// Kept out of the index, nav, and sitemap until real providers are listed.
+// Indexed only once live; kept out of nav + sitemap while in draft.
 export const metadata: Metadata = {
   title: "Find a provider",
   description:
     "A transparent directory of licensed labs, telemedicine, and compounding pharmacies — ranked only on trust criteria, never on who pays.",
-  robots: { index: false, follow: false },
+  robots: { index: DIRECTORY_LIVE, follow: DIRECTORY_LIVE },
   alternates: { canonical: "/directory" },
 };
 
 export default function DirectoryPage() {
-  const live = hasRealListings();
   return (
     <div className="sos-container">
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -29,7 +28,7 @@ export default function DirectoryPage() {
         Find a provider
       </h1>
 
-      {!live && (
+      {!DIRECTORY_LIVE && (
         <div
           role="note"
           className="sos-card"
@@ -38,13 +37,14 @@ export default function DirectoryPage() {
             marginBottom: "32px",
           }}
         >
+          <p className="sos-kicker" style={{ marginBottom: "8px" }}>
+            Draft · owner preview
+          </p>
           <p className="sos-note">
-            This directory is being built. The entries below are{" "}
-            <strong style={{ color: "var(--sos-text-hi)" }}>
-              format placeholders
-            </strong>{" "}
-            — they illustrate the ranking, not real recommendations. No provider
-            is endorsed yet.
+            Proposed licensed providers, researched from public information and
+            staged for review — <strong style={{ color: "var(--sos-text-hi)" }}>not public and not yet endorsed</strong>.
+            All are editorial (no paid relationship). Trust scores are drafted
+            from public info and pending verification before anything goes live.
           </p>
         </div>
       )}
@@ -131,35 +131,11 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           marginBottom: "8px",
         }}
       >
-        <span
-          className="sos-h2"
-          style={{ textTransform: "none", fontSize: "16px" }}
-        >
+        <span className="sos-h2" style={{ textTransform: "none", fontSize: "16px" }}>
           {p.name}
-          {p.example && (
-            <span
-              style={{
-                fontFamily: "var(--sos-mono)",
-                fontSize: "10px",
-                letterSpacing: "0.12em",
-                color: "var(--sos-copper)",
-                border: "1px solid var(--sos-copper)",
-                borderRadius: "4px",
-                padding: "2px 6px",
-                marginLeft: "10px",
-                verticalAlign: "middle",
-              }}
-            >
-              EXAMPLE
-            </span>
-          )}
         </span>
         <span
-          style={{
-            fontFamily: "var(--sos-mono)",
-            fontSize: "13px",
-            color: "var(--sos-copper)",
-          }}
+          style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
           title="Trust score — from criteria only"
         >
           Trust {score}
@@ -170,14 +146,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
         {p.blurb}
       </p>
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "6px 14px",
-          marginBottom: "12px",
-        }}
-      >
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 14px", marginBottom: "12px" }}>
         {TRUST_CRITERIA.map((c) => {
           const met = !!p.criteria[c.key];
           return (
@@ -204,41 +173,33 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           flexWrap: "wrap",
         }}
       >
-        <span
+        <span style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-text-lo)" }}>
+          {p.jurisdictions}
+          {p.affiliate ? " · referral link (disclosed)" : " · editorial listing"}
+        </span>
+        <a
+          href={p.url}
+          target="_blank"
+          rel={p.affiliate ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+          style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper)" }}
+        >
+          Visit →
+        </a>
+      </div>
+
+      {!DIRECTORY_LIVE && p.sourceNote && (
+        <p
+          className="sos-note"
           style={{
-            fontFamily: "var(--sos-mono)",
+            marginTop: "12px",
+            paddingTop: "10px",
+            borderTop: "1px solid var(--sos-line-soft)",
             fontSize: "12px",
-            color: "var(--sos-text-lo)",
           }}
         >
-          {p.jurisdictions}
-          {p.affiliate ? " · referral link (disclosed)" : ""}
-        </span>
-        {p.example ? (
-          <span
-            style={{
-              fontFamily: "var(--sos-mono)",
-              fontSize: "12px",
-              color: "var(--sos-text-lo)",
-            }}
-          >
-            link pending
-          </span>
-        ) : (
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            style={{
-              fontFamily: "var(--sos-mono)",
-              fontSize: "12px",
-              color: "var(--sos-copper)",
-            }}
-          >
-            Visit →
-          </a>
-        )}
-      </div>
+          <span style={{ color: "var(--sos-copper)" }}>Basis:</span> {p.sourceNote}
+        </p>
+      )}
     </div>
   );
 }

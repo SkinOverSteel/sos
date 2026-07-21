@@ -5,7 +5,13 @@
  * affiliate relationship never moves a provider's rank or score — it only
  * triggers an FTC disclosure at the link. Two hard GATES must both be true for
  * a provider to appear at all; everything else is scored, shown, and sortable.
+ *
+ * DIRECTORY_LIVE gates publication: while false, the page is noindex, kept out
+ * of nav + sitemap, and shows a DRAFT banner. Flip to true only after the owner
+ * has reviewed and approved the listings and verified the trust criteria.
  */
+
+export const DIRECTORY_LIVE = false;
 
 export type ProviderCategory = "lab" | "pharmacy" | "telemedicine";
 
@@ -36,7 +42,7 @@ export type Provider = {
   slug: string;
   name: string;
   category: ProviderCategory;
-  url: string; // FTC-disclosed referral link, or "#" for examples
+  url: string; // real listing URL
   blurb: string;
   jurisdictions: string;
   /** GATES — both must be true to be listed. */
@@ -45,7 +51,8 @@ export type Provider = {
   /** Scored criteria met (keys from TRUST_CRITERIA). */
   criteria: Record<string, boolean>;
   affiliate: boolean; // paid/referral relationship → disclose at the link
-  example?: boolean; // placeholder shown while the directory is being built
+  /** Owner-facing basis for the draft; shown only in DRAFT preview mode. */
+  sourceNote?: string;
 };
 
 export function passesGates(p: Provider): boolean {
@@ -70,59 +77,68 @@ export function rankedByCategory(cat: ProviderCategory): Provider[] {
     );
 }
 
-export const hasRealListings = (): boolean =>
-  providers.some((p) => !p.example && passesGates(p));
+const ALL = {
+  thirdPartyVerified: true,
+  priceTransparent: true,
+  privacyRespecting: true,
+  noDarkPatterns: true,
+  fastAccess: true,
+};
 
 /**
- * PLACEHOLDER DATA. Every entry is flagged `example: true` and uses url "#".
- * Replace with real, vetted, licensed providers — then flip the directory to
- * indexable and add it to nav + sitemap. Do NOT ship these as real listings.
+ * PROPOSED listings — researched from public info, staged for owner review.
+ * All are editorial (affiliate: false) until a paid relationship is set.
+ * Trust criteria are drafted from public info and pending owner verification.
  */
 export const providers: Provider[] = [
+  // ---- Blood testing ----
   {
-    slug: "example-lab-a",
-    name: "Example Labs — Direct (placeholder)",
+    slug: "quest-health",
+    name: "Quest (questhealth.com)",
     category: "lab",
-    url: "#",
-    blurb: "Order androgen + metabolic panels online, draw at a local lab.",
+    url: "https://www.questhealth.com/",
+    blurb: "Consumer-ordered androgen and metabolic panels at a national accredited lab, prices shown up front.",
     jurisdictions: "US (most states)",
     licensed: true,
     legitimateChannel: true,
-    criteria: {
-      thirdPartyVerified: true,
-      priceTransparent: true,
-      privacyRespecting: true,
-      noDarkPatterns: true,
-      fastAccess: true,
-    },
-    affiliate: true,
-    example: true,
+    criteria: { ...ALL },
+    affiliate: false,
+    sourceNote: "CLIA/CAP-accredited national lab; direct-to-consumer testing with published upfront pricing.",
   },
   {
-    slug: "example-lab-b",
-    name: "Example Diagnostics (placeholder)",
+    slug: "labcorp-ondemand",
+    name: "Labcorp OnDemand",
     category: "lab",
-    url: "#",
-    blurb: "Broad hormone panels; results in a portal.",
-    jurisdictions: "US",
+    url: "https://www.ondemand.labcorp.com/",
+    blurb: "Order hormone and metabolic tests online, draw at a national accredited lab; the clinician order is built in.",
+    jurisdictions: "US (most states)",
     licensed: true,
     legitimateChannel: true,
-    criteria: {
-      thirdPartyVerified: true,
-      priceTransparent: false,
-      privacyRespecting: true,
-      noDarkPatterns: true,
-      fastAccess: false,
-    },
+    criteria: { ...ALL },
     affiliate: false,
-    example: true,
+    sourceNote: "Accredited national lab; transparent published prices; authorized-clinician order handled by the platform.",
   },
   {
-    slug: "example-telemed-a",
-    name: "Example Men's Health Telemed (placeholder)",
+    slug: "discounted-labs",
+    name: "Discounted Labs",
+    category: "lab",
+    url: "https://www.discountedlabs.com/",
+    blurb: "Patient-advocate-founded; low, transparent pricing on TRT-focused panels, drawn at Quest sites with sensitive assays.",
+    jurisdictions: "US (most states)",
+    licensed: true,
+    legitimateChannel: true,
+    criteria: { ...ALL },
+    affiliate: false,
+    sourceNote: "Founded by patient advocate Nelson Vergel; draws at Quest locations, sensitive LC/MS assays, very transparent low pricing.",
+  },
+
+  // ---- Telemedicine ----
+  {
+    slug: "defy-medical",
+    name: "Defy Medical",
     category: "telemedicine",
-    url: "#",
-    blurb: "Licensed prescribers; transparent one-time consult option.",
+    url: "https://www.defymedical.com/",
+    blurb: "Physician-led men's-health and hormone clinic since 2012; conservative, labs-first, fee-for-service.",
     jurisdictions: "US (state-dependent)",
     licensed: true,
     legitimateChannel: true,
@@ -133,26 +149,66 @@ export const providers: Provider[] = [
       noDarkPatterns: true,
       fastAccess: true,
     },
-    affiliate: true,
-    example: true,
+    affiliate: false,
+    sourceNote: "Established 2012, physician/NP/pharmacist team; strong TRT-community reputation for depth of care; fee-for-service pricing.",
   },
   {
-    slug: "example-pharmacy-a",
-    name: "Example Compounding Pharmacy (placeholder)",
+    slug: "marek-health",
+    name: "Marek Health",
+    category: "telemedicine",
+    url: "https://marekhealth.com/",
+    blurb: "Labs-and-coaching-forward hormone optimization; comprehensive panels with a physician + health-coach model.",
+    jurisdictions: "US (state-dependent)",
+    licensed: true,
+    legitimateChannel: true,
+    criteria: {
+      thirdPartyVerified: false,
+      priceTransparent: true,
+      privacyRespecting: true,
+      noDarkPatterns: true,
+      fastAccess: true,
+    },
+    affiliate: false,
+    sourceNote: "Comprehensive multi-system panels; physician + coach interpretation; requires an independently obtained annual physical.",
+  },
+
+  // ---- Compounding pharmacy ----
+  {
+    slug: "empower-pharmacy",
+    name: "Empower Pharmacy",
     category: "pharmacy",
-    url: "#",
-    blurb: "503A compounding; publishes cash prices; third-party potency testing.",
-    jurisdictions: "US (ships most states)",
+    url: "https://www.empowerpharmacy.com/",
+    blurb: "PCAB-accredited 503A compounding + FDA-registered 503B facility; sterile batches tested before release.",
+    jurisdictions: "US (licensed nationwide)",
     licensed: true,
     legitimateChannel: true,
     criteria: {
       thirdPartyVerified: true,
-      priceTransparent: true,
+      priceTransparent: false,
       privacyRespecting: true,
-      noDarkPatterns: false,
+      noDarkPatterns: true,
       fastAccess: true,
     },
-    affiliate: true,
-    example: true,
+    affiliate: false,
+    sourceNote: "PCAB-accredited 503A + FDA-registered 503B outsourcing facility under cGMP; every sterile batch tested for potency, sterility, endotoxins. Dispenses via a prescriber.",
+  },
+  {
+    slug: "cost-plus-drugs",
+    name: "Mark Cuban Cost Plus Drugs",
+    category: "pharmacy",
+    url: "https://www.costplusdrugs.com/",
+    blurb: "Licensed mail-order pharmacy with radical price transparency — strongest for cheap generic fills.",
+    jurisdictions: "US (most states)",
+    licensed: true,
+    legitimateChannel: true,
+    criteria: {
+      thirdPartyVerified: false,
+      priceTransparent: true,
+      privacyRespecting: true,
+      noDarkPatterns: true,
+      fastAccess: true,
+    },
+    affiliate: false,
+    sourceNote: "Licensed mail-order pharmacy; wholesale + flat 15% transparent pricing. Dispensing (generics), not a compounder — included for cheap generic fills.",
   },
 ];
