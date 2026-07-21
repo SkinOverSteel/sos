@@ -43,6 +43,14 @@ export const articles: Article[] = [
     section: "Treatment & pharmacology",
   },
   {
+    slug: "telemedicine-visit",
+    title: "What a good telemedicine visit looks like",
+    summary:
+      "Telemedicine can deliver real men's-health care — or a checkout form with a doctor's signature stapled on. The difference is whether anyone actually evaluated you. The green flags, the pill-mill red flags, and the questions to ask.",
+    grade: "established",
+    section: "Choosing care",
+  },
+  {
     slug: "what-it-costs",
     title: "What it costs — and how to get real value",
     summary:
