@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { ArticleMeta } from "@/components/ArticleMeta";
+import { withReview } from "@/lib/jsonld";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -26,14 +27,14 @@ const jsonLd = {
 export default function TestosteroneTherapyPage() {
   return (
     <article className="sos-container">
-      <JsonLd data={jsonLd} />
+      <JsonLd data={withReview(jsonLd, "testosterone-therapy")} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Learn · <b>Treatment &amp; pharmacology</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Testosterone therapy, done right
       </h1>
-      <EvidenceBadge grade="established" />
+      <ArticleMeta slug="testosterone-therapy" />
 
       <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
         <i className="dot" />

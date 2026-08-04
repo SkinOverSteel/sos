@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { ArticleMeta } from "@/components/ArticleMeta";
+import { withReview } from "@/lib/jsonld";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -25,14 +26,14 @@ const jsonLd = {
 export default function GenericPde5ValuePage() {
   return (
     <article className="sos-container">
-      <JsonLd data={jsonLd} />
+      <JsonLd data={withReview(jsonLd, "generic-pde5-value")} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Learn · <b>Money &amp; value</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Generic PDE5, filled for less
       </h1>
-      <EvidenceBadge grade="established" />
+      <ArticleMeta slug="generic-pde5-value" />
 
       <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
         <i className="dot" />

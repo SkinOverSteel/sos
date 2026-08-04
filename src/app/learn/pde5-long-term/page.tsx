@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { ArticleMeta } from "@/components/ArticleMeta";
 import { JsonLd } from "@/components/JsonLd";
+import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -26,14 +28,14 @@ const jsonLd = {
 export default function Pde5Page() {
   return (
     <article className="sos-container">
-      <JsonLd data={jsonLd} />
+      <JsonLd data={withReview(jsonLd, "pde5-long-term")} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Learn · <b>Treatment &amp; pharmacology</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         PDE5 inhibitors, long term
       </h1>
-      <EvidenceBadge grade="emerging" title="The vascular-benefit and drug-selection theses are emerging / largely observational. The nitrate contraindication is Established." />
+      <ArticleMeta slug="pde5-long-term" gradeNote="The vascular-benefit and drug-selection theses are emerging / largely observational. The nitrate contraindication is Established." />
 
       <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
         <i className="dot" />

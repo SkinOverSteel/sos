@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { ArticleMeta } from "@/components/ArticleMeta";
 import { JsonLd } from "@/components/JsonLd";
+import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -24,14 +26,14 @@ const jsonLd = {
 export default function ProductFormsPage() {
   return (
     <article className="sos-container">
-      <JsonLd data={jsonLd} />
+      <JsonLd data={withReview(jsonLd, "product-forms")} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Learn · <b>Quality &amp; safety</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         What you&apos;re actually buying
       </h1>
-      <EvidenceBadge grade="established" />
+      <ArticleMeta slug="product-forms" />
 
       <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
         <i className="dot" />

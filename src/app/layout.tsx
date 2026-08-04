@@ -119,6 +119,7 @@ export default function RootLayout({
               { href: "/learn", label: "Learn" },
               { href: "/directory", label: "Find a provider" },
               { href: "/about", label: "About" },
+              { href: "/methodology", label: "How we review" },
               { href: "/support", label: "Support" },
             ].map((l) => (
               <a

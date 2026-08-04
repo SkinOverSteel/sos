@@ -34,7 +34,8 @@ ownership before shipping anything public).
 - EMERGING     #CFA145 (dark) / #A87B1E (light) — early/mixed research
 - ANECDOTE     #8B95A0 (dark) / #5C6873 (light) — member n=1, fenced off
 - HIGH RISK    red-family, same outline style — practices where evidence
-  points to injury (spec in v2.1 addendum, not yet designed)
+  points to injury. Implemented: EvidenceBadge grade "high-risk" →
+  --sos-emergency token, defined + rendered live on /methodology.
 Badges are outline-only on dark (instrumentation, not mood). Never fill.
 
 ## Brand system (see /brand/*.html — v2 dark is canonical for the app)

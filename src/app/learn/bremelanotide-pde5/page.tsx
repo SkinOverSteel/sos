@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { ArticleMeta } from "@/components/ArticleMeta";
+import { withReview } from "@/lib/jsonld";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -26,14 +27,14 @@ const jsonLd = {
 export default function BremelanotidePde5Page() {
   return (
     <article className="sos-container">
-      <JsonLd data={jsonLd} />
+      <JsonLd data={withReview(jsonLd, "bremelanotide-pde5")} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Learn · <b>Treatment &amp; pharmacology</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Bremelanotide + PDE5: two different levers
       </h1>
-      <EvidenceBadge grade="emerging" title="The combination in men is early-stage and off-label. Bremelanotide's blood-pressure effect and cardiovascular contraindications are Established from its FDA label." />
+      <ArticleMeta slug="bremelanotide-pde5" gradeNote="The combination in men is early-stage and off-label. Bremelanotide's blood-pressure effect and cardiovascular contraindications are Established from its FDA label." />
 
       <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
         <i className="dot" />

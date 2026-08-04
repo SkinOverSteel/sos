@@ -1,11 +1,28 @@
 import type { Grade } from "@/components/EvidenceBadge";
 
+/**
+ * A named clinician who has reviewed a piece for medical accuracy.
+ * Left null until a real credentialed reviewer signs on — we never
+ * fabricate a byline or a credential (trust is the product).
+ */
+export type Reviewer = {
+  name: string;
+  credentials: string; // e.g. "MD, Urology"
+  url?: string;
+};
+
 export type Article = {
   slug: string;
   title: string;
   summary: string;
   grade: Grade;
   section: string;
+  /** First published (ISO date). */
+  published: string;
+  /** Last reviewed against the editorial standard (ISO date). */
+  reviewed: string;
+  /** Named clinician reviewer, when one exists. null = editorial review only. */
+  reviewer?: Reviewer | null;
 };
 
 /** Open Floor education library — single source for the /learn hub + sitemap. */
@@ -17,6 +34,8 @@ export const articles: Article[] = [
       "Often the first visible sign of a vascular or metabolic problem — years before a heart attack or a diabetes diagnosis. Why the body flags it here first, and why it's a reason to get a workup, not to feel shame.",
     grade: "established",
     section: "Why it matters",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "read-your-labs",
@@ -25,6 +44,8 @@ export const articles: Article[] = [
       "You got the workup — now decode it. What total and free testosterone, SHBG, LH/FSH, fasting insulin, HbA1c, and hs-CRP actually mean, enough to have a real conversation with your clinician instead of guessing.",
     grade: "established",
     section: "The workup",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "testosterone-therapy",
@@ -33,6 +54,8 @@ export const articles: Article[] = [
       "Most of the difference between safe TRT and the gray zone is a real diagnosis and real monitoring. What it is (and isn't), the labs that keep it safe, how to make it affordable through legitimate coverage and cash levers — and the hard line between replacement and anabolic enhancement.",
     grade: "established",
     section: "Treatment & pharmacology",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "pde5-long-term",
@@ -41,6 +64,8 @@ export const articles: Article[] = [
       "When they seem to stop working, the drug usually hasn't worn out — your vasculature has changed. The emerging case for long-term vascular benefit, and why your blood-pressure drug choice (nebivolol, telmisartan) matters when you have both ED and hypertension.",
     grade: "emerging",
     section: "Treatment & pharmacology",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "bremelanotide-pde5",
@@ -49,6 +74,8 @@ export const articles: Article[] = [
       "One works on desire in the brain, the other on the erection itself — so combining them has real pharmacological logic, and early trials helped PDE5 non-responders. But bremelanotide raises blood pressure, it's off-label in men, and most of what's sold isn't the approved drug. The honest picture.",
     grade: "emerging",
     section: "Treatment & pharmacology",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "telemedicine-visit",
@@ -57,6 +84,8 @@ export const articles: Article[] = [
       "Telemedicine can deliver real men's-health care — or a checkout form with a doctor's signature stapled on. The difference is whether anyone actually evaluated you. The green flags, the pill-mill red flags, and the questions to ask.",
     grade: "established",
     section: "Choosing care",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "what-it-costs",
@@ -65,6 +94,8 @@ export const articles: Article[] = [
       "The price is a stack: labs, a consult, the product, and the markup on top. Follow the journey layer by layer, see where the prescriber's cut hides, and learn how to get the most value inside the legal channel in your jurisdiction.",
     grade: "established",
     section: "Money & value",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "generic-pde5-value",
@@ -73,6 +104,8 @@ export const articles: Article[] = [
       "The molecule went generic years ago — the gap between $3 and $400 is markup, not medicine. Transparent-pricing pharmacies like Cost Plus Drugs, the 90-day lever, and why a higher strength can cost less per dose (a prescriber conversation, not a DIY recipe).",
     grade: "established",
     section: "Money & value",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
   {
     slug: "product-forms",
@@ -81,5 +114,7 @@ export const articles: Article[] = [
       "Lyophilized vial, pre-mixed solution, or a ziplock of premix? How the form of an injectable peptide or ED medication reveals where it came from — and whether anyone licensed stood behind its quality.",
     grade: "established",
     section: "Quality & safety",
+    published: "2026-07-20",
+    reviewed: "2026-08-04",
   },
 ];
