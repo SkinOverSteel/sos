@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -28,8 +30,9 @@ export default function SignalPage() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "erectile-function-signal")} />
+      <Breadcrumbs slug="erectile-function-signal" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>Why it matters</b>
+        <b>Why it matters</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Erectile function is a signal
@@ -161,6 +164,7 @@ export default function SignalPage() {
           erectile difficulty, see a clinician — it&apos;s worth a real workup.
         </p>
       </div>
+      <RelatedArticles slug="erectile-function-signal" />
     </article>
   );
 }

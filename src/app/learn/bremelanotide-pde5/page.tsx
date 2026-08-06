@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -28,8 +30,9 @@ export default function BremelanotidePde5Page() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "bremelanotide-pde5")} />
+      <Breadcrumbs slug="bremelanotide-pde5" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>Treatment &amp; pharmacology</b>
+        <b>Treatment &amp; pharmacology</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Bremelanotide + PDE5: two different levers
@@ -191,6 +194,7 @@ export default function BremelanotidePde5Page() {
           cardiovascular history. Do not combine them on your own.
         </p>
       </div>
+      <RelatedArticles slug="bremelanotide-pde5" />
     </article>
   );
 }

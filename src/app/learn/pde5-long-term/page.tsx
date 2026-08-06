@@ -4,6 +4,8 @@ import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -29,8 +31,9 @@ export default function Pde5Page() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "pde5-long-term")} />
+      <Breadcrumbs slug="pde5-long-term" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>Treatment &amp; pharmacology</b>
+        <b>Treatment &amp; pharmacology</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         PDE5 inhibitors, long term
@@ -234,6 +237,7 @@ export default function Pde5Page() {
           history. Do not start, stop, or combine any of these on your own.
         </p>
       </div>
+      <RelatedArticles slug="pde5-long-term" />
     </article>
   );
 }

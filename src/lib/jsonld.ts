@@ -37,13 +37,20 @@ function reviewedBy(reviewer?: Reviewer | null) {
 export function withReview<T extends Record<string, unknown>>(base: T, slug: string) {
   const a = articles.find((x) => x.slug === slug);
   if (!a) return base;
+  const related = articles
+    .filter((x) => x.slug !== a.slug && x.section === a.section)
+    .slice(0, 4)
+    .map((x) => `${SITE.url}/learn/${x.slug}`);
   return {
     ...base,
+    inLanguage: "en-US",
     datePublished: a.published,
     dateModified: a.reviewed,
     lastReviewed: a.reviewed,
     reviewedBy: reviewedBy(a.reviewer),
     author: ORG,
     publisher: base.publisher ?? ORG,
+    isPartOf: { "@type": "CollectionPage", name: "Learn", url: `${SITE.url}/learn` },
+    ...(related.length ? { relatedLink: related } : {}),
   };
 }

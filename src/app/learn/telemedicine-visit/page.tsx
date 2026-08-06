@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -54,8 +56,9 @@ export default function TelemedicineVisitPage() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "telemedicine-visit")} />
+      <Breadcrumbs slug="telemedicine-visit" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>Choosing care</b>
+        <b>Choosing care</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         What a good telemedicine visit looks like
@@ -159,6 +162,7 @@ export default function TelemedicineVisitPage() {
           where you live.
         </p>
       </div>
+      <RelatedArticles slug="telemedicine-visit" />
     </article>
   );
 }

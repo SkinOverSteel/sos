@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -141,8 +143,9 @@ export default function ReadYourLabsPage() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "read-your-labs")} />
+      <Breadcrumbs slug="read-your-labs" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>The workup</b>
+        <b>The workup</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Read your labs
@@ -223,6 +226,7 @@ export default function ReadYourLabsPage() {
           Interpret your results with a licensed clinician who knows your history.
         </p>
       </div>
+      <RelatedArticles slug="read-your-labs" />
     </article>
   );
 }

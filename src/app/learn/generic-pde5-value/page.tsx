@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -27,8 +29,9 @@ export default function GenericPde5ValuePage() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "generic-pde5-value")} />
+      <Breadcrumbs slug="generic-pde5-value" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>Money &amp; value</b>
+        <b>Money &amp; value</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Generic PDE5, filled for less
@@ -164,6 +167,7 @@ export default function GenericPde5ValuePage() {
           relationship with any pharmacy named here.
         </p>
       </div>
+      <RelatedArticles slug="generic-pde5-value" />
     </article>
   );
 }

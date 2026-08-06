@@ -3,6 +3,8 @@ import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,8 +29,9 @@ export default function ProductFormsPage() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "product-forms")} />
+      <Breadcrumbs slug="product-forms" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>Quality &amp; safety</b>
+        <b>Quality &amp; safety</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         What you&apos;re actually buying
@@ -174,6 +177,7 @@ export default function ProductFormsPage() {
           decisions with a licensed clinician.
         </p>
       </div>
+      <RelatedArticles slug="product-forms" />
     </article>
   );
 }

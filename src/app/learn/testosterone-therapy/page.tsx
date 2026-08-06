@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -28,8 +30,9 @@ export default function TestosteroneTherapyPage() {
   return (
     <article className="sos-container">
       <JsonLd data={withReview(jsonLd, "testosterone-therapy")} />
+      <Breadcrumbs slug="testosterone-therapy" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Learn · <b>Treatment &amp; pharmacology</b>
+        <b>Treatment &amp; pharmacology</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
         Testosterone therapy, done right
@@ -201,6 +204,7 @@ export default function TestosteroneTherapyPage() {
           claim must go through a licensed clinician and honest documentation.
         </p>
       </div>
+      <RelatedArticles slug="testosterone-therapy" />
     </article>
   );
 }
