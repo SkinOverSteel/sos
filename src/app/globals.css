@@ -200,3 +200,20 @@ a.sos-card:hover {
   color: var(--sos-text-hi);
   margin: 9px 0 7px;
 }
+
+/* ---- horizontal comparison bars (e.g. drug duration at a glance) ---- */
+.sos-bar {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--sos-line);
+}
+.sos-bar__fill {
+  height: 100%;
+  border-radius: 5px;
+  background: var(--sos-copper);
+  transform-origin: left;
+  animation: sos-bar-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes sos-bar-in {
+  from { transform: scaleX(0); }
+}

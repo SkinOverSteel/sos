@@ -98,6 +98,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "pde5-lineup",
+    title: "The PDE5 line-up: sildenafil, tadalafil, and the rest",
+    summary:
+      "Viagra vs Cialis vs the rest, answered. How the four PDE5 inhibitors compare on speed, duration, food, and on-demand vs daily — plus the one hard safety rule they all share, and why they're more alike than different.",
+    grade: "established",
+    section: "Treatment & pharmacology",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "bremelanotide-pde5",
     title: "Bremelanotide + PDE5: two different levers",
     summary:
