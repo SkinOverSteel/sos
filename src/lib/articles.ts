@@ -38,6 +38,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "premature-ejaculation",
+    title: "Premature ejaculation, honestly",
+    summary:
+      "The most common sexual concern men raise — and one of the most treatable. The difference between lifelong and acquired PE, why it so often travels with erectile trouble, and the behavioral and medical options that actually work.",
+    grade: "established",
+    section: "Conditions",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "ed-workup",
     title: "The ED workup, start to finish",
     summary:
