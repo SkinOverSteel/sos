@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.join(__dirname),
   },
+  async redirects() {
+    return [
+      {
+        // Consolidated into the enhancement map (2026-08-04).
+        source: "/learn/jelqing-and-peptides",
+        destination: "/learn/enhancement",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -11,7 +11,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Enhancement, honestly",
   description:
-    "Penis pumps, fillers, traction devices, surgery, jelqing, and gray-market injections — the enhancement landscape, mapped and evidence-graded. What legitimately helps erections, what actually adds size, what's temporary, and what causes permanent injury.",
+    "Penis pumps, fillers, traction devices, surgery, jelqing, peptide 'healing stacks' (BPC-157, TB-500), growth hormone, and gray-market injections — the enhancement landscape, mapped and evidence-graded. What legitimately helps, what's temporary, and what causes permanent injury.",
   alternates: { canonical: "/learn/enhancement" },
 };
 
@@ -61,7 +61,21 @@ const METHODS: { grade: Grade; name: string; what: string; verdict: string }[] =
     name: "“Exercises” (jelqing) and extreme pumping",
     what: "Manual “milking” routines and over-pumping promoted online for growth.",
     verdict:
-      "No credible evidence of lasting size, and a real record of bruising, pain, scarring, and worse function. We won't publish the technique — because here the technique is the risk.",
+      "No credible evidence of lasting size, and a real record of bruising, pain, and scarring. The “heal-and-grow” theory behind it — injure the tissue on purpose so it rebuilds bigger — borrows muscle logic for connective tissue that heals toward scar (the raw material of Peyronie's disease), not length. It's also the usual excuse for the injectable “healing stacks” below. We won't publish the technique — because here the technique is the risk.",
+  },
+  {
+    grade: "high-risk",
+    name: "Peptide “healing stacks” (BPC-157 + TB-500, the “wolverine blend”)",
+    what: "Gray-market peptides injected to “heal and grow” the micro-trauma from jelqing.",
+    verdict:
+      "Genuinely interesting preclinical (animal) healing science, and near-zero human evidence — BPC-157's whole human record is a few dozen people in uncontrolled pilots, and it isn't even legally compoundable; TB-500 is an ill-defined product anti-doping agencies ban. “Better healing of tears you inflicted” was never shown to grow anything, and self-injecting unverified biologics into genital tissue carries the same infection and necrosis risk as the row below, minus any upside.",
+  },
+  {
+    grade: "high-risk",
+    name: "rHGH (growth hormone) for size",
+    what: "A powerful prescription hormone added for systemic “growth.”",
+    verdict:
+      "It grows genitals in growth-hormone-deficient children, not in adults — where there's no enhancement evidence and little anabolic effect at all, but real harms: acromegaly, insulin resistance, joint pain, and, ironically, impotence. Distributing it for uses like this is a federal crime.",
   },
   {
     grade: "high-risk",
@@ -197,8 +211,11 @@ export default function EnhancementPage() {
           Drawn from:{" "}
           <a href="https://bjui-journals.onlinelibrary.wiley.com/doi/10.1111/bju.15145" target="_blank" rel="noopener noreferrer">systematic review of penile enhancement interventions (BJU Int)</a>;{" "}
           <a href="https://pubmed.ncbi.nlm.nih.gov/41344863/" target="_blank" rel="noopener noreferrer">ICSM 2024 penile augmentation recommendations</a>;{" "}
-          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4708600/" target="_blank" rel="noopener noreferrer">the science of vacuum devices in penile rehabilitation</a>; and{" "}
-          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2945848/" target="_blank" rel="noopener noreferrer">mineral-oil sclerosing lipogranuloma of the penis</a>.
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4708600/" target="_blank" rel="noopener noreferrer">the science of vacuum devices in penile rehabilitation</a>;{" "}
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2945848/" target="_blank" rel="noopener noreferrer">mineral-oil sclerosing lipogranuloma of the penis</a>;{" "}
+          <a href="https://www.usada.org/spirit-of-sport/bpc-157-peptide-prohibited/" target="_blank" rel="noopener noreferrer">USADA on BPC-157</a>;{" "}
+          <a href="https://www.wada-ama.org/en/prohibited-list" target="_blank" rel="noopener noreferrer">the WADA Prohibited List</a>; and{" "}
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3104052/" target="_blank" rel="noopener noreferrer">a review of growth-hormone abuse</a>.
         </p>
         <p className="sos-note">
           General education, not medical advice, and deliberately not a how-to for
