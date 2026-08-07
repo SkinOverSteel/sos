@@ -48,6 +48,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "peyronies-disease",
+    title: "Peyronie's disease: when it curves",
+    summary:
+      "Curvature from a fibrous plaque — more common than men think, and not cancer. The two phases, why treatment timing is everything, and the injection, traction, and surgical options once it stabilizes.",
+    grade: "established",
+    section: "Conditions",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "ed-workup",
     title: "The ED workup, start to finish",
     summary:
