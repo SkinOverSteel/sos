@@ -38,6 +38,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "ed-workup",
+    title: "The ED workup, start to finish",
+    summary:
+      "Erectile dysfunction is a symptom, not a diagnosis. The full evaluation — history, exam, and the labs that find the cause — walked start to finish, so you know the map before you go, and know why skipping it is the part that costs you.",
+    grade: "established",
+    section: "The workup",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "read-your-labs",
     title: "Read your labs",
     summary:

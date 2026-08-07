@@ -135,3 +135,68 @@ a.sos-card:hover {
 .sos-morse.dim i {
   background: var(--sos-line);
 }
+
+/* ---- workup path: numbered vertical stepper with a traveling copper glow.
+   The global prefers-reduced-motion rule (tokens.css) stills the animation. ---- */
+.sos-steps {
+  position: relative;
+  margin: 8px 0 4px;
+}
+.sos-steps__rail {
+  position: absolute;
+  left: 19px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: var(--sos-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sos-steps__rail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 46px;
+  top: -46px;
+  background: linear-gradient(transparent, var(--sos-copper), transparent);
+  animation: sos-rail 3.6s linear infinite;
+}
+@keyframes sos-rail {
+  to { top: 100%; }
+}
+.sos-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 18px;
+}
+.sos-step + .sos-step {
+  margin-top: 26px;
+}
+.sos-step__num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sos-copper);
+  color: var(--sos-copper);
+  background: var(--sos-e0);
+  font-family: var(--sos-mono);
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.sos-step__title {
+  font-family: var(--sos-sans);
+  font-weight: 700;
+  font-stretch: 90%;
+  font-size: 14.5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+  margin: 9px 0 7px;
+}
