@@ -158,6 +158,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "jelqing-and-peptides",
+    title: "Jelqing and the healing-stack theory",
+    summary:
+      "Jelq to micro-injure it, then inject a \"wolverine blend\" of BPC-157 and TB-500 (and sometimes hGH) to heal it bigger. The theory borrows muscle logic for tissue that scars instead of grows — graded honestly, with no how-to.",
+    grade: "high-risk",
+    section: "Quality & safety",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "enhancement",
     title: "Enhancement, honestly",
     summary:
