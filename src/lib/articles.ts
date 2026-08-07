@@ -158,6 +158,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "enhancement",
+    title: "Enhancement, honestly",
+    summary:
+      "Pumps, fillers, traction, surgery, jelqing, and the gray-market injections that maim — the enhancement landscape mapped and graded, method by method. What legitimately helps, what's only temporary, and what to never let near you.",
+    grade: "high-risk",
+    section: "Quality & safety",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "product-forms",
     title: "What you're actually buying",
     summary:
