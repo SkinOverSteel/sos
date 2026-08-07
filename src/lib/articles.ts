@@ -38,6 +38,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "training-for-erections",
+    title: "Erections are trainable",
+    summary:
+      "An erection is a vascular event — and the vasculature adapts to training. The mechanism from intensity to blood flow, why vigorous intervals beat a gentle walk, where anaerobic work earns its place, and the heart-safety caveat that has to come first.",
+    grade: "emerging",
+    section: "Foundations",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "premature-ejaculation",
     title: "Premature ejaculation, honestly",
     summary:
