@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { EvidenceBadge, type Grade } from "@/components/EvidenceBadge";
 import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
@@ -224,6 +225,7 @@ export default function EnhancementPage() {
         </p>
       </div>
 
+      <Faq slug="enhancement" />
       <RelatedArticles slug="enhancement" />
     </article>
   );

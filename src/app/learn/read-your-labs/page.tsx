@@ -4,6 +4,7 @@ import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -226,6 +227,7 @@ export default function ReadYourLabsPage() {
           Interpret your results with a licensed clinician who knows your history.
         </p>
       </div>
+      <Faq slug="read-your-labs" />
       <RelatedArticles slug="read-your-labs" />
     </article>
   );

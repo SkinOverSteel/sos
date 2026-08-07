@@ -4,6 +4,7 @@ import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -194,6 +195,7 @@ export default function BremelanotidePde5Page() {
           cardiovascular history. Do not combine them on your own.
         </p>
       </div>
+      <Faq slug="bremelanotide-pde5" />
       <RelatedArticles slug="bremelanotide-pde5" />
     </article>
   );

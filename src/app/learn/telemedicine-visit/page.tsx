@@ -4,6 +4,7 @@ import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -162,6 +163,7 @@ export default function TelemedicineVisitPage() {
           where you live.
         </p>
       </div>
+      <Faq slug="telemedicine-visit" />
       <RelatedArticles slug="telemedicine-visit" />
     </article>
   );

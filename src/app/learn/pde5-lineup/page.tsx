@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -231,6 +232,7 @@ export default function Pde5LineupPage() {
         </p>
       </div>
 
+      <Faq slug="pde5-lineup" />
       <RelatedArticles slug="pde5-lineup" />
     </article>
   );

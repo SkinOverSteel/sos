@@ -4,6 +4,7 @@ import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -204,6 +205,7 @@ export default function TestosteroneTherapyPage() {
           claim must go through a licensed clinician and honest documentation.
         </p>
       </div>
+      <Faq slug="testosterone-therapy" />
       <RelatedArticles slug="testosterone-therapy" />
     </article>
   );

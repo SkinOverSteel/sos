@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -237,6 +238,7 @@ export default function Pde5Page() {
           history. Do not start, stop, or combine any of these on your own.
         </p>
       </div>
+      <Faq slug="pde5-long-term" />
       <RelatedArticles slug="pde5-long-term" />
     </article>
   );

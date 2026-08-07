@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -188,6 +189,7 @@ export default function PrematureEjaculationPage() {
         </p>
       </div>
 
+      <Faq slug="premature-ejaculation" />
       <RelatedArticles slug="premature-ejaculation" />
     </article>
   );

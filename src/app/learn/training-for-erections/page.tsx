@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
@@ -240,6 +241,7 @@ export default function TrainingForErectionsPage() {
         </p>
       </div>
 
+      <Faq slug="training-for-erections" />
       <RelatedArticles slug="training-for-erections" />
     </article>
   );

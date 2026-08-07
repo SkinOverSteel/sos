@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { withReview } from "@/lib/jsonld";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -177,6 +178,7 @@ export default function ProductFormsPage() {
           decisions with a licensed clinician.
         </p>
       </div>
+      <Faq slug="product-forms" />
       <RelatedArticles slug="product-forms" />
     </article>
   );

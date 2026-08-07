@@ -4,6 +4,7 @@ import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -164,6 +165,7 @@ export default function SignalPage() {
           erectile difficulty, see a clinician — it&apos;s worth a real workup.
         </p>
       </div>
+      <Faq slug="erectile-function-signal" />
       <RelatedArticles slug="erectile-function-signal" />
     </article>
   );
