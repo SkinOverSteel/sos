@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -60,6 +62,7 @@ export default function RootLayout({
       className={`${archivo.variable} ${sourceSerif.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {children}
         <header
           style={{
             display: "flex",
