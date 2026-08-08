@@ -118,6 +118,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "trt-fertility",
+    title: "TRT and fertility, without the panic",
+    summary:
+      "The fear is that testosterone therapy makes you infertile, full stop. The reality is calmer: TRT suppresses sperm while you're on it, but for most men it's a non-issue — usually reversible, often preventable, and only a real concern if you're actively trying to conceive.",
+    grade: "established",
+    section: "Treatment & pharmacology",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "bremelanotide-pde5",
     title: "Bremelanotide + PDE5: two different levers",
     summary:

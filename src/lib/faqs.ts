@@ -183,6 +183,20 @@ export const faqs: Record<string, Faq[]> = {
       a: "Hard training raises nitric-oxide availability and improves how arteries dilate on demand — the same pathway ED pills amplify, except built rather than borrowed for a night.",
     },
   ],
+  "trt-fertility": [
+    {
+      q: "Does TRT cause infertility?",
+      a: "While you are on it, testosterone therapy usually suppresses sperm production, often to very low or zero levels — about two-thirds of men by four to six months. But for most men it is not a real-world problem: they are not trying to conceive, and the effect is usually reversible after stopping.",
+    },
+    {
+      q: "Is TRT-related infertility reversible?",
+      a: "Usually, yes. After stopping, sperm counts typically recover over several months — roughly 90% of men by a year and effectively all by two years — though older men and those on TRT longer recover more slowly. Planning ahead beats hoping.",
+    },
+    {
+      q: "Can you stay fertile while on testosterone therapy?",
+      a: "Often, yes. Adding low-dose hCG keeps the testicles working alongside TRT, and a medication like enclomiphene raises your own testosterone without shutting sperm down. Which fits is a prescriber's call, ideally made before you start.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",
