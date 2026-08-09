@@ -128,6 +128,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "penile-injections",
+    title: "Penile injections, when pills aren't enough",
+    summary:
+      "When PDE5 pills fail or can't be used, there's a real, effective second line — and the most reliable of it is trimix, injected. What it is, where it sits on the treatment ladder, and the one rule that isn't optional: the four-hour priapism emergency.",
+    grade: "established",
+    section: "Treatment & pharmacology",
+    published: "2026-08-04",
+    reviewed: "2026-08-04",
+  },
+  {
     slug: "bremelanotide-pde5",
     title: "Bremelanotide + PDE5: two different levers",
     summary:

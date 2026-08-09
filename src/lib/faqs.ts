@@ -197,6 +197,20 @@ export const faqs: Record<string, Faq[]> = {
       a: "Often, yes. Adding low-dose hCG keeps the testicles working alongside TRT, and a medication like enclomiphene raises your own testosterone without shutting sperm down. Which fits is a prescriber's call, ideally made before you start.",
     },
   ],
+  "penile-injections": [
+    {
+      q: "What is trimix for ED?",
+      a: "Trimix is a compounded medication (alprostadil, papaverine, and phentolamine) injected into the penis to produce an erection directly — bypassing the desire and nerve pathways pills rely on, which is why it works even when pills don't. It is a prescription second-line treatment via a urologist and a licensed compounding pharmacy.",
+    },
+    {
+      q: "Are penile injections for ED safe?",
+      a: "In a monitored program, yes — the main risk is a prolonged erection (priapism), which is why the dose is set carefully by a clinician and the first one is done in the office. An erection lasting more than four hours is an emergency, but it happens in only about 0.5 to 5% of users.",
+    },
+    {
+      q: "What can I do if ED pills don't work?",
+      a: "Pills failing isn't the end of the road. Penile injections are the most effective second line, vacuum devices are a drug-free option, and a penile implant is the definitive fix when nothing else works. It's a urology conversation, not a dead end.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",
