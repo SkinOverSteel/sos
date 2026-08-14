@@ -47,7 +47,9 @@ const HORMONES: Marker[] = [
       <>
         The fraction actually available to your tissues. Most useful when total T
         is borderline, or when symptoms don&apos;t match the total — especially if
-        SHBG is off. Not the primary diagnostic on its own.
+        SHBG is off. Not the primary diagnostic on its own. If your panel shows
+        total T and SHBG but not free T, you can{" "}
+        <Link href="/tools/free-testosterone">estimate it here</Link>.
       </>
     ),
   },

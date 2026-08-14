@@ -7,6 +7,8 @@ export type Tool = {
   slug: string;
   title: string;
   blurb: string;
+  /** Short label for the hub card kicker. */
+  kind: string;
   status: "live" | "soon";
 };
 
@@ -16,6 +18,7 @@ export const tools: Tool[] = [
     title: "Erectile-function self-check",
     blurb:
       "The validated IIEF-5 / SHIM screen, scored privately in your browser — turn a vague worry into a number you can take to a clinician.",
+    kind: "Self-assessment",
     status: "live",
   },
   {
@@ -23,13 +26,15 @@ export const tools: Tool[] = [
     title: "Free-testosterone calculator",
     blurb:
       "Estimate free and bioavailable testosterone from total T, SHBG, and albumin (Vermeulen method) — the number your total-T result doesn't show.",
-    status: "soon",
+    kind: "Calculator",
+    status: "live",
   },
   {
     slug: "treatment-cost",
     title: "ED-treatment cost estimator",
     blurb:
       "Add up the real stack — labs, consult, and medication — and see where the markup hides across the legitimate channels.",
+    kind: "Calculator",
     status: "soon",
   },
 ];

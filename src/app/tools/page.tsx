@@ -38,7 +38,7 @@ export default function ToolsHub() {
                 }}
               >
                 <span className="sos-kicker">
-                  {t.status === "live" ? "Self-assessment" : "In development"}
+                  {t.status === "live" ? t.kind : `${t.kind} · In development`}
                 </span>
               </div>
               <h2

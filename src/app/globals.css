@@ -303,3 +303,56 @@ a.sos-card:hover {
 .sos-badge--copper {
   color: var(--sos-copper);
 }
+
+/* ---- calculator inputs (free-T and future numeric tools) ---- */
+.sos-label {
+  display: block;
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sos-text-md);
+  margin-bottom: 8px;
+}
+.sos-field {
+  width: 100%;
+  min-width: 0;
+  font-family: var(--sos-mono);
+  font-size: 15px;
+  color: var(--sos-text-hi);
+  background: var(--sos-e1);
+  border: 1px solid var(--sos-line);
+  border-radius: 8px;
+  padding: 11px 13px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.sos-field:focus {
+  outline: none;
+  border-color: var(--sos-copper);
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+.sos-seg {
+  display: inline-flex;
+  flex: none;
+  border: 1px solid var(--sos-line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.sos-seg button {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  padding: 9px 13px;
+  background: transparent;
+  color: var(--sos-text-lo);
+  border: 0;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.sos-seg button + button {
+  border-left: 1px solid var(--sos-line);
+}
+.sos-seg button[aria-pressed="true"] {
+  background: var(--sos-e3);
+  color: var(--sos-copper);
+}

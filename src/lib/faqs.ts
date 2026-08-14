@@ -7,6 +7,32 @@
 export type Faq = { q: string; a: string };
 
 export const faqs: Record<string, Faq[]> = {
+  "free-testosterone": [
+    {
+      q: "What is free testosterone?",
+      a: "Most testosterone in your blood is bound — tightly to SHBG and loosely to albumin — and unavailable to tissues. Free testosterone is the small fraction (usually around 1.5–2.5% of total) circulating unbound. Bioavailable testosterone is that free fraction plus the loosely albumin-bound portion your body can still use.",
+    },
+    {
+      q: "Why calculate free testosterone instead of using total testosterone?",
+      a: "Because SHBG changes the gap between them. When SHBG is high, total testosterone can look normal while the usable free fraction is low; when SHBG is low, the reverse. Calculated free testosterone estimates the usable fraction from total T, SHBG, and albumin — often closer to how you actually feel than the total alone.",
+    },
+    {
+      q: "How accurate is the Vermeulen calculation?",
+      a: "For most people it tracks well with the gold-standard equilibrium dialysis, and it is more reliable than the older direct 'analog' free-testosterone immunoassays. It is still an estimate — labs and calculators use slightly different binding constants — so use it as context for a conversation with your clinician, not as a diagnosis.",
+    },
+    {
+      q: "What albumin value should I use?",
+      a: "If you don't have an albumin result, the standard default of 4.3 g/dL (43 g/L) is fine — albumin varies little between healthy people and changes the result only modestly. If you have your own value, use it.",
+    },
+    {
+      q: "What is a normal free testosterone level?",
+      a: "Reference ranges vary by lab, assay, and age, which is why there is no single cutoff here. Bring the number to a clinician who can read it against your total testosterone, your symptoms, and the lab's own range.",
+    },
+    {
+      q: "Are my numbers stored or sent anywhere?",
+      a: "No. The calculator runs entirely in your browser, and nothing you enter is saved or transmitted.",
+    },
+  ],
   "erectile-function-score": [
     {
       q: "What is a normal score on this test?",
