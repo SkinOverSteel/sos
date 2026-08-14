@@ -217,3 +217,89 @@ a.sos-card:hover {
 @keyframes sos-bar-in {
   from { transform: scaleX(0); }
 }
+
+/* ---- self-assessment (SHIM / IIEF-5 self-check) ---- */
+.sos-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.sos-q-num {
+  font-family: var(--sos-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+  margin-bottom: 8px;
+}
+.sos-q {
+  display: block;
+  float: none;
+  width: 100%;
+  padding: 0;
+  font-family: var(--sos-serif);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--sos-text-hi);
+  margin-bottom: 14px;
+}
+.sos-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: var(--sos-mono);
+  font-size: 13.5px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--sos-text-md);
+  background: var(--sos-e2);
+  border: 1px solid var(--sos-line);
+  border-radius: 8px;
+  padding: 12px 15px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.sos-opt:hover {
+  border-color: var(--sos-copper);
+  color: var(--sos-text-hi);
+}
+.sos-opt:focus-within {
+  border-color: var(--sos-copper);
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+.sos-opt--sel {
+  border-color: var(--sos-copper);
+  color: var(--sos-text-hi);
+  background: var(--sos-e3);
+}
+.sos-opt__dot {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sos-text-lo);
+  position: relative;
+}
+.sos-opt--sel .sos-opt__dot {
+  border-color: var(--sos-copper);
+}
+.sos-opt--sel .sos-opt__dot::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--sos-copper);
+}
+/* visually-hidden native radio keeps keyboard + screen-reader semantics */
+.sos-opt input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+/* result-band badge: copper tone for the serious end (never the reserved
+   emergency red — a screen result is not a medical emergency) */
+.sos-badge--copper {
+  color: var(--sos-copper);
+}

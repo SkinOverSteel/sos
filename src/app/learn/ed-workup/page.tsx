@@ -60,6 +60,15 @@ export default function EdWorkupPage() {
         walk in already holding the map.
       </p>
 
+      <div className="sos-card" style={{ marginBottom: "40px" }}>
+        <p className="sos-prose" style={{ fontSize: "16px", margin: 0 }}>
+          <strong>Not sure where you land?</strong> The{" "}
+          <Link href="/tools/erectile-function-score">two-minute self-check</Link>{" "}
+          scores the same five-question screen clinicians use — a number to bring
+          into the workup below.
+        </p>
+      </div>
+
       <div className="sos-steps">
         <div className="sos-steps__rail" aria-hidden="true" />
 

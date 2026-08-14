@@ -126,6 +126,7 @@ export default function RootLayout({
           >
             {[
               { href: "/learn", label: "Learn" },
+              { href: "/tools", label: "Tools" },
               { href: "/directory", label: "Find a provider" },
               { href: "/about", label: "About" },
               { href: "/methodology", label: "How we review" },

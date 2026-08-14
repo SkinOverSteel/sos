@@ -1,5 +1,6 @@
 import { SITE } from "@/lib/site";
 import { articles } from "@/lib/articles";
+import { liveTools } from "@/lib/tools";
 
 /**
  * /llms.txt — a curated, machine-readable index for LLM crawlers and agents
@@ -60,6 +61,14 @@ function buildLlmsTxt(): string {
     lines.push(`- [${p.label}](${url(p.path)}): ${p.note}`);
   }
   lines.push("");
+
+  if (liveTools.length) {
+    lines.push("## Tools (interactive, private, client-side)");
+    for (const t of liveTools) {
+      lines.push(`- [${t.title}](${url(`/tools/${t.slug}`)}): ${t.blurb}`);
+    }
+    lines.push("");
+  }
 
   // Learn library, grouped by section in editorial order of first appearance.
   const sections: string[] = [];

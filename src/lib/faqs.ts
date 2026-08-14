@@ -7,6 +7,28 @@
 export type Faq = { q: string; a: string };
 
 export const faqs: Record<string, Faq[]> = {
+  "erectile-function-score": [
+    {
+      q: "What is a normal score on this test?",
+      a: "A score of 22 to 25 out of 25 falls in the range that does not indicate erectile dysfunction. 17–21 suggests mild difficulty, 12–16 mild-to-moderate, 8–11 moderate, and 5–7 severe. The score is a starting point for a conversation with a clinician, not a diagnosis.",
+    },
+    {
+      q: "Is this the same as the SHIM or IIEF-5?",
+      a: "Yes. This is the five-item International Index of Erectile Function (IIEF-5), also called the Sexual Health Inventory for Men (SHIM) — a validated screening questionnaire developed by Rosen and colleagues in 1999 and used widely in clinical practice.",
+    },
+    {
+      q: "Does a low score mean something is wrong with my heart?",
+      a: "Not on its own — but it can be an early flag. Erectile tissue depends on healthy blood flow, so erectile difficulty sometimes appears years before a vascular or metabolic problem is diagnosed. That is a reason to get a workup, which also screens for those risks.",
+    },
+    {
+      q: "Are my answers saved or sent anywhere?",
+      a: "No. The questionnaire runs entirely in your browser and your answers never leave your device. Nothing is stored or transmitted.",
+    },
+    {
+      q: "I got a reassuring score but something still feels off. What now?",
+      a: "Trust that. The screen is a snapshot of the last six months, not a full evaluation. If something feels wrong, a workup is still the way to be sure — the score doesn't override your own experience.",
+    },
+  ],
   "erectile-function-signal": [
     {
       q: "Is erectile dysfunction a sign of heart disease?",

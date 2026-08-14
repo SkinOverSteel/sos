@@ -58,7 +58,9 @@ export default function SignalPage() {
         For a lot of men, erectile dysfunction is the{" "}
         <strong>first visible sign</strong> of a vascular or metabolic disease
         that hasn&apos;t announced itself anywhere else yet. That&apos;s why we
-        treat it as a signal — one worth answering.
+        treat it as a signal — one worth answering. If you&apos;re not sure how
+        loud the signal is, you can{" "}
+        <Link href="/tools/erectile-function-score">score it in two minutes</Link>.
       </p>
 
       <Section title="Why the signal shows up here first">
