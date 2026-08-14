@@ -24,7 +24,6 @@ const jsonLd = {
     "Combining bremelanotide (PT-141) with PDE5 inhibitors — mechanisms, emerging evidence, and cardiovascular/off-label safety.",
   about: { "@type": "Drug", name: "Bremelanotide" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function BremelanotidePde5Page() {

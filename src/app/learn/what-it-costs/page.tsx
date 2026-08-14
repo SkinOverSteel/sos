@@ -23,7 +23,6 @@ const jsonLd = {
   description:
     "A layer-by-layer breakdown of what men's-health therapy costs — labs, consult, product, and prescriber markup — and how to get value within the legal channel.",
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function WhatItCostsPage() {

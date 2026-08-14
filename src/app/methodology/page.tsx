@@ -20,7 +20,7 @@ const jsonLd = {
     "How Skin Over Steel grades evidence, sources claims, reviews content, discloses money, and issues corrections.",
   datePublished: "2026-08-04",
   dateModified: "2026-08-04",
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  publisher: { "@id": `${SITE.url}/#org` },
 };
 
 const GRADES: { grade: Grade; def: string }[] = [

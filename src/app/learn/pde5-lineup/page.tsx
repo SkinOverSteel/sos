@@ -24,7 +24,6 @@ const jsonLd = {
     "A comparison of the four PDE5 inhibitors used for erectile dysfunction — sildenafil, tadalafil, vardenafil, and avanafil — across onset, duration, food effect, dosing pattern, and shared safety.",
   about: { "@type": "DrugClass", name: "PDE5 inhibitors" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 const DURATION = [

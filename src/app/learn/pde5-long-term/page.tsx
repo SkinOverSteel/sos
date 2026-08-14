@@ -25,7 +25,6 @@ const jsonLd = {
     "Long-term PDE5 inhibitor use: diminishing returns vs. disease progression, emerging vascular benefits, blood-pressure drug interactions, and safety.",
   about: { "@type": "Drug", name: "PDE5 inhibitor" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function Pde5Page() {

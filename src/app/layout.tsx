@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { siteJsonLd } from "@/lib/jsonld";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -60,6 +61,14 @@ export default function RootLayout({
       className={`${archivo.variable} ${sourceSerif.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          // Site-wide Organization + WebSite entity graph. Content is all
+          // internal constants; escape `<` defensively per JSON-LD convention.
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
         <header
           style={{
             display: "flex",

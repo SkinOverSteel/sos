@@ -1,16 +1,9 @@
 import Link from "next/link";
-import { JsonLd } from "@/components/JsonLd";
 import { EvidenceBadge, type Grade } from "@/components/EvidenceBadge";
-import { SITE } from "@/lib/site";
 import { articles } from "@/lib/articles";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE.name,
-  url: SITE.url,
-  description: SITE.tagline,
-};
+// The site-wide WebSite + Organization graph is emitted once in the root
+// layout (see lib/jsonld.ts → siteJsonLd), so the homepage no longer repeats it.
 
 const GRADES: { grade: Grade; meaning: string }[] = [
   { grade: "established", meaning: "Guideline-level evidence." },
@@ -22,8 +15,6 @@ export default function Home() {
   const featured = articles.slice(0, 4);
   return (
     <div>
-      <JsonLd data={jsonLd} />
-
       {/* Hero */}
       <section
         style={{

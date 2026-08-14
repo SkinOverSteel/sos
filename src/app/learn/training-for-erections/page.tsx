@@ -24,7 +24,6 @@ const jsonLd = {
     "How exercise — particularly higher-intensity aerobic intervals and resistance training — improves erectile function through endothelial and metabolic adaptation, what the evidence supports, and cardiovascular safety.",
   about: { "@type": "MedicalCondition", name: "Erectile dysfunction" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function TrainingForErectionsPage() {

@@ -23,7 +23,6 @@ const jsonLd = {
   description:
     "A plain-language decoder for the hormone and metabolic markers in a men's health workup.",
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 type Marker = { name: string; range?: string; body: React.ReactNode };

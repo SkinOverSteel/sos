@@ -24,7 +24,6 @@ const jsonLd = {
     "The acute and chronic phases of Peyronie's disease, its link to erectile dysfunction and Dupuytren's contracture, and phase-dependent treatment: intralesional injections, traction therapy, and surgery.",
   about: { "@type": "MedicalCondition", name: "Peyronie's disease" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function PeyroniesDiseasePage() {

@@ -23,7 +23,6 @@ const jsonLd = {
   description:
     "How the form of an injectable peptide or ED medication (lyophilized vial, pre-mixed solution, or gray-market premix) reveals its source and quality.",
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function ProductFormsPage() {

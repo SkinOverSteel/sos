@@ -24,7 +24,6 @@ const jsonLd = {
     "Lifelong vs acquired premature ejaculation, its link to erectile dysfunction, and the behavioral and pharmacological treatments supported by guidelines.",
   about: { "@type": "MedicalCondition", name: "Premature ejaculation" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function PrematureEjaculationPage() {

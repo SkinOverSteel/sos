@@ -24,7 +24,6 @@ const jsonLd = {
     "Erectile dysfunction as an early marker of cardiovascular and metabolic disease, and why it warrants a medical workup.",
   about: { "@type": "MedicalCondition", name: "Erectile dysfunction" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function SignalPage() {

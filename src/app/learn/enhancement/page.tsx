@@ -25,7 +25,6 @@ const jsonLd = {
     "An evidence-graded map of penile enhancement methods — vacuum devices, traction, fillers, surgery, manual techniques, and gray-market injections — covering efficacy, what is temporary, and injury risk.",
   about: { "@type": "MedicalProcedure", name: "Penile augmentation" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 const METHODS: { grade: Grade; name: string; what: string; verdict: string }[] = [

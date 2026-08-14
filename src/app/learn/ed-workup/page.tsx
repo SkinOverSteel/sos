@@ -24,7 +24,6 @@ const jsonLd = {
     "A step-by-step guide to how erectile dysfunction is diagnosed: history, physical exam, laboratory testing, and specialized studies — and how the workup shapes the treatment plan.",
   about: { "@type": "MedicalCondition", name: "Erectile dysfunction" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function EdWorkupPage() {

@@ -24,7 +24,6 @@ const jsonLd = {
     "How testosterone replacement therapy affects male fertility: HPG-axis suppression of sperm production, its reversibility after stopping, and fertility-preserving options such as hCG and enclomiphene.",
   about: { "@type": "MedicalCondition", name: "Male infertility" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function TrtFertilityPage() {

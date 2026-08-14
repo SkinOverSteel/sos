@@ -24,7 +24,6 @@ const jsonLd = {
     "Testosterone replacement therapy: diagnosis, safety monitoring, affordability, and the boundary between replacement and anabolic enhancement.",
   about: { "@type": "MedicalTherapy", name: "Testosterone replacement therapy" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function TestosteroneTherapyPage() {

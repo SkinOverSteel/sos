@@ -24,7 +24,6 @@ const jsonLd = {
     "Intracavernosal injection therapy (trimix/alprostadil) as second-line treatment for erectile dysfunction: how it works, the treatment ladder, legitimate sourcing, and priapism safety.",
   about: { "@type": "MedicalTherapy", name: "Intracavernosal injection therapy" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function PenileInjectionsPage() {

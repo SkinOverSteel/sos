@@ -23,7 +23,6 @@ const jsonLd = {
   description:
     "Distinguishing legitimate men's-health telemedicine from pill-mill prescribing: evaluation standards, red flags, and questions to ask.",
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 const GREEN = [

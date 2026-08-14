@@ -23,7 +23,6 @@ const jsonLd = {
   description:
     "How to fill a PDE5 inhibitor prescription cheaply through the legitimate channel: generics, transparent-pricing pharmacies, 90-day supply, and per-dose strength economics.",
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
 };
 
 export default function GenericPde5ValuePage() {

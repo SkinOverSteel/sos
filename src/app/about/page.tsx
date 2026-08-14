@@ -17,7 +17,7 @@ const jsonLd = {
   url: `${SITE.url}/about`,
   description:
     "Evidence-graded men's sexual-health education and a transparent provider directory.",
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  publisher: { "@id": `${SITE.url}/#org` },
 };
 
 export default function AboutPage() {

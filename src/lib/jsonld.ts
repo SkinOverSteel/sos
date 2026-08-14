@@ -1,11 +1,74 @@
 import { SITE } from "@/lib/site";
 import { articles, type Reviewer } from "@/lib/articles";
 
-const ORG = {
-  "@type": "Organization",
-  name: SITE.name,
-  url: SITE.url,
-} as const;
+/**
+ * Stable @id for the site's Organization node. The node itself is emitted once,
+ * site-wide, by siteJsonLd() in the root layout; article schema references it by
+ * @id so Google merges every page's markup into one connected entity graph.
+ */
+export const ORG_ID = `${SITE.url}/#org`;
+const ORG_REF = { "@id": ORG_ID } as const;
+
+/**
+ * Site-level entity graph (Organization + WebSite), rendered once in the root
+ * layout so it appears on every page. Gives search engines and LLMs a single,
+ * canonical entity to attach the whole site to.
+ *
+ * Deliberately omitted for now:
+ *  - `sameAs`: added only when real, owned profiles exist (X, Reddit, YouTube,
+ *    Wikidata). A lone code-repo link is a weak signal for a health entity.
+ *  - WebSite `potentialAction` SearchAction: no /search results page exists yet;
+ *    we don't advertise a sitelinks searchbox we can't serve.
+ */
+export function siteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": ORG_ID,
+        name: SITE.name,
+        alternateName: "SOS",
+        url: SITE.url,
+        logo: {
+          "@type": "ImageObject",
+          "@id": `${SITE.url}/#logo`,
+          url: `${SITE.url}/logo.png`,
+          contentUrl: `${SITE.url}/logo.png`,
+          width: 512,
+          height: 512,
+          caption: SITE.name,
+        },
+        image: { "@id": `${SITE.url}/#logo` },
+        slogan: SITE.tagline,
+        description:
+          "Independent, evidence-graded men's sexual-health education. Every claim carries a visible evidence grade and cites primary sources — education that bridges toward a clinician, not a pharmacy or a seller.",
+        knowsAbout: [
+          "Erectile dysfunction",
+          "Erectile function",
+          "Testosterone",
+          "Testosterone replacement therapy",
+          "Men's sexual health",
+          "Peyronie's disease",
+          "Premature ejaculation",
+          "PDE5 inhibitors",
+        ],
+        publishingPrinciples: `${SITE.url}/methodology`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE.url}/#website`,
+        name: SITE.name,
+        alternateName: "SOS",
+        url: SITE.url,
+        description:
+          "Evidence-graded men's sexual-health education and a pseudonymous community.",
+        publisher: ORG_REF,
+        inLanguage: "en-US",
+      },
+    ],
+  };
+}
 
 /**
  * Who reviewed the piece. A named clinician when one exists; otherwise an
@@ -33,6 +96,9 @@ function reviewedBy(reviewer?: Reviewer | null) {
  * JSON-LD, sourced from the article record so dates/reviewer stay consistent
  * with the visible byline. Pass the page's slug; page-specific fields
  * (`about`, `@type`, `name`, `description`) come from `base`.
+ *
+ * `author`/`publisher` reference the site Organization node by @id (see
+ * siteJsonLd), so each article connects to the one canonical entity.
  */
 export function withReview<T extends Record<string, unknown>>(base: T, slug: string) {
   const a = articles.find((x) => x.slug === slug);
@@ -48,8 +114,8 @@ export function withReview<T extends Record<string, unknown>>(base: T, slug: str
     dateModified: a.reviewed,
     lastReviewed: a.reviewed,
     reviewedBy: reviewedBy(a.reviewer),
-    author: ORG,
-    publisher: base.publisher ?? ORG,
+    author: ORG_REF,
+    publisher: ORG_REF,
     isPartOf: { "@type": "CollectionPage", name: "Learn", url: `${SITE.url}/learn` },
     ...(related.length ? { relatedLink: related } : {}),
   };

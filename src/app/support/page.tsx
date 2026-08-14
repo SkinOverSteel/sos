@@ -18,7 +18,7 @@ const jsonLd = {
     "When a prolonged erection after penile injection therapy becomes a medical emergency, how to lower the risk, and when to go to the ER.",
   about: { "@type": "MedicalCondition", name: "Priapism" },
   audience: { "@type": "Patient" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  publisher: { "@id": `${SITE.url}/#org` },
 };
 
 const mono = "var(--sos-mono)";
