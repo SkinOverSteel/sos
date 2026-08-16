@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import {
+  AFFILIATE_NETWORK_LABELS,
   CATEGORY_LABELS,
   CATEGORY_ORDER,
   TRUST_CRITERIA,
   DIRECTORY_LIVE,
   type Provider,
+  hasReferralListings,
+  providerLink,
   rankedByCategory,
   trustScore,
 } from "@/lib/providers";
@@ -45,6 +48,26 @@ export default function DirectoryPage() {
             staged for review — <strong style={{ color: "var(--sos-text-hi)" }}>not public and not yet endorsed</strong>.
             All are editorial (no paid relationship). Trust scores are drafted
             from public info and pending verification before anything goes live.
+          </p>
+        </div>
+      )}
+
+      {hasReferralListings() && (
+        <div
+          role="note"
+          className="sos-card"
+          style={{ borderLeft: "3px solid var(--sos-copper)", marginBottom: "32px" }}
+        >
+          <p className="sos-kicker" style={{ marginBottom: "8px" }}>
+            Disclosure
+          </p>
+          <p className="sos-note">
+            Some links below are referral links: if you use one, we may earn a
+            fee at no extra cost to you. Those listings are marked. The fee is
+            paid on a click or a purchase, never on a rank — every provider on
+            this page is ordered by the published trust criteria alone, and
+            removing every referral relationship tomorrow would not change a
+            single position.
           </p>
         </div>
       )}
@@ -119,6 +142,7 @@ const listStyle: React.CSSProperties = {
 
 function ProviderCard({ provider: p }: { provider: Provider }) {
   const score = trustScore(p);
+  const link = providerLink(p);
   return (
     <div className="sos-card">
       <div
@@ -175,17 +199,31 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
       >
         <span style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-text-lo)" }}>
           {p.jurisdictions}
-          {p.affiliate ? " · referral link (disclosed)" : " · editorial listing"}
+          {link.isReferral ? " · referral link" : " · editorial listing"}
         </span>
         <a
-          href={p.url}
+          href={link.href}
           target="_blank"
-          rel={p.affiliate ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+          rel={link.rel}
           style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper)" }}
         >
           Visit →
         </a>
       </div>
+
+      {link.isReferral && (
+        <p
+          className="sos-note"
+          style={{ marginTop: "10px", fontSize: "12px" }}
+        >
+          Referral link
+          {p.affiliateNetwork
+            ? ` (via ${AFFILIATE_NETWORK_LABELS[p.affiliateNetwork]})`
+            : ""}
+          : we may earn a fee if you use it, at no extra cost to you. It did not
+          affect this listing&apos;s score or position.
+        </p>
+      )}
 
       {!DIRECTORY_LIVE && p.sourceNote && (
         <p

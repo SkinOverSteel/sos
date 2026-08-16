@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import type { Metadata } from "next";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -61,6 +62,16 @@ export default function RootLayout({
       className={`${archivo.variable} ${sourceSerif.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {/*
+          Impact (impact.com) site verification for the affiliate/referral
+          program. Their tag uses a `value` attribute rather than `content`,
+          which the Metadata API cannot emit, so it is written raw here and
+          hoisted into <head> by React.
+        */}
+        {createElement("meta", {
+          name: "impact-site-verification",
+          value: "7c2d4279-c681-4725-a6fd-da4cbe019016",
+        })}
         <script
           type="application/ld+json"
           // Site-wide Organization + WebSite entity graph. Content is all

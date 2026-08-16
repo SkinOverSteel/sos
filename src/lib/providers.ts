@@ -38,11 +38,18 @@ export const TRUST_CRITERIA: TrustCriterion[] = [
   { key: "fastAccess", label: "Fast, clear turnaround", weight: 1 },
 ];
 
+/** Affiliate network a referral relationship runs through. */
+export type AffiliateNetwork = "impact";
+
+export const AFFILIATE_NETWORK_LABELS: Record<AffiliateNetwork, string> = {
+  impact: "impact.com",
+};
+
 export type Provider = {
   slug: string;
   name: string;
   category: ProviderCategory;
-  url: string; // real listing URL
+  url: string; // canonical listing URL (never a tracking link)
   blurb: string;
   jurisdictions: string;
   /** GATES — both must be true to be listed. */
@@ -51,12 +58,50 @@ export type Provider = {
   /** Scored criteria met (keys from TRUST_CRITERIA). */
   criteria: Record<string, boolean>;
   affiliate: boolean; // paid/referral relationship → disclose at the link
+  /** Network the referral runs through; owner-facing + disclosure copy. */
+  affiliateNetwork?: AffiliateNetwork;
+  /**
+   * Tracking URL from the network. Optional on purpose: a provider can be
+   * approved for a program before the link exists, and until it is filled in
+   * the card falls back to `url` and renders as an editorial listing.
+   */
+  affiliateUrl?: string;
   /** Owner-facing basis for the draft; shown only in DRAFT preview mode. */
   sourceNote?: string;
 };
 
 export function passesGates(p: Provider): boolean {
   return p.licensed && p.legitimateChannel;
+}
+
+/**
+ * Resolve the outbound link for a card.
+ *
+ * `isReferral` is what drives BOTH the FTC disclosure and rel="sponsored", so
+ * the two can never drift apart: a link is only ever disclosed as paid when a
+ * tracking URL is actually in use, and a tracking URL can never ship without
+ * its disclosure. Tracking links are used as-is (no self-redirect) so network
+ * attribution isn't broken.
+ */
+export function providerLink(p: Provider): {
+  href: string;
+  isReferral: boolean;
+  rel: string;
+} {
+  const tracking = p.affiliate ? p.affiliateUrl?.trim() : undefined;
+  const isReferral = !!tracking;
+  return {
+    href: tracking || p.url,
+    isReferral,
+    rel: isReferral
+      ? "sponsored nofollow noopener noreferrer"
+      : "noopener noreferrer",
+  };
+}
+
+/** True when any listed provider currently links out through a referral. */
+export function hasReferralListings(): boolean {
+  return providers.some((p) => passesGates(p) && providerLink(p).isReferral);
 }
 
 export function trustScore(p: Provider): number {
@@ -76,6 +121,16 @@ export function rankedByCategory(cat: ProviderCategory): Provider[] {
       (a, b) => trustScore(b) - trustScore(a) || a.name.localeCompare(b.name),
     );
 }
+
+/**
+ * Labcorp OnDemand runs its referral program through Impact (impact.com).
+ * Set NEXT_PUBLIC_AFF_LABCORP_ONDEMAND to the tracking link Impact issues once
+ * the program approves the site; until then the listing links direct and is
+ * presented as editorial. The site-verification tag Impact requires lives in
+ * the root layout.
+ */
+const LABCORP_ONDEMAND_REFERRAL =
+  process.env.NEXT_PUBLIC_AFF_LABCORP_ONDEMAND ?? "";
 
 const ALL = {
   thirdPartyVerified: true,
@@ -115,8 +170,10 @@ export const providers: Provider[] = [
     licensed: true,
     legitimateChannel: true,
     criteria: { ...ALL },
-    affiliate: false,
-    sourceNote: "Accredited national lab; transparent published prices; authorized-clinician order handled by the platform.",
+    affiliate: true,
+    affiliateNetwork: "impact",
+    affiliateUrl: LABCORP_ONDEMAND_REFERRAL,
+    sourceNote: "Accredited national lab; transparent published prices; authorized-clinician order handled by the platform. First referral relationship (Impact); its rank comes from the trust criteria alone and would be identical without it.",
   },
   {
     slug: "discounted-labs",
