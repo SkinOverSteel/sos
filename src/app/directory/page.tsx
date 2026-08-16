@@ -218,7 +218,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
         >
           Referral link
           {p.affiliateNetwork
-            ? ` (via ${AFFILIATE_NETWORK_LABELS[p.affiliateNetwork]})`
+            ? ` (${AFFILIATE_NETWORK_LABELS[p.affiliateNetwork]})`
             : ""}
           : we may earn a fee if you use it, at no extra cost to you. It did not
           affect this listing&apos;s score or position.

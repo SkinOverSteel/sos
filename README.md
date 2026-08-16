@@ -35,13 +35,20 @@ the same check drives both the FTC disclosure and `rel="sponsored nofollow"`,
 so a tracking link can never ship without its disclosure. Until the URL is set,
 the listing links direct and shows as editorial.
 
-| Env var | Provider |
-|---|---|
-| `NEXT_PUBLIC_AFF_LABCORP_ONDEMAND` | Labcorp OnDemand (Impact) |
+| Provider | Program | Tracking link |
+|---|---|---|
+| Discounted Labs | direct with the provider | in `src/lib/providers.ts` |
+| Labcorp OnDemand | Impact | `NEXT_PUBLIC_AFF_LABCORP_ONDEMAND` — not yet issued |
 
-Set these in Vercel → Project → Settings → Environment Variables (or in a local
-`.env.local`), then redeploy — `NEXT_PUBLIC_*` values are inlined at build time.
-Ranking never uses affiliate status: see `trustScore` in `src/lib/providers.ts`.
+A link that has been issued lives in `src/lib/providers.ts` so it is reviewable
+in the diff. The env var exists for links still pending: set it in Vercel →
+Settings → Environment Variables (or `.env.local`) and redeploy, since
+`NEXT_PUBLIC_*` values are inlined at build time.
+
+Tracking links are used exactly as issued — their query params carry the
+attribution, so never rewrite them, and never route them through an internal
+redirect. Ranking never reads affiliate status: see `trustScore` in
+`src/lib/providers.ts`.
 
 ## Notes
 

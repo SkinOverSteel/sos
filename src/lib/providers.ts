@@ -38,11 +38,16 @@ export const TRUST_CRITERIA: TrustCriterion[] = [
   { key: "fastAccess", label: "Fast, clear turnaround", weight: 1 },
 ];
 
-/** Affiliate network a referral relationship runs through. */
-export type AffiliateNetwork = "impact";
+/**
+ * How a referral relationship is administered: through an affiliate network,
+ * or directly with the provider's own program. Labels read as the parenthetical
+ * inside the disclosure line, so they are written to complete that sentence.
+ */
+export type AffiliateNetwork = "impact" | "direct";
 
 export const AFFILIATE_NETWORK_LABELS: Record<AffiliateNetwork, string> = {
-  impact: "impact.com",
+  impact: "via impact.com",
+  direct: "direct with the provider",
 };
 
 export type Provider = {
@@ -132,6 +137,14 @@ export function rankedByCategory(cat: ProviderCategory): Provider[] {
 const LABCORP_ONDEMAND_REFERRAL =
   process.env.NEXT_PUBLIC_AFF_LABCORP_ONDEMAND ?? "";
 
+/**
+ * Discounted Labs runs its own referral program (no network in between). The
+ * tracking link is used verbatim as issued — its query params carry the
+ * attribution, so never rewrite or "tidy" them.
+ */
+const DISCOUNTED_LABS_REFERRAL =
+  "https://www.discountedlabs.com/?refid=1ac8f259&rdvc=d&rpath=patient%2Fresults&rcmp=ic";
+
 const ALL = {
   thirdPartyVerified: true,
   priceTransparent: true,
@@ -185,8 +198,10 @@ export const providers: Provider[] = [
     licensed: true,
     legitimateChannel: true,
     criteria: { ...ALL },
-    affiliate: false,
-    sourceNote: "Founded by patient advocate Nelson Vergel; draws at Quest locations, sensitive LC/MS assays, very transparent low pricing.",
+    affiliate: true,
+    affiliateNetwork: "direct",
+    affiliateUrl: DISCOUNTED_LABS_REFERRAL,
+    sourceNote: "Founded by patient advocate Nelson Vergel; draws at Quest locations, sensitive LC/MS assays, very transparent low pricing. Referral relationship direct with the provider; it scored 100 on the criteria and ranked first among labs before the relationship existed, and would still rank first without it.",
   },
 
   // ---- Telemedicine ----
