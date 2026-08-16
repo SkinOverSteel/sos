@@ -48,6 +48,12 @@ export const metadata: Metadata = {
     description:
       "Evidence-graded men's health education and a pseudonymous community.",
   },
+  other: {
+    // FlexOffers site verification for the affiliate/referral program. This
+    // one takes a standard `content` attribute, so unlike Impact's tag (see
+    // the raw element in the body) it goes through the Metadata API.
+    "fo-verify": "5e0400cc-a61c-4ca9-b8a3-04b527848a62",
+  },
 };
 
 export default function RootLayout({
