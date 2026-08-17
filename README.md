@@ -26,24 +26,25 @@ Open http://localhost:3000.
 
 ## Affiliate / referral links
 
-Referral relationships run through affiliate networks (currently Impact,
-impact.com). The verification tag Impact requires is emitted from
-`src/app/layout.tsx`.
-
 A listing only renders as a paid referral once its tracking URL is present —
 the same check drives both the FTC disclosure and `rel="sponsored nofollow"`,
-so a tracking link can never ship without its disclosure. Until the URL is set,
-the listing links direct and shows as editorial.
+so a tracking link can never ship without its disclosure. Without a URL, the
+listing links direct and shows as editorial.
 
 | Provider | Program | Tracking link |
 |---|---|---|
 | Discounted Labs | direct with the provider | in `src/lib/providers.ts` |
-| Labcorp OnDemand | Impact | `NEXT_PUBLIC_AFF_LABCORP_ONDEMAND` — not yet issued |
 
-A link that has been issued lives in `src/lib/providers.ts` so it is reviewable
-in the diff. The env var exists for links still pending: set it in Vercel →
-Settings → Environment Variables (or `.env.local`) and redeploy, since
-`NEXT_PUBLIC_*` values are inlined at build time.
+Issued links live in `src/lib/providers.ts` so they are reviewable in the diff.
+For a link that exists but shouldn't be committed, `providerLink()` reads
+whatever string `affiliateUrl` holds, so a `process.env.NEXT_PUBLIC_*` value set
+in Vercel → Settings → Environment Variables works too — those are inlined at
+build time, so it needs a redeploy either way.
+
+Network programs (Impact, FlexOffers) were applied to in Aug 2026 and declined
+on site age; both site-verification tags have been removed, and re-applying
+means re-verifying. The `"impact"` variant of `AffiliateNetwork` is kept for
+when that happens.
 
 Tracking links are used exactly as issued — their query params carry the
 attribution, so never rewrite them, and never route them through an internal

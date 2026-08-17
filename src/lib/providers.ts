@@ -128,16 +128,6 @@ export function rankedByCategory(cat: ProviderCategory): Provider[] {
 }
 
 /**
- * Labcorp OnDemand runs its referral program through Impact (impact.com).
- * Set NEXT_PUBLIC_AFF_LABCORP_ONDEMAND to the tracking link Impact issues once
- * the program approves the site; until then the listing links direct and is
- * presented as editorial. The site-verification tag Impact requires lives in
- * the root layout.
- */
-const LABCORP_ONDEMAND_REFERRAL =
-  process.env.NEXT_PUBLIC_AFF_LABCORP_ONDEMAND ?? "";
-
-/**
  * Discounted Labs runs its own referral program (no network in between). The
  * tracking link is used verbatim as issued — its query params carry the
  * attribution, so never rewrite or "tidy" them.
@@ -183,10 +173,8 @@ export const providers: Provider[] = [
     licensed: true,
     legitimateChannel: true,
     criteria: { ...ALL },
-    affiliate: true,
-    affiliateNetwork: "impact",
-    affiliateUrl: LABCORP_ONDEMAND_REFERRAL,
-    sourceNote: "Accredited national lab; transparent published prices; authorized-clinician order handled by the platform. First referral relationship (Impact); its rank comes from the trust criteria alone and would be identical without it.",
+    affiliate: false,
+    sourceNote: "Accredited national lab; transparent published prices; authorized-clinician order handled by the platform. Editorial listing: a 2026-08 referral application was declined on site age, so there is no relationship to disclose. Its rank never depended on one.",
   },
   {
     slug: "discounted-labs",
