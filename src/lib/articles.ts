@@ -78,6 +78,26 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "penile-doppler-ultrasound",
+    title: "The penile Doppler ultrasound, explained",
+    summary:
+      "The specialized test that measures your blood flow directly — what actually happens in the room, why the injection dose can make or break the result, when a contrast study (cavernosography) comes next, and the exact numbers (PSV, EDV, RI, both sides) to ask for so you can read the study instead of just hearing \"it's fine.\"",
+    grade: "established",
+    section: "The workup",
+    published: "2026-08-22",
+    reviewed: "2026-08-22",
+  },
+  {
+    slug: "cavernosography",
+    title: "Cavernosography: mapping a venous leak",
+    summary:
+      "When the Doppler suggests blood won't stay in but can't say exactly where it's escaping, this contrast study maps it. What dynamic infusion cavernosometry and cavernosography actually involve, why it's reserved for the few men considering surgery, and the honest limits of chasing a leak.",
+    grade: "established",
+    section: "The workup",
+    published: "2026-08-22",
+    reviewed: "2026-08-22",
+  },
+  {
     slug: "read-your-labs",
     title: "Read your labs",
     summary:

@@ -161,6 +161,46 @@ export const faqs: Record<string, Faq[]> = {
       a: "A pre-mixed baggie means no verifiable source, purity, or dose — the opposite of what a licensed pharmacy provides. The form itself reveals the risk.",
     },
   ],
+  "penile-doppler-ultrasound": [
+    {
+      q: "What is a penile Doppler ultrasound and what does it show?",
+      a: "It is an ultrasound of the arteries and veins in the penis, done after an injection that produces an erection, so the clinician can measure blood flow directly. It shows whether enough blood flows in (arterial inflow) and whether it stays in (venous leak) — the two vascular questions pills can't answer. It's a specialized test, not a routine one; most men never need it.",
+    },
+    {
+      q: "How much does a penile Doppler ultrasound cost?",
+      a: "It varies widely by location and setting — commonly a few hundred to around a thousand dollars. Ask for the price and whether your insurance covers it before you book, and confirm whether a follow-up contrast study would be billed separately.",
+    },
+    {
+      q: "Why does the injection dose matter for the result?",
+      a: "The test needs a full erection to measure blood flow accurately. If the in-office injection doesn't fully engage the erection, the study can show a venous leak that wouldn't appear at a proper dose — a false positive. That's why it's worth telling the clinician exactly what you normally use to achieve a reliable erection, so the study reflects your real physiology rather than an under-dosed snapshot.",
+    },
+    {
+      q: "What is cavernosography and when is it used?",
+      a: "Cavernosography is a follow-up test that uses injected contrast dye and imaging to see venous leak more clearly — think of it like the difference between imaging with and without contrast. It's more invasive, so it's usually reserved for when the Doppler is inconclusive or a leak needs to be mapped before considering surgery.",
+    },
+    {
+      q: "What are PSV, EDV, and RI on a penile Doppler report?",
+      a: "They're the core measurements. PSV (peak systolic velocity) reflects arterial inflow — higher is better. EDV (end-diastolic velocity) reflects whether blood is draining back out — lower is better. RI (resistive index) combines the two. Ask for all three for both the right and left sides, because a normal result on one side doesn't rule out a problem on the other. The specific numbers are interpreted by your clinician against the lab's reference values.",
+    },
+  ],
+  cavernosography: [
+    {
+      q: "What is cavernosography?",
+      a: "Cavernosography is an imaging test that maps venous leak in the penis. Contrast dye is injected while the penis is kept erect with a saline infusion, and X-ray or fluoroscopy shows where blood — and dye — is escaping. It's usually paired with dynamic infusion cavernosometry, which measures the pressures involved, so the two are often described together.",
+    },
+    {
+      q: "How is cavernosography different from a penile Doppler ultrasound?",
+      a: "The Doppler is the first-line vascular test: non-invasive ultrasound that measures inflow and hints at leak. Cavernosography is the more invasive follow-up, using contrast dye to show exactly where a leak is. Think of it as imaging with contrast versus without — same question, sharper and more localized picture. The Doppler almost always comes first.",
+    },
+    {
+      q: "When is cavernosography needed?",
+      a: "Rarely, and only for specific reasons — most often when the Doppler suggests venous leak and a man is a candidate for surgery, so the surgeon needs to know precisely where the leak is. It's not part of a routine ED workup and most men never need it.",
+    },
+    {
+      q: "Does cavernosography change the treatment?",
+      a: "Only in a narrow set of cases. Venous leak surgery has a limited and often disappointing track record, so mapping a leak is worthwhile mainly when it will genuinely guide a procedure. For most men, effective treatment — pills, injections, a vacuum device, or an implant — doesn't depend on this level of detail. That's a conversation to have with a urologist before agreeing to the test.",
+    },
+  ],
   "ed-workup": [
     {
       q: "How is erectile dysfunction diagnosed?",
