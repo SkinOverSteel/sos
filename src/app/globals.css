@@ -136,6 +136,26 @@ a.sos-card:hover {
   background: var(--sos-line);
 }
 
+/* ---- Morse SOS as a transmitting loader (the brand's "loading" state) ----
+   Bars pulse left-to-right, like a signal going out. The global
+   prefers-reduced-motion rule (tokens.css) strips the animation, leaving the
+   static signature — so the loader degrades to the mark itself. ---- */
+.sos-morse--loading i {
+  animation: sos-morse-transmit 1.4s ease-in-out infinite;
+}
+.sos-morse--loading i:nth-child(2) { animation-delay: 0.11s; }
+.sos-morse--loading i:nth-child(3) { animation-delay: 0.22s; }
+.sos-morse--loading i:nth-child(4) { animation-delay: 0.33s; }
+.sos-morse--loading i:nth-child(5) { animation-delay: 0.44s; }
+.sos-morse--loading i:nth-child(6) { animation-delay: 0.55s; }
+.sos-morse--loading i:nth-child(7) { animation-delay: 0.66s; }
+.sos-morse--loading i:nth-child(8) { animation-delay: 0.77s; }
+.sos-morse--loading i:nth-child(9) { animation-delay: 0.88s; }
+@keyframes sos-morse-transmit {
+  0%, 100% { opacity: 0.28; }
+  45% { opacity: 1; }
+}
+
 /* ---- workup path: numbered vertical stepper with a traveling copper glow.
    The global prefers-reduced-motion rule (tokens.css) stills the animation. ---- */
 .sos-steps {
@@ -355,4 +375,109 @@ a.sos-card:hover {
 .sos-seg button[aria-pressed="true"] {
   background: var(--sos-e3);
   color: var(--sos-copper);
+}
+
+/* ---- clinician-export letterhead (the one-page a member hands their doctor).
+   The component sets data-theme="light", so every token below resolves to the
+   ink-on-white print palette regardless of the app's dark canvas. ---- */
+.sos-letterhead {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--sos-e2);
+  color: var(--sos-text-hi);
+  border: 1px solid var(--sos-line);
+  border-radius: 10px;
+  padding: 40px 44px;
+  font-family: var(--sos-serif);
+}
+.sos-letterhead__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--sos-copper);
+}
+.sos-letterhead__kicker {
+  font-family: var(--sos-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+}
+.sos-letterhead__title {
+  font-family: var(--sos-sans);
+  font-weight: 800;
+  font-stretch: 88%;
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--sos-text-hi);
+  margin: 22px 0 6px;
+}
+.sos-letterhead__sub {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  color: var(--sos-text-lo);
+  margin: 0;
+}
+.sos-letterhead__body {
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--sos-text-md);
+}
+.sos-letterhead__legend {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border: 1px solid var(--sos-line);
+  border-radius: 8px;
+  background: var(--sos-e1);
+}
+.sos-letterhead__legend-title {
+  font-family: var(--sos-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+  margin: 0 0 12px;
+}
+.sos-letterhead__legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+}
+.sos-letterhead__legend-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--sos-text-md);
+}
+.sos-letterhead__foot {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--sos-line);
+  font-family: var(--sos-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--sos-text-lo);
+}
+
+/* On paper, drop the app chrome and let the letterhead fill the page. */
+@media print {
+  body {
+    background: #fff;
+  }
+  body > header,
+  body > footer {
+    display: none;
+  }
+  .sos-letterhead {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    max-width: none;
+  }
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MorseSOS } from "@/components/MorseSOS";
 
 export const metadata: Metadata = {
   title: "Signal lost (404)",
@@ -52,17 +53,7 @@ export default function NotFound() {
       </p>
 
       {/* Dimmed Morse SOS — the signal, gone quiet */}
-      <div className="sos-morse dim" style={{ margin: "40px auto 0", width: "fit-content" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS dim style={{ margin: "40px auto 0", width: "fit-content" }} />
 
       <div
         style={{

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { EvidenceBadge, type Grade } from "@/components/EvidenceBadge";
+import { MorseSOS } from "@/components/MorseSOS";
 import { articles } from "@/lib/articles";
 
 // The site-wide WebSite + Organization graph is emitted once in the root
@@ -88,21 +89,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div
-          className="sos-morse"
-          style={{ margin: "48px auto 0", width: "fit-content" }}
-          aria-hidden="true"
-        >
-          <i className="dot" />
-          <i className="dot" />
-          <i className="dot" />
-          <i className="dash" />
-          <i className="dash" />
-          <i className="dash" />
-          <i className="dot" />
-          <i className="dot" />
-          <i className="dot" />
-        </div>
+        <MorseSOS style={{ margin: "48px auto 0", width: "fit-content" }} />
       </section>
 
       {/* Thesis */}
