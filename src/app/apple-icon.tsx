@@ -1,10 +1,20 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 /**
  * Apple touch icon (180×180). Padded, opaque steel plate with the copper
  * italic "S" mark + Morse SOS dots — mirrors src/app/icon.svg, sized for the
  * iOS home-screen tile (no transparency, generous padding per Apple guidance).
+ *
+ * The "S" is set in Source Serif 4 (the brand serif) to match the favicon.
+ * Satori has no system fonts, so naming a family alone renders the fallback
+ * sans — the face has to be supplied as data. We load a single-glyph subset
+ * (see _fonts/) at build time; force-static keeps this a build-time render,
+ * so the font file is never needed by the runtime.
  */
+export const dynamic = "force-static";
+
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
@@ -12,7 +22,11 @@ export const contentType = "image/png";
 const E0 = "#12161A";
 const COPPER = "#C97438";
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const serif = await readFile(
+    join(process.cwd(), "src/app/_fonts/SourceSerif4-BoldItalic-S.ttf"),
+  );
+
   return new ImageResponse(
     (
       <div
@@ -33,7 +47,7 @@ export default function AppleIcon() {
             fontSize: 120,
             fontWeight: 700,
             fontStyle: "italic",
-            fontFamily: "Georgia, 'Times New Roman', serif",
+            fontFamily: "Source Serif 4",
             color: COPPER,
             lineHeight: 1,
             marginTop: 8,
@@ -58,6 +72,11 @@ export default function AppleIcon() {
         </div>
       </div>
     ),
-    { ...size },
+    {
+      ...size,
+      fonts: [
+        { name: "Source Serif 4", data: serif, style: "italic", weight: 700 },
+      ],
+    },
   );
 }
