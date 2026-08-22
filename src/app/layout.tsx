@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { siteJsonLd } from "@/lib/jsonld";
@@ -21,6 +21,12 @@ const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
+
+// Steel page token — colors the mobile browser chrome (address bar) before the
+// manifest loads. Matches manifest theme_color/background_color.
+export const viewport: Viewport = {
+  themeColor: "#12161A",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://skinoversteel.com"),

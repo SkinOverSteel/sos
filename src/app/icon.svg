@@ -1,0 +1,23 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skin Over Steel">
+  <defs>
+    <radialGradient id="sosGlow" cx="18%" cy="0%" r="85%">
+      <stop offset="0%" stop-color="#C97438" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#12161A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- steel plate (E0) -->
+  <rect width="32" height="32" rx="7" fill="#12161A"/>
+  <rect width="32" height="32" rx="7" fill="url(#sosGlow)"/>
+  <rect x="0.6" y="0.6" width="30.8" height="30.8" rx="6.4" fill="none" stroke="#333B44" stroke-width="1.2"/>
+  <!-- copper italic S — the warm mark over steel -->
+  <text x="16.4" y="21.4" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="21" font-weight="700" font-style="italic"
+        fill="#C97438">S</text>
+  <!-- signature: Morse SOS dots ( ··· ) -->
+  <g fill="#C97438">
+    <circle cx="12.4" cy="26.4" r="1.15"/>
+    <circle cx="16" cy="26.4" r="1.15"/>
+    <circle cx="19.6" cy="26.4" r="1.15"/>
+  </g>
+</svg>
