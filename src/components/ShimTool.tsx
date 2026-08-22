@@ -2,6 +2,8 @@
 
 import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
+import { EvidenceBadge } from "@/components/EvidenceBadge";
 
 /**
  * The SHIM / IIEF-5 self-check — an interactive, client-only scoring of the
@@ -112,11 +114,33 @@ function bandFor(total: number): Band {
   };
 }
 
+// Short item labels for the clinician summary (order matches QUESTIONS).
+const ITEM_SHORT = [
+  "Confidence",
+  "Firmness for penetration",
+  "Maintenance after penetration",
+  "Maintenance to completion",
+  "Intercourse satisfaction",
+];
+
+/** One labeled row inside the clinician-summary table. */
+function ExportRow({ k, v }: { k: string; v: string }) {
+  return (
+    <tr style={{ borderBottom: "1px solid var(--sos-line)" }}>
+      <td style={{ padding: "6px 0", color: "var(--sos-text-lo)" }}>{k}</td>
+      <td style={{ padding: "6px 0", textAlign: "right", fontWeight: 700, color: "var(--sos-text-hi)" }}>
+        {v}
+      </td>
+    </tr>
+  );
+}
+
 export function ShimTool() {
   const [answers, setAnswers] = useState<(number | null)[]>(
     Array(QUESTIONS.length).fill(null),
   );
   const [shown, setShown] = useState(false);
+  const [stamp, setStamp] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
 
   const answeredCount = answers.filter((a) => a !== null).length;
@@ -137,6 +161,13 @@ export function ShimTool() {
   function reveal() {
     if (!complete) return;
     setShown(true);
+    setStamp(
+      new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+    );
     // Move focus to the readout so screen readers announce it and keyboard
     // users land on the result. rAF lets the region mount first.
     requestAnimationFrame(() => resultRef.current?.focus());
@@ -213,6 +244,7 @@ export function ShimTool() {
       </form>
 
       {shown && band && (
+        <>
         <div
           ref={resultRef}
           tabIndex={-1}
@@ -299,6 +331,68 @@ export function ShimTool() {
             Start over
           </button>
         </div>
+
+        <div className="sos-clinician" style={{ marginTop: "30px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "12px",
+              marginBottom: "14px",
+            }}
+          >
+            <p className="sos-kicker" style={{ margin: 0 }}>
+              For your clinician
+            </p>
+            <button
+              type="button"
+              className="sos-btn sos-btn--ghost"
+              onClick={() => window.print()}
+              style={{ border: "1px solid var(--sos-line)", cursor: "pointer" }}
+            >
+              Print / save as PDF
+            </button>
+          </div>
+
+          <div className="sos-clinician-print">
+            <ClinicianLetterhead title="Erectile-function self-check (IIEF-5 / SHIM)" date={stamp}>
+              <p style={{ marginTop: 0 }}>
+                The validated IIEF-5 / SHIM screen (Rosen et al., 1999),
+                self-scored for the past six months — a screen to inform a
+                conversation, not a diagnosis.
+              </p>
+              <p style={{ fontFamily: "var(--sos-mono)", margin: "16px 0" }}>
+                <span style={{ fontSize: "28px", fontWeight: 700, color: "var(--sos-text-hi)" }}>
+                  {total} / 25
+                </span>
+                <span style={{ marginLeft: "14px", color: "var(--sos-text-lo)" }}>
+                  Severity:{" "}
+                  <strong style={{ color: "var(--sos-text-hi)" }}>{band.label}</strong>
+                </span>
+              </p>
+              <p className="sos-letterhead__legend-title" style={{ margin: "0 0 8px" }}>
+                Item scores (1&ndash;5)
+              </p>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--sos-mono)", fontSize: "13px" }}>
+                <tbody>
+                  {ITEM_SHORT.map((label, i) => (
+                    <ExportRow key={label} k={`${i + 1}. ${label}`} v={String(answers[i] ?? "—")} />
+                  ))}
+                </tbody>
+              </table>
+              <p style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "16px" }}>
+                <EvidenceBadge grade="established" />
+                <span>
+                  The IIEF-5 is a validated screening instrument for erectile
+                  dysfunction.
+                </span>
+              </p>
+            </ClinicianLetterhead>
+          </div>
+        </div>
+        </>
       )}
     </div>
   );
