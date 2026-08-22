@@ -2,6 +2,8 @@
 
 import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
+import { EvidenceBadge } from "@/components/EvidenceBadge";
 
 /**
  * Free & bioavailable testosterone by the Vermeulen method (Vermeulen A, et al.
@@ -76,6 +78,18 @@ function freePctNote(pct: number): string {
 
 const fmt = (n: number, d = 1) => (Number.isFinite(n) ? n.toFixed(d) : "—");
 
+/** One labeled row inside the clinician-summary tables. */
+function ExportRow({ k, v }: { k: string; v: string }) {
+  return (
+    <tr style={{ borderBottom: "1px solid var(--sos-line)" }}>
+      <td style={{ padding: "6px 0", color: "var(--sos-text-lo)" }}>{k}</td>
+      <td style={{ padding: "6px 0", textAlign: "right", fontWeight: 700, color: "var(--sos-text-hi)" }}>
+        {v}
+      </td>
+    </tr>
+  );
+}
+
 export function FreeTestosteroneCalc() {
   const [totalT, setTotalT] = useState("");
   const [tUnit, setTUnit] = useState<TUnit>("ng/dL");
@@ -83,6 +97,7 @@ export function FreeTestosteroneCalc() {
   const [albumin, setAlbumin] = useState("");
   const [aUnit, setAUnit] = useState<AUnit>("g/dL");
   const [shown, setShown] = useState(false);
+  const [stamp, setStamp] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
 
   const tt = parseFloat(totalT);
@@ -98,6 +113,13 @@ export function FreeTestosteroneCalc() {
   function calculate() {
     if (!valid) return;
     setShown(true);
+    setStamp(
+      new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+    );
     requestAnimationFrame(() => resultRef.current?.focus());
   }
   function clear() {
@@ -234,6 +256,7 @@ export function FreeTestosteroneCalc() {
       </form>
 
       {shown && result && (
+        <>
         <div
           ref={resultRef}
           tabIndex={-1}
@@ -326,6 +349,88 @@ export function FreeTestosteroneCalc() {
             Clear
           </button>
         </div>
+
+        <div className="sos-clinician" style={{ marginTop: "30px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "12px",
+              marginBottom: "14px",
+            }}
+          >
+            <p className="sos-kicker" style={{ margin: 0 }}>
+              For your clinician
+            </p>
+            <button
+              type="button"
+              className="sos-btn sos-btn--ghost"
+              onClick={() => window.print()}
+              style={{ border: "1px solid var(--sos-line)", cursor: "pointer" }}
+            >
+              Print / save as PDF
+            </button>
+          </div>
+
+          <div className="sos-clinician-print">
+            <ClinicianLetterhead title="Free-testosterone estimate" date={stamp}>
+              <p style={{ marginTop: 0 }}>
+                Estimated from a blood test by the Vermeulen method — shared to
+                support a conversation about androgen status, not as a diagnosis.
+              </p>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "24px",
+                  margin: "18px 0",
+                }}
+              >
+                <div>
+                  <p className="sos-letterhead__legend-title" style={{ margin: "0 0 8px" }}>
+                    Inputs
+                  </p>
+                  <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--sos-mono)", fontSize: "13px" }}>
+                    <tbody>
+                      <ExportRow k="Total testosterone" v={`${totalT} ${tUnit}`} />
+                      <ExportRow k="SHBG" v={`${shbg} nmol/L`} />
+                      <ExportRow
+                        k="Albumin"
+                        v={
+                          albumin.trim() === ""
+                            ? `${aUnit === "g/dL" ? "4.3 g/dL" : "43 g/L"} (assumed)`
+                            : `${albumin} ${aUnit}`
+                        }
+                      />
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                  <p className="sos-letterhead__legend-title" style={{ margin: "0 0 8px" }}>
+                    Estimate (Vermeulen)
+                  </p>
+                  <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--sos-mono)", fontSize: "13px" }}>
+                    <tbody>
+                      <ExportRow k="Free testosterone" v={`${fmt(result.freeNgdl)} ng/dL`} />
+                      <ExportRow k="Free fraction" v={`${fmt(result.freePct, 1)}% of total`} />
+                      <ExportRow k="Bioavailable T" v={`${fmt(result.bioNgdl, 0)} ng/dL`} />
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p style={{ display: "flex", alignItems: "center", gap: "10px", margin: 0 }}>
+                <EvidenceBadge grade="established" />
+                <span>
+                  The Vermeulen calculation is a validated estimate of free
+                  testosterone when equilibrium dialysis isn&apos;t available.
+                </span>
+              </p>
+            </ClinicianLetterhead>
+          </div>
+        </div>
+        </>
       )}
     </div>
   );

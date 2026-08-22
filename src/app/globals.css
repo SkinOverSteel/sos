@@ -480,4 +480,19 @@ a.sos-card:hover {
     padding: 0;
     max-width: none;
   }
+  /* On a tool page, print only the clinician summary — not the calculator UI.
+     Scoped with :has() so pages without a summary still print normally. */
+  body:has(.sos-clinician-print) * {
+    visibility: hidden;
+  }
+  body:has(.sos-clinician-print) .sos-clinician-print,
+  body:has(.sos-clinician-print) .sos-clinician-print * {
+    visibility: visible;
+  }
+  body:has(.sos-clinician-print) .sos-clinician-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
 }

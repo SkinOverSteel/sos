@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { siteJsonLd } from "@/lib/jsonld";
+import { Wordmark } from "@/components/Wordmark";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -85,20 +86,8 @@ export default function RootLayout({
             borderBottom: "1px solid var(--sos-line-soft)",
           }}
         >
-          <Link
-            href="/"
-            className="uppercase"
-            style={{
-              fontFamily: "var(--sos-sans)",
-              fontWeight: 800,
-              fontStretch: "84%",
-              fontSize: "15px",
-              letterSpacing: "0.02em",
-              color: "var(--sos-text-hi)",
-              textDecoration: "none",
-            }}
-          >
-            Skin Over Steel
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <Wordmark />
           </Link>
           <a
             href="/support"
