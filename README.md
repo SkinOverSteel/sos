@@ -1,57 +1,71 @@
 # skinoversteel.com
 
-Website for **skinoversteel.com** (SOS).
+Website for **Skin Over Steel** (SOS) — a men's health platform covering sexual health, hormonal optimization, and harm reduction, with evidence-graded editorial content and a vetted provider directory.
 
-- **Canonical domain:** https://skinoversteel.com (www → non-www redirect handled at the host/Vercel level)
+- **Canonical domain:** <https://skinoversteel.com> (www → non-www redirect handled at the host/Vercel level)
 - **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
 - **Hosting:** Vercel
 
 ## Local development
+
+Requires Node.js 20+.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000.
+Open <http://localhost:3000>.
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start the dev server (Turbopack) |
-| `npm run build` | Production build |
-| `npm run start` | Serve the production build |
-| `npm run lint` | Run ESLint |
+| Command         | Description                                        |
+| --------------- | -------------------------------------------------- |
+| `npm run dev`   | Start the dev server (Turbopack)                   |
+| `npm run build` | Production build                                   |
+| `npm run start` | Serve the production build                         |
+| `npm run lint`  | Run ESLint                                         |
+| `npm run gsc`   | Google Search Console report (`scripts/gsc-report.mjs`) |
 
-## Affiliate / referral links
+## Repository structure
 
-A listing only renders as a paid referral once its tracking URL is present —
-the same check drives both the FTC disclosure and `rel="sponsored nofollow"`,
-so a tracking link can never ship without its disclosure. Without a URL, the
-listing links direct and shows as editorial.
+| Path        | Contents                                            |
+| ----------- | --------------------------------------------------- |
+| `src/`      | Application code (App Router pages, components, `lib/`) |
+| `public/`   | Static assets                                       |
+| `brand/`    | Brand assets and design references                  |
+| `scripts/`  | Operational scripts (GSC reporting)                 |
+| `.claude/`  | Claude Code configuration                           |
+| `CLAUDE.md` | Project context for Claude Code                     |
+| `AGENTS.md` | Agent instructions, incl. Next.js 16 conventions    |
 
-| Provider | Program | Tracking link |
-|---|---|---|
-| Discounted Labs | direct with the provider | in `src/lib/providers.ts` |
+## Affiliate link mechanism
 
-Issued links live in `src/lib/providers.ts` so they are reviewable in the diff.
-For a link that exists but shouldn't be committed, `providerLink()` reads
-whatever string `affiliateUrl` holds, so a `process.env.NEXT_PUBLIC_*` value set
-in Vercel → Settings → Environment Variables works too — those are inlined at
-build time, so it needs a redeploy either way.
+Consumer-facing disclosure lives on the site itself (see `src/lib/providers.ts`
+and the directory components). This section documents the invariants for anyone
+editing that code. Editorial ranking and referral monetization are decoupled by
+design:
 
-Network programs (Impact, FlexOffers) were applied to in Aug 2026 and declined
-on site age; both site-verification tags have been removed, and re-applying
-means re-verifying. The `"impact"` variant of `AffiliateNetwork` is kept for
-when that happens.
+- A listing renders as a paid referral **only** when its tracking URL is
+  present in `src/lib/providers.ts`. The same check drives both the FTC
+  disclosure and `rel="sponsored nofollow"`, so a tracking link can never
+  ship without its disclosure. Without a URL, the listing links direct and
+  shows as editorial.
+- Issued links live in `src/lib/providers.ts` so they are reviewable in the
+  diff. `providerLink()` reads whatever string `affiliateUrl` holds, so a
+  `NEXT_PUBLIC_*` environment variable set in Vercel works for links that
+  shouldn't be committed (env vars are inlined at build time — a change
+  requires a redeploy either way).
+- Tracking links are used exactly as issued. Their query params carry the
+  attribution — never rewrite them, never route them through an internal
+  redirect.
+- **Ranking never reads affiliate status.** See `trustScore` in
+  `src/lib/providers.ts`.
 
-Tracking links are used exactly as issued — their query params carry the
-attribution, so never rewrite them, and never route them through an internal
-redirect. Ranking never reads affiliate status: see `trustScore` in
-`src/lib/providers.ts`.
+Current program status and application history live in `CLAUDE.md`.
 
 ## Notes
 
-- This project uses Next.js 16 — see `AGENTS.md`; check the bundled docs in `node_modules/next/dist/docs/` before relying on older conventions.
+- This project uses Next.js 16 — see `AGENTS.md`; check the bundled docs in
+  `node_modules/next/dist/docs/` before relying on older conventions.
 - SEO canonical URLs are configured via `metadataBase` in `src/app/layout.tsx`.
