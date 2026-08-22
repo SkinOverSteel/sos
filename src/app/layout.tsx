@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Link from "next/link";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { siteJsonLd } from "@/lib/jsonld";
@@ -84,7 +85,7 @@ export default function RootLayout({
             borderBottom: "1px solid var(--sos-line-soft)",
           }}
         >
-          <a
+          <Link
             href="/"
             className="uppercase"
             style={{
@@ -98,7 +99,7 @@ export default function RootLayout({
             }}
           >
             Skin Over Steel
-          </a>
+          </Link>
           <a
             href="/support"
             className="uppercase"
