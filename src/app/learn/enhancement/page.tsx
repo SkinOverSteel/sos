@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -102,17 +103,7 @@ export default function EnhancementPage() {
         gradeNote="This field runs from a legitimate medical device to injections that cause permanent injury — the top grade flags the category; each method is graded on its own below."
       />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         The enhancement market runs on anxiety, and it sells everything from a

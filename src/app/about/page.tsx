@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
@@ -31,17 +32,7 @@ export default function AboutPage() {
         What this is
       </h1>
 
-      <div className="sos-morse" style={{ margin: "30px 0 40px" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "30px 0 40px" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         <strong>Skin Over Steel</strong> is evidence-graded education and a

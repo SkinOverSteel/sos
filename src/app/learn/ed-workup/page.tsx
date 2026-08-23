@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -39,17 +40,7 @@ export default function EdWorkupPage() {
       </h1>
       <ArticleMeta slug="ed-workup" />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         Erectile dysfunction is a <strong>symptom, not a diagnosis</strong>. The
@@ -160,7 +151,7 @@ export default function EdWorkupPage() {
           Most men never need more than a history, an exam, and blood work — and
           it&apos;s worth knowing that up front. A minority need more.{" "}
           <strong>Specialized testing</strong> — overnight erection monitoring
-          (nocturnal penile tumescence), a <strong>penile duplex ultrasound</strong>{" "}
+          (<Link href="/learn/nocturnal-tumescence-testing">nocturnal penile tumescence</Link>), a <strong><Link href="/learn/penile-doppler-ultrasound">penile duplex ultrasound</Link></strong>{" "}
           to look at blood flow directly, or an in-office{" "}
           <strong>injection test</strong> — is reserved for specific situations:
           younger men, a history of pelvic trauma or surgery, curvature

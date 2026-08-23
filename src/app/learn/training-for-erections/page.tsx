@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -42,17 +43,7 @@ export default function TrainingForErectionsPage() {
         gradeNote="That exercise improves erectile function is well established; the emphasis on higher-intensity and anaerobic training is the emerging, mechanism-driven frontier — the ED-outcome trials are still catching up to the physiology."
       />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         An erection is, mechanically, a <strong>vascular event</strong>: blood in,

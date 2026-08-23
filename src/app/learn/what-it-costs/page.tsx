@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
@@ -38,17 +39,7 @@ export default function WhatItCostsPage() {
       </h1>
       <ArticleMeta slug="what-it-costs" gradeNote="Cost-stack structure is well established; specific figures are illustrative 2026 ranges." />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "16px" }}>
         The number you pay is never one number. It&apos;s a{" "}

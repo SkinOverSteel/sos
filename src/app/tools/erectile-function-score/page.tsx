@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
@@ -89,17 +90,7 @@ export default function ErectileFunctionScorePage() {
         right next step.
       </p>
 
-      <div className="sos-morse" style={{ margin: "28px 0 34px" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "28px 0 34px" }} />
 
       <ShimTool />
 

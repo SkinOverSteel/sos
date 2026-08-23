@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
@@ -38,17 +39,7 @@ export default function GenericPde5ValuePage() {
       </h1>
       <ArticleMeta slug="generic-pde5-value" />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         If you&apos;re a long-term PDE5 user, you&apos;re probably overpaying. Both

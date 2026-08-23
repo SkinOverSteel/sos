@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -40,17 +41,7 @@ export default function Pde5Page() {
       </h1>
       <ArticleMeta slug="pde5-long-term" gradeNote="The vascular-benefit and drug-selection theses are emerging / largely observational. The nitrate contraindication is Established." />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       {/* Safety callout — read first */}
       <aside

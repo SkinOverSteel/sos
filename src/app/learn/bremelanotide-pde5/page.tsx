@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { withReview } from "@/lib/jsonld";
@@ -39,17 +40,7 @@ export default function BremelanotidePde5Page() {
       </h1>
       <ArticleMeta slug="bremelanotide-pde5" gradeNote="The combination in men is early-stage and off-label. Bremelanotide's blood-pressure effect and cardiovascular contraindications are Established from its FDA label." />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       {/* Safety callout — read first */}
       <aside

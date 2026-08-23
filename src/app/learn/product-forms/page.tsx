@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { JsonLd } from "@/components/JsonLd";
@@ -38,17 +39,7 @@ export default function ProductFormsPage() {
       </h1>
       <ArticleMeta slug="product-forms" />
 
-      <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dash" />
-        <i className="dot" />
-        <i className="dot" />
-        <i className="dot" />
-      </div>
+      <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         When you buy an injectable peptide or ED medication, the{" "}

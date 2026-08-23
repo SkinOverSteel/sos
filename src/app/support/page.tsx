@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MorseSOS } from "@/components/MorseSOS";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -123,17 +124,7 @@ export default function SupportPage() {
           Established
         </span>
 
-        <div className="sos-morse" style={{ margin: "34px 0" }} aria-hidden="true">
-          <i className="dot" />
-          <i className="dot" />
-          <i className="dot" />
-          <i className="dash" />
-          <i className="dash" />
-          <i className="dash" />
-          <i className="dot" />
-          <i className="dot" />
-          <i className="dot" />
-        </div>
+        <MorseSOS style={{ margin: "34px 0" }} />
 
         <Section title="What's happening">
           <p style={pStyle}>
