@@ -24,7 +24,7 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
 });
 
-// Steel page token — colors the mobile browser chrome (address bar) before the
+// Steel page token: colors the mobile browser chrome (address bar) before the
 // manifest loads. Matches manifest theme_color/background_color.
 export const viewport: Viewport = {
   themeColor: "#12161A",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | Skin Over Steel",
   },
   description:
-    "Evidence-graded men's health education and a pseudonymous community. The conversation your urologist doesn't have time for.",
+    "Evidence-graded men's sexual-health education, private self-assessment tools, and a transparent directory of licensed providers. The conversation your urologist doesn't have time for.",
   alternates: {
     canonical: "/",
   },
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     siteName: "Skin Over Steel",
     title: "Skin Over Steel",
     description:
-      "Evidence-graded men's health education and a pseudonymous community.",
+      "Evidence-graded men's sexual-health education, private tools, and a transparent provider directory.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Skin Over Steel",
     description:
-      "Evidence-graded men's health education and a pseudonymous community.",
+      "Evidence-graded men's sexual-health education, private tools, and a transparent provider directory.",
   },
 };
 
@@ -152,9 +152,9 @@ export default function RootLayout({
               maxWidth: "68ch",
             }}
           >
-            © Skin Over Steel. Education, not medical advice — bridges toward your
-            clinician, never around them. Not a pharmacy and not a seller. Where
-            we list licensed providers, we may earn a referral fee, always
+            © Skin Over Steel. Education, not medical advice. It bridges toward
+            your clinician, never around them. Not a pharmacy and not a seller.
+            Where we list licensed providers, we may earn a referral fee, always
             disclosed at the link; a paid relationship never changes an evidence
             grade or a ranking.
           </p>

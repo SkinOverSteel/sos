@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Skin Over Steel — evidence-graded men's sexual health";
+  "Skin Over Steel: evidence-graded men's sexual health";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Brand tokens (inlined — ImageResponse can't read external CSS).
+// Brand tokens (inlined; ImageResponse can't read external CSS).
 const E0 = "#12161A";
 const COPPER = "#C97438";
 const BONE = "#E8EAEC";

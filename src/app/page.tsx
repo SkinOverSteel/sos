@@ -2,6 +2,8 @@ import Link from "next/link";
 import { EvidenceBadge, type Grade } from "@/components/EvidenceBadge";
 import { MorseSOS } from "@/components/MorseSOS";
 import { articles } from "@/lib/articles";
+import { liveTools } from "@/lib/tools";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 // The site-wide WebSite + Organization graph is emitted once in the root
 // layout (see lib/jsonld.ts → siteJsonLd), so the homepage no longer repeats it.
@@ -67,9 +69,9 @@ export default function Home() {
           The conversation your urologist doesn&apos;t have time for.
         </p>
         <p className="sos-prose" style={{ maxWidth: "52ch", margin: "18px auto 0", fontSize: "17px" }}>
-          Evidence-graded education and a pseudonymous community for men&apos;s
-          sexual health — bridging toward medicine, never around it. No hype, no
-          shame, no supplement funnel.
+          Evidence-graded education, private self-assessment tools, and a
+          transparent directory of licensed providers. No hype, no shame, no
+          supplement funnel.
         </p>
 
         <div
@@ -99,15 +101,15 @@ export default function Home() {
             Trust is the product
           </h2>
           <p className="sos-prose" style={{ maxWidth: "62ch" }}>
-            Sexual-health information online is mostly funnels — content built to
-            sell you something. This is the opposite: every claim carries a visible
-            evidence grade, sources are named, and the whole point is to get you to
-            a clinician better informed, not to sell you around one.
+            Sexual-health information online is mostly funnels: content built to
+            sell you something. This is the opposite. Every claim carries a visible
+            evidence grade, sources are named, and the point is to get you to a
+            clinician better informed, not to sell you around one.
           </p>
         </div>
       </section>
 
-      {/* Start here — featured articles */}
+      {/* Start here: featured articles */}
       <section>
         <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
           <div
@@ -179,6 +181,74 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Tools */}
+      <section>
+        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              justifyContent: "space-between",
+              gap: "12px",
+              flexWrap: "wrap",
+              marginBottom: "20px",
+            }}
+          >
+            <h2 className="sos-h2">Instruments, not opinions</h2>
+            <Link
+              href="/tools"
+              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
+            >
+              All tools →
+            </Link>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+            {liveTools.map((t) => (
+              <Link
+                key={t.slug}
+                href={`/tools/${t.slug}`}
+                className="sos-card"
+                style={{ display: "block", textDecoration: "none" }}
+              >
+                <span className="sos-kicker">{t.kind}</span>
+                <h3 className="sos-h2" style={{ fontSize: "18px", textTransform: "none", margin: "8px 0 6px" }}>
+                  {t.title}
+                </h3>
+                <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+                  {t.blurb}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Vault (coming) */}
+      <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
+        <div className="sos-container" style={{ paddingTop: "48px", paddingBottom: "80px" }}>
+          <p className="sos-kicker" style={{ marginBottom: "14px" }}>
+            The Vault · being built
+          </p>
+          <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
+            A place to log the work
+          </h2>
+          <p className="sos-prose" style={{ maxWidth: "62ch" }}>
+            The library is the open floor. The next layer is private: The Log, an
+            n=1 tracker that runs from baseline through intervention to outcome,
+            publishable with its evidence grade attached and exportable as a
+            one-page summary for your clinician. Pseudonymous by default, with
+            reputation earned through the work instead of likes.
+          </p>
+          <p
+            className="sos-prose"
+            style={{ maxWidth: "62ch", marginTop: "14px", color: "var(--sos-text-lo)", fontSize: "15.5px" }}
+          >
+            Being built now. The open library stays free, and stays the point.
+          </p>
+          {process.env.BUTTONDOWN_API_KEY ? <NewsletterSignup /> : null}
         </div>
       </section>
 

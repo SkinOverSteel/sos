@@ -42,7 +42,7 @@ export function siteJsonLd() {
         image: { "@id": `${SITE.url}/#logo` },
         slogan: SITE.tagline,
         description:
-          "Independent, evidence-graded men's sexual-health education. Every claim carries a visible evidence grade and cites primary sources — education that bridges toward a clinician, not a pharmacy or a seller.",
+          "Independent, evidence-graded men's sexual-health education. Every claim carries a visible evidence grade and cites primary sources. It bridges toward a clinician, not a pharmacy or a seller.",
         knowsAbout: [
           "Erectile dysfunction",
           "Erectile function",
