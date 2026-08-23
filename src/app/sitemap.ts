@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/directory", priority: 0.7 },
     { path: "/methodology", priority: 0.6 },
     { path: "/about", priority: 0.5 },
+    { path: "/privacy", priority: 0.3 },
   ];
 
   const staticEntries = staticPaths.map(({ path, priority }) => ({

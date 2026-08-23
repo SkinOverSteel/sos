@@ -93,9 +93,18 @@ export function NewsletterSignup() {
         </button>
       </div>
       <p className="sos-note" aria-live="polite" style={{ marginTop: "10px", minHeight: "1.2em" }}>
-        {status === "error"
-          ? error
-          : "Double opt-in. No spam, we never sell your address, unsubscribe anytime."}
+        {status === "error" ? (
+          error
+        ) : (
+          <>
+            Double opt-in. No spam, we never sell your address, unsubscribe
+            anytime.{" "}
+            <a href="/privacy" style={{ color: "var(--sos-text-md)" }}>
+              Privacy
+            </a>
+            .
+          </>
+        )}
       </p>
     </form>
   );
