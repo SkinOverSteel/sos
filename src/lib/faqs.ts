@@ -247,6 +247,32 @@ export const faqs: Record<string, Faq[]> = {
       a: "Frequently. When erections are unreliable, the body learns to rush, so treating the underlying erectile dysfunction often eases the premature ejaculation too.",
     },
   ],
+  "psychogenic-ed": [
+    {
+      q: "What is psychogenic erectile dysfunction?",
+      a: "Erectile trouble driven mainly by the mind and nervous system rather than damaged plumbing. Anxiety, stress, or a bad past experience triggers the fight-or-flight response, which physically works against an erection. The vasculature can be intact and it still fails, which is why it is real, not imagined.",
+    },
+    {
+      q: "How do I know if my ED is psychological or physical?",
+      a: "The pattern is the biggest clue. Psychogenic ED tends to be situational: fine alone or on waking but failing with a partner, or fine with one partner but not another, often starting suddenly. Physical causes usually come on gradually and are present in every situation. Only a workup, including overnight erection testing, settles it, and the two often overlap.",
+    },
+    {
+      q: "Is performance anxiety a real medical cause of ED?",
+      a: "Yes. An erection needs the parasympathetic 'rest and digest' state to happen. Anxiety activates the opposite, the sympathetic fight-or-flight system, which constricts blood flow and blocks it. The fear itself is the mechanism, so calling it 'all in your head' misses that the effect on the body is physical.",
+    },
+    {
+      q: "What is spectatoring?",
+      a: "Mentally stepping outside the moment to watch and judge your own performance instead of staying present. It reliably triggers the anxiety response that causes the failure you are watching for, which is how one bad experience turns into a self-feeding loop. Breaking that loop is a core aim of sex therapy.",
+    },
+    {
+      q: "Can it be both anxiety and blood flow at the same time?",
+      a: "Very often, especially past 40. A psychogenic pattern that started young can still be running while age-related changes in blood flow layer on top, and each feeds the other. That is why a proper evaluation checks both instead of assuming one, and why treating both halves works better than chasing one.",
+    },
+    {
+      q: "What actually treats psychogenic ED?",
+      a: "Sex therapy or CBT with a licensed clinician is the highest-yield option, alongside mindfulness and open communication with a partner. A PDE5 inhibitor can help short-term as a confidence bridge that overwrites the failure memory, prescribed and tapered by a clinician. It responds well to treatment, and rarely to a pill alone.",
+    },
+  ],
   "peyronies-disease": [
     {
       q: "Is Peyronie's disease cancer or dangerous?",

@@ -61,6 +61,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "psychogenic-ed",
+    title: "Performance anxiety and psychogenic ED",
+    summary:
+      "Sometimes the vasculature is intact and the erection still fails, because the nervous system overrides it. How the anxiety loop starts, why it feeds itself, how it blends with real blood-flow decline as you age, and what actually breaks it. Shaped with a contributor who lived it.",
+    grade: "established",
+    section: "Conditions",
+    published: "2026-08-23",
+    reviewed: "2026-08-23",
+  },
+  {
     slug: "peyronies-disease",
     title: "Peyronie's disease: when it curves",
     summary:
