@@ -31,15 +31,26 @@ export default function Home() {
   const featured = (featuredArticles.length ? featuredArticles : articles).slice(0, 4);
   return (
     <div>
-      {/* Hero */}
+      {/* Hero — full-bleed "skin over steel" lighting on the dark ground: warm
+          copper glow (--sos-copper, #C97438) upper-left, faint cool steel
+          counter-light lower-right, a subtle center vignette for depth. */}
       <section
         style={{
-          maxWidth: "820px",
-          margin: "0 auto",
-          padding: "72px 24px 56px",
-          textAlign: "center",
+          backgroundColor: "var(--sos-e0)",
+          backgroundImage:
+            "radial-gradient(1000px 560px at 14% -6%, rgba(201,116,56,0.17), rgba(18,22,26,0) 60%)," +
+            "radial-gradient(760px 440px at 101% 116%, rgba(140,161,180,0.07), rgba(18,22,26,0) 58%)," +
+            "radial-gradient(120% 130% at 50% 34%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.24))",
         }}
       >
+        <div
+          style={{
+            maxWidth: "820px",
+            margin: "0 auto",
+            padding: "72px 24px 56px",
+            textAlign: "center",
+          }}
+        >
         <p className="sos-kicker" style={{ marginBottom: "24px" }}>
           Men&apos;s sexual health · <b>evidence-graded</b>
         </p>
@@ -104,7 +115,8 @@ export default function Home() {
           </Link>
         </div>
 
-        <MorseSOS style={{ margin: "48px auto 0", width: "fit-content" }} />
+          <MorseSOS style={{ margin: "48px auto 0", width: "fit-content" }} />
+        </div>
       </section>
 
       {/* Thesis + the grade system (claim, then proof) */}
