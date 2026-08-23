@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Premature ejaculation, honestly",
   description:
-    "Premature ejaculation is the most common male sexual concern — and one of the most treatable. The difference between lifelong and acquired PE, why it so often tracks with erectile function, and the behavioral and medical options that actually work.",
+    "Premature ejaculation is the most common male sexual concern, and one of the most treatable. The difference between lifelong and acquired PE, why it so often tracks with erectile function, and the behavioral and medical options that actually work.",
   alternates: { canonical: "/learn/premature-ejaculation" },
 };
 
@@ -44,7 +44,7 @@ export default function PrematureEjaculationPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         It&apos;s the most common sexual concern men actually raise with a
-        clinician — and one of the most treatable. Premature ejaculation
+        clinician, and one of the most treatable. Premature ejaculation
         isn&apos;t a character flaw or a verdict on anyone; it&apos;s a medical
         pattern with understood mechanisms and real options. The first useful
         move is figuring out <em>which kind</em>{" "}it is, because that points at
@@ -64,7 +64,7 @@ export default function PrematureEjaculationPage() {
             <b>Lifelong</b> · primary
           </p>
           <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-            There from the start — since you first became sexually active, almost
+            There from the start: since you first became sexually active, almost
             always within about a minute. Usually reflects how the ejaculatory
             reflex is <strong>wired</strong>{" "}(serotonin signaling), not something
             that broke.
@@ -75,7 +75,7 @@ export default function PrematureEjaculationPage() {
             <b>Acquired</b> · secondary
           </p>
           <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-            New, or newly worse — a latency that used to be normal has shortened.
+            New, or newly worse. A latency that used to be normal has shortened.
             This kind more often has a specific, <strong>treatable driver</strong>{" "}
             behind it, which is the good news.
           </p>
@@ -88,7 +88,7 @@ export default function PrematureEjaculationPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Lifelong PE tends to be about the body&apos;s baseline set-point.
-          Acquired PE is a <em>change</em> — and changes have causes: thyroid
+          Acquired PE is a <em>change</em>, and changes have causes: thyroid
           problems, prostate inflammation, anxiety, and, very commonly, erectile
           trouble. Sorting the type is the first thing a workup does, because it
           decides what&apos;s worth chasing.
@@ -101,10 +101,10 @@ export default function PrematureEjaculationPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Here&apos;s the link most men miss: when erections are unreliable, the
-          body learns to <strong>rush</strong> — finishing quickly before the
+          body learns to <strong>rush</strong>, finishing quickly before the
           erection fades. Treat the underlying erectile dysfunction and the
           premature ejaculation often eases on its own. That&apos;s why a real
-          evaluation checks both at once — the same{" "}
+          evaluation checks both at once: the same{" "}
           <Link href="/learn/ed-workup">workup</Link>{" "}that treats{" "}
           <Link href="/learn/erectile-function-signal">erectile function as a signal</Link>{" "}
           is where this gets untangled, and why{" "}
@@ -119,15 +119,15 @@ export default function PrematureEjaculationPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           The honest headline: this responds to treatment, often well. Clinical
-          guidelines draw from a few levers — used alone, but frequently{" "}
-          <strong>combined</strong>, which tends to beat any one of them:
+          guidelines draw from a few levers (used alone, but frequently{" "}
+          <strong>combined</strong>, which tends to beat any one of them):
         </p>
         <ul className="sos-prose" style={list}>
           <li>
             <strong>Behavioral approaches.</strong>{" "}The stop-start and squeeze
             techniques train recognition of the point of no return; pelvic-floor
             work can help too. A clinician or sex therapist teaches these
-            properly — that&apos;s the difference between a technique and a tip.
+            properly. That&apos;s the difference between a technique and a tip.
           </li>
           <li>
             <strong>Topical anesthetics.</strong>{" "}A cream or spray that gently
@@ -135,7 +135,7 @@ export default function PrematureEjaculationPage() {
           </li>
           <li>
             <strong>Prescription options.</strong>{" "}Certain antidepressants
-            (SSRIs) delay ejaculation as a class effect — daily or on-demand
+            (SSRIs) delay ejaculation as a class effect, daily or on-demand
             depending on the agent. Whether, and which, is a prescriber&apos;s
             call matched to your pattern, not a self-serve decision.
           </li>
@@ -143,7 +143,7 @@ export default function PrematureEjaculationPage() {
         <p className="sos-note" style={{ marginTop: "14px" }}>
           What none of this needs is a dose from a stranger on the internet. It
           needs someone who confirmed the type, ruled out a fixable cause, and
-          matched the option to your goals — the substance of a real visit.
+          matched the option to your goals: the substance of a real visit.
         </p>
       </section>
 
@@ -152,13 +152,13 @@ export default function PrematureEjaculationPage() {
           The bottom line
         </h2>
         <p className="sos-prose">
-          Common, treatable, medical — three facts that between them dissolve most
+          Common, treatable, medical: three facts that between them dissolve most
           of the shame around premature ejaculation. The move isn&apos;t a
           lifetime of workarounds or a mystery pill; it&apos;s a conversation that
           sorts the type, checks for a fixable cause, and matches a treatment to
-          it. A clinician — or a{" "}
-          <Link href="/learn/telemedicine-visit">telemedicine visit that actually evaluates you</Link>{" "}
-          — can start that today.
+          it. A clinician (or a{" "}
+          <Link href="/learn/telemedicine-visit">telemedicine visit that actually evaluates you</Link>){" "}
+          can start that today.
         </p>
       </section>
 
@@ -174,7 +174,7 @@ export default function PrematureEjaculationPage() {
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a dosing guide. Which
-          treatment fits — and at what dose, if any — is a decision for a licensed
+          treatment fits (and at what dose, if any) is a decision for a licensed
           clinician who knows your history.
         </p>
       </div>

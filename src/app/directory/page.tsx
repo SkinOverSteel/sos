@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Find a provider",
   description:
-    "A transparent directory of licensed labs, telemedicine, and compounding pharmacies — ranked only on trust criteria, never on who pays.",
+    "A transparent directory of licensed labs, telemedicine, and compounding pharmacies, ranked only on trust criteria, never on who pays.",
   robots: { index: DIRECTORY_LIVE, follow: DIRECTORY_LIVE },
   alternates: { canonical: "/directory" },
 };
@@ -45,7 +45,7 @@ export default function DirectoryPage() {
           </p>
           <p className="sos-note">
             Proposed licensed providers, researched from public information and
-            staged for review — <strong style={{ color: "var(--sos-text-hi)" }}>not public and not yet endorsed</strong>.
+            staged for review: <strong style={{ color: "var(--sos-text-hi)" }}>not public and not yet endorsed</strong>.
             All are editorial (no paid relationship). Trust scores are drafted
             from public info and pending verification before anything goes live.
           </p>
@@ -64,7 +64,7 @@ export default function DirectoryPage() {
           <p className="sos-note">
             Some links below are referral links: if you use one, we may earn a
             fee at no extra cost to you. Those listings are marked. The fee is
-            paid on a click or a purchase, never on a rank — every provider on
+            paid on a click or a purchase, never on a rank. Every provider on
             this page is ordered by the published trust criteria alone, and
             removing every referral relationship tomorrow would not change a
             single position.
@@ -75,7 +75,7 @@ export default function DirectoryPage() {
       <p className="sos-prose" style={{ marginBottom: "24px" }}>
         Every provider here clears two hard gates and is then ranked only on the
         trust criteria below. A paid or referral relationship{" "}
-        <strong>never</strong>{" "}changes a rank or a score — it only adds a
+        <strong>never</strong>{" "}changes a rank or a score. It only adds a
         disclosure at the link. That is the whole point: the ranking is
         trustworthy because money can&apos;t buy it.
       </p>
@@ -87,7 +87,7 @@ export default function DirectoryPage() {
         <ul className="sos-prose" style={listStyle}>
           <li>Licensed / accredited in the jurisdictions it serves</li>
           <li>
-            A legitimate channel — prescription-based care (telemedicine,
+            A legitimate channel: prescription-based care (telemedicine,
             pharmacy) or an accredited lab
           </li>
         </ul>
@@ -160,7 +160,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
         </span>
         <span
           style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
-          title="Trust score — from criteria only"
+          title="Trust score, from criteria only"
         >
           Trust {score}
         </span>

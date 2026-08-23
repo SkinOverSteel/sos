@@ -16,7 +16,7 @@ type ClinicianLetterheadProps = {
   date?: string;
   /** Pseudonymous member handle, when there is one. */
   handle?: string;
-  /** The clinical content — result tables, graded findings, log summary. */
+  /** The clinical content: result tables, graded findings, log summary. */
   children: ReactNode;
 };
 
@@ -25,7 +25,7 @@ type ClinicianLetterheadProps = {
  * Forces the light/ink palette (data-theme="light") so a printout isn't a
  * dark ink-hog, leads with the wordmark, and carries the evidence-grade legend
  * so the clinician can read the grades. Bridges toward the clinician, never
- * around them — framed as a conversation aid, not advice. Wrap any page/tool
+ * around them, framed as a conversation aid, not advice. Wrap any page/tool
  * result in it; see globals.css for the screen + @media print styling.
  */
 export function ClinicianLetterhead({
@@ -69,7 +69,7 @@ export function ClinicianLetterhead({
       </section>
 
       <footer className="sos-letterhead__foot">
-        Education, not medical advice — this summary is a conversation aid and
+        Education, not medical advice. This summary is a conversation aid and
         does not replace clinical judgment. How the grades are assigned:
         skinoversteel.com/methodology
       </footer>

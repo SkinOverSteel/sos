@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "How we review — editorial and evidence standards",
+  name: "How we review: editorial and evidence standards",
   url: `${SITE.url}/methodology`,
   description:
     "How Skin Over Steel grades evidence, sources claims, reviews content, discloses money, and issues corrections.",
@@ -26,19 +26,19 @@ const jsonLd = {
 const GRADES: { grade: Grade; def: string }[] = [
   {
     grade: "established",
-    def: "Guideline-level evidence — major clinical guidelines (e.g., the AUA) or strong, consistent peer-reviewed research. Safe to lean on.",
+    def: "Guideline-level evidence: major clinical guidelines (e.g., the AUA) or strong, consistent peer-reviewed research. Safe to lean on.",
   },
   {
     grade: "emerging",
-    def: "Early or mixed research — biologically plausible and promising, but not yet settled. Weigh it as provisional, and expect it to move.",
+    def: "Early or mixed research. Biologically plausible and promising, but not yet settled. Weigh it as provisional, and expect it to move.",
   },
   {
     grade: "anecdote",
-    def: "Lived experience, fenced off as exactly that — a member's n=1, never generalized into a recommendation for anyone else.",
+    def: "Lived experience, fenced off as exactly that: a member's n=1, never generalized into a recommendation for anyone else.",
   },
   {
     grade: "high-risk",
-    def: "Practices where the evidence points to injury. Flagged so you can see the danger and the warning signs — never written as a how-to.",
+    def: "Practices where the evidence points to injury. Flagged so you can see the danger and the warning signs, never written as a how-to.",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function MethodologyPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px", maxWidth: "64ch" }}>
         Most information in men&apos;s sexual health is a funnel dressed up as
-        advice. Here, the trust is the product — so this is the standard every
+        advice. Here, the trust is the product, so this is the standard every
         article is held to, stated plainly enough that you can hold us to it.
       </p>
 
@@ -82,9 +82,9 @@ export default function MethodologyPage() {
 
       <Section title="How we source">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          Claims trace back to <strong>named sources</strong> — clinical practice
+          Claims trace back to <strong>named sources</strong> (clinical practice
           guidelines, peer-reviewed literature, and official prescriber or
-          pharmacy documentation — cited on the page so you can check the
+          pharmacy documentation) cited on the page so you can check the
           original yourself. When the evidence is thin or contested, we say so
           and grade it down rather than rounding up to certainty.
         </p>
@@ -101,7 +101,7 @@ export default function MethodologyPage() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Named clinician review is the next layer of trust we&apos;re building.
           When a credentialed reviewer signs off on a piece, their name and
-          credentials will appear on it — and we will never do the reverse:
+          credentials will appear on it. And we will never do the reverse:
           invent a reviewer, borrow a credential, or imply a doctor vetted
           something they didn&apos;t. An honest &quot;not yet&quot; beats a
           fabricated byline every time.
@@ -112,12 +112,12 @@ export default function MethodologyPage() {
         <ul className="sos-prose" style={list}>
           <li>
             <strong>No dosing or self-treatment protocols</strong>{" "}for
-            prescription or gray-market compounds — that call belongs to your
+            prescription or gray-market compounds. That call belongs to your
             prescriber, every time.
           </li>
           <li>
             <strong>No how-to for physically risky procedures.</strong>{" "}We cover
-            the risk landscape, the warning signs, and when to seek care — never
+            the risk landscape, the warning signs, and when to seek care, never
             the technique.
           </li>
           <li>
@@ -133,7 +133,7 @@ export default function MethodologyPage() {
         </ul>
       </Section>
 
-      <Section title="Where the money is — and isn't">
+      <Section title="Where the money is, and isn't">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Skin Over Steel is not a pharmacy and not a seller. Where the{" "}
           <Link href="/directory">directory</Link>{" "}lists a licensed provider we
@@ -142,9 +142,9 @@ export default function MethodologyPage() {
         </p>
         <p className="sos-note">
           A paid relationship <strong style={{ color: "var(--sos-text-hi)" }}>never
-          moves an evidence grade or a ranking</strong> — it only adds a
+          moves an evidence grade or a ranking</strong>. It only adds a
           disclosure. Rankings follow published trust criteria alone. And a
-          product with no legitimate, licensed channel gets education only — never
+          product with no legitimate, licensed channel gets education only, never
           a buy or referral flow.
         </p>
       </Section>
@@ -154,7 +154,7 @@ export default function MethodologyPage() {
           Evidence moves, and so will these pages. When the research shifts, a
           grade can be <strong>downgraded</strong>{" "}and the review date updated;
           material corrections are made in the open rather than quietly. This
-          site&apos;s content and code are public, which is the point — a
+          site&apos;s content and code are public, which is the point: a
           standard you can audit is the only kind worth publishing.
         </p>
       </Section>

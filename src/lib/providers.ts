@@ -2,7 +2,7 @@
  * Referral directory data model + trust-scoring.
  *
  * Ranking is driven ONLY by the transparent trust criteria below. A paid /
- * affiliate relationship never moves a provider's rank or score — it only
+ * affiliate relationship never moves a provider's rank or score. It only
  * triggers an FTC disclosure at the link. Two hard GATES must both be true for
  * a provider to appear at all; everything else is scored, shown, and sortable.
  *
@@ -27,7 +27,7 @@ export const CATEGORY_ORDER: ProviderCategory[] = [
   "pharmacy",
 ];
 
-/** Scored trust criteria — the only inputs to a provider's rank. */
+/** Scored trust criteria: the only inputs to a provider's rank. */
 export type TrustCriterion = { key: string; label: string; weight: number };
 
 export const TRUST_CRITERIA: TrustCriterion[] = [
@@ -57,7 +57,7 @@ export type Provider = {
   url: string; // canonical listing URL (never a tracking link)
   blurb: string;
   jurisdictions: string;
-  /** GATES — both must be true to be listed. */
+  /** GATES: both must be true to be listed. */
   licensed: boolean;
   legitimateChannel: boolean; // Rx-based (pharmacy/telemed) or accredited lab
   /** Scored criteria met (keys from TRUST_CRITERIA). */
@@ -129,7 +129,7 @@ export function rankedByCategory(cat: ProviderCategory): Provider[] {
 
 /**
  * Discounted Labs runs its own referral program (no network in between). The
- * tracking link is used verbatim as issued — its query params carry the
+ * tracking link is used verbatim as issued. Its query params carry the
  * attribution, so never rewrite or "tidy" them.
  */
 const DISCOUNTED_LABS_REFERRAL =
@@ -144,7 +144,7 @@ const ALL = {
 };
 
 /**
- * PROPOSED listings — researched from public info, staged for owner review.
+ * PROPOSED listings, researched from public info, staged for owner review.
  * All are editorial (affiliate: false) until a paid relationship is set.
  * Trust criteria are drafted from public info and pending owner verification.
  */
@@ -257,7 +257,7 @@ export const providers: Provider[] = [
     name: "Mark Cuban Cost Plus Drugs",
     category: "pharmacy",
     url: "https://www.costplusdrugs.com/",
-    blurb: "Licensed mail-order pharmacy with radical price transparency — strongest for cheap generic fills.",
+    blurb: "Licensed mail-order pharmacy with radical price transparency, strongest for cheap generic fills.",
     jurisdictions: "US (most states)",
     licensed: true,
     legitimateChannel: true,
@@ -269,6 +269,6 @@ export const providers: Provider[] = [
       fastAccess: true,
     },
     affiliate: false,
-    sourceNote: "Licensed mail-order pharmacy; wholesale + flat 15% transparent pricing. Dispensing (generics), not a compounder — included for cheap generic fills.",
+    sourceNote: "Licensed mail-order pharmacy; wholesale + flat 15% transparent pricing. Dispensing (generics), not a compounder, included for cheap generic fills.",
   },
 ];

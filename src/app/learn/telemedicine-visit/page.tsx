@@ -27,17 +27,17 @@ const jsonLd = {
 };
 
 const GREEN = [
-  <>Takes a <strong>real history</strong> — cardiovascular risk, every medication you take (the nitrate check), and the whole ED-as-a-signal picture.</>,
-  <>Orders or reviews <strong>labs before prescribing</strong> — an androgen and metabolic panel, and for testosterone, two early-morning draws, not a single number. (See <Link href="/learn/read-your-labs">read your labs</Link>.)</>,
-  <>Screens <strong>blood pressure and cardiovascular risk</strong> — non-negotiable before ED or hormone therapy, given how these drugs interact with the heart.</>,
-  <>A <strong>named clinician licensed in your state</strong>{" "}whom you can actually talk to — not a form reviewed within two business days.</>,
-  <>Explains the <strong>why</strong>{" "}and bridges toward medicine — treats ED as a signal worth investigating, not just a pill to sell.</>,
-  <><strong>Structured follow-up and monitoring</strong> — rechecking that treatment is working and safe (for testosterone, hematocrit and PSA).</>,
+  <>Takes a <strong>real history</strong>: cardiovascular risk, every medication you take (the nitrate check), and the whole ED-as-a-signal picture.</>,
+  <>Orders or reviews <strong>labs before prescribing</strong>. An androgen and metabolic panel, and for testosterone, two early-morning draws, not a single number. (See <Link href="/learn/read-your-labs">read your labs</Link>.)</>,
+  <>Screens <strong>blood pressure and cardiovascular risk</strong>, non-negotiable before ED or hormone therapy, given how these drugs interact with the heart.</>,
+  <>A <strong>named clinician licensed in your state</strong>{" "}whom you can actually talk to. Not a form reviewed within two business days.</>,
+  <>Explains the <strong>why</strong>{" "}and bridges toward medicine: treats ED as a signal worth investigating, not just a pill to sell.</>,
+  <><strong>Structured follow-up and monitoring</strong>, rechecking that treatment is working and safe (for testosterone, hematocrit and PSA).</>,
   <>Lets you <strong>use your own pharmacy</strong>, prices transparently, and doesn&apos;t trap you in a subscription.</>,
 ];
 
 const RED = [
-  <>Prescribes off a <strong>one-page intake form</strong> — no labs, no exam, no real conversation.</>,
+  <>Prescribes off a <strong>one-page intake form</strong>: no labs, no exam, no real conversation.</>,
   <>No blood-pressure or <strong>cardiovascular screening</strong>{" "}at all.</>,
   <>Won&apos;t name the prescriber or confirm they&apos;re <strong>licensed where you live</strong>.</>,
   <>Bundles product at a markup, <strong>membership lock-in</strong>, and hard upsells.</>,
@@ -47,7 +47,7 @@ const RED = [
 
 const QUESTIONS = [
   "Who is my prescriber, and are they licensed in my state?",
-  "What labs will you run before prescribing — and will you repeat testosterone in the morning?",
+  "What labs will you run before prescribing, and will you repeat testosterone in the morning?",
   "How do you screen my heart and blood pressure?",
   "Can I use my own pharmacy?",
   "What's the follow-up and monitoring plan?",
@@ -69,14 +69,14 @@ export default function TelemedicineVisitPage() {
       <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
-        Telemedicine can deliver genuinely good men&apos;s-health care — or it can
+        Telemedicine can deliver genuinely good men&apos;s-health care, or it can
         be a checkout form with a doctor&apos;s signature stapled on. The
         difference is simple: <strong>did anyone actually evaluate you?</strong>{" "}
         A real prescriber is the throughline that separates every safe path on
         this site from the gray market, so it&apos;s worth knowing how to spot one.
       </p>
 
-      <Section title="Green flags — a real evaluation">
+      <Section title="Green flags: a real evaluation">
         <div className="sos-card sos-card--deep">
           <ul className="sos-prose" style={flagList}>
             {GREEN.map((item, i) => (
@@ -88,7 +88,7 @@ export default function TelemedicineVisitPage() {
         </div>
       </Section>
 
-      <Section title="Red flags — a pill mill">
+      <Section title="Red flags: a pill mill">
         <div className="sos-card sos-card--deep">
           <ul className="sos-prose" style={flagList}>
             {RED.map((item, i) => (
@@ -103,7 +103,7 @@ export default function TelemedicineVisitPage() {
       <Section title="The nuance: sometimes in-person still matters">
         <p className="sos-prose">
           Especially for testosterone therapy, guidelines favor an in-person exam
-          by the prescriber where possible — or a local primary-care exam
+          by the prescriber where possible, or a local primary-care exam
           alongside the telehealth visit. Good platforms acknowledge that and work
           with it. A pill mill just skips it. Telemedicine done right isn&apos;t
           lesser care; it&apos;s the same evaluation, delivered at a distance.
@@ -129,10 +129,10 @@ export default function TelemedicineVisitPage() {
         <p className="sos-prose">
           Good telemedicine is a real clinician doing real evaluation at a
           distance. A pill mill is a vending machine with a disclaimer. Everything
-          this site is about — the{" "}
+          this site is about (the{" "}
           <Link href="/learn/erectile-function-signal">signal</Link>, the{" "}
           <Link href="/learn/read-your-labs">workup</Link>, treatment, and{" "}
-          <Link href="/learn/product-forms">where the product comes from</Link> —
+          <Link href="/learn/product-forms">where the product comes from</Link>)
           runs through having an actual prescriber. Choose one who acts like it.
         </p>
       </Section>
@@ -149,7 +149,7 @@ export default function TelemedicineVisitPage() {
         </p>
         <p className="sos-note">
           General education, not medical advice. Telemedicine regulations and what
-          a clinician can prescribe vary by state and country — verify licensure
+          a clinician can prescribe vary by state and country. Verify licensure
           where you live.
         </p>
       </div>

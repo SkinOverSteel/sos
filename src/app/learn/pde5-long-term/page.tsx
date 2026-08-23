@@ -13,7 +13,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "PDE5 inhibitors, long term",
   description:
-    "Why PDE5 inhibitors seem to lose effect (usually disease progression, not tolerance), the emerging case for long-term vascular benefit, and why blood-pressure drug choice — nebivolol, telmisartan — matters when you have both ED and hypertension.",
+    "Why PDE5 inhibitors seem to lose effect (usually disease progression, not tolerance), the emerging case for long-term vascular benefit, and why blood-pressure drug choice (nebivolol, telmisartan) matters when you have both ED and hypertension.",
   alternates: { canonical: "/learn/pde5-long-term" },
 };
 
@@ -43,7 +43,7 @@ export default function Pde5Page() {
 
       <MorseSOS style={{ margin: "34px 0" }} />
 
-      {/* Safety callout — read first */}
+      {/* Safety callout: read first */}
       <aside
         role="note"
         className="sos-card"
@@ -59,7 +59,7 @@ export default function Pde5Page() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           PDE5 inhibitors are vasodilators. <strong>Never</strong>{" "}combine them
           with nitrates (including heart nitroglycerin and recreational
-          &quot;poppers&quot;/amyl nitrite) — the combination can cause sudden,
+          &quot;poppers&quot;/amyl nitrite). The combination can cause sudden,
           life-threatening drops in blood pressure. Any combination with
           blood-pressure medication must be set and monitored by your prescriber.
           Nothing below is a protocol to assemble yourself.
@@ -67,28 +67,28 @@ export default function Pde5Page() {
       </aside>
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
-        PDE5 inhibitors — sildenafil, tadalafil, and relatives — are usually
+        PDE5 inhibitors (sildenafil, tadalafil, and relatives) are usually
         framed as on-demand pills. Two things complicate that picture over the
         long run, and both are worth understanding before you conclude the drug
         &quot;stopped working&quot; or reach for a bigger effect.
       </p>
 
-      <Section title="Why they seem to stop working — and usually haven't">
+      <Section title="Why they seem to stop working, and usually haven't">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
-          True tolerance — <em>tachyphylaxis</em>, the drug genuinely wearing out
-          — has <strong>not</strong>{" "}been confirmed clinically. Chronic use
+          True tolerance (<em>tachyphylaxis</em>, the drug genuinely wearing out)
+          has <strong>not</strong>{" "}been confirmed clinically. Chronic use
           doesn&apos;t appear to breed resistance. So when the response fades, the
           more likely explanation is that the <strong>underlying disease is
           progressing</strong>: worsening endothelial function, atherosclerosis,
           or diabetes.
         </p>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          That reframes &quot;diminishing returns&quot; entirely — it&apos;s less
+          That reframes &quot;diminishing returns&quot; entirely. It&apos;s less
           a reason to push the dose and more a reason to look deeper. The fading
           effect is itself a signal. (That&apos;s the whole thesis of{" "}
           <Link href="/learn/erectile-function-signal">erectile function is a signal</Link>.)
-          Many apparent &quot;failures&quot; are also fixable inputs — timing and
-          food with some agents, insufficient stimulation, or low testosterone —
+          Many apparent &quot;failures&quot; are also fixable inputs (timing and
+          food with some agents, insufficient stimulation, or low testosterone),
           not the pill quitting.
         </p>
       </Section>
@@ -97,18 +97,18 @@ export default function Pde5Page() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           For a fading on-demand response, clinicians often consider a{" "}
           <strong>daily regimen</strong>{" "}(tadalafil is used this way) instead of
-          episodic dosing — an approach that doesn&apos;t show tachyphylaxis and
+          episodic dosing: an approach that doesn&apos;t show tachyphylaxis and
           can restore responsiveness even in some on-demand non-responders. Which
           agent, which schedule, and whether it fits your other medications is a
-          prescriber&apos;s call — not something to improvise.
+          prescriber&apos;s call, not something to improvise.
         </p>
       </Section>
 
       <Section title="The emerging vascular upside">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Beyond erections, PDE5 inhibitors improve{" "}
-          <strong>endothelial function</strong> — the same vascular lining
-          discussed in the signal article — and tadalafil does so independently
+          <strong>endothelial function</strong> (the same vascular lining
+          discussed in the signal article) and tadalafil does so independently
           of how much ED a man has. Large observational studies associate PDE5
           inhibitor use with meaningfully lower rates of major cardiovascular
           events and all-cause mortality, mostly in middle-aged men with elevated
@@ -120,20 +120,20 @@ export default function Pde5Page() {
           direct protection of heart muscle.
         </p>
         <p className="sos-note">
-          Honest caveat — this evidence is largely <strong style={{ color: "var(--sos-text-hi)" }}>observational</strong>.
+          Honest caveat: this evidence is largely <strong style={{ color: "var(--sos-text-hi)" }}>observational</strong>.
           Men who use these drugs and stay sexually active may simply be healthier
           to begin with, so causation isn&apos;t proven and this is not a
           guideline reason to take a PDE5 inhibitor &quot;for your heart.&quot;
-          The blood-pressure effect itself is modest — think endothelial support
+          The blood-pressure effect itself is modest. Think endothelial support
           with a gentle vasodilatory tilt, not a blood-pressure drug.
         </p>
       </Section>
 
-      <Section title="Why your blood-pressure drug choice matters — the real lever">
+      <Section title="Why your blood-pressure drug choice matters: the real lever">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "16px" }}>
           Here&apos;s the useful insight for anyone treating <em>both</em>{" "}ED and
-          hypertension: the win isn&apos;t stacking drugs for a bigger hit —
-          it&apos;s that some blood-pressure medications sabotage erections and
+          hypertension: the win isn&apos;t stacking drugs for a bigger hit.
+          It&apos;s that some blood-pressure medications sabotage erections and
           some protect them. A clinician managing both can choose accordingly.
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -145,7 +145,7 @@ export default function Pde5Page() {
               Unusual among beta-blockers: it triggers{" "}
               <strong>nitric-oxide-mediated vasodilation</strong>. In head-to-head
               study, metoprolol worsened erectile-function scores while nebivolol
-              did not — and it improved some — at comparable blood-pressure
+              did not (and it improved some) at comparable blood-pressure
               control. Among beta-blockers, it&apos;s the erection-friendlier
               choice.
             </p>
@@ -156,7 +156,7 @@ export default function Pde5Page() {
             </h3>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
               An ARB with <strong>PPAR-γ activity</strong>{" "}that improves insulin
-              sensitivity and endothelial function beyond other ARBs — while ARBs
+              sensitivity and endothelial function beyond other ARBs, while ARBs
               as a class are generally erection-neutral. For a man whose ED sits on
               top of metabolic syndrome, it treats blood pressure{" "}
               <em>and</em>{" "}the metabolic driver underneath.
@@ -166,7 +166,7 @@ export default function Pde5Page() {
         <p className="sos-prose" style={{ fontSize: "16px", marginTop: "16px" }}>
           That&apos;s the legitimate &quot;synergy&quot;: not a bigger vasodilator
           hit, but choosing agents that control blood pressure and metabolism{" "}
-          <strong>without wrecking erectile function</strong> — and ideally
+          <strong>without wrecking erectile function</strong>, and ideally
           supporting the shared endothelium. It&apos;s individualized, and it&apos;s
           your prescriber&apos;s call.
         </p>
@@ -176,7 +176,7 @@ export default function Pde5Page() {
         <ul className="sos-prose" style={list}>
           <li>
             <strong style={{ color: "var(--sos-emergency)" }}>Nitrates: absolute contraindication.</strong>{" "}
-            Synergistic, potentially fatal hypotension — includes prescribed
+            Synergistic, potentially fatal hypotension. Includes prescribed
             nitroglycerin and recreational poppers. <EvidenceBadge grade="established" />
           </li>
           <li>
@@ -187,7 +187,7 @@ export default function Pde5Page() {
             <strong>Other antihypertensives</strong>{" "}(beta-blockers like nebivolol,
             ARBs like telmisartan, ACE inhibitors, calcium-channel blockers,
             diuretics): usually only <em>small</em>{" "}additive drops in blood
-            pressure without a rise in serious events — but &quot;usually&quot; is
+            pressure without a rise in serious events, but &quot;usually&quot; is
             doing work. It&apos;s still additive, so the first combination and any
             changes belong under medical supervision, especially if you&apos;re on
             several agents or prone to dehydration.
@@ -197,11 +197,11 @@ export default function Pde5Page() {
 
       <Section title="The bottom line">
         <p className="sos-prose">
-          PDE5 inhibitors probably don&apos;t wear out — your vasculature changing
+          PDE5 inhibitors probably don&apos;t wear out: your vasculature changing
           is the likelier story, and that&apos;s a reason to investigate, not just
           escalate. There&apos;s a real, still-emerging case that they support the
           endothelium long-term. And if you&apos;re treating blood pressure too,
-          the smart lever isn&apos;t a bigger combined hit — it&apos;s choosing
+          the smart lever isn&apos;t a bigger combined hit. It&apos;s choosing
           agents like nebivolol and telmisartan that defend erectile function and
           the metabolism beneath it. Take this to a clinician; the combination has
           to be built for you and watched.

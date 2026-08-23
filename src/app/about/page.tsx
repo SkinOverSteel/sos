@@ -36,7 +36,7 @@ export default function AboutPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         <strong>Skin Over Steel</strong>{" "}is evidence-graded education and a
-        transparent provider directory for men&apos;s sexual health — the
+        transparent provider directory for men&apos;s sexual health, the
         conversation your urologist doesn&apos;t have time for. Most information
         in this space is a funnel built to sell you something. This is the
         opposite: the trust is the product.
@@ -44,8 +44,8 @@ export default function AboutPage() {
 
       <Section title="The standard">
         <p className="sos-prose">
-          Every claim carries a visible <strong>evidence grade</strong> —{" "}
-          Established, Emerging, or Anecdote — so you always know how much weight
+          Every claim carries a visible <strong>evidence grade</strong>{" "}
+          (Established, Emerging, or Anecdote) so you always know how much weight
           it holds. Sources are named. And everything bridges{" "}
           <em>toward</em>{" "}medicine, never around it: the goal is to get you to a
           clinician better informed, not to route you past one.
@@ -54,9 +54,9 @@ export default function AboutPage() {
 
       <Section title="What we won't do">
         <ul className="sos-prose" style={list}>
-          <li><strong>No dosing or self-treatment protocols</strong>{" "}for prescription or gray-market compounds — the dose is your prescriber&apos;s call.</li>
+          <li><strong>No dosing or self-treatment protocols</strong>{" "}for prescription or gray-market compounds. The dose is your prescriber&apos;s call.</li>
           <li><strong>No gray-market sourcing.</strong>{" "}We point toward licensed clinicians and pharmacies, and explain how to tell the difference.</li>
-          <li><strong>No pay-to-rank.</strong>{" "}In the directory, a paid relationship never moves a ranking or a grade — it only adds a disclosure.</li>
+          <li><strong>No pay-to-rank.</strong>{" "}In the directory, a paid relationship never moves a ranking or a grade: it only adds a disclosure.</li>
           <li><strong>No hype, no shame, no medical advice.</strong>{" "}Education, graded honestly.</li>
         </ul>
       </Section>
@@ -78,7 +78,7 @@ export default function AboutPage() {
               The directory →
             </h3>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-              Licensed labs, telemedicine, and compounding pharmacies — ranked
+              Licensed labs, telemedicine, and compounding pharmacies, ranked
               only on transparent trust criteria, never on who pays.
             </p>
           </Link>
@@ -87,7 +87,7 @@ export default function AboutPage() {
 
       <Section title="The name">
         <p className="sos-prose">
-          &quot;Skin over steel&quot; — warm and human, layered over something
+          &quot;Skin over steel&quot;: warm and human, layered over something
           engineered and hard. <strong>SOS</strong>{" "}is the distress signal,
           claimed on purpose: the signal, answered. You&apos;ll see its Morse
           pattern (··· ––– ···) throughout.

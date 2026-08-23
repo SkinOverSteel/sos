@@ -43,11 +43,11 @@ export default function PenileInjectionsPage() {
       <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
-        The pills work for most men — but not all, and not everyone can take them.
+        The pills work for most men, but not all, and not everyone can take them.
         If <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link>{" "}have stopped
         working or were never an option, that is not a dead end: there is a real,
         effective <strong>second line</strong>, and the most reliable part of it is
-        an injection. It is far less daunting than the word sounds — and it works
+        an injection. It is far less daunting than the word sounds, and it works
         precisely where pills can&apos;t. Here is the honest picture: what it is,
         where it sits, and the one rule that is never optional.
       </p>
@@ -57,7 +57,7 @@ export default function PenileInjectionsPage() {
           The treatment ladder
         </h2>
         <p className="sos-note" style={{ marginBottom: "22px" }}>
-          ED care escalates in steps — pills are just the first rung.
+          ED care escalates in steps. Pills are just the first rung.
         </p>
         <div className="sos-steps">
           <div className="sos-steps__rail" aria-hidden="true" />
@@ -65,7 +65,7 @@ export default function PenileInjectionsPage() {
           <div className="sos-step">
             <div className="sos-step__num">1</div>
             <div>
-              <p className="sos-step__title">First line — the pills</p>
+              <p className="sos-step__title">First line: the pills</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
                 <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link>{" "}work for the
                 majority of men, and they&apos;re where almost everyone starts.
@@ -76,9 +76,9 @@ export default function PenileInjectionsPage() {
           <div className="sos-step">
             <div className="sos-step__num">2</div>
             <div>
-              <p className="sos-step__title">Second line — injections</p>
+              <p className="sos-step__title">Second line: injections</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                The most effective step when pills aren&apos;t enough — and the
+                The most effective step when pills aren&apos;t enough, and the
                 focus of this page. It reliably produces an erection even when the
                 pills can&apos;t.
               </p>
@@ -88,10 +88,10 @@ export default function PenileInjectionsPage() {
           <div className="sos-step">
             <div className="sos-step__num">3</div>
             <div>
-              <p className="sos-step__title">Also second line — a vacuum device</p>
+              <p className="sos-step__title">Also second line: a vacuum device</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                A legitimate, drug-free option for men who&apos;d rather not inject
-                — covered in <Link href="/learn/enhancement">the device map</Link>.
+                A legitimate, drug-free option for men who&apos;d rather not inject,
+                covered in <Link href="/learn/enhancement">the device map</Link>.
               </p>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function PenileInjectionsPage() {
           <div className="sos-step">
             <div className="sos-step__num">4</div>
             <div>
-              <p className="sos-step__title">The definitive fix — an implant</p>
+              <p className="sos-step__title">The definitive fix: an implant</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
                 When nothing else works or is wanted, a{" "}
                 <Link href="/learn/enhancement">penile implant</Link>{" "}is the
@@ -115,14 +115,14 @@ export default function PenileInjectionsPage() {
           What the injection actually is
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          The workhorse is <strong>trimix</strong> — a compounded blend of
-          alprostadil, papaverine, and phentolamine — delivered with a very fine
+          The workhorse is <strong>trimix</strong> (a compounded blend of
+          alprostadil, papaverine, and phentolamine) delivered with a very fine
           needle into the side of the shaft. It opens the blood vessels{" "}
           <em>directly</em>, which is the whole point: it sidesteps the desire and
           nerve signalling that pills depend on, so it works after prostate
           surgery, with diabetic nerve damage, and in plenty of men for whom pills
           simply don&apos;t. It&apos;s highly effective, and it&apos;s a genuine
-          prescription — written by a urologist, mixed by a licensed compounding
+          prescription: written by a urologist, mixed by a licensed compounding
           pharmacy, with the first dose given in the office. (Alprostadil alone is
           the FDA-approved version; trimix reaches the same effect with a smaller
           dose and less of the ache alprostadil can cause.)
@@ -136,19 +136,19 @@ export default function PenileInjectionsPage() {
         <div className="sos-card" style={{ borderLeft: "3px solid var(--sos-emergency)" }}>
           <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
             The trade for that reliability is precision. An erection that lasts{" "}
-            <strong>more than four hours is priapism — a medical emergency</strong>.
+            <strong>more than four hours is priapism. A medical emergency</strong>.
             Trapped blood starves the tissue of oxygen, and left untreated it scars
             it permanently (the same fibrosis behind{" "}
             <Link href="/learn/peyronies-disease">Peyronie&apos;s</Link>), which can
-            cost you erections for good. It&apos;s uncommon — roughly{" "}
-            <strong>0.5–5%</strong>{" "}of injection users — and a supervised program
+            cost you erections for good. It&apos;s uncommon, roughly{" "}
+            <strong>0.5–5%</strong>{" "}of injection users, and a supervised program
             exists precisely to keep it near zero, which is why the dose is dialed
             in by a clinician and <strong>never freelanced</strong>.
           </p>
           <p className="sos-prose" style={{ fontSize: "16px" }}>
             If an erection passes the four-hour mark: follow{" "}
             <strong>your prescriber&apos;s own reversal instructions</strong>{" "}and
-            get emergency care <em>now</em> — don&apos;t wait it out.{" "}
+            get emergency care <em>now</em>. Don&apos;t wait it out.{" "}
             <Link href="/support">Get support now</Link>{" "}is the fastest route.
           </p>
         </div>
@@ -156,10 +156,10 @@ export default function PenileInjectionsPage() {
 
       <section style={{ marginTop: "44px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-          Doing it right — and legitimately
+          Doing it right, and legitimately
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          Trimix is a legitimate compounded medicine, not a gray-market product —
+          Trimix is a legitimate compounded medicine, not a gray-market product,
           and the difference shows in the vial. A labeled vial from a licensed
           compounding pharmacy is a different thing entirely from a pre-mixed
           baggie of unknown contents, which is exactly what{" "}
@@ -169,7 +169,7 @@ export default function PenileInjectionsPage() {
           <Link href="/learn/telemedicine-visit">real evaluation</Link>, a
           urologist or qualified prescriber, and a{" "}
           <Link href="/directory">licensed compounding pharmacy</Link>. The value
-          is in doing it inside that channel — never in a cheaper syringe from a
+          is in doing it inside that channel. Never in a cheaper syringe from a
           stranger.
         </p>
       </section>
@@ -179,12 +179,12 @@ export default function PenileInjectionsPage() {
           The bottom line
         </h2>
         <p className="sos-prose">
-          If the pills have stopped working, that&apos;s a doorway, not a wall —
+          If the pills have stopped working, that&apos;s a doorway, not a wall,
           onto a second line that&apos;s effective and legitimate, injections most
           of all. The needle is smaller than the fear, and the one real risk,
           priapism, is exactly why this is a prescribed, monitored therapy and
           never a DIY. The move is a <Link href="/learn/ed-workup">workup</Link>{" "}
-          and a urology conversation — where a treatment that reliably works is
+          and a urology conversation, where a treatment that reliably works is
           waiting.
         </p>
       </section>
@@ -202,7 +202,7 @@ export default function PenileInjectionsPage() {
         <p className="sos-note">
           General education, not medical advice, and deliberately not a dosing or
           injection how-to. Penile injection therapy is prescribed, dosed, and
-          first administered by a licensed clinician — and any prolonged erection
+          first administered by a licensed clinician. And any prolonged erection
           is an emergency, handled through your prescriber&apos;s instructions and
           emergency care, never self-managed dosing.
         </p>

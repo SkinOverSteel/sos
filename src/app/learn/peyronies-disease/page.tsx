@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Peyronie's disease: when it curves",
   description:
-    "Peyronie's disease — curvature from a fibrous plaque — is more common than men think, and not cancer. The two phases, why treatment timing is everything, and the injection, traction, and surgical options once it stabilizes.",
+    "Peyronie's disease (curvature from a fibrous plaque) is more common than men think, and not cancer. The two phases, why treatment timing is everything, and the injection, traction, and surgical options once it stabilizes.",
   alternates: { canonical: "/learn/peyronies-disease" },
 };
 
@@ -44,11 +44,11 @@ export default function PeyroniesDiseasePage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         A penis that has developed a curve, a bend, or a palpable lump can be
-        alarming — and the internet makes it worse. So, plainly:{" "}
+        alarming. And the internet makes it worse. So, plainly:{" "}
         <strong>Peyronie&apos;s disease is common, it is not cancer, and it is
         treatable</strong>. It&apos;s scar tissue, and the one thing that matters
         most to your outcome is understanding which <em>phase</em>{" "}you&apos;re in,
-        because that decides what should — and shouldn&apos;t — happen next.
+        because that decides what should (and shouldn&apos;t) happen next.
       </p>
 
       <section>
@@ -56,8 +56,8 @@ export default function PeyroniesDiseasePage() {
           What it actually is
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          Peyronie&apos;s is a <strong>fibrous plaque</strong> — a patch of scar
-          tissue — in the sheath that wraps the erectile chambers. It&apos;s
+          Peyronie&apos;s is a <strong>fibrous plaque</strong> (a patch of scar
+          tissue) in the sheath that wraps the erectile chambers. It&apos;s
           thought to follow small injuries during sex that, in men who are
           predisposed, heal into scar instead of resolving. That predisposition is
           partly genetic: it overlaps with{" "}
@@ -69,7 +69,7 @@ export default function PeyroniesDiseasePage() {
 
       <section style={{ marginTop: "44px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-          The two phases — and why timing is everything
+          The two phases, and why timing is everything
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "20px" }}>
           Peyronie&apos;s moves through two phases, and nearly every treatment
@@ -87,7 +87,7 @@ export default function PeyroniesDiseasePage() {
               <b>Acute</b> · active
             </p>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-              Roughly the first year. The plaque is still forming — pain with
+              Roughly the first year. The plaque is still forming: pain with
               erections, and a curve that&apos;s still <strong>changing</strong>.
               The rule here: don&apos;t operate on a curve that hasn&apos;t
               settled.
@@ -99,7 +99,7 @@ export default function PeyroniesDiseasePage() {
             </p>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
               The curve has held steady for a few months and the pain has usually
-              gone. Now the deformity is a <strong>known quantity</strong> — and
+              gone. Now the deformity is a <strong>known quantity</strong>, and
               durable treatment decisions finally make sense.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function PeyroniesDiseasePage() {
           Peyronie&apos;s have thin evidence behind them.
         </p>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
-          <strong>Once it&apos;s stable</strong>, real options open up — all of
+          <strong>Once it&apos;s stable</strong>, real options open up. All of
           them clinician-delivered:
         </p>
         <ul className="sos-prose" style={list}>
@@ -129,8 +129,8 @@ export default function PeyroniesDiseasePage() {
           <li>
             <strong>Traction therapy.</strong>{" "}A medical device worn on a
             schedule under a clinician&apos;s guidance, with growing evidence for
-            reducing curvature and recovering some length — often paired with
-            injections.
+            reducing curvature and recovering some length (often paired with
+            injections).
           </li>
           <li>
             <strong>Surgery.</strong>{" "}For a severe curve, or when erectile
@@ -141,7 +141,7 @@ export default function PeyroniesDiseasePage() {
         </ul>
         <p className="sos-note" style={{ marginTop: "14px" }}>
           Which path fits depends on the size of the curve, how your erections are
-          doing, and your goals — a urologist&apos;s call, made once the disease
+          doing, and your goals. A urologist&apos;s call, made once the disease
           is stable.
         </p>
       </section>
@@ -152,7 +152,7 @@ export default function PeyroniesDiseasePage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           A new curve, pain with erections, a lump you can feel, or erections that
-          have become unreliable — those are reasons to see a urologist, not to
+          have become unreliable. Those are reasons to see a urologist, not to
           wait it out in silence. Peyronie&apos;s travels with{" "}
           <Link href="/learn/erectile-function-signal">erectile dysfunction</Link>{" "}
           often enough that a proper <Link href="/learn/ed-workup">workup</Link>{" "}
@@ -172,7 +172,7 @@ export default function PeyroniesDiseasePage() {
           <strong>timing rules</strong>: let the active phase settle before making
           any permanent decision, then match a treatment to the curve you&apos;re
           actually left with. Alarming as a new bend is, it runs on a well-worn
-          medical path — and it starts with an exam, not a search bar.
+          medical path, and it starts with an exam, not a search bar.
         </p>
       </section>
 

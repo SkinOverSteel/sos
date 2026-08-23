@@ -43,19 +43,19 @@ export default function TestosteroneTherapyPage() {
       <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
-        If you&apos;re on testosterone — or weighing it — almost all of the
+        If you&apos;re on testosterone (or weighing it) almost all of the
         difference between doing it well and drifting into the gray zone comes
         down to two things: a <strong>real diagnosis</strong>{" "}and{" "}
         <strong>real monitoring</strong>. Get those right and TRT is legitimate,
         boring, effective medicine. Skip them and it becomes something else.
       </p>
 
-      <Section title="What TRT is — and isn't">
+      <Section title="What TRT is, and isn't">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Testosterone replacement therapy restores a{" "}
           <strong>diagnosed deficiency</strong>{" "}back to a normal range, under
           monitoring. That&apos;s it. It is not a performance stack, and
-          &quot;normal&quot; is the target — not &quot;as high as possible.&quot;
+          &quot;normal&quot; is the target, not &quot;as high as possible.&quot;
           Holding that line is the whole game, and it&apos;s the thread running
           through the rest of this page.
         </p>
@@ -64,11 +64,11 @@ export default function TestosteroneTherapyPage() {
       <Section title="The diagnosis">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           A proper diagnosis rests on <strong>two low early-morning</strong>{" "}total
-          testosterone measurements plus real symptoms — not a single number, and
+          testosterone measurements plus real symptoms. Not a single number, and
           not symptoms alone. Baseline labs before starting typically include free
           and total testosterone, estradiol, hematocrit, and PSA. If you want to
           understand what those mean, that&apos;s exactly what{" "}
-          <Link href="/learn/read-your-labs">read your labs</Link>{" "}is for — and{" "}
+          <Link href="/learn/read-your-labs">read your labs</Link>{" "}is for, and{" "}
           <Link href="/learn/erectile-function-signal">why the workup matters</Link>{" "}
           in the first place.
         </p>
@@ -81,35 +81,35 @@ export default function TestosteroneTherapyPage() {
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>Hematocrit</strong> — testosterone can thicken the blood
+            <strong>Hematocrit</strong>: testosterone can thicken the blood
             (polycythemia). If it climbs too high (above ~54%), therapy is paused.
           </li>
           <li>
-            <strong>PSA</strong> — a prostate baseline in men over 40, watched for
+            <strong>PSA</strong>: a prostate baseline in men over 40, watched for
             meaningful rises over time.
           </li>
           <li>
-            <strong>Estradiol</strong> — checked especially with breast tenderness
+            <strong>Estradiol</strong>: checked especially with breast tenderness
             or gynecomastia.
           </li>
           <li>
-            <strong>Lipids, blood pressure, and your testosterone level</strong> —
+            <strong>Lipids, blood pressure, and your testosterone level</strong>:
             reviewed periodically, typically at least annually once you&apos;re
             settled.
           </li>
         </ul>
         <p className="sos-prose" style={{ fontSize: "16px", marginTop: "12px" }}>
-          A legitimate prescriber does all of this by default — one of the green
+          A legitimate prescriber does all of this by default, one of the green
           flags in <Link href="/learn/telemedicine-visit">what a good telemedicine visit looks like</Link>.
         </p>
       </Section>
 
-      <Section title="Making it affordable — the legitimate levers">
+      <Section title="Making it affordable: the legitimate levers">
         <ul className="sos-prose" style={list}>
           <li>
             <strong>Use your insurance benefit.</strong>{" "}When there&apos;s a
             documented deficiency, both TRT and its monitoring labs are frequently
-            covered — that&apos;s what the benefit is for. If a medically-indicated
+            covered. That&apos;s what the benefit is for. If a medically-indicated
             claim is denied, your clinician can help you <strong>appeal</strong>{" "}
             with the documentation.
           </li>
@@ -121,13 +121,13 @@ export default function TestosteroneTherapyPage() {
           </li>
           <li>
             <strong>Compounding pharmacies</strong>{" "}are a legitimate route for
-            specific formulations a prescriber orders — certain concentrations,
+            specific formulations a prescriber orders: certain concentrations,
             creams, or pellets.
           </li>
         </ul>
         <p className="sos-note" style={{ marginTop: "14px" }}>
           The value is in paying less for the <strong style={{ color: "var(--sos-text-hi)" }}>same
-          prescribed, monitored therapy</strong> — through your real benefits and
+          prescribed, monitored therapy</strong>, through your real benefits and
           honest cash pricing. It is never in skipping the diagnosis, the
           prescription, or the labs; those are the parts that keep you safe, not
           the parts to cut.
@@ -144,7 +144,7 @@ export default function TestosteroneTherapyPage() {
           style={{ borderLeft: "3px solid var(--sos-emergency)" }}
         >
           <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
-            Some clinics and gray-market sources blur TRT into anabolic stacking —
+            Some clinics and gray-market sources blur TRT into anabolic stacking,
             adding nandrolone or other anabolic steroids on top. That is{" "}
             <strong>not hormone replacement</strong>. It&apos;s supraphysiological
             anabolic use, and the risk profile is a different animal:
@@ -152,7 +152,7 @@ export default function TestosteroneTherapyPage() {
           <ul className="sos-prose" style={list}>
             <li>Sharply lowered HDL and raised LDL cholesterol.</li>
             <li>
-              Hypertension, cardiomyopathy, and arrhythmia risk — nandrolone
+              Hypertension, cardiomyopathy, and arrhythmia risk. Nandrolone
               specifically has been linked to ventricular fibrillation.
             </li>
             <li>Testicular shrinkage and impaired fertility.</li>
@@ -161,7 +161,7 @@ export default function TestosteroneTherapyPage() {
           <p className="sos-prose" style={{ fontSize: "16px", marginTop: "12px" }}>
             Replacement, monitored to a normal range, is legitimate medicine.
             Consolidating anabolics into a &quot;shopping experience&quot; is the
-            enhancement path this site doesn&apos;t trade in — different thing,
+            enhancement path this site doesn&apos;t trade in: different thing,
             different risk, and squarely a conversation to have honestly with a
             clinician, not a cart to fill.
           </p>
@@ -171,7 +171,7 @@ export default function TestosteroneTherapyPage() {
       <Section title="The bottom line">
         <p className="sos-prose">
           TRT done right is unglamorous: a real diagnosis, a prescription, and
-          steady monitoring — made affordable through legitimate coverage and
+          steady monitoring, made affordable through legitimate coverage and
           honest cash pricing. The moment it turns into &quot;add some nandrolone
           to the order,&quot; it stops being replacement and becomes a different,
           riskier game. Keep it replacement.

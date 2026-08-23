@@ -45,7 +45,7 @@ export default function CavernosographyPage() {
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         The{" "}
         <Link href="/learn/penile-doppler-ultrasound">penile Doppler ultrasound</Link>{" "}
-        can tell you that blood isn&apos;t staying in — a venous leak — but it
+        can tell you that blood isn&apos;t staying in (a venous leak) but it
         can&apos;t always tell you <em>where</em>. When that specific answer
         matters, there&apos;s a more detailed test:{" "}
         <strong>cavernosography</strong>, usually paired with{" "}
@@ -60,7 +60,7 @@ export default function CavernosographyPage() {
           <Link href="/learn/ed-workup">workup</Link>{" "}and a{" "}
           <Link href="/learn/penile-doppler-ultrasound">Doppler</Link>, and almost
           only when someone is seriously weighing surgery for venous leak. Most
-          men — even most men with confirmed leak — never need it.
+          men, even most men with confirmed leak, never need it.
         </p>
       </div>
 
@@ -71,12 +71,12 @@ export default function CavernosographyPage() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           The penis is kept erect with a controlled saline infusion, then contrast
           dye is introduced and imaged with X-ray or fluoroscopy. On the images,
-          dye escaping through the veins shows the leak directly — not inferred
+          dye escaping through the veins shows the leak directly, not inferred
           from flow speeds, but seen. The paired{" "}
           <strong>cavernosometry</strong>{" "}half measures the pressures: how much
           infusion it takes to reach an erection, and how fast pressure falls when
-          the infusion stops. Together they answer two questions — <em>is there a
-          leak</em>, and <em>where is it</em> — with a precision the Doppler
+          the infusion stops. Together they answer two questions (<em>is there a
+          leak</em>, and <em>where is it</em>) with a precision the Doppler
           can&apos;t reach.
         </p>
       </section>
@@ -88,7 +88,7 @@ export default function CavernosographyPage() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           It&apos;s the difference between imaging with contrast and without. The
           Doppler measures{" "}
-          <Link href="/learn/penile-doppler-ultrasound">EDV — end-diastolic velocity</Link>,
+          <Link href="/learn/penile-doppler-ultrasound">EDV, end-diastolic velocity</Link>,
           which rises when blood is draining out, so it flags <em>that</em>{" "}a leak
           is likely. But a surgeon considering repair needs to know <em>where</em>{" "}
           the blood is escaping and how much. Cavernosography maps that. Without a
@@ -103,13 +103,13 @@ export default function CavernosographyPage() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           This is the question worth asking before you agree to an invasive test.
           Surgery to fix venous leak has a <strong>limited and frequently
-          disappointing track record</strong> — results often fade over time — so
+          disappointing track record</strong>: results often fade over time, so
           mapping a leak is only worthwhile when it will genuinely guide a
           procedure someone has decided is right for them. For the large majority,
           effective treatment doesn&apos;t depend on this level of detail:{" "}
           <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link>,{" "}
           <Link href="/learn/penile-injections">penile injections</Link>, a vacuum
-          device, or — when nothing else works — a penile implant, which sidesteps
+          device, or (when nothing else works) a penile implant, which sidesteps
           the leak question entirely. Cavernosography earns its place only when the
           answer would actually change the plan.
         </p>
@@ -123,8 +123,8 @@ export default function CavernosographyPage() {
           Cavernosography is a precise tool for a narrow job: showing a surgeon
           exactly where a venous leak is before an operation that&apos;s already on
           the table. If surgery isn&apos;t genuinely being considered, mapping the
-          leak rarely changes what happens next. Ask the direct question —{" "}
-          <em>will this test change my treatment?</em> — and let the answer decide
+          leak rarely changes what happens next. Ask the direct question:{" "}
+          <em>will this test change my treatment?</em> And let the answer decide
           whether an invasive study is worth it.
         </p>
       </section>

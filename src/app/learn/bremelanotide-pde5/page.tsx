@@ -22,7 +22,7 @@ const jsonLd = {
   name: "Bremelanotide + PDE5: two different levers",
   url: `${SITE.url}/learn/bremelanotide-pde5`,
   description:
-    "Combining bremelanotide (PT-141) with PDE5 inhibitors — mechanisms, emerging evidence, and cardiovascular/off-label safety.",
+    "Combining bremelanotide (PT-141) with PDE5 inhibitors: mechanisms, emerging evidence, and cardiovascular/off-label safety.",
   about: { "@type": "Drug", name: "Bremelanotide" },
   audience: { "@type": "Patient" },
 };
@@ -42,7 +42,7 @@ export default function BremelanotidePde5Page() {
 
       <MorseSOS style={{ margin: "34px 0" }} />
 
-      {/* Safety callout — read first */}
+      {/* Safety callout: read first */}
       <aside
         role="note"
         className="sos-card"
@@ -60,15 +60,15 @@ export default function BremelanotidePde5Page() {
           contraindicated in uncontrolled hypertension or known cardiovascular
           disease. In men it is <strong>off-label</strong>, and combining it with
           a PDE5 inhibitor is not an approved regimen. This is a decision for a
-          clinician who has screened your cardiovascular status — not a stack to
+          clinician who has screened your cardiovascular status. Not a stack to
           assemble yourself.
         </p>
       </aside>
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         The reason combining these two is even interesting is that they don&apos;t
-        do the same job. A PDE5 inhibitor is <strong>peripheral hydraulics</strong>{" "}
-        — it helps the blood vessels of the penis open once arousal is already
+        do the same job. A PDE5 inhibitor is <strong>peripheral hydraulics</strong>:{" "}
+        it helps the blood vessels of the penis open once arousal is already
         happening. Bremelanotide works <strong>upstream, in the brain</strong>, on
         desire and arousal itself. Two different levers on two different parts of
         the problem.
@@ -78,22 +78,22 @@ export default function BremelanotidePde5Page() {
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <div className="sos-card" style={{ borderLeft: "3px solid var(--sos-copper)" }}>
             <h3 className="sos-h2" style={{ fontSize: "13px", marginBottom: "8px" }}>
-              PDE5 inhibitors — peripheral
+              PDE5 inhibitors: peripheral
             </h3>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
               Work through the nitric-oxide / cGMP pathway to relax and open
               penile blood vessels. They enable an erection when arousal is
-              present — but they don&apos;t create desire. (More in{" "}
+              present, but they don&apos;t create desire. (More in{" "}
               <Link href="/learn/pde5-long-term">PDE5 inhibitors, long term</Link>.)
             </p>
           </div>
           <div className="sos-card" style={{ borderLeft: "3px solid var(--sos-copper)" }}>
             <h3 className="sos-h2" style={{ fontSize: "13px", marginBottom: "8px" }}>
-              Bremelanotide (PT-141) — central
+              Bremelanotide (PT-141): central
             </h3>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
               A melanocortin-receptor agonist that acts in the central nervous
-              system on the pathways of sexual desire and arousal — upstream of
+              system on the pathways of sexual desire and arousal, upstream of
               the erection itself. That&apos;s a fundamentally different target
               from a PDE5 inhibitor, which is exactly why the two could address
               different failure points.
@@ -108,7 +108,7 @@ export default function BremelanotidePde5Page() {
           produced a <strong>significantly greater erectile response</strong>{" "}than
           sildenafil alone. In men who didn&apos;t respond adequately to sildenafil,
           PT-141 outperformed placebo (roughly <strong>34% vs 9%</strong>{" "}reporting
-          meaningful improvement) — pointing to a real add-on role for PDE5
+          meaningful improvement), pointing to a real add-on role for PDE5
           non-responders.
         </p>
         <p className="sos-note">
@@ -116,7 +116,7 @@ export default function BremelanotidePde5Page() {
           studies, largely of an intranasal formulation that was later
           discontinued. The only approved bremelanotide product (Vyleesi, a
           subcutaneous injection) is approved <strong style={{ color: "var(--sos-text-hi)" }}>for women</strong>{" "}with
-          low sexual desire — use in men, and the combination with a PDE5
+          low sexual desire. Use in men, and the combination with a PDE5
           inhibitor, is off-label and not established. Promising ≠ proven.
         </p>
       </Section>
@@ -133,10 +133,10 @@ export default function BremelanotidePde5Page() {
         </p>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           So it isn&apos;t &quot;extra vasodilation&quot; layered on a PDE5
-          inhibitor — it&apos;s a drug pushing blood pressure the{" "}
+          inhibitor. It&apos;s a drug pushing blood pressure the{" "}
           <em>opposite</em>{" "}direction, with its own cardiac profile. That&apos;s
           precisely why the combination belongs with a prescriber who has checked
-          your heart and blood pressure first — and why the{" "}
+          your heart and blood pressure first, and why the{" "}
           <Link href="/learn/erectile-function-signal">cardiovascular workup</Link>{" "}
           matters here more than ever.
         </p>
@@ -145,7 +145,7 @@ export default function BremelanotidePde5Page() {
       <Section title="And most 'PT-141' isn't the approved drug">
         <p className="sos-prose">
           Because it&apos;s off-label in men, much of what&apos;s sold as
-          &quot;PT-141&quot; is gray-market research product — the unverified
+          &quot;PT-141&quot; is gray-market research product: the unverified
           identity, purity, and dose problem covered in{" "}
           <Link href="/learn/product-forms">what you&apos;re actually buying</Link>.
           Stacking an unverified pressor with a vasodilator, off a baggie, with no
@@ -161,7 +161,7 @@ export default function BremelanotidePde5Page() {
           alone. But in men it&apos;s off-label, the combination evidence is
           early, and bremelanotide&apos;s blood-pressure and cardiac effects make
           self-combining genuinely risky. The alpha, if there is one, is only
-          real inside a supervised, cardiovascularly-screened plan — never out of
+          real inside a supervised, cardiovascularly-screened plan. Never out of
           a baggie.
         </p>
       </Section>

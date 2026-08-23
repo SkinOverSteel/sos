@@ -5,7 +5,7 @@ import { EvidenceBadge } from "@/components/EvidenceBadge";
 /**
  * Internal-link cluster at the foot of an article: same-section pieces first,
  * then others, so the library reads as a connected topic map (better crawl
- * depth + dwell). Data-driven from articles.ts — no per-article wiring.
+ * depth + dwell). Data-driven from articles.ts. No per-article wiring.
  */
 export function RelatedArticles({ slug, max = 3 }: { slug: string; max?: number }) {
   const current = articles.find((a) => a.slug === slug);

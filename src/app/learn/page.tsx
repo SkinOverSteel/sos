@@ -6,7 +6,7 @@ import { EvidenceBadge } from "@/components/EvidenceBadge";
 export const metadata: Metadata = {
   title: "Learn",
   description:
-    "Evidence-graded men's health education — the Open Floor. Every claim carries a visible evidence grade.",
+    "Evidence-graded men's health education: the Open Floor. Every claim carries a visible evidence grade.",
   alternates: { canonical: "/learn" },
 };
 
@@ -21,8 +21,8 @@ export default function LearnHub() {
       </h1>
       <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "40px" }}>
         Evidence-graded education, in plain language. Every claim carries a
-        visible grade — <strong>Established</strong>, <strong>Emerging</strong>,
-        or <strong>Anecdote</strong> — so you always know how much weight it
+        visible grade (<strong>Established</strong>, <strong>Emerging</strong>,
+        or <strong>Anecdote</strong>) so you always know how much weight it
         holds. This bridges toward your clinician, never around them.
       </p>
 

@@ -1,5 +1,5 @@
 /**
- * Evidence-grade badge — outline-only, never filled (per brand spec).
+ * Evidence-grade badge: outline-only, never filled (per brand spec).
  * Colors derive from tokens in /brand/tokens.css.
  */
 export type Grade = "established" | "emerging" | "anecdote" | "high-risk";

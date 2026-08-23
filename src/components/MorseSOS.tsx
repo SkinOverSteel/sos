@@ -1,12 +1,12 @@
 import type { CSSProperties, HTMLAttributes } from "react";
 
-// ··· ––– ··· — three dots, three dashes, three dots.
+// ··· ––– ···: three dots, three dashes, three dots.
 const PATTERN = ["dot", "dot", "dot", "dash", "dash", "dash", "dot", "dot", "dot"] as const;
 
 type MorseSOSProps = {
   /** "loading" animates the pattern as a transmitting signal; "divider" is the static signature (default). */
   variant?: "divider" | "loading";
-  /** Quieter treatment, rendered in the line color — e.g. footers, empty / 404 states. */
+  /** Quieter treatment, rendered in the line color, e.g. footers, empty / 404 states. */
   dim?: boolean;
   className?: string;
   style?: CSSProperties;
@@ -18,7 +18,7 @@ type MorseSOSProps = {
 };
 
 /**
- * The brand's Morse SOS signature ( ··· ––– ··· ) — "the signal, answered."
+ * The brand's Morse SOS signature ( ··· ––– ··· ): "the signal, answered."
  * One source for what had been nine copy-pasted <i> tags across the app.
  * variant="loading" turns it into the transmitting loader (see globals.css);
  * the global prefers-reduced-motion rule (tokens.css) stills it to the static

@@ -10,19 +10,19 @@ export const faqs: Record<string, Faq[]> = {
   "free-testosterone": [
     {
       q: "What is free testosterone?",
-      a: "Most testosterone in your blood is bound — tightly to SHBG and loosely to albumin — and unavailable to tissues. Free testosterone is the small fraction (usually around 1.5–2.5% of total) circulating unbound. Bioavailable testosterone is that free fraction plus the loosely albumin-bound portion your body can still use.",
+      a: "Most testosterone in your blood is bound (tightly to SHBG and loosely to albumin) and unavailable to tissues. Free testosterone is the small fraction (usually around 1.5–2.5% of total) circulating unbound. Bioavailable testosterone is that free fraction plus the loosely albumin-bound portion your body can still use.",
     },
     {
       q: "Why calculate free testosterone instead of using total testosterone?",
-      a: "Because SHBG changes the gap between them. When SHBG is high, total testosterone can look normal while the usable free fraction is low; when SHBG is low, the reverse. Calculated free testosterone estimates the usable fraction from total T, SHBG, and albumin — often closer to how you actually feel than the total alone.",
+      a: "Because SHBG changes the gap between them. When SHBG is high, total testosterone can look normal while the usable free fraction is low; when SHBG is low, the reverse. Calculated free testosterone estimates the usable fraction from total T, SHBG, and albumin: often closer to how you actually feel than the total alone.",
     },
     {
       q: "How accurate is the Vermeulen calculation?",
-      a: "For most people it tracks well with the gold-standard equilibrium dialysis, and it is more reliable than the older direct 'analog' free-testosterone immunoassays. It is still an estimate — labs and calculators use slightly different binding constants — so use it as context for a conversation with your clinician, not as a diagnosis.",
+      a: "For most people it tracks well with the gold-standard equilibrium dialysis, and it is more reliable than the older direct 'analog' free-testosterone immunoassays. It is still an estimate. Labs and calculators use slightly different binding constants, so use it as context for a conversation with your clinician, not as a diagnosis.",
     },
     {
       q: "What albumin value should I use?",
-      a: "If you don't have an albumin result, the standard default of 4.3 g/dL (43 g/L) is fine — albumin varies little between healthy people and changes the result only modestly. If you have your own value, use it.",
+      a: "If you don't have an albumin result, the standard default of 4.3 g/dL (43 g/L) is fine. Albumin varies little between healthy people and changes the result only modestly. If you have your own value, use it.",
     },
     {
       q: "What is a normal free testosterone level?",
@@ -40,11 +40,11 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Is this the same as the SHIM or IIEF-5?",
-      a: "Yes. This is the five-item International Index of Erectile Function (IIEF-5), also called the Sexual Health Inventory for Men (SHIM) — a validated screening questionnaire developed by Rosen and colleagues in 1999 and used widely in clinical practice.",
+      a: "Yes. This is the five-item International Index of Erectile Function (IIEF-5), also called the Sexual Health Inventory for Men (SHIM): a validated screening questionnaire developed by Rosen and colleagues in 1999 and used widely in clinical practice.",
     },
     {
       q: "Does a low score mean something is wrong with my heart?",
-      a: "Not on its own — but it can be an early flag. Erectile tissue depends on healthy blood flow, so erectile difficulty sometimes appears years before a vascular or metabolic problem is diagnosed. That is a reason to get a workup, which also screens for those risks.",
+      a: "Not on its own, but it can be an early flag. Erectile tissue depends on healthy blood flow, so erectile difficulty sometimes appears years before a vascular or metabolic problem is diagnosed. That is a reason to get a workup, which also screens for those risks.",
     },
     {
       q: "Are my answers saved or sent anywhere?",
@@ -52,17 +52,17 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "I got a reassuring score but something still feels off. What now?",
-      a: "Trust that. The screen is a snapshot of the last six months, not a full evaluation. If something feels wrong, a workup is still the way to be sure — the score doesn't override your own experience.",
+      a: "Trust that. The screen is a snapshot of the last six months, not a full evaluation. If something feels wrong, a workup is still the way to be sure. The score doesn't override your own experience.",
     },
   ],
   "erectile-function-signal": [
     {
       q: "Is erectile dysfunction a sign of heart disease?",
-      a: "Often, yes. The penile arteries are small, so they tend to stiffen and narrow earlier than the coronary ones — which is why erectile trouble can precede a heart attack by years. It is a reason to get a full workup, not just a prescription.",
+      a: "Often, yes. The penile arteries are small, so they tend to stiffen and narrow earlier than the coronary ones, which is why erectile trouble can precede a heart attack by years. It is a reason to get a full workup, not just a prescription.",
     },
     {
       q: "Can ED be an early warning of diabetes?",
-      a: "It can. Erectile function and metabolic disease share the same small vessels and nerves, and high blood sugar damages both — sometimes before diabetes has been formally diagnosed.",
+      a: "It can. Erectile function and metabolic disease share the same small vessels and nerves, and high blood sugar damages both: sometimes before diabetes has been formally diagnosed.",
     },
     {
       q: "Should I see a doctor for occasional erection problems?",
@@ -72,11 +72,11 @@ export const faqs: Record<string, Faq[]> = {
   "read-your-labs": [
     {
       q: "What blood tests are done for erectile dysfunction?",
-      a: "Typically an early-morning testosterone (repeated if it is low), blood sugar or HbA1c, a lipid panel, and sometimes thyroid or prolactin — screening the hormonal and metabolic drivers at the same time.",
+      a: "Typically an early-morning testosterone (repeated if it is low), blood sugar or HbA1c, a lipid panel, and sometimes thyroid or prolactin: screening the hormonal and metabolic drivers at the same time.",
     },
     {
       q: "What counts as a normal testosterone level?",
-      a: "Normal is a range, not a number to maximize. A deficiency diagnosis rests on two low early-morning readings plus real symptoms, interpreted by a clinician against the rest of your labs — never on a single value.",
+      a: "Normal is a range, not a number to maximize. A deficiency diagnosis rests on two low early-morning readings plus real symptoms, interpreted by a clinician against the rest of your labs. Never on a single value.",
     },
     {
       q: "What is SHBG on a testosterone panel?",
@@ -86,11 +86,11 @@ export const faqs: Record<string, Faq[]> = {
   "testosterone-therapy": [
     {
       q: "Is testosterone replacement therapy safe?",
-      a: "When it treats a real, diagnosed deficiency and is monitored, TRT is legitimate, unglamorous medicine. The risk comes from skipping the diagnosis or the monitoring — hematocrit, PSA, and estradiol are watched to keep it safe.",
+      a: "When it treats a real, diagnosed deficiency and is monitored, TRT is legitimate, unglamorous medicine. The risk comes from skipping the diagnosis or the monitoring: hematocrit, PSA, and estradiol are watched to keep it safe.",
     },
     {
       q: "What is the difference between TRT and anabolic steroids?",
-      a: "TRT restores a diagnosed deficiency back to a normal range under monitoring. Stacking anabolic steroids on top is supraphysiological enhancement — a different, higher-risk practice, and the line this site draws.",
+      a: "TRT restores a diagnosed deficiency back to a normal range under monitoring. Stacking anabolic steroids on top is supraphysiological enhancement, a different, higher-risk practice, and the line this site draws.",
     },
     {
       q: "Does testosterone therapy affect fertility?",
@@ -100,7 +100,7 @@ export const faqs: Record<string, Faq[]> = {
   "pde5-long-term": [
     {
       q: "Do ED pills stop working over time?",
-      a: "Usually the drug has not worn out — your vasculature has changed. A fading response is often a signal to re-check vascular and metabolic health rather than simply chase the effect.",
+      a: "Usually the drug has not worn out: your vasculature has changed. A fading response is often a signal to re-check vascular and metabolic health rather than simply chase the effect.",
     },
     {
       q: "Can you take PDE5 inhibitors every day?",
@@ -108,7 +108,7 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Which blood pressure medications work best with ED?",
-      a: "Some, such as nebivolol or telmisartan, tend to be more erection-friendly than older options — worth raising if you are treating both high blood pressure and ED.",
+      a: "Some, such as nebivolol or telmisartan, tend to be more erection-friendly than older options, worth raising if you are treating both high blood pressure and ED.",
     },
   ],
   "bremelanotide-pde5": [
@@ -118,13 +118,13 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Is bremelanotide safe to combine with ED pills?",
-      a: "The combination is early-stage and off-label in men, and bremelanotide raises blood pressure — so it is a careful, prescriber-supervised conversation. Most of what is sold online is not the approved drug.",
+      a: "The combination is early-stage and off-label in men, and bremelanotide raises blood pressure, so it is a careful, prescriber-supervised conversation. Most of what is sold online is not the approved drug.",
     },
   ],
   "telemedicine-visit": [
     {
       q: "How do I know if an online men's health clinic is legitimate?",
-      a: "The test is whether anyone actually evaluated you — a real history, labs when warranted, and follow-up — versus a checkout form with a doctor's signature stapled on.",
+      a: "The test is whether anyone actually evaluated you (a real history, labs when warranted, and follow-up) versus a checkout form with a doctor's signature stapled on.",
     },
     {
       q: "What are the red flags of an ED pill mill?",
@@ -134,17 +134,17 @@ export const faqs: Record<string, Faq[]> = {
   "what-it-costs": [
     {
       q: "Why is ED treatment so expensive?",
-      a: "The price is a stack — labs, a consult, the product, and markup on top — and the prescriber's cut often hides in the middle. Seeing the layers is how you find the real value.",
+      a: "The price is a stack (labs, a consult, the product, and markup on top), and the prescriber's cut often hides in the middle. Seeing the layers is how you find the real value.",
     },
     {
       q: "How can I get ED treatment for less?",
-      a: "The generic molecules cost close to nothing at transparent pharmacies. The value is in paying less for the same legitimate, monitored care — never in cutting the diagnosis, prescription, or labs that keep you safe.",
+      a: "The generic molecules cost close to nothing at transparent pharmacies. The value is in paying less for the same legitimate, monitored care. Never in cutting the diagnosis, prescription, or labs that keep you safe.",
     },
   ],
   "generic-pde5-value": [
     {
       q: "Is generic sildenafil as good as Viagra?",
-      a: "It is the same molecule. The gap between a few dollars and a few hundred is markup, not medicine — the patent expired years ago.",
+      a: "It is the same molecule. The gap between a few dollars and a few hundred is markup, not medicine: the patent expired years ago.",
     },
     {
       q: "Where can I fill an ED prescription cheaply?",
@@ -158,71 +158,71 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Is gray-market pre-mixed product safe?",
-      a: "A pre-mixed baggie means no verifiable source, purity, or dose — the opposite of what a licensed pharmacy provides. The form itself reveals the risk.",
+      a: "A pre-mixed baggie means no verifiable source, purity, or dose: the opposite of what a licensed pharmacy provides. The form itself reveals the risk.",
     },
   ],
   "nocturnal-tumescence-testing": [
     {
       q: "What is nocturnal penile tumescence (NPT) testing?",
-      a: "NPT testing measures the erections that happen naturally during sleep, mostly in REM. Healthy men typically have several a night without being aware of them. The test records whether they occur and how rigid they are, because their presence points to intact nerves and blood flow — regardless of what happens when you're awake.",
+      a: "NPT testing measures the erections that happen naturally during sleep, mostly in REM. Healthy men typically have several a night without being aware of them. The test records whether they occur and how rigid they are, because their presence points to intact nerves and blood flow, regardless of what happens when you're awake.",
     },
     {
       q: "What does an NPT test tell you about ED?",
       a: "It helps separate a physical cause from a psychological one. If strong erections happen reliably in your sleep but not during sex, the hardware is largely working and the barrier is more likely psychological or situational. If they're weak or absent asleep too, that points toward a physical (vascular, neurological, or hormonal) cause worth pursuing. It's a pointer, not a diagnosis on its own.",
     },
     {
-      q: "How is NPT testing done — can I do it at home?",
-      a: "There are two levels. The formal version is RigiScan, a device worn overnight (sometimes in a sleep lab) that continuously logs the number, rigidity, and duration of erections. A simpler screening version uses a snap-gauge or postage-stamp-style band around the shaft that breaks if an erection occurs — cheap and doable at home, but it only tells you something happened, not how rigid or how long. Which one fits is a clinician's call.",
+      q: "How is NPT testing done, and can I do it at home?",
+      a: "There are two levels. The formal version is RigiScan, a device worn overnight (sometimes in a sleep lab) that continuously logs the number, rigidity, and duration of erections. A simpler screening version uses a snap-gauge or postage-stamp-style band around the shaft that breaks if an erection occurs: cheap and doable at home, but it only tells you something happened, not how rigid or how long. Which one fits is a clinician's call.",
     },
     {
       q: "Is NPT testing still used?",
-      a: "Less than it once was. A good history, exam, and blood work answer the physical-versus-psychological question for most men, and treatment often moves ahead without it. NPT keeps a role in specific situations — younger men, complex or unclear cases, or medico-legal ones — but it's a selective tool now, not a routine step.",
+      a: "Less than it once was. A good history, exam, and blood work answer the physical-versus-psychological question for most men, and treatment often moves ahead without it. NPT keeps a role in specific situations (younger men, complex or unclear cases, or medico-legal ones), but it's a selective tool now, not a routine step.",
     },
   ],
   "penile-doppler-ultrasound": [
     {
       q: "What is a penile Doppler ultrasound and what does it show?",
-      a: "It is an ultrasound of the arteries and veins in the penis, done after an injection that produces an erection, so the clinician can measure blood flow directly. It shows whether enough blood flows in (arterial inflow) and whether it stays in (venous leak) — the two vascular questions pills can't answer. It's a specialized test, not a routine one; most men never need it.",
+      a: "It is an ultrasound of the arteries and veins in the penis, done after an injection that produces an erection, so the clinician can measure blood flow directly. It shows whether enough blood flows in (arterial inflow) and whether it stays in (venous leak), the two vascular questions pills can't answer. It's a specialized test, not a routine one; most men never need it.",
     },
     {
       q: "How much does a penile Doppler ultrasound cost?",
-      a: "It varies widely by location and setting — commonly a few hundred to around a thousand dollars. Ask for the price and whether your insurance covers it before you book, and confirm whether a follow-up contrast study would be billed separately.",
+      a: "It varies widely by location and setting: commonly a few hundred to around a thousand dollars. Ask for the price and whether your insurance covers it before you book, and confirm whether a follow-up contrast study would be billed separately.",
     },
     {
       q: "Why does the injection dose matter for the result?",
-      a: "The test needs a full erection to measure blood flow accurately. If the in-office injection doesn't fully engage the erection, the study can show a venous leak that wouldn't appear at a proper dose — a false positive. That's why it's worth telling the clinician exactly what you normally use to achieve a reliable erection, so the study reflects your real physiology rather than an under-dosed snapshot.",
+      a: "The test needs a full erection to measure blood flow accurately. If the in-office injection doesn't fully engage the erection, the study can show a venous leak that wouldn't appear at a proper dose. A false positive. That's why it's worth telling the clinician exactly what you normally use to achieve a reliable erection, so the study reflects your real physiology rather than an under-dosed snapshot.",
     },
     {
       q: "What is cavernosography and when is it used?",
-      a: "Cavernosography is a follow-up test that uses injected contrast dye and imaging to see venous leak more clearly — think of it like the difference between imaging with and without contrast. It's more invasive, so it's usually reserved for when the Doppler is inconclusive or a leak needs to be mapped before considering surgery.",
+      a: "Cavernosography is a follow-up test that uses injected contrast dye and imaging to see venous leak more clearly: think of it like the difference between imaging with and without contrast. It's more invasive, so it's usually reserved for when the Doppler is inconclusive or a leak needs to be mapped before considering surgery.",
     },
     {
       q: "What are PSV, EDV, and RI on a penile Doppler report?",
-      a: "They're the core measurements. PSV (peak systolic velocity) reflects arterial inflow — higher is better. EDV (end-diastolic velocity) reflects whether blood is draining back out — lower is better. RI (resistive index) combines the two. Ask for all three for both the right and left sides, because a normal result on one side doesn't rule out a problem on the other. The specific numbers are interpreted by your clinician against the lab's reference values.",
+      a: "They're the core measurements. PSV (peak systolic velocity) reflects arterial inflow. Higher is better. EDV (end-diastolic velocity) reflects whether blood is draining back out. Lower is better. RI (resistive index) combines the two. Ask for all three for both the right and left sides, because a normal result on one side doesn't rule out a problem on the other. The specific numbers are interpreted by your clinician against the lab's reference values.",
     },
   ],
   cavernosography: [
     {
       q: "What is cavernosography?",
-      a: "Cavernosography is an imaging test that maps venous leak in the penis. Contrast dye is injected while the penis is kept erect with a saline infusion, and X-ray or fluoroscopy shows where blood — and dye — is escaping. It's usually paired with dynamic infusion cavernosometry, which measures the pressures involved, so the two are often described together.",
+      a: "Cavernosography is an imaging test that maps venous leak in the penis. Contrast dye is injected while the penis is kept erect with a saline infusion, and X-ray or fluoroscopy shows where blood (and dye) is escaping. It's usually paired with dynamic infusion cavernosometry, which measures the pressures involved, so the two are often described together.",
     },
     {
       q: "How is cavernosography different from a penile Doppler ultrasound?",
-      a: "The Doppler is the first-line vascular test: non-invasive ultrasound that measures inflow and hints at leak. Cavernosography is the more invasive follow-up, using contrast dye to show exactly where a leak is. Think of it as imaging with contrast versus without — same question, sharper and more localized picture. The Doppler almost always comes first.",
+      a: "The Doppler is the first-line vascular test: non-invasive ultrasound that measures inflow and hints at leak. Cavernosography is the more invasive follow-up, using contrast dye to show exactly where a leak is. Think of it as imaging with contrast versus without: same question, sharper and more localized picture. The Doppler almost always comes first.",
     },
     {
       q: "When is cavernosography needed?",
-      a: "Rarely, and only for specific reasons — most often when the Doppler suggests venous leak and a man is a candidate for surgery, so the surgeon needs to know precisely where the leak is. It's not part of a routine ED workup and most men never need it.",
+      a: "Rarely, and only for specific reasons, most often when the Doppler suggests venous leak and a man is a candidate for surgery, so the surgeon needs to know precisely where the leak is. It's not part of a routine ED workup and most men never need it.",
     },
     {
       q: "Does cavernosography change the treatment?",
-      a: "Only in a narrow set of cases. Venous leak surgery has a limited and often disappointing track record, so mapping a leak is worthwhile mainly when it will genuinely guide a procedure. For most men, effective treatment — pills, injections, a vacuum device, or an implant — doesn't depend on this level of detail. That's a conversation to have with a urologist before agreeing to the test.",
+      a: "Only in a narrow set of cases. Venous leak surgery has a limited and often disappointing track record, so mapping a leak is worthwhile mainly when it will genuinely guide a procedure. For most men, effective treatment (pills, injections, a vacuum device, or an implant) doesn't depend on this level of detail. That's a conversation to have with a urologist before agreeing to the test.",
     },
   ],
   "ed-workup": [
     {
       q: "How is erectile dysfunction diagnosed?",
-      a: "With a systematic workup — a detailed history, a focused physical exam, and blood work — aimed at finding the cause, because the cause decides the treatment. Most men never need more than that.",
+      a: "With a systematic workup (a detailed history, a focused physical exam, and blood work) aimed at finding the cause, because the cause decides the treatment. Most men never need more than that.",
     },
     {
       q: "What tests will a doctor run for ED?",
@@ -230,27 +230,27 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Do I need a workup, or can I just buy the pills?",
-      a: "The workup is the part actually worth paying for — it is the screen that can catch diabetes or heart disease early. Skipping it risks treating the wrong problem and missing a bigger one.",
+      a: "The workup is the part actually worth paying for: it is the screen that can catch diabetes or heart disease early. Skipping it risks treating the wrong problem and missing a bigger one.",
     },
   ],
   "premature-ejaculation": [
     {
       q: "Is premature ejaculation treatable?",
-      a: "Yes, often well — with behavioral techniques, topical anesthetics, and prescription options, frequently combined. It is common and medical, not a character flaw.",
+      a: "Yes, often well: with behavioral techniques, topical anesthetics, and prescription options, frequently combined. It is common and medical, not a character flaw.",
     },
     {
       q: "What causes premature ejaculation?",
-      a: "Lifelong PE tends to reflect how the ejaculatory reflex is wired. Acquired PE is a change with a treatable driver behind it — often anxiety, a thyroid issue, or erectile trouble.",
+      a: "Lifelong PE tends to reflect how the ejaculatory reflex is wired. Acquired PE is a change with a treatable driver behind it, often anxiety, a thyroid issue, or erectile trouble.",
     },
     {
       q: "Are premature ejaculation and ED connected?",
-      a: "Frequently. When erections are unreliable, the body learns to rush — so treating the underlying erectile dysfunction often eases the premature ejaculation too.",
+      a: "Frequently. When erections are unreliable, the body learns to rush, so treating the underlying erectile dysfunction often eases the premature ejaculation too.",
     },
   ],
   "peyronies-disease": [
     {
       q: "Is Peyronie's disease cancer or dangerous?",
-      a: "It is not cancer and not an infection — it is a fibrous scar, or plaque, that causes curvature. It is common and treatable, and the key is matching treatment to the phase.",
+      a: "It is not cancer and not an infection. It is a fibrous scar, or plaque, that causes curvature. It is common and treatable, and the key is matching treatment to the phase.",
     },
     {
       q: "Can Peyronie's disease be treated without surgery?",
@@ -258,7 +258,7 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "When should I see a doctor about penis curvature?",
-      a: "A new curve, pain with erections, or a lump you can feel is worth a urologist — especially since Peyronie's often travels with erectile dysfunction.",
+      a: "A new curve, pain with erections, or a lump you can feel is worth a urologist, especially since Peyronie's often travels with erectile dysfunction.",
     },
   ],
   "pde5-lineup": [
@@ -268,7 +268,7 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Which ED pill lasts the longest?",
-      a: "Tadalafil, by a wide margin — up to about 36 hours, versus a few hours for the others. That long window is its defining feature.",
+      a: "Tadalafil, by a wide margin: up to about 36 hours, versus a few hours for the others. That long window is its defining feature.",
     },
     {
       q: "Can you take ED pills with nitrates or poppers?",
@@ -278,7 +278,7 @@ export const faqs: Record<string, Faq[]> = {
   "training-for-erections": [
     {
       q: "Can exercise improve erectile function?",
-      a: "Yes — it is well established, especially moderate-to-vigorous aerobic exercise, which improves the vascular system erections depend on. The benefit is largest for the men who start off worst.",
+      a: "Yes. It is well established, especially moderate-to-vigorous aerobic exercise, which improves the vascular system erections depend on. The benefit is largest for the men who start off worst.",
     },
     {
       q: "Is high-intensity or weight training good for erections?",
@@ -286,17 +286,17 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "How does exercise actually help erections?",
-      a: "Hard training raises nitric-oxide availability and improves how arteries dilate on demand — the same pathway ED pills amplify, except built rather than borrowed for a night.",
+      a: "Hard training raises nitric-oxide availability and improves how arteries dilate on demand, the same pathway ED pills amplify, except built rather than borrowed for a night.",
     },
   ],
   "trt-fertility": [
     {
       q: "Does TRT cause infertility?",
-      a: "While you are on it, testosterone therapy usually suppresses sperm production, often to very low or zero levels — about two-thirds of men by four to six months. But for most men it is not a real-world problem: they are not trying to conceive, and the effect is usually reversible after stopping.",
+      a: "While you are on it, testosterone therapy usually suppresses sperm production, often to very low or zero levels: about two-thirds of men by four to six months. But for most men it is not a real-world problem: they are not trying to conceive, and the effect is usually reversible after stopping.",
     },
     {
       q: "Is TRT-related infertility reversible?",
-      a: "Usually, yes. After stopping, sperm counts typically recover over several months — roughly 90% of men by a year and effectively all by two years — though older men and those on TRT longer recover more slowly. Planning ahead beats hoping.",
+      a: "Usually, yes. After stopping, sperm counts typically recover over several months (roughly 90% of men by a year and effectively all by two years), though older men and those on TRT longer recover more slowly. Planning ahead beats hoping.",
     },
     {
       q: "Can you stay fertile while on testosterone therapy?",
@@ -306,11 +306,11 @@ export const faqs: Record<string, Faq[]> = {
   "penile-injections": [
     {
       q: "What is trimix for ED?",
-      a: "Trimix is a compounded medication (alprostadil, papaverine, and phentolamine) injected into the penis to produce an erection directly — bypassing the desire and nerve pathways pills rely on, which is why it works even when pills don't. It is a prescription second-line treatment via a urologist and a licensed compounding pharmacy.",
+      a: "Trimix is a compounded medication (alprostadil, papaverine, and phentolamine) injected into the penis to produce an erection directly, bypassing the desire and nerve pathways pills rely on, which is why it works even when pills don't. It is a prescription second-line treatment via a urologist and a licensed compounding pharmacy.",
     },
     {
       q: "Are penile injections for ED safe?",
-      a: "In a monitored program, yes — the main risk is a prolonged erection (priapism), which is why the dose is set carefully by a clinician and the first one is done in the office. An erection lasting more than four hours is an emergency, but it happens in only about 0.5 to 5% of users.",
+      a: "In a monitored program, yes. The main risk is a prolonged erection (priapism), which is why the dose is set carefully by a clinician and the first one is done in the office. An erection lasting more than four hours is an emergency, but it happens in only about 0.5 to 5% of users.",
     },
     {
       q: "What can I do if ED pills don't work?",
@@ -324,7 +324,7 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Are penis fillers or injections safe?",
-      a: "Temporary hyaluronic-acid filler placed by a qualified provider carries some, not zero, risk. Gray-market silicone or oil injections are the dangerous end — with documented necrosis, deformity, and permanent damage.",
+      a: "Temporary hyaluronic-acid filler placed by a qualified provider carries some, not zero, risk. Gray-market silicone or oil injections are the dangerous end, with documented necrosis, deformity, and permanent damage.",
     },
     {
       q: "Do BPC-157, TB-500, or HGH make your penis bigger?",
@@ -332,7 +332,7 @@ export const faqs: Record<string, Faq[]> = {
     },
     {
       q: "Is jelqing effective or safe?",
-      a: "There is no credible evidence it adds lasting size, and a real record of bruising and scarring. Connective tissue heals toward scar — the raw material of curvature — not length.",
+      a: "There is no credible evidence it adds lasting size, and a real record of bruising and scarring. Connective tissue heals toward scar (the raw material of curvature), not length.",
     },
   ],
 };

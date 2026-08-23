@@ -8,8 +8,8 @@ import { EvidenceBadge } from "@/components/EvidenceBadge";
 /**
  * Free & bioavailable testosterone by the Vermeulen method (Vermeulen A, et al.
  * J Clin Endocrinol Metab. 1999). Solves the SHBG/albumin binding equilibrium
- * as a quadratic in free T. Estimates only — labs and calculators vary slightly
- * in their constants — so the readout routes toward a clinician, never a verdict.
+ * as a quadratic in free T. Estimates only (labs and calculators vary slightly
+ * in their constants), so the readout routes toward a clinician, never a verdict.
  *
  * Everything runs client-side; nothing entered is stored or transmitted.
  */
@@ -70,10 +70,10 @@ function vermeulen(totalT_nmolL: number, shbg_nmolL: number, albumin_gL: number)
 
 function freePctNote(pct: number): string {
   if (pct < 1.5)
-    return "A relatively small share of your testosterone is free — a pattern often driven by higher SHBG. Total T can read as reassuring while the usable fraction lags, which is exactly why free T is worth calculating.";
+    return "A relatively small share of your testosterone is free, a pattern often driven by higher SHBG. Total T can read as reassuring while the usable fraction lags, which is exactly why free T is worth calculating.";
   if (pct <= 3)
-    return "That sits within the broad typical range for the free fraction (roughly 1.5–2.5% of total). Reference ranges still vary by lab and age — the number means the most in context.";
-  return "A relatively large share is free — often seen with lower SHBG. What it means still depends on your total T and your symptoms.";
+    return "That sits within the broad typical range for the free fraction (roughly 1.5–2.5% of total). Reference ranges still vary by lab and age. The number means the most in context.";
+  return "A relatively large share is free, often seen with lower SHBG. What it means still depends on your total T and your symptoms.";
 }
 
 const fmt = (n: number, d = 1) => (Number.isFinite(n) ? n.toFixed(d) : "—");
@@ -134,7 +134,7 @@ export function FreeTestosteroneCalc() {
       <p className="sos-note" style={{ marginBottom: "24px" }}>
         You&apos;ll need three numbers from a blood test:{" "}
         <strong style={{ color: "var(--sos-text-md)" }}>total testosterone</strong>,{" "}
-        <strong style={{ color: "var(--sos-text-md)" }}>SHBG</strong>, and — optionally —{" "}
+        <strong style={{ color: "var(--sos-text-md)" }}>SHBG</strong>, and (optionally){" "}
         <strong style={{ color: "var(--sos-text-md)" }}>albumin</strong>. Everything runs in
         your browser; nothing you enter is saved or sent.
       </p>
@@ -334,10 +334,10 @@ export function FreeTestosteroneCalc() {
 
           <p className="sos-note" style={{ marginBottom: "16px" }}>
             An <strong style={{ color: "var(--sos-text-md)" }}>estimate</strong>{" "}
-            by the Vermeulen method — not a diagnosis, and not a substitute for your lab&apos;s
+            by the Vermeulen method, not a diagnosis, and not a substitute for your lab&apos;s
             own reference range.
             Whether a number is &quot;low&quot; depends on your total T, your symptoms, and your
-            clinician&apos;s read — bring it to that conversation.
+            clinician&apos;s read. Bring it to that conversation.
           </p>
 
           <button
@@ -377,7 +377,7 @@ export function FreeTestosteroneCalc() {
           <div className="sos-clinician-print">
             <ClinicianLetterhead title="Free-testosterone estimate" date={stamp}>
               <p style={{ marginTop: 0 }}>
-                Estimated from a blood test by the Vermeulen method — shared to
+                Estimated from a blood test by the Vermeulen method, shared to
                 support a conversation about androgen status, not as a diagnosis.
               </p>
               <div

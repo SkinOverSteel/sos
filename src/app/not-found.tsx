@@ -48,11 +48,11 @@ export default function NotFound() {
           margin: "22px auto 0",
         }}
       >
-        This page couldn&apos;t be found — but you&apos;re not stuck. Pick up the
+        This page couldn&apos;t be found, but you&apos;re not stuck. Pick up the
         thread again below.
       </p>
 
-      {/* Dimmed Morse SOS — the signal, gone quiet */}
+      {/* Dimmed Morse SOS: the signal, gone quiet */}
       <MorseSOS dim style={{ margin: "40px auto 0", width: "fit-content" }} />
 
       <div

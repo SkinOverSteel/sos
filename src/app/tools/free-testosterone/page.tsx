@@ -11,7 +11,7 @@ const URL = `${SITE.url}/tools/free-testosterone`;
 export const metadata: Metadata = {
   title: "Free testosterone calculator (Vermeulen)",
   description:
-    "Estimate free and bioavailable testosterone from total T, SHBG, and albumin using the Vermeulen equation — the usable fraction your total-T result doesn't show. Private, in-browser, and built to take to your clinician.",
+    "Estimate free and bioavailable testosterone from total T, SHBG, and albumin using the Vermeulen equation: the usable fraction your total-T result doesn't show. Private, in-browser, and built to take to your clinician.",
   alternates: { canonical: "/tools/free-testosterone" },
 };
 
@@ -83,11 +83,11 @@ export default function FreeTestosteronePage() {
       </h1>
 
       <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "18px" }}>
-        Most of your testosterone is bound up and unavailable — tightly to SHBG,
+        Most of your testosterone is bound up and unavailable: tightly to SHBG,
         loosely to albumin. <strong>Free</strong>{" "}and <strong>bioavailable</strong>{" "}
         testosterone are the fractions your body can actually use, and when SHBG runs
         high or low, a normal-looking total can hide the real story. This estimates
-        both from your labs using the <strong>Vermeulen equation</strong> — the method
+        both from your labs using the <strong>Vermeulen equation</strong>, the method
         that tracks closest to the gold standard.
       </p>
 
@@ -115,7 +115,7 @@ export default function FreeTestosteronePage() {
         <p className="sos-note">
           Not a diagnosis and not medical advice. Whether a value is &quot;low&quot;
           depends on your total testosterone, your symptoms, and your lab&apos;s own
-          reference range — read it with a clinician.{" "}
+          reference range. Read it with a clinician.{" "}
           <Link href="/learn/read-your-labs">Read your labs</Link>{" "}walks through what
           each marker means.
         </p>

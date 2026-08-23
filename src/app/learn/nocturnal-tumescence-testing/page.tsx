@@ -11,7 +11,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Overnight erection testing (NPT), explained",
   description:
-    "Nocturnal penile tumescence testing checks whether you get erections in your sleep — the classic way to separate a physical cause of ED from a psychological one. What RigiScan and snap-gauge tests measure, why the answer is rarely black-and-white, and where the test fits today.",
+    "Nocturnal penile tumescence testing checks whether you get erections in your sleep: the classic way to separate a physical cause of ED from a psychological one. What RigiScan and snap-gauge tests measure, why the answer is rarely black-and-white, and where the test fits today.",
   alternates: { canonical: "/learn/nocturnal-tumescence-testing" },
 };
 
@@ -57,7 +57,7 @@ export default function NptTestingPage() {
         <Link href="/learn/ed-workup">ED workup</Link>:{" "}
         <strong>nocturnal penile tumescence (NPT) testing</strong>. If the
         erections still happen while you sleep, the wiring and the plumbing are
-        largely intact — which points the search for a cause in a very different
+        largely intact, which points the search for a cause in a very different
         direction than if they don&apos;t. Here&apos;s what it measures, and the
         honest limits of what it can tell you.
       </p>
@@ -66,7 +66,7 @@ export default function NptTestingPage() {
         <p className="sos-prose" style={{ fontSize: "16px", margin: 0 }}>
           <strong>The core question it answers:</strong>{" "}is the barrier physical or
           psychological? Erections during sleep bypass anxiety, performance
-          pressure, and the situation entirely — so they isolate whether the body
+          pressure, and the situation entirely. So they isolate whether the body
           <em> can</em>{" "}do it, separate from whether it does when you&apos;re awake.
         </p>
       </div>
@@ -77,12 +77,12 @@ export default function NptTestingPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           The erections that happen during REM sleep run on the same machinery as
-          any other — nerves signaling, arteries opening, blood held under
+          any other: nerves signaling, arteries opening, blood held under
           pressure. But they happen with the conscious mind switched off. So if
           strong, rigid erections occur reliably overnight, the vascular and
           neurological hardware is doing its job, and the difficulty during sex is
           more likely psychological or situational. If they&apos;re weak or absent
-          asleep too, that&apos;s a signal to look harder at a physical cause —
+          asleep too, that&apos;s a signal to look harder at a physical cause,
           which is where tests like the{" "}
           <Link href="/learn/penile-doppler-ultrasound">penile Doppler ultrasound</Link>{" "}
           come in.
@@ -104,13 +104,13 @@ export default function NptTestingPage() {
           <div className="sos-step">
             <div className="sos-step__num">1</div>
             <div>
-              <p className="sos-step__title">RigiScan — the detailed record</p>
+              <p className="sos-step__title">RigiScan: the detailed record</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
                 A device worn on the penis overnight, sometimes across two or three
                 nights, occasionally in a sleep lab. It continuously logs the{" "}
                 <strong>number</strong>{" "}of erections, their <strong>rigidity</strong>{" "}
                 at base and tip, and how <strong>long</strong>{" "}each lasts. This is
-                the version that produces a real, gradable answer — not just whether
+                the version that produces a real, gradable answer, not just whether
                 erections happened, but whether they were rigid enough to count.
               </p>
             </div>
@@ -119,10 +119,10 @@ export default function NptTestingPage() {
           <div className="sos-step">
             <div className="sos-step__num">2</div>
             <div>
-              <p className="sos-step__title">Snap-gauge / stamp test — the screen</p>
+              <p className="sos-step__title">Snap-gauge / stamp test: the screen</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                A far simpler band worn around the shaft — a plastic snap-gauge, or
-                historically a ring of postage stamps — designed to break if an
+                A far simpler band worn around the shaft (a plastic snap-gauge, or
+                historically a ring of postage stamps) designed to break if an
                 erection expands the shaft overnight. It&apos;s cheap and doable at
                 home, but it&apos;s a blunt instrument: it tells you{" "}
                 <em>something happened</em>, not how rigid it was or how long it
@@ -139,12 +139,12 @@ export default function NptTestingPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           The physical-versus-psychological split is a useful lens, not a clean
-          line. Most ED is a <strong>mix</strong> — a small vascular change that
+          line. Most ED is a <strong>mix</strong>, a small vascular change that
           seeds doubt, then anxiety that magnifies it. Sleep quality, depression,
           and some medications can also blunt overnight erections without any
           vascular problem at all, muddying the result. So NPT is best read as one
           strong pointer among several, weighed alongside your{" "}
-          <Link href="/learn/ed-workup">history, exam, and labs</Link> — not as a
+          <Link href="/learn/ed-workup">history, exam, and labs</Link>, not as a
           standalone diagnosis.
         </p>
       </section>
@@ -155,13 +155,13 @@ export default function NptTestingPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           NPT is used far less than it once was. For most men, a careful history
-          already answers the physical-versus-psychological question — a sudden
-          change with morning erections intact tells much the same story — and
+          already answers the physical-versus-psychological question (a sudden
+          change with morning erections intact tells much the same story), and
           treatment often moves ahead without formal testing. NPT keeps a real role
           in <strong>selective</strong>{" "}cases: younger men, unclear or complex
           presentations, or medico-legal situations where an objective record
           matters. If it&apos;s offered to you, the fair question is the same one
-          that applies to any test — <em>what will this change about the plan?</em>
+          that applies to any test: <em>what will this change about the plan?</em>
         </p>
       </section>
 
@@ -171,7 +171,7 @@ export default function NptTestingPage() {
         </h2>
         <p className="sos-prose">
           NPT testing asks whether the body can still produce an erection when the
-          mind is offline — a genuinely useful question, because a &ldquo;yes&rdquo;
+          mind is offline, a genuinely useful question, because a &ldquo;yes&rdquo;
           reframes the whole problem toward the psychological, and a &ldquo;no&rdquo;
           justifies looking harder at the plumbing. It&apos;s an older test with a
           narrower role today, but when the physical-versus-psychological question

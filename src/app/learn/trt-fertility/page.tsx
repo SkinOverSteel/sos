@@ -44,17 +44,17 @@ export default function TrtFertilityPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         The fear is blunt: testosterone therapy makes you sterile, full stop. The
-        reality is calmer. Yes — straight TRT turns sperm production down while
+        reality is calmer. Yes, straight TRT turns sperm production down while
         you&apos;re on it. But for <strong>most men it never becomes a real
         problem</strong>: they aren&apos;t trying to conceive, the effect is
         usually reversible, and when it matters it&apos;s often preventable. Here
-        is the honest version — reassuring where it should be, and straight where
+        is the honest version: reassuring where it should be, and straight where
         it counts, which is exactly one place.
       </p>
 
       <section>
         <h2 className="sos-h2" style={{ marginBottom: "6px" }}>
-          Why it happens — and why it usually undoes itself
+          Why it happens, and why it usually undoes itself
         </h2>
         <p className="sos-note" style={{ marginBottom: "22px" }}>
           The same feedback loop that lowers sperm is the one that restores it.
@@ -67,7 +67,7 @@ export default function TrtFertilityPage() {
             <div>
               <p className="sos-step__title">Testosterone arrives from outside</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                Your body reads the level in your blood — not where it came from.
+                Your body reads the level in your blood. Not where it came from.
                 A steady outside supply looks, to the brain, like plenty.
               </p>
             </div>
@@ -78,8 +78,8 @@ export default function TrtFertilityPage() {
             <div>
               <p className="sos-step__title">The brain powers down its own signal</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                Sensing enough, the pituitary stops sending <strong>LH and FSH</strong>{" "}
-                — the messengers that actually run the testicles (the ones you can
+                Sensing enough, the pituitary stops sending <strong>LH and FSH</strong>,{" "}
+                the messengers that actually run the testicles (the ones you can
                 see on <Link href="/learn/read-your-labs">your labs</Link>).
               </p>
             </div>
@@ -91,7 +91,7 @@ export default function TrtFertilityPage() {
               <p className="sos-step__title">The testicles go quiet</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
                 Without those signals, the <strong>intratesticular</strong>{" "}
-                testosterone that sperm actually need collapses — far below what
+                testosterone that sperm actually need collapses, far below what
                 the number on your blood test suggests.
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function TrtFertilityPage() {
             <div>
               <p className="sos-step__title">Sperm production falls</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                For most men, to very low or zero while on therapy — about
+                For most men, to very low or zero while on therapy. About
                 two-thirds reach that point by four to six months. This is the
                 real part.
               </p>
@@ -114,8 +114,8 @@ export default function TrtFertilityPage() {
             <div>
               <p className="sos-step__title">Take the supply away, and it reboots</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                Stop the outside testosterone — or keep the testicles working with
-                hCG — and the loop usually restarts. Sperm return over months for
+                Stop the outside testosterone (or keep the testicles working with
+                hCG) and the loop usually restarts. Sperm return over months for
                 nearly everyone; roughly 90% are back within a year.
               </p>
             </div>
@@ -132,18 +132,18 @@ export default function TrtFertilityPage() {
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>Not trying to conceive</strong> — where most men on TRT are.
+            <strong>Not trying to conceive</strong>: where most men on TRT are.
             Practically, this is a non-issue: you aren&apos;t using the fertility
             that&apos;s being suppressed, and it&apos;s waiting for you if that
             changes.
           </li>
           <li>
-            <strong>Trying now</strong> — don&apos;t just start straight TRT and
+            <strong>Trying now</strong>: don&apos;t just start straight TRT and
             hope. Use a fertility-preserving route (below), or hold off. This is
             the one group for whom the timing genuinely matters.
           </li>
           <li>
-            <strong>Might want kids someday</strong> — say so before you start, so
+            <strong>Might want kids someday</strong>: say so before you start, so
             the plan is built in rather than scrambled together later.
           </li>
         </ul>
@@ -160,18 +160,18 @@ export default function TrtFertilityPage() {
           Keeping your testosterone and your fertility at once
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
-          If you want both, you usually can — the tools are well established:
+          If you want both, you usually can. The tools are well established:
         </p>
         <ul className="sos-prose" style={list}>
           <li>
             <strong>Enclomiphene or clomiphene.</strong>{" "}A pill that nudges your
-            own body to make more testosterone by raising LH and FSH — so it
+            own body to make more testosterone by raising LH and FSH, so it
             lifts your level <em>without</em>{" "}switching sperm off. Often the whole
             answer for a man who wants both.
           </li>
           <li>
             <strong>hCG alongside TRT.</strong>{" "}It mimics LH, keeping the
-            testicles working — and making sperm — even while you&apos;re on
+            testicles working (and making sperm) even while you&apos;re on
             testosterone.
           </li>
           <li>
@@ -180,7 +180,7 @@ export default function TrtFertilityPage() {
           </li>
         </ul>
         <p className="sos-note" style={{ marginTop: "14px" }}>
-          Which one — and whether at all — is a prescriber&apos;s call, and it
+          Which one (and whether at all) is a prescriber&apos;s call, and it
           belongs in the conversation <em>before</em>{" "}you start, not after. It is
           the same &quot;real diagnosis, real monitoring&quot; standard behind{" "}
           <Link href="/learn/testosterone-therapy">testosterone therapy, done right</Link>.
@@ -192,10 +192,10 @@ export default function TrtFertilityPage() {
           The bottom line
         </h2>
         <p className="sos-prose">
-          For most men on TRT, fertility never becomes a real problem — they&apos;re
+          For most men on TRT, fertility never becomes a real problem: they&apos;re
           not trying to conceive, and the suppression is usually reversible and
           often preventable. The one thing that stays true is that straight
-          testosterone turns sperm production down while you&apos;re on it — so if
+          testosterone turns sperm production down while you&apos;re on it. So if
           children are anywhere on the table, that&apos;s a five-minute
           conversation to have <em>first</em>. It&apos;s a reason to plan, not a
           reason to panic, and almost never a reason to skip treatment you need.

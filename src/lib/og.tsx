@@ -10,7 +10,7 @@ import { tools } from "@/lib/tools";
  * card is composed so there's a single source of truth for the treatment.
  *
  * The hero is the page's own title with its evidence grade rendered as the
- * brand's outline badge — so a shared link carries the trust signal (the grade)
+ * brand's outline badge, so a shared link carries the trust signal (the grade)
  * before anyone clicks. Mirrors opengraph-image.tsx (steel plate, copper glow,
  * Morse SOS signature); tokens are inlined because ImageResponse can't read CSS.
  */
@@ -38,7 +38,7 @@ function titleSize(title: string) {
   return 76;
 }
 
-// Outline pill — grade badge (articles) or "Tool" tag. Outline only, never
+// Outline pill: grade badge (articles) or "Tool" tag. Outline only, never
 // filled, per the brand's instrument-not-mood rule for evidence badges.
 function pill(label: string, color: string) {
   return (
@@ -120,7 +120,7 @@ export function articleOg(slug: string) {
 
 export function articleAlt(slug: string) {
   const a = articles.find((x) => x.slug === slug);
-  return a ? `${a.title} — Skin Over Steel` : "Skin Over Steel";
+  return a ? `${a.title} · Skin Over Steel` : "Skin Over Steel";
 }
 
 export function toolOg(slug: string) {
@@ -131,5 +131,5 @@ export function toolOg(slug: string) {
 
 export function toolAlt(slug: string) {
   const t = tools.find((x) => x.slug === slug);
-  return t ? `${t.title} — Skin Over Steel` : "Skin Over Steel";
+  return t ? `${t.title} · Skin Over Steel` : "Skin Over Steel";
 }

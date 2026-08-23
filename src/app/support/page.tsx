@@ -37,7 +37,7 @@ export default function SupportPage() {
           padding: "40px 24px 96px",
         }}
       >
-        {/* Emergency banner — safety-critical, unmuted on purpose */}
+        {/* Emergency banner: safety-critical, unmuted on purpose */}
         <aside
           role="alert"
           style={{
@@ -71,8 +71,8 @@ export default function SupportPage() {
               color: "var(--sos-text-hi)",
             }}
           >
-            An erection lasting 4 hours or longer — or one that is severely
-            painful — is a urological emergency. Go to the nearest emergency room
+            An erection lasting 4 hours or longer (or one that is severely
+            painful) is a urological emergency. Go to the nearest emergency room
             now.
           </p>
           <p
@@ -131,7 +131,7 @@ export default function SupportPage() {
             Priapism is an involuntary erection that lasts more than four hours
             and doesn&apos;t go down after ejaculation. For anyone using trimix
             or another injection (ICP) therapy, it is the main serious risk to
-            know cold — because acting quickly is what protects your long-term
+            know cold, because acting quickly is what protects your long-term
             function.
           </p>
         </Section>
@@ -148,7 +148,7 @@ export default function SupportPage() {
             <li style={liStyle}>
               <strong style={strong}>Start low, go slow.</strong>{" "}Your
               prescriber sets your dose. First doses are kept small and increased
-              only under their direction — never self-adjust.
+              only under their direction. Never self-adjust.
             </li>
             <li style={liStyle}>
               <strong style={strong}>Keep your rescue plan within reach.</strong>{" "}
@@ -158,7 +158,7 @@ export default function SupportPage() {
           </ul>
         </Section>
 
-        <Section title="If an erection won't go down — act by the clock">
+        <Section title="If an erection won't go down, act by the clock">
           <ul style={ulStyle}>
             <li style={liStyle}>
               <strong style={strong}>Safe first steps you can do now:</strong>{" "}
@@ -171,12 +171,12 @@ export default function SupportPage() {
               (pseudoephedrine) or provide a rescue prescription to keep on hand
               (such as terbutaline or phenylephrine). Use these{" "}
               <em>only as, and in the exact amounts, your prescriber told you.</em>{" "}
-              We don&apos;t publish rescue doses here on purpose — the right ones
+              We don&apos;t publish rescue doses here on purpose. The right ones
               come from the clinician who prescribed your injections.
             </li>
             <li style={liStyle}>
               <strong style={strong}>
-                At 4 hours — or sooner if it&apos;s severely painful — go to the
+                At 4 hours (or sooner if it&apos;s severely painful) go to the
                 ER.
               </strong>{" "}
               Don&apos;t keep waiting for it to resolve on its own.
@@ -188,13 +188,13 @@ export default function SupportPage() {
           </ul>
         </Section>
 
-        {/* Mental-health / crisis — permanent */}
+        {/* Mental-health / crisis, permanent */}
         <Section title="If you're struggling beyond the physical">
           <p style={pStyle}>
             Sexual health and mental health are tied together, and reaching out
             is the strong move. In the U.S., the{" "}
             <strong style={strong}>988 Suicide &amp; Crisis Lifeline</strong>{" "}is
-            free and confidential, 24/7 — call or text{" "}
+            free and confidential, 24/7. Call or text{" "}
             <a href="tel:988" style={link}>
               988
             </a>

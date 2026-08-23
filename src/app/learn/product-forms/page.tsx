@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "What you're actually buying: forms, quality & red flags",
   description:
-    "Lyophilized vial, pre-mixed solution, or a ziplock of premix? How the form of an injectable peptide or ED medication tells you where it came from — and whether anyone stood behind its quality.",
+    "Lyophilized vial, pre-mixed solution, or a ziplock of premix? How the form of an injectable peptide or ED medication tells you where it came from, and whether anyone stood behind its quality.",
   alternates: { canonical: "/learn/product-forms" },
 };
 
@@ -45,7 +45,7 @@ export default function ProductFormsPage() {
         When you buy an injectable peptide or ED medication, the{" "}
         <strong>form it arrives in</strong>{" "}tells you a lot about where it came
         from and whether anyone with a license stood behind its quality. Here is
-        how to read it — and the difference between a regulated product and a
+        how to read it, and the difference between a regulated product and a
         baggie from an anonymous seller.
       </p>
 
@@ -59,13 +59,13 @@ export default function ProductFormsPage() {
           <FormCard
             label="Reconstituted / pre-mixed solution"
             tone="ok"
-            body="A ready-to-use liquid. Legitimate for some drugs — trimix, for example, is typically dispensed by a compounding pharmacy as a pre-mixed refrigerated solution, labeled, with a cold chain and a beyond-use date. It's trustworthy when it comes from a licensed pharmacy with that labeling and handling — and a question mark when it doesn't."
+            body="A ready-to-use liquid. Legitimate for some drugs. Trimix, for example, is typically dispensed by a compounding pharmacy as a pre-mixed refrigerated solution, labeled, with a cold chain and a beyond-use date. It's trustworthy when it comes from a licensed pharmacy with that labeling and handling, and a question mark when it doesn't."
           />
           <FormCard
             label={'"Ziplock of premix" / unlabeled vials'}
             tone="bad"
             body={
-              'A pre-filled syringe or vial handed over in a baggie, with no pharmacy label — often stamped "for research use only / not for human consumption." That is the gray market: no prescription, no sterility or potency guarantee, no independent batch testing, and an unknown storage history. The "research only" label is a legal shield for the seller, not a mark of quality.'
+              'A pre-filled syringe or vial handed over in a baggie, with no pharmacy label, often stamped "for research use only / not for human consumption." That is the gray market: no prescription, no sterility or potency guarantee, no independent batch testing, and an unknown storage history. The "research only" label is a legal shield for the seller, not a mark of quality.'
             }
           />
         </div>
@@ -84,7 +84,7 @@ export default function ProductFormsPage() {
               className="sos-kicker"
               style={{ color: "var(--sos-grade-established)", marginBottom: "12px" }}
             >
-              Green — legitimate
+              Green: legitimate
             </p>
             <ul className="sos-prose" style={flagList}>
               <li>Pharmacy label with your name and an Rx number</li>
@@ -99,7 +99,7 @@ export default function ProductFormsPage() {
               className="sos-kicker"
               style={{ color: "var(--sos-emergency)", marginBottom: "12px" }}
             >
-              Red — walk away
+              Red: walk away
             </p>
             <ul className="sos-prose" style={flagList}>
               <li>&quot;Research use only / not for human consumption&quot;</li>
@@ -124,8 +124,8 @@ export default function ProductFormsPage() {
           <CompoundRow grade="established" name="Bremelanotide (PT-141)">
             A licensed channel exists: it&apos;s FDA-approved as{" "}
             <strong>Vyleesi</strong>{" "}(an auto-injector, approved for premenopausal
-            women with low sexual desire) and is also compounded — often as a
-            lyophilized vial — via prescription. Off-label use in men is{" "}
+            women with low sexual desire) and is also compounded (often as a
+            lyophilized vial) via prescription. Off-label use in men is{" "}
             <em>emerging</em>, not established. Gray-market &quot;research&quot;
             PT-141 vials carry none of the identity, purity, or dose guarantees
             the licensed forms do.
@@ -133,14 +133,14 @@ export default function ProductFormsPage() {
           <CompoundRow grade="emerging" name="Retatrutide">
             The one to be clearest about:{" "}
             <strong>
-              it is investigational — not FDA-approved, and not lawfully available
+              it is investigational: not FDA-approved, and not lawfully available
               from any licensed pharmacy.
             </strong>{" "}
             That means anything currently sold as &quot;retatrutide&quot; is, by
             definition, gray-market research product with unverified identity,
             purity, and dose. There is no legitimate form to compare it against
             yet. Human safety and efficacy data for this use are still emerging.
-            (Its approval status can change — check current status before acting.)
+            (Its approval status can change. Check current status before acting.)
           </CompoundRow>
         </div>
       </Section>
@@ -151,8 +151,7 @@ export default function ProductFormsPage() {
           guarantees is the same one: a{" "}
           <strong>licensed prescriber</strong>{" "}(telemedicine counts) and a{" "}
           <strong>licensed compounding pharmacy</strong>. That&apos;s the version
-          where someone&apos;s license is on the line for what&apos;s in the vial
-          — and it&apos;s the only kind of source this site will ever point you
+          where someone&apos;s license is on the line for what&apos;s in the vial, and it&apos;s the only kind of source this site will ever point you
           toward.
         </p>
       </Section>
@@ -164,7 +163,7 @@ export default function ProductFormsPage() {
         <p className="sos-note">
           This page is general education, not medical advice, and is not an
           endorsement of any unapproved or off-label use. Product availability and
-          approval status change over time — verify current status, and make
+          approval status change over time. Verify current status, and make
           decisions with a licensed clinician.
         </p>
       </div>

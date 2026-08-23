@@ -11,7 +11,7 @@ const URL = `${SITE.url}/tools/erectile-function-score`;
 export const metadata: Metadata = {
   title: "Erectile function self-check (SHIM / IIEF-5)",
   description:
-    "A free, private erectile-function self-check using the validated 5-item IIEF-5 (SHIM) questionnaire. Score it in two minutes — your answers never leave your device — then see what to do next.",
+    "A free, private erectile-function self-check using the validated 5-item IIEF-5 (SHIM) questionnaire. Score it in two minutes (your answers never leave your device) then see what to do next.",
   alternates: { canonical: "/tools/erectile-function-score" },
 };
 
@@ -83,7 +83,7 @@ export default function ErectileFunctionScorePage() {
       </h1>
 
       <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "18px" }}>
-        This is the <strong>IIEF-5</strong> — also called the SHIM — a five-question
+        This is the <strong>IIEF-5</strong>, also called the SHIM, a five-question
         screen that clinicians use to gauge erectile function. It takes about two
         minutes. It won&apos;t diagnose anything; what it does is turn a vague worry
         into a number you can actually bring to a clinician, and point you at the
@@ -121,7 +121,7 @@ export default function ErectileFunctionScorePage() {
         <p className="sos-note">
           A screening score is not a diagnosis and not medical advice. It can&apos;t
           examine you, and it can&apos;t see the cause. Diagnosis and treatment
-          belong to a licensed clinician —{" "}
+          belong to a licensed clinician:{" "}
           <Link href="/learn/ed-workup">the workup</Link>{" "}is how the cause actually
           gets found.
         </p>

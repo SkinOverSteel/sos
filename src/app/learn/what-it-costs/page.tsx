@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "What it costs — and how to get real value",
+  title: "What it costs, and how to get real value",
   description:
     "The price of ED and men's-health therapy is a stack: labs, a consult, the product, and the prescriber's markup. A layer-by-layer journey to getting the most value inside the legal channel in your jurisdiction.",
   alternates: { canonical: "/learn/what-it-costs" },
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "What it costs — and how to get real value",
+  name: "What it costs, and how to get real value",
   url: `${SITE.url}/learn/what-it-costs`,
   description:
-    "A layer-by-layer breakdown of what men's-health therapy costs — labs, consult, product, and prescriber markup — and how to get value within the legal channel.",
+    "A layer-by-layer breakdown of what men's-health therapy costs (labs, consult, product, and prescriber markup) and how to get value within the legal channel.",
   audience: { "@type": "Patient" },
 };
 
@@ -43,7 +43,7 @@ export default function WhatItCostsPage() {
 
       <p className="sos-prose" style={{ marginBottom: "16px" }}>
         The number you pay is never one number. It&apos;s a{" "}
-        <strong>stack</strong>{" "}of separate costs — bloodwork, a consult, the
+        <strong>stack</strong>{" "}of separate costs: bloodwork, a consult, the
         product itself, and a markup layered on top. Learn to see each layer and
         two things happen: you stop overpaying, and you can spot when
         someone&apos;s taking too big a cut. Here&apos;s the journey, roughly in
@@ -51,20 +51,20 @@ export default function WhatItCostsPage() {
       </p>
       <p className="sos-note" style={{ marginBottom: "40px" }}>
         Figures below are illustrative U.S. self-pay ranges (2026) to show the
-        shape of the stack — not quotes. Always get current prices for your own
+        shape of the stack, not quotes. Always get current prices for your own
         provider and jurisdiction.
       </p>
 
       <Step
         n="1"
-        title="Baseline labs — the workup"
+        title="Baseline labs: the workup"
         range="~$75–$250 self-pay"
       >
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Before any prescription, a real clinician wants a baseline: an{" "}
           <strong>androgen panel</strong>{" "}(total and free testosterone, SHBG) and
           a <strong>metabolic / insulin panel</strong>{" "}(fasting glucose, insulin,
-          A1c, lipids). It&apos;s how the process bridges toward medicine — and a
+          A1c, lipids). It&apos;s how the process bridges toward medicine, and a
           number to measure against later.
         </p>
         <ul className="sos-prose" style={list}>
@@ -83,13 +83,13 @@ export default function WhatItCostsPage() {
 
       <Step
         n="2"
-        title="The consult — where the vig begins"
+        title="The consult: where the vig begins"
         range="$0–$150 up front, or $20–$133/mo"
       >
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           A licensed prescriber (telemedicine counts) reviews your labs and, if
           appropriate, writes the prescription. This is the first place the{" "}
-          <strong>&quot;vig&quot;</strong> — the prescriber&apos;s cut — enters
+          <strong>&quot;vig&quot;</strong> (the prescriber&apos;s cut) enters
           the stack.
         </p>
         <ul className="sos-prose" style={list}>
@@ -112,13 +112,13 @@ export default function WhatItCostsPage() {
 
       <Step
         n="3"
-        title="The product — the compounding pharmacy"
+        title="The product: the compounding pharmacy"
         range="Trimix ~$50–$300 / vial"
       >
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Your prescription is filled by a licensed compounding pharmacy. Using
           trimix as the worked example: a vial runs roughly{" "}
-          <strong>$50–$300</strong>, and how long it lasts — weeks to months —
+          <strong>$50–$300</strong>, and how long it lasts (weeks to months)
           depends on the protocol <em>your prescriber</em>{" "}sets, which is what
           turns a per-vial price into your real monthly cost.
         </p>
@@ -147,13 +147,13 @@ export default function WhatItCostsPage() {
         </div>
         <p className="sos-prose" style={{ fontSize: "16px", marginTop: "18px" }}>
           The gap between a lean stack and an expensive one is mostly the{" "}
-          <strong>vig and the bundling</strong> — not the medicine. Same molecule,
+          <strong>vig and the bundling</strong>. Not the medicine. Same molecule,
           very different total, depending on how many markups sit between you and
           the pharmacy.
         </p>
       </Section>
 
-      <Section title="Getting the greatest value — legitimately">
+      <Section title="Getting the greatest value, legitimately">
         <ul className="sos-prose" style={list}>
           <li><strong>Unbundle when you can:</strong>{" "}labs direct, a consult for the script, the pharmacy&apos;s cash price for the product.</li>
           <li><strong>Watch for lock-in:</strong>{" "}a membership that quietly marks up product can cost more than it saves.</li>
@@ -161,7 +161,7 @@ export default function WhatItCostsPage() {
           <li><strong>Re-test, don&apos;t over-buy:</strong>{" "}periodic labs keep you on the smallest effective plan your clinician supports.</li>
           <li>
             <strong>Cheapest is not gray-market.</strong>{" "}A $20 baggie with no
-            pharmacy behind it isn&apos;t value — it&apos;s unverified risk. See{" "}
+            pharmacy behind it isn&apos;t value. It&apos;s unverified risk. See{" "}
             <Link href="/learn/product-forms">what you&apos;re actually buying</Link>.
           </li>
         </ul>
@@ -172,7 +172,7 @@ export default function WhatItCostsPage() {
           <li>
             In the U.S., trimix and compounded bremelanotide via a licensed
             prescriber + compounding pharmacy are broadly available with a
-            prescription — but telemedicine-prescribing rules and compounding
+            prescription. But telemedicine-prescribing rules and compounding
             regulations differ by state, and some states or insurers restrict
             specialty compounds.
           </li>
@@ -182,14 +182,14 @@ export default function WhatItCostsPage() {
             prescribing, and importing prescription drugs is often restricted.
           </li>
           <li>
-            <strong>Retatrutide is investigational everywhere</strong> — there is
+            <strong>Retatrutide is investigational everywhere</strong>: there is
             no lawful purchase channel in any jurisdiction, so the value question
             simply doesn&apos;t apply. The only lawful routes are a clinical trial
             or waiting for approval.
           </li>
           <li>
             <strong>Bottom line:</strong>{" "}verify what&apos;s legal where you live.
-            The value move is optimizing <em>within</em>{" "}the legal channel — never
+            The value move is optimizing <em>within</em>{" "}the legal channel. Never
             routing around it.
           </li>
         </ul>
@@ -207,7 +207,7 @@ export default function WhatItCostsPage() {
         </p>
         <p className="sos-note">
           This is general education, not medical, legal, or financial advice.
-          Prices and laws change and vary by provider and jurisdiction — get
+          Prices and laws change and vary by provider and jurisdiction. Get
           current quotes and confirm what&apos;s legal where you live with the
           appropriate professional.
         </p>

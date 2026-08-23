@@ -5,7 +5,7 @@ import { tools } from "@/lib/tools";
 export const metadata: Metadata = {
   title: "Tools",
   description:
-    "Free, private men's-health instruments — starting with the IIEF-5 / SHIM erectile-function self-check. They run in your browser, keep nothing, and bridge toward a clinician.",
+    "Free, private men's-health instruments, starting with the IIEF-5 / SHIM erectile-function self-check. They run in your browser, keep nothing, and bridge toward a clinician.",
   alternates: { canonical: "/tools" },
 };
 
@@ -19,7 +19,7 @@ export default function ToolsHub() {
         Tools
       </h1>
       <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "40px" }}>
-        Small, private instruments — a validated screen, a calculator, an
+        Small, private instruments: a validated screen, a calculator, an
         estimate. They run entirely in your browser, keep nothing, and point you
         toward a clinician rather than around one.
       </p>

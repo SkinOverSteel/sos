@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "The penile Doppler ultrasound, explained",
   description:
-    "The specialized test that measures penile blood flow directly. What happens in the room, why the injection dose can change the result, when a contrast study (cavernosography) comes next, and the exact numbers — PSV, EDV, RI, both sides — to ask for.",
+    "The specialized test that measures penile blood flow directly. What happens in the room, why the injection dose can change the result, when a contrast study (cavernosography) comes next, and the exact numbers (PSV, EDV, RI, both sides) to ask for.",
   alternates: { canonical: "/learn/penile-doppler-ultrasound" },
 };
 
@@ -45,9 +45,9 @@ export default function PenileDopplerPage() {
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         Most of the{" "}
         <Link href="/learn/ed-workup">ED workup</Link>{" "}is a conversation, an exam,
-        and blood work — and most men never need more than that. But when the
-        question is specifically <em>vascular</em> — is enough blood flowing in,
-        and is it staying in? — there&apos;s a test that measures it directly: the{" "}
+        and blood work. And most men never need more than that. But when the
+        question is specifically <em>vascular</em> (is enough blood flowing in,
+        and is it staying in?) there&apos;s a test that measures it directly: the{" "}
         <strong>dynamic penile duplex Doppler ultrasound</strong>. It&apos;s
         reserved for particular situations, and it&apos;s the kind of test where
         walking in prepared genuinely changes what you get out of it. Here&apos;s
@@ -72,7 +72,7 @@ export default function PenileDopplerPage() {
           <div>
             <p className="sos-step__title">The injection</p>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
-              To measure blood flow, the clinician needs an erection to measure —
+              To measure blood flow, the clinician needs an erection to measure,
               so the test starts with an in-office injection (commonly
               alprostadil). The goal here is different from a treatment like{" "}
               <Link href="/learn/penile-injections">trimix</Link>: it&apos;s to{" "}
@@ -88,9 +88,9 @@ export default function PenileDopplerPage() {
           <div>
             <p className="sos-step__title">What they&apos;re looking for</p>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
-              Two things. First, <strong>arterial inflow</strong> — is enough
+              Two things. First, <strong>arterial inflow</strong>: is enough
               blood arriving to create rigidity? Second, <strong>venous
-              leak</strong> — once you&apos;re erect, is blood draining back out
+              leak</strong>: once you&apos;re erect, is blood draining back out
               too quickly to hold it? Pills and history can hint at these, but the
               Doppler is where inflow and outflow are actually seen and measured,
               side by side.
@@ -107,7 +107,7 @@ export default function PenileDopplerPage() {
               measurements are only meaningful if the erection is{" "}
               <strong>fully engaged</strong>. If the in-office dose isn&apos;t
               enough for you, the study can show a &ldquo;leak&rdquo; that
-              wouldn&apos;t appear at an adequate dose — a false alarm that has you
+              wouldn&apos;t appear at an adequate dose, a false alarm that has you
               chasing a problem that isn&apos;t there. So tell the clinician,
               specifically, what it actually takes to give you a reliable, full
               erection. That context helps them run and interpret the test against
@@ -123,8 +123,8 @@ export default function PenileDopplerPage() {
             <p className="sos-prose" style={{ fontSize: "16px" }}>
               Sometimes the Doppler is inconclusive, or a suspected venous leak
               needs to be mapped precisely. The next step can be{" "}
-              <strong><Link href="/learn/cavernosography">cavernosography</Link></strong>{" "}
-              — a more invasive study that uses
+              <strong><Link href="/learn/cavernosography">cavernosography</Link></strong>:{" "}
+              a more invasive study that uses
               injected contrast dye and imaging so leak shows up clearly. Think of
               it as the difference between imaging with and without contrast: same
               question, sharper picture. It&apos;s usually reserved for when the
@@ -139,7 +139,7 @@ export default function PenileDopplerPage() {
             <p className="sos-step__title">Getting your numbers</p>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
               Don&apos;t settle for &ldquo;it looks fine.&rdquo; A Doppler produces
-              actual measurements — ask for them, for <strong>both the right and
+              actual measurements. Ask for them, for <strong>both the right and
               left sides</strong>, because one side can be normal while the other
               isn&apos;t. The three that matter are in the table below.
             </p>
@@ -153,7 +153,7 @@ export default function PenileDopplerPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "20px" }}>
           Request these for the right <em>and</em>{" "}left sides. The specific values
-          are read by your clinician against the lab&apos;s reference ranges — but
+          are read by your clinician against the lab&apos;s reference ranges, but
           having them in hand lets you ask real questions instead of accepting a
           verdict.
         </p>
@@ -211,7 +211,7 @@ export default function PenileDopplerPage() {
                   </span>
                 </td>
                 <td style={{ padding: "14px 18px", verticalAlign: "top" }}>
-                  Arterial inflow — how strongly blood is arriving. Generally,
+                  Arterial inflow: how strongly blood is arriving. Generally,
                   higher is better.
                 </td>
               </tr>
@@ -230,7 +230,7 @@ export default function PenileDopplerPage() {
                   </span>
                 </td>
                 <td style={{ padding: "14px 18px", verticalAlign: "top" }}>
-                  Whether blood is draining back out — the signature of venous
+                  Whether blood is draining back out, the signature of venous
                   leak. Generally, lower is better.
                 </td>
               </tr>
@@ -249,7 +249,7 @@ export default function PenileDopplerPage() {
                   </span>
                 </td>
                 <td style={{ padding: "14px 18px", verticalAlign: "top" }}>
-                  Combines inflow and outflow into one figure — a summary of how
+                  Combines inflow and outflow into one figure, a summary of how
                   well the erection holds pressure.
                 </td>
               </tr>
@@ -263,7 +263,7 @@ export default function PenileDopplerPage() {
           Questions worth asking
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          A good specialist expects questions — asking them is how you make the
+          A good specialist expects questions. Asking them is how you make the
           test count. Reasonable ones: <em>Is the injection dose enough to fully
           engage the erection for me?</em> <em>What are my PSV, EDV, and RI on
           each side?</em> <em>Does the result point to inflow, leak, both, or
@@ -280,7 +280,7 @@ export default function PenileDopplerPage() {
           The bottom line
         </h2>
         <p className="sos-prose">
-          The Doppler measures your plumbing — and it does that well. What it
+          The Doppler measures your plumbing, and it does that well. What it
           can&apos;t measure is the large role anxiety and context play in
           erectile function, which is why the{" "}
           <Link href="/learn/ed-workup">full workup</Link>{" "}starts with the story,

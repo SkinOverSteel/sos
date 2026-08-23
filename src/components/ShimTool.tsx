@@ -6,13 +6,13 @@ import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 
 /**
- * The SHIM / IIEF-5 self-check — an interactive, client-only scoring of the
+ * The SHIM / IIEF-5 self-check: an interactive, client-only scoring of the
  * validated 5-item International Index of Erectile Function (Rosen et al., 1999).
  *
  * Design rules honored here:
  *  - Answers never leave the browser (pure local state, no network, no analytics
  *    on responses). Stated to the user as a trust promise.
- *  - A screen, never a diagnosis — every result routes toward a clinician.
+ *  - A screen, never a diagnosis. Every result routes toward a clinician.
  *  - Instrument voice: a factual readout, not an alarm. Per the brand, the
  *    reserved emergency-red token is NOT used for a screen result (no guilt).
  */
@@ -83,34 +83,34 @@ function bandFor(total: number): Band {
       label: "No ED indicated",
       tone: "established",
       lead:
-        "Your answers land in the range that doesn't indicate erectile dysfunction. If you came here because something still feels off, trust that — a screen is a six-month snapshot, not the whole picture, and a workup is still the way to be sure.",
+        "Your answers land in the range that doesn't indicate erectile dysfunction. If you came here because something still feels off, trust that. A screen is a six-month snapshot, not the whole picture, and a workup is still the way to be sure.",
     };
   if (total >= 17)
     return {
       label: "Mild",
       tone: "emerging",
       lead:
-        "Your answers point to mild difficulty. This is common and usually very treatable — and it's often the earliest place a vascular or metabolic change shows up, which is exactly why it's worth a workup rather than a wait-and-see.",
+        "Your answers point to mild difficulty. This is common and usually very treatable, and it's often the earliest place a vascular or metabolic change shows up, which is exactly why it's worth a workup rather than a wait-and-see.",
     };
   if (total >= 12)
     return {
       label: "Mild to moderate",
       tone: "emerging",
       lead:
-        "Your answers point to mild-to-moderate difficulty. That's a clear reason to get the full workup — not to reach for a checkout-screen prescription. The evaluation finds the cause, and the cause is what makes treatment actually work.",
+        "Your answers point to mild-to-moderate difficulty. That's a clear reason to get the full workup, not to reach for a checkout-screen prescription. The evaluation finds the cause, and the cause is what makes treatment actually work.",
     };
   if (total >= 8)
     return {
       label: "Moderate",
       tone: "copper",
       lead:
-        "Your answers point to moderate difficulty. It's genuinely treatable once a clinician finds the why — so the highest-value next step is a real evaluation, which also screens for the vascular and metabolic risks that travel with it.",
+        "Your answers point to moderate difficulty. It's genuinely treatable once a clinician finds the why, so the highest-value next step is a real evaluation, which also screens for the vascular and metabolic risks that travel with it.",
     };
   return {
     label: "Severe",
     tone: "copper",
     lead:
-      "Your answers point to significant difficulty. That's worth taking seriously — and it is treatable once the cause is found. Bring this score to a real evaluation; it's the fastest route to the right plan, and to catching anything underneath it.",
+      "Your answers point to significant difficulty. That's worth taking seriously, and it is treatable once the cause is found. Bring this score to a real evaluation; it's the fastest route to the right plan, and to catching anything underneath it.",
   };
 }
 
@@ -184,7 +184,7 @@ export function ShimTool() {
     <div>
       <p className="sos-note" style={{ marginBottom: "24px" }}>
         Answer for the <strong style={{ color: "var(--sos-text-md)" }}>past six months</strong>.
-        Everything runs in your browser — your answers never leave your device.
+        Everything runs in your browser. Your answers never leave your device.
       </p>
 
       <form
@@ -287,7 +287,7 @@ export function ShimTool() {
           {band.tone !== "established" && (
             <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "18px" }}>
               Erectile tissue runs on blood flow, so a lower score can be an early
-              signal worth listening to —{" "}
+              signal worth listening to:{" "}
               <Link href="/learn/erectile-function-signal">
                 erectile function is a signal
               </Link>
@@ -318,7 +318,7 @@ export function ShimTool() {
           <p className="sos-note" style={{ marginBottom: "16px" }}>
             This is a validated <strong style={{ color: "var(--sos-text-md)" }}>screening
             questionnaire</strong>{" "}(the SHIM / IIEF-5), not a diagnosis. Only a clinician
-            who can examine you and knows your history can diagnose ED or its cause —
+            who can examine you and knows your history can diagnose ED or its cause:
             bring your score to that conversation.
           </p>
 
@@ -360,7 +360,7 @@ export function ShimTool() {
             <ClinicianLetterhead title="Erectile-function self-check (IIEF-5 / SHIM)" date={stamp}>
               <p style={{ marginTop: 0 }}>
                 The validated IIEF-5 / SHIM screen (Rosen et al., 1999),
-                self-scored for the past six months — a screen to inform a
+                self-scored for the past six months: a screen to inform a
                 conversation, not a diagnosis.
               </p>
               <p style={{ fontFamily: "var(--sos-mono)", margin: "16px 0" }}>

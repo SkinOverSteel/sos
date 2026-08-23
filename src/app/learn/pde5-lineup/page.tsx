@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "The PDE5 line-up: sildenafil, tadalafil, and the rest",
   description:
-    "Viagra vs Cialis vs the rest, answered. How the four PDE5 inhibitors — sildenafil, tadalafil, vardenafil, avanafil — compare on speed, duration, food, and on-demand vs daily, plus the one hard safety rule they all share.",
+    "Viagra vs Cialis vs the rest, answered. How the four PDE5 inhibitors (sildenafil, tadalafil, vardenafil, avanafil) compare on speed, duration, food, and on-demand vs daily, plus the one hard safety rule they all share.",
   alternates: { canonical: "/learn/pde5-lineup" },
 };
 
@@ -22,7 +22,7 @@ const jsonLd = {
   name: "The PDE5 line-up: sildenafil, tadalafil, and the rest",
   url: `${SITE.url}/learn/pde5-lineup`,
   description:
-    "A comparison of the four PDE5 inhibitors used for erectile dysfunction — sildenafil, tadalafil, vardenafil, and avanafil — across onset, duration, food effect, dosing pattern, and shared safety.",
+    "A comparison of the four PDE5 inhibitors used for erectile dysfunction (sildenafil, tadalafil, vardenafil, and avanafil) across onset, duration, food effect, dosing pattern, and shared safety.",
   about: { "@type": "DrugClass", name: "PDE5 inhibitors" },
   audience: { "@type": "Patient" },
 };
@@ -35,10 +35,10 @@ const DURATION = [
 ];
 
 const ROWS = [
-  { drug: "Sildenafil", brand: "Viagra", onset: "~30–60 min", food: "Fatty meals delay it", taken: "On-demand", cost: "Generic — pennies" },
-  { drug: "Tadalafil", brand: "Cialis", onset: "~30–45 min", food: "Minimal", taken: "On-demand or low-dose daily", cost: "Generic — cheap" },
-  { drug: "Vardenafil", brand: "Levitra", onset: "~30–60 min", food: "High-fat delays it", taken: "On-demand", cost: "Generic — cheap" },
-  { drug: "Avanafil", brand: "Stendra", onset: "~15–30 min (fastest)", food: "Minimal", taken: "On-demand", cost: "Newest generic — priciest here" },
+  { drug: "Sildenafil", brand: "Viagra", onset: "~30–60 min", food: "Fatty meals delay it", taken: "On-demand", cost: "Generic: pennies" },
+  { drug: "Tadalafil", brand: "Cialis", onset: "~30–45 min", food: "Minimal", taken: "On-demand or low-dose daily", cost: "Generic: cheap" },
+  { drug: "Vardenafil", brand: "Levitra", onset: "~30–60 min", food: "High-fat delays it", taken: "On-demand", cost: "Generic: cheap" },
+  { drug: "Avanafil", brand: "Stendra", onset: "~15–30 min (fastest)", food: "Minimal", taken: "On-demand", cost: "Newest generic: priciest here" },
 ];
 
 export default function Pde5LineupPage() {
@@ -134,14 +134,14 @@ export default function Pde5LineupPage() {
           The real fork: on-demand vs. daily
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          Three of the four are <strong>on-demand</strong> — take one an hour or
+          Three of the four are <strong>on-demand</strong>: take one an hour or
           so ahead, get a window of a few hours. Tadalafil can be used that way
           too, but its long half-life means one dose covers most of a weekend,
           and it also comes as a <strong>low daily dose</strong>{" "}that keeps you
           continuously covered and takes the planning out of it entirely (a nice
           side effect: daily tadalafil also eases the urinary symptoms of an
           enlarged prostate). If spontaneity is the goal, that&apos;s usually the
-          conversation to have — and it&apos;s part of why{" "}
+          conversation to have, and it&apos;s part of why{" "}
           <Link href="/learn/pde5-long-term">PDE5 inhibitors, long term</Link>{" "}
           are more than a one-off pill.
         </p>
@@ -149,7 +149,7 @@ export default function Pde5LineupPage() {
 
       <section style={{ marginTop: "44px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-          What they share — including the one hard rule
+          What they share, including the one hard rule
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Because they&apos;re one class, they share a side-effect profile:
@@ -160,12 +160,12 @@ export default function Pde5LineupPage() {
         <div className="sos-card" style={{ borderLeft: "3px solid var(--sos-emergency)" }}>
           <p className="sos-prose" style={{ fontSize: "16px" }}>
             The rule that isn&apos;t optional: <strong>never combine any of them
-            with nitrates</strong> — the heart/chest-pain drugs like
-            nitroglycerin, or recreational &quot;poppers.&quot; Together they can
+            with nitrates</strong> (the heart/chest-pain drugs like
+            nitroglycerin, or recreational &quot;poppers&quot;). Together they can
             drop blood pressure to a dangerous level. Alpha-blockers for the
             prostate need care too. This is exactly why these stay prescription
             and why the <Link href="/learn/telemedicine-visit">visit</Link>{" "}that
-            screens your heart history matters — the same ground covered in{" "}
+            screens your heart history matters, the same ground covered in{" "}
             <Link href="/learn/pde5-long-term">PDE5 inhibitors, long term</Link>.
           </p>
         </div>
@@ -179,7 +179,7 @@ export default function Pde5LineupPage() {
           Sildenafil and tadalafil went generic years ago and cost close to
           nothing at a transparent pharmacy; vardenafil is generic too. Avanafil
           is the newest to go generic and is still the priciest of the four. The
-          gap between a few dollars and a few hundred is markup, not medicine —
+          gap between a few dollars and a few hundred is markup, not medicine:
           the whole point of{" "}
           <Link href="/learn/generic-pde5-value">generic PDE5, filled for less</Link>{" "}
           and <Link href="/learn/what-it-costs">what it costs</Link>. If you have a
@@ -195,10 +195,10 @@ export default function Pde5LineupPage() {
         </h2>
         <p className="sos-prose">
           The four are close cousins. The choice usually isn&apos;t about which is
-          &quot;strongest&quot; — it&apos;s speed vs. a long window, whether food
+          &quot;strongest&quot;: it&apos;s speed vs. a long window, whether food
           gets in the way, and on-demand vs. daily, matched to how you actually
           live. That&apos;s a five-minute prescriber conversation, and once
-          it&apos;s settled the drug is cheap and legitimate — which is exactly why
+          it&apos;s settled the drug is cheap and legitimate, which is exactly why
           there&apos;s no reason to gamble on a{" "}
           <Link href="/learn/product-forms">gas-station or gray-market version</Link>{" "}
           of a pill you can get, real, for pennies.
@@ -217,7 +217,7 @@ export default function Pde5LineupPage() {
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a dosing guide. Which
-          agent fits — and at what dose, if any — is a decision for a licensed
+          agent fits (and at what dose, if any) is a decision for a licensed
           prescriber who knows your heart history and medications.
         </p>
       </div>

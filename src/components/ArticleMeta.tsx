@@ -7,7 +7,7 @@ const MONTHS = [
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
 ];
 
-/** Format an ISO date (YYYY-MM-DD) as "Jul 20, 2026" — no timezone surprises. */
+/** Format an ISO date (YYYY-MM-DD) as "Jul 20, 2026", no timezone surprises. */
 function fmt(iso: string) {
   const [y, m, d] = iso.split("-").map(Number);
   return `${MONTHS[m - 1]} ${d}, ${y}`;
@@ -16,7 +16,7 @@ function fmt(iso: string) {
 /**
  * Instrument-voice byline under an article H1: evidence grade, who reviewed it,
  * and honest publish/review dates linking to the public standard. When a named
- * clinician has reviewed, it says so; otherwise it reads "Editorial review" —
+ * clinician has reviewed, it says so; otherwise it reads "Editorial review":
  * we never imply medical review that didn't happen.
  */
 export function ArticleMeta({
