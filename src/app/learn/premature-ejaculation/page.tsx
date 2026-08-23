@@ -47,7 +47,7 @@ export default function PrematureEjaculationPage() {
         clinician — and one of the most treatable. Premature ejaculation
         isn&apos;t a character flaw or a verdict on anyone; it&apos;s a medical
         pattern with understood mechanisms and real options. The first useful
-        move is figuring out <em>which kind</em> it is, because that points at
+        move is figuring out <em>which kind</em>{" "}it is, because that points at
         what to do.
       </p>
 
@@ -66,7 +66,7 @@ export default function PrematureEjaculationPage() {
           <p className="sos-prose" style={{ fontSize: "15.5px" }}>
             There from the start — since you first became sexually active, almost
             always within about a minute. Usually reflects how the ejaculatory
-            reflex is <strong>wired</strong> (serotonin signaling), not something
+            reflex is <strong>wired</strong>{" "}(serotonin signaling), not something
             that broke.
           </p>
         </div>
@@ -105,10 +105,10 @@ export default function PrematureEjaculationPage() {
           erection fades. Treat the underlying erectile dysfunction and the
           premature ejaculation often eases on its own. That&apos;s why a real
           evaluation checks both at once — the same{" "}
-          <Link href="/learn/ed-workup">workup</Link> that treats{" "}
+          <Link href="/learn/ed-workup">workup</Link>{" "}that treats{" "}
           <Link href="/learn/erectile-function-signal">erectile function as a signal</Link>{" "}
           is where this gets untangled, and why{" "}
-          <Link href="/learn/pde5-long-term">PDE5 treatment</Link> sometimes
+          <Link href="/learn/pde5-long-term">PDE5 treatment</Link>{" "}sometimes
           improves the timing too.
         </p>
       </section>
@@ -124,17 +124,17 @@ export default function PrematureEjaculationPage() {
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>Behavioral approaches.</strong> The stop-start and squeeze
+            <strong>Behavioral approaches.</strong>{" "}The stop-start and squeeze
             techniques train recognition of the point of no return; pelvic-floor
             work can help too. A clinician or sex therapist teaches these
             properly — that&apos;s the difference between a technique and a tip.
           </li>
           <li>
-            <strong>Topical anesthetics.</strong> A cream or spray that gently
+            <strong>Topical anesthetics.</strong>{" "}A cream or spray that gently
             dials down sensitivity, applied before sex.
           </li>
           <li>
-            <strong>Prescription options.</strong> Certain antidepressants
+            <strong>Prescription options.</strong>{" "}Certain antidepressants
             (SSRIs) delay ejaculation as a class effect — daily or on-demand
             depending on the agent. Whether, and which, is a prescriber&apos;s
             call matched to your pattern, not a self-serve decision.

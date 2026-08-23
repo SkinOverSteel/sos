@@ -56,8 +56,8 @@ export default function CavernosographyPage() {
 
       <div className="sos-card" style={{ marginBottom: "40px" }}>
         <p className="sos-prose" style={{ fontSize: "16px", margin: 0 }}>
-          <strong>This is a niche, later-stage test.</strong> It comes after a{" "}
-          <Link href="/learn/ed-workup">workup</Link> and a{" "}
+          <strong>This is a niche, later-stage test.</strong>{" "}It comes after a{" "}
+          <Link href="/learn/ed-workup">workup</Link>{" "}and a{" "}
           <Link href="/learn/penile-doppler-ultrasound">Doppler</Link>, and almost
           only when someone is seriously weighing surgery for venous leak. Most
           men — even most men with confirmed leak — never need it.
@@ -73,7 +73,7 @@ export default function CavernosographyPage() {
           dye is introduced and imaged with X-ray or fluoroscopy. On the images,
           dye escaping through the veins shows the leak directly — not inferred
           from flow speeds, but seen. The paired{" "}
-          <strong>cavernosometry</strong> half measures the pressures: how much
+          <strong>cavernosometry</strong>{" "}half measures the pressures: how much
           infusion it takes to reach an erection, and how fast pressure falls when
           the infusion stops. Together they answer two questions — <em>is there a
           leak</em>, and <em>where is it</em> — with a precision the Doppler
@@ -89,8 +89,8 @@ export default function CavernosographyPage() {
           It&apos;s the difference between imaging with contrast and without. The
           Doppler measures{" "}
           <Link href="/learn/penile-doppler-ultrasound">EDV — end-diastolic velocity</Link>,
-          which rises when blood is draining out, so it flags <em>that</em> a leak
-          is likely. But a surgeon considering repair needs to know <em>where</em>
+          which rises when blood is draining out, so it flags <em>that</em>{" "}a leak
+          is likely. But a surgeon considering repair needs to know <em>where</em>{" "}
           the blood is escaping and how much. Cavernosography maps that. Without a
           map, there&apos;s nothing precise to operate on.
         </p>

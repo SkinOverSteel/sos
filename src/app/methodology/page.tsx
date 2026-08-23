@@ -94,7 +94,7 @@ export default function MethodologyPage() {
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Every article is written and edited against this standard by the{" "}
           <strong>Skin Over Steel editorial desk</strong>, and carries the date
-          it was last reviewed. That is what an <em>Editorial review</em> byline
+          it was last reviewed. That is what an <em>Editorial review</em>{" "}byline
           means: held to the standard on this page, not signed off by a named
           physician.
         </p>
@@ -111,23 +111,23 @@ export default function MethodologyPage() {
       <Section title="The lines we won't cross">
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>No dosing or self-treatment protocols</strong> for
+            <strong>No dosing or self-treatment protocols</strong>{" "}for
             prescription or gray-market compounds — that call belongs to your
             prescriber, every time.
           </li>
           <li>
-            <strong>No how-to for physically risky procedures.</strong> We cover
+            <strong>No how-to for physically risky procedures.</strong>{" "}We cover
             the risk landscape, the warning signs, and when to seek care — never
             the technique.
           </li>
           <li>
-            <strong>We bridge toward medicine, not around it.</strong> The goal
+            <strong>We bridge toward medicine, not around it.</strong>{" "}The goal
             is to get you to a clinician better informed, not to route you past
             one.
           </li>
           <li>
             <strong>Crisis and emergency resources stay one tap away.</strong>{" "}
-            The permanent <Link href="/support">Support</Link> link, including
+            The permanent <Link href="/support">Support</Link>{" "}link, including
             the prolonged-erection emergency, is never buried behind a paywall.
           </li>
         </ul>
@@ -136,7 +136,7 @@ export default function MethodologyPage() {
       <Section title="Where the money is — and isn't">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Skin Over Steel is not a pharmacy and not a seller. Where the{" "}
-          <Link href="/directory">directory</Link> lists a licensed provider we
+          <Link href="/directory">directory</Link>{" "}lists a licensed provider we
           have a paid relationship with, we may earn a referral fee, disclosed at
           the link. The guardrail is absolute:
         </p>
@@ -152,7 +152,7 @@ export default function MethodologyPage() {
       <Section title="When we're wrong">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Evidence moves, and so will these pages. When the research shifts, a
-          grade can be <strong>downgraded</strong> and the review date updated;
+          grade can be <strong>downgraded</strong>{" "}and the review date updated;
           material corrections are made in the open rather than quietly. This
           site&apos;s content and code are public, which is the point — a
           standard you can audit is the only kind worth publishing.

@@ -146,7 +146,7 @@ export default function SupportPage() {
               hours as Viagra, Cialis, Levitra, or similar.
             </li>
             <li style={liStyle}>
-              <strong style={strong}>Start low, go slow.</strong> Your
+              <strong style={strong}>Start low, go slow.</strong>{" "}Your
               prescriber sets your dose. First doses are kept small and increased
               only under their direction — never self-adjust.
             </li>
@@ -193,7 +193,7 @@ export default function SupportPage() {
           <p style={pStyle}>
             Sexual health and mental health are tied together, and reaching out
             is the strong move. In the U.S., the{" "}
-            <strong style={strong}>988 Suicide &amp; Crisis Lifeline</strong> is
+            <strong style={strong}>988 Suicide &amp; Crisis Lifeline</strong>{" "}is
             free and confidential, 24/7 — call or text{" "}
             <a href="tel:988" style={link}>
               988

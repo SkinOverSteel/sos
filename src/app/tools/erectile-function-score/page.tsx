@@ -122,7 +122,7 @@ export default function ErectileFunctionScorePage() {
           A screening score is not a diagnosis and not medical advice. It can&apos;t
           examine you, and it can&apos;t see the cause. Diagnosis and treatment
           belong to a licensed clinician —{" "}
-          <Link href="/learn/ed-workup">the workup</Link> is how the cause actually
+          <Link href="/learn/ed-workup">the workup</Link>{" "}is how the cause actually
           gets found.
         </p>
       </div>

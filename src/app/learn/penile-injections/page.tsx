@@ -44,7 +44,7 @@ export default function PenileInjectionsPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         The pills work for most men — but not all, and not everyone can take them.
-        If <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link> have stopped
+        If <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link>{" "}have stopped
         working or were never an option, that is not a dead end: there is a real,
         effective <strong>second line</strong>, and the most reliable part of it is
         an injection. It is far less daunting than the word sounds — and it works
@@ -67,7 +67,7 @@ export default function PenileInjectionsPage() {
             <div>
               <p className="sos-step__title">First line — the pills</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
-                <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link> work for the
+                <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link>{" "}work for the
                 majority of men, and they&apos;re where almost everyone starts.
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function PenileInjectionsPage() {
               <p className="sos-step__title">The definitive fix — an implant</p>
               <p className="sos-prose" style={{ fontSize: "16px" }}>
                 When nothing else works or is wanted, a{" "}
-                <Link href="/learn/enhancement">penile implant</Link> is the
+                <Link href="/learn/enhancement">penile implant</Link>{" "}is the
                 high-satisfaction end of the ladder.
               </p>
             </div>
@@ -141,15 +141,15 @@ export default function PenileInjectionsPage() {
             it permanently (the same fibrosis behind{" "}
             <Link href="/learn/peyronies-disease">Peyronie&apos;s</Link>), which can
             cost you erections for good. It&apos;s uncommon — roughly{" "}
-            <strong>0.5–5%</strong> of injection users — and a supervised program
+            <strong>0.5–5%</strong>{" "}of injection users — and a supervised program
             exists precisely to keep it near zero, which is why the dose is dialed
             in by a clinician and <strong>never freelanced</strong>.
           </p>
           <p className="sos-prose" style={{ fontSize: "16px" }}>
             If an erection passes the four-hour mark: follow{" "}
-            <strong>your prescriber&apos;s own reversal instructions</strong> and
+            <strong>your prescriber&apos;s own reversal instructions</strong>{" "}and
             get emergency care <em>now</em> — don&apos;t wait it out.{" "}
-            <Link href="/support">Get support now</Link> is the fastest route.
+            <Link href="/support">Get support now</Link>{" "}is the fastest route.
           </p>
         </div>
       </section>

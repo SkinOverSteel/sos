@@ -45,7 +45,7 @@ export default function TestosteroneTherapyPage() {
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         If you&apos;re on testosterone — or weighing it — almost all of the
         difference between doing it well and drifting into the gray zone comes
-        down to two things: a <strong>real diagnosis</strong> and{" "}
+        down to two things: a <strong>real diagnosis</strong>{" "}and{" "}
         <strong>real monitoring</strong>. Get those right and TRT is legitimate,
         boring, effective medicine. Skip them and it becomes something else.
       </p>
@@ -53,7 +53,7 @@ export default function TestosteroneTherapyPage() {
       <Section title="What TRT is — and isn't">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Testosterone replacement therapy restores a{" "}
-          <strong>diagnosed deficiency</strong> back to a normal range, under
+          <strong>diagnosed deficiency</strong>{" "}back to a normal range, under
           monitoring. That&apos;s it. It is not a performance stack, and
           &quot;normal&quot; is the target — not &quot;as high as possible.&quot;
           Holding that line is the whole game, and it&apos;s the thread running
@@ -63,12 +63,12 @@ export default function TestosteroneTherapyPage() {
 
       <Section title="The diagnosis">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          A proper diagnosis rests on <strong>two low early-morning</strong> total
+          A proper diagnosis rests on <strong>two low early-morning</strong>{" "}total
           testosterone measurements plus real symptoms — not a single number, and
           not symptoms alone. Baseline labs before starting typically include free
           and total testosterone, estradiol, hematocrit, and PSA. If you want to
           understand what those mean, that&apos;s exactly what{" "}
-          <Link href="/learn/read-your-labs">read your labs</Link> is for — and{" "}
+          <Link href="/learn/read-your-labs">read your labs</Link>{" "}is for — and{" "}
           <Link href="/learn/erectile-function-signal">why the workup matters</Link>{" "}
           in the first place.
         </p>
@@ -107,20 +107,20 @@ export default function TestosteroneTherapyPage() {
       <Section title="Making it affordable — the legitimate levers">
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>Use your insurance benefit.</strong> When there&apos;s a
+            <strong>Use your insurance benefit.</strong>{" "}When there&apos;s a
             documented deficiency, both TRT and its monitoring labs are frequently
             covered — that&apos;s what the benefit is for. If a medically-indicated
             claim is denied, your clinician can help you <strong>appeal</strong>{" "}
             with the documentation.
           </li>
           <li>
-            <strong>Cash + coupon when it&apos;s cheaper.</strong> Generic
+            <strong>Cash + coupon when it&apos;s cheaper.</strong>{" "}Generic
             injectable testosterone is inexpensive at cash price; discount coupons
             and transparent-pricing pharmacies often beat a copay outright (the
             same logic as <Link href="/learn/generic-pde5-value">generic PDE5, filled for less</Link>).
           </li>
           <li>
-            <strong>Compounding pharmacies</strong> are a legitimate route for
+            <strong>Compounding pharmacies</strong>{" "}are a legitimate route for
             specific formulations a prescriber orders — certain concentrations,
             creams, or pellets.
           </li>

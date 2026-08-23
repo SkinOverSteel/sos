@@ -43,7 +43,7 @@ export default function WhatItCostsPage() {
 
       <p className="sos-prose" style={{ marginBottom: "16px" }}>
         The number you pay is never one number. It&apos;s a{" "}
-        <strong>stack</strong> of separate costs — bloodwork, a consult, the
+        <strong>stack</strong>{" "}of separate costs — bloodwork, a consult, the
         product itself, and a markup layered on top. Learn to see each layer and
         two things happen: you stop overpaying, and you can spot when
         someone&apos;s taking too big a cut. Here&apos;s the journey, roughly in
@@ -62,8 +62,8 @@ export default function WhatItCostsPage() {
       >
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Before any prescription, a real clinician wants a baseline: an{" "}
-          <strong>androgen panel</strong> (total and free testosterone, SHBG) and
-          a <strong>metabolic / insulin panel</strong> (fasting glucose, insulin,
+          <strong>androgen panel</strong>{" "}(total and free testosterone, SHBG) and
+          a <strong>metabolic / insulin panel</strong>{" "}(fasting glucose, insulin,
           A1c, lipids). It&apos;s how the process bridges toward medicine — and a
           number to measure against later.
         </p>
@@ -74,7 +74,7 @@ export default function WhatItCostsPage() {
             ~$25–$80.
           </li>
           <li>
-            <strong>Value lever:</strong> ordering direct-to-consumer (you book
+            <strong>Value lever:</strong>{" "}ordering direct-to-consumer (you book
             online, draw at a local lab) is usually cheaper than the same panel
             marked up through a clinic. Ask exactly what analytes are included.
           </li>
@@ -98,12 +98,12 @@ export default function WhatItCostsPage() {
             Memberships range ~$20–$133/month.
           </li>
           <li>
-            Two models: a <strong>one-time consult</strong> plus your own
-            pharmacy, versus a <strong>monthly membership</strong> that bundles
+            Two models: a <strong>one-time consult</strong>{" "}plus your own
+            pharmacy, versus a <strong>monthly membership</strong>{" "}that bundles
             care and product together.
           </li>
           <li>
-            <strong>Value lever:</strong> figure out whether a membership is
+            <strong>Value lever:</strong>{" "}figure out whether a membership is
             buying you real ongoing care or just a subscription to marked-up
             product. Ask if you can use your own pharmacy for the fill.
           </li>
@@ -119,21 +119,21 @@ export default function WhatItCostsPage() {
           Your prescription is filled by a licensed compounding pharmacy. Using
           trimix as the worked example: a vial runs roughly{" "}
           <strong>$50–$300</strong>, and how long it lasts — weeks to months —
-          depends on the protocol <em>your prescriber</em> sets, which is what
+          depends on the protocol <em>your prescriber</em>{" "}sets, which is what
           turns a per-vial price into your real monthly cost.
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            The <strong>same vial</strong> can cost very differently: pharmacy
+            The <strong>same vial</strong>{" "}can cost very differently: pharmacy
             selection alone can swing the price by around 50%, and a clinic that
             bundles the product usually adds a markup over the pharmacy&apos;s
             cash price.
           </li>
           <li>
-            <strong>Value lever:</strong> ask the pharmacy for its{" "}
-            <em>cash price</em> directly and compare bundled vs. unbundled. Online
+            <strong>Value lever:</strong>{" "}ask the pharmacy for its{" "}
+            <em>cash price</em>{" "}directly and compare bundled vs. unbundled. Online
             compounding pharmacies often have the lowest per-dose cost.{" "}
-            <strong>HSA/FSA</strong> dollars effectively cut 20–37% via tax
+            <strong>HSA/FSA</strong>{" "}dollars effectively cut 20–37% via tax
             savings.
           </li>
         </ul>
@@ -155,12 +155,12 @@ export default function WhatItCostsPage() {
 
       <Section title="Getting the greatest value — legitimately">
         <ul className="sos-prose" style={list}>
-          <li><strong>Unbundle when you can:</strong> labs direct, a consult for the script, the pharmacy&apos;s cash price for the product.</li>
-          <li><strong>Watch for lock-in:</strong> a membership that quietly marks up product can cost more than it saves.</li>
-          <li><strong>Use tax-advantaged dollars:</strong> HSA/FSA where you&apos;re eligible.</li>
-          <li><strong>Re-test, don&apos;t over-buy:</strong> periodic labs keep you on the smallest effective plan your clinician supports.</li>
+          <li><strong>Unbundle when you can:</strong>{" "}labs direct, a consult for the script, the pharmacy&apos;s cash price for the product.</li>
+          <li><strong>Watch for lock-in:</strong>{" "}a membership that quietly marks up product can cost more than it saves.</li>
+          <li><strong>Use tax-advantaged dollars:</strong>{" "}HSA/FSA where you&apos;re eligible.</li>
+          <li><strong>Re-test, don&apos;t over-buy:</strong>{" "}periodic labs keep you on the smallest effective plan your clinician supports.</li>
           <li>
-            <strong>Cheapest is not gray-market.</strong> A $20 baggie with no
+            <strong>Cheapest is not gray-market.</strong>{" "}A $20 baggie with no
             pharmacy behind it isn&apos;t value — it&apos;s unverified risk. See{" "}
             <Link href="/learn/product-forms">what you&apos;re actually buying</Link>.
           </li>
@@ -188,8 +188,8 @@ export default function WhatItCostsPage() {
             or waiting for approval.
           </li>
           <li>
-            <strong>Bottom line:</strong> verify what&apos;s legal where you live.
-            The value move is optimizing <em>within</em> the legal channel — never
+            <strong>Bottom line:</strong>{" "}verify what&apos;s legal where you live.
+            The value move is optimizing <em>within</em>{" "}the legal channel — never
             routing around it.
           </li>
         </ul>

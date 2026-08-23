@@ -47,7 +47,7 @@ export default function PeyroniesDiseasePage() {
         alarming — and the internet makes it worse. So, plainly:{" "}
         <strong>Peyronie&apos;s disease is common, it is not cancer, and it is
         treatable</strong>. It&apos;s scar tissue, and the one thing that matters
-        most to your outcome is understanding which <em>phase</em> you&apos;re in,
+        most to your outcome is understanding which <em>phase</em>{" "}you&apos;re in,
         because that decides what should — and shouldn&apos;t — happen next.
       </p>
 
@@ -61,7 +61,7 @@ export default function PeyroniesDiseasePage() {
           thought to follow small injuries during sex that, in men who are
           predisposed, heal into scar instead of resolving. That predisposition is
           partly genetic: it overlaps with{" "}
-          <strong>Dupuytren&apos;s contracture</strong> (the same kind of fibrous
+          <strong>Dupuytren&apos;s contracture</strong>{" "}(the same kind of fibrous
           cording in the palm) in roughly a fifth of cases. It is not an
           infection, not contagious, and not a cancer.
         </p>
@@ -122,18 +122,18 @@ export default function PeyroniesDiseasePage() {
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>Injections into the plaque.</strong> An FDA-approved enzyme
+            <strong>Injections into the plaque.</strong>{" "}An FDA-approved enzyme
             (collagenase) can reduce curves greater than 30° in men with intact
             erections; verapamil and interferon are other in-office options.
           </li>
           <li>
-            <strong>Traction therapy.</strong> A medical device worn on a
+            <strong>Traction therapy.</strong>{" "}A medical device worn on a
             schedule under a clinician&apos;s guidance, with growing evidence for
             reducing curvature and recovering some length — often paired with
             injections.
           </li>
           <li>
-            <strong>Surgery.</strong> For a severe curve, or when erectile
+            <strong>Surgery.</strong>{" "}For a severe curve, or when erectile
             dysfunction comes with it: procedures that straighten (plication or
             grafting), or a penile implant when erections no longer respond to
             other treatment.
@@ -157,7 +157,7 @@ export default function PeyroniesDiseasePage() {
           <Link href="/learn/erectile-function-signal">erectile dysfunction</Link>{" "}
           often enough that a proper <Link href="/learn/ed-workup">workup</Link>{" "}
           should look at both at once, and a{" "}
-          <Link href="/learn/telemedicine-visit">real evaluation</Link> is where
+          <Link href="/learn/telemedicine-visit">real evaluation</Link>{" "}is where
           the phase and the plan get sorted.
         </p>
       </section>

@@ -43,7 +43,7 @@ export default function ProductFormsPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         When you buy an injectable peptide or ED medication, the{" "}
-        <strong>form it arrives in</strong> tells you a lot about where it came
+        <strong>form it arrives in</strong>{" "}tells you a lot about where it came
         from and whether anyone with a license stood behind its quality. Here is
         how to read it — and the difference between a regulated product and a
         baggie from an anonymous seller.
@@ -115,7 +115,7 @@ export default function ProductFormsPage() {
       <Section title="The three you asked about, specifically">
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <CompoundRow grade="established" name="Trimix">
-            Exists legitimately <strong>only</strong> as a compounded
+            Exists legitimately <strong>only</strong>{" "}as a compounded
             prescription. Real trimix is a pre-mixed, refrigerated vial from a
             licensed compounding pharmacy, labeled, dispensed through your
             prescriber. A baggie of premix from an unknown source is not the same
@@ -123,7 +123,7 @@ export default function ProductFormsPage() {
           </CompoundRow>
           <CompoundRow grade="established" name="Bremelanotide (PT-141)">
             A licensed channel exists: it&apos;s FDA-approved as{" "}
-            <strong>Vyleesi</strong> (an auto-injector, approved for premenopausal
+            <strong>Vyleesi</strong>{" "}(an auto-injector, approved for premenopausal
             women with low sexual desire) and is also compounded — often as a
             lyophilized vial — via prescription. Off-label use in men is{" "}
             <em>emerging</em>, not established. Gray-market &quot;research&quot;
@@ -149,7 +149,7 @@ export default function ProductFormsPage() {
         <p className="sos-prose">
           If you want any of these therapies, the path that comes with quality
           guarantees is the same one: a{" "}
-          <strong>licensed prescriber</strong> (telemedicine counts) and a{" "}
+          <strong>licensed prescriber</strong>{" "}(telemedicine counts) and a{" "}
           <strong>licensed compounding pharmacy</strong>. That&apos;s the version
           where someone&apos;s license is on the line for what&apos;s in the vial
           — and it&apos;s the only kind of source this site will ever point you

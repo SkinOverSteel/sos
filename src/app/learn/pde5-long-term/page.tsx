@@ -57,7 +57,7 @@ export default function Pde5Page() {
           Read this first
         </p>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          PDE5 inhibitors are vasodilators. <strong>Never</strong> combine them
+          PDE5 inhibitors are vasodilators. <strong>Never</strong>{" "}combine them
           with nitrates (including heart nitroglycerin and recreational
           &quot;poppers&quot;/amyl nitrite) — the combination can cause sudden,
           life-threatening drops in blood pressure. Any combination with
@@ -76,7 +76,7 @@ export default function Pde5Page() {
       <Section title="Why they seem to stop working — and usually haven't">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           True tolerance — <em>tachyphylaxis</em>, the drug genuinely wearing out
-          — has <strong>not</strong> been confirmed clinically. Chronic use
+          — has <strong>not</strong>{" "}been confirmed clinically. Chronic use
           doesn&apos;t appear to breed resistance. So when the response fades, the
           more likely explanation is that the <strong>underlying disease is
           progressing</strong>: worsening endothelial function, atherosclerosis,
@@ -96,7 +96,7 @@ export default function Pde5Page() {
       <Section title="The daily-dosing option">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           For a fading on-demand response, clinicians often consider a{" "}
-          <strong>daily regimen</strong> (tadalafil is used this way) instead of
+          <strong>daily regimen</strong>{" "}(tadalafil is used this way) instead of
           episodic dosing — an approach that doesn&apos;t show tachyphylaxis and
           can restore responsiveness even in some on-demand non-responders. Which
           agent, which schedule, and whether it fits your other medications is a
@@ -131,7 +131,7 @@ export default function Pde5Page() {
 
       <Section title="Why your blood-pressure drug choice matters — the real lever">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "16px" }}>
-          Here&apos;s the useful insight for anyone treating <em>both</em> ED and
+          Here&apos;s the useful insight for anyone treating <em>both</em>{" "}ED and
           hypertension: the win isn&apos;t stacking drugs for a bigger hit —
           it&apos;s that some blood-pressure medications sabotage erections and
           some protect them. A clinician managing both can choose accordingly.
@@ -155,11 +155,11 @@ export default function Pde5Page() {
               Telmisartan
             </h3>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
-              An ARB with <strong>PPAR-γ activity</strong> that improves insulin
+              An ARB with <strong>PPAR-γ activity</strong>{" "}that improves insulin
               sensitivity and endothelial function beyond other ARBs — while ARBs
               as a class are generally erection-neutral. For a man whose ED sits on
               top of metabolic syndrome, it treats blood pressure{" "}
-              <em>and</em> the metabolic driver underneath.
+              <em>and</em>{" "}the metabolic driver underneath.
             </p>
           </div>
         </div>
@@ -180,13 +180,13 @@ export default function Pde5Page() {
             nitroglycerin and recreational poppers. <EvidenceBadge grade="established" />
           </li>
           <li>
-            <strong>Alpha-blockers:</strong> risk of a sudden blood-pressure drop
+            <strong>Alpha-blockers:</strong>{" "}risk of a sudden blood-pressure drop
             (fainting, and worse); needs careful timing and dosing by a prescriber.
           </li>
           <li>
-            <strong>Other antihypertensives</strong> (beta-blockers like nebivolol,
+            <strong>Other antihypertensives</strong>{" "}(beta-blockers like nebivolol,
             ARBs like telmisartan, ACE inhibitors, calcium-channel blockers,
-            diuretics): usually only <em>small</em> additive drops in blood
+            diuretics): usually only <em>small</em>{" "}additive drops in blood
             pressure without a rise in serious events — but &quot;usually&quot; is
             doing work. It&apos;s still additive, so the first combination and any
             changes belong under medical supervision, especially if you&apos;re on

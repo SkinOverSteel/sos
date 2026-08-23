@@ -75,7 +75,7 @@ export default function DirectoryPage() {
       <p className="sos-prose" style={{ marginBottom: "24px" }}>
         Every provider here clears two hard gates and is then ranked only on the
         trust criteria below. A paid or referral relationship{" "}
-        <strong>never</strong> changes a rank or a score — it only adds a
+        <strong>never</strong>{" "}changes a rank or a score — it only adds a
         disclosure at the link. That is the whole point: the ranking is
         trustworthy because money can&apos;t buy it.
       </p>

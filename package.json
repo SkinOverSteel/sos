@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/check-jsx-whitespace.mjs",
     "start": "next start",
     "lint": "eslint",
     "gsc": "node scripts/gsc-report.mjs sc-domain:skinoversteel.com"

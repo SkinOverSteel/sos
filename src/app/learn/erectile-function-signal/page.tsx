@@ -47,7 +47,7 @@ export default function SignalPage() {
         the nitric-oxide signaling that opens them. So when it starts to fail,
         the body is often reporting a problem that reaches far beyond the bedroom.
         For a lot of men, erectile dysfunction is the{" "}
-        <strong>first visible sign</strong> of a vascular or metabolic disease
+        <strong>first visible sign</strong>{" "}of a vascular or metabolic disease
         that hasn&apos;t announced itself anywhere else yet. That&apos;s why we
         treat it as a signal — one worth answering. If you&apos;re not sure how
         loud the signal is, you can{" "}
@@ -101,7 +101,7 @@ export default function SignalPage() {
       <Section title="This is the smart-move part">
         <p className="sos-prose">
           The point isn&apos;t alarm — it&apos;s leverage. A symptom that shows up
-          early is a <strong>gift of time</strong> if you act on it. Treating the
+          early is a <strong>gift of time</strong>{" "}if you act on it. Treating the
           erection in isolation — a pill, a peptide, an injection — without asking
           what it&apos;s signaling is treating the smoke and ignoring the fire.
           The strong move is to bring it to a clinician and get screened. No
@@ -113,19 +113,19 @@ export default function SignalPage() {
       <Section title="What a workup usually looks at">
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>Androgen panel:</strong> total and free testosterone, SHBG.
+            <strong>Androgen panel:</strong>{" "}total and free testosterone, SHBG.
           </li>
           <li>
-            <strong>Metabolic / insulin markers:</strong> fasting glucose,
+            <strong>Metabolic / insulin markers:</strong>{" "}fasting glucose,
             fasting insulin, HbA1c, a lipid panel — and sometimes hs-CRP.
           </li>
           <li>
-            <strong>The basics that get skipped:</strong> blood pressure, weight,
+            <strong>The basics that get skipped:</strong>{" "}blood pressure, weight,
             and a real conversation about the whole picture.
           </li>
           <li>
             Curious what that costs and how to get value?{" "}
-            <Link href="/learn/what-it-costs">What it costs</Link> walks the
+            <Link href="/learn/what-it-costs">What it costs</Link>{" "}walks the
             price of the workup and the rest of the stack.
           </li>
         </ul>

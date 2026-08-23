@@ -30,19 +30,19 @@ const GREEN = [
   <>Takes a <strong>real history</strong> — cardiovascular risk, every medication you take (the nitrate check), and the whole ED-as-a-signal picture.</>,
   <>Orders or reviews <strong>labs before prescribing</strong> — an androgen and metabolic panel, and for testosterone, two early-morning draws, not a single number. (See <Link href="/learn/read-your-labs">read your labs</Link>.)</>,
   <>Screens <strong>blood pressure and cardiovascular risk</strong> — non-negotiable before ED or hormone therapy, given how these drugs interact with the heart.</>,
-  <>A <strong>named clinician licensed in your state</strong> whom you can actually talk to — not a form reviewed within two business days.</>,
-  <>Explains the <strong>why</strong> and bridges toward medicine — treats ED as a signal worth investigating, not just a pill to sell.</>,
+  <>A <strong>named clinician licensed in your state</strong>{" "}whom you can actually talk to — not a form reviewed within two business days.</>,
+  <>Explains the <strong>why</strong>{" "}and bridges toward medicine — treats ED as a signal worth investigating, not just a pill to sell.</>,
   <><strong>Structured follow-up and monitoring</strong> — rechecking that treatment is working and safe (for testosterone, hematocrit and PSA).</>,
   <>Lets you <strong>use your own pharmacy</strong>, prices transparently, and doesn&apos;t trap you in a subscription.</>,
 ];
 
 const RED = [
   <>Prescribes off a <strong>one-page intake form</strong> — no labs, no exam, no real conversation.</>,
-  <>No blood-pressure or <strong>cardiovascular screening</strong> at all.</>,
+  <>No blood-pressure or <strong>cardiovascular screening</strong>{" "}at all.</>,
   <>Won&apos;t name the prescriber or confirm they&apos;re <strong>licensed where you live</strong>.</>,
   <>Bundles product at a markup, <strong>membership lock-in</strong>, and hard upsells.</>,
-  <>Will prescribe <strong>off-label or gray-market</strong> compounds with no workup.</>,
-  <><strong>No follow-up</strong> once the sale is made.</>,
+  <>Will prescribe <strong>off-label or gray-market</strong>{" "}compounds with no workup.</>,
+  <><strong>No follow-up</strong>{" "}once the sale is made.</>,
 ];
 
 const QUESTIONS = [

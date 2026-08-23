@@ -64,10 +64,10 @@ export default function NptTestingPage() {
 
       <div className="sos-card" style={{ marginBottom: "40px" }}>
         <p className="sos-prose" style={{ fontSize: "16px", margin: 0 }}>
-          <strong>The core question it answers:</strong> is the barrier physical or
+          <strong>The core question it answers:</strong>{" "}is the barrier physical or
           psychological? Erections during sleep bypass anxiety, performance
           pressure, and the situation entirely — so they isolate whether the body
-          <em> can</em> do it, separate from whether it does when you&apos;re awake.
+          <em> can</em>{" "}do it, separate from whether it does when you&apos;re awake.
         </p>
       </div>
 
@@ -108,8 +108,8 @@ export default function NptTestingPage() {
               <p className="sos-prose" style={{ fontSize: "16px" }}>
                 A device worn on the penis overnight, sometimes across two or three
                 nights, occasionally in a sleep lab. It continuously logs the{" "}
-                <strong>number</strong> of erections, their <strong>rigidity</strong>{" "}
-                at base and tip, and how <strong>long</strong> each lasts. This is
+                <strong>number</strong>{" "}of erections, their <strong>rigidity</strong>{" "}
+                at base and tip, and how <strong>long</strong>{" "}each lasts. This is
                 the version that produces a real, gradable answer — not just whether
                 erections happened, but whether they were rigid enough to count.
               </p>
@@ -158,7 +158,7 @@ export default function NptTestingPage() {
           already answers the physical-versus-psychological question — a sudden
           change with morning erections intact tells much the same story — and
           treatment often moves ahead without formal testing. NPT keeps a real role
-          in <strong>selective</strong> cases: younger men, unclear or complex
+          in <strong>selective</strong>{" "}cases: younger men, unclear or complex
           presentations, or medico-legal situations where an objective record
           matters. If it&apos;s offered to you, the fair question is the same one
           that applies to any test — <em>what will this change about the plan?</em>

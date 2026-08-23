@@ -317,7 +317,7 @@ export function ShimTool() {
 
           <p className="sos-note" style={{ marginBottom: "16px" }}>
             This is a validated <strong style={{ color: "var(--sos-text-md)" }}>screening
-            questionnaire</strong> (the SHIM / IIEF-5), not a diagnosis. Only a clinician
+            questionnaire</strong>{" "}(the SHIM / IIEF-5), not a diagnosis. Only a clinician
             who can examine you and knows your history can diagnose ED or its cause —
             bring your score to that conversation.
           </p>

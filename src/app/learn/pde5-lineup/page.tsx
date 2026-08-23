@@ -137,7 +137,7 @@ export default function Pde5LineupPage() {
           Three of the four are <strong>on-demand</strong> — take one an hour or
           so ahead, get a window of a few hours. Tadalafil can be used that way
           too, but its long half-life means one dose covers most of a weekend,
-          and it also comes as a <strong>low daily dose</strong> that keeps you
+          and it also comes as a <strong>low daily dose</strong>{" "}that keeps you
           continuously covered and takes the planning out of it entirely (a nice
           side effect: daily tadalafil also eases the urinary symptoms of an
           enlarged prostate). If spontaneity is the goal, that&apos;s usually the
@@ -164,7 +164,7 @@ export default function Pde5LineupPage() {
             nitroglycerin, or recreational &quot;poppers.&quot; Together they can
             drop blood pressure to a dangerous level. Alpha-blockers for the
             prostate need care too. This is exactly why these stay prescription
-            and why the <Link href="/learn/telemedicine-visit">visit</Link> that
+            and why the <Link href="/learn/telemedicine-visit">visit</Link>{" "}that
             screens your heart history matters — the same ground covered in{" "}
             <Link href="/learn/pde5-long-term">PDE5 inhibitors, long term</Link>.
           </p>
@@ -184,7 +184,7 @@ export default function Pde5LineupPage() {
           <Link href="/learn/generic-pde5-value">generic PDE5, filled for less</Link>{" "}
           and <Link href="/learn/what-it-costs">what it costs</Link>. If you have a
           prescription in hand, you can{" "}
-          <Link href="/directory">fill it through a licensed pharmacy</Link> for a
+          <Link href="/directory">fill it through a licensed pharmacy</Link>{" "}for a
           fraction of the branded price.
         </p>
       </section>

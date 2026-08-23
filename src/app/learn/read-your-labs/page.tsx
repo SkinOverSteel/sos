@@ -36,7 +36,7 @@ const HORMONES: Marker[] = [
       <>
         The headline number — but one value isn&apos;t a diagnosis. Because it
         swings by time of day and day to day, guidelines call for{" "}
-        <strong>two early-morning (8–10 AM) draws</strong> on separate days
+        <strong>two early-morning (8–10 AM) draws</strong>{" "}on separate days
         before anyone concludes it&apos;s low.
       </>
     ),
@@ -70,7 +70,7 @@ const HORMONES: Marker[] = [
     body: (
       <>
         The pituitary&apos;s signals. If testosterone is low, these say{" "}
-        <em>where</em> the problem is: high LH/FSH means the testes aren&apos;t
+        <em>where</em>{" "}the problem is: high LH/FSH means the testes aren&apos;t
         responding (primary); low-or-normal LH/FSH with low T means the signal
         from the brain is down (secondary). It changes the whole workup.
       </>
@@ -178,16 +178,16 @@ export default function ReadYourLabsPage() {
       <Section title="How to actually read it">
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>One number is a data point, not a verdict.</strong> Hormones
+            <strong>One number is a data point, not a verdict.</strong>{" "}Hormones
             especially need repeat, early-morning testing.
           </li>
           <li>
-            <strong>Watch the trend.</strong> Retesting over time tells you more
+            <strong>Watch the trend.</strong>{" "}Retesting over time tells you more
             than any single panel — and keeps you on the smallest plan that works
             (see <Link href="/learn/what-it-costs">what it costs</Link>).
           </li>
           <li>
-            <strong>The metabolic markers often speak first.</strong> Rising
+            <strong>The metabolic markers often speak first.</strong>{" "}Rising
             fasting insulin and falling SHBG can flag trouble long before glucose
             or testosterone look abnormal.
           </li>

@@ -84,7 +84,7 @@ export default function FreeTestosteronePage() {
 
       <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "18px" }}>
         Most of your testosterone is bound up and unavailable — tightly to SHBG,
-        loosely to albumin. <strong>Free</strong> and <strong>bioavailable</strong>{" "}
+        loosely to albumin. <strong>Free</strong>{" "}and <strong>bioavailable</strong>{" "}
         testosterone are the fractions your body can actually use, and when SHBG runs
         high or low, a normal-looking total can hide the real story. This estimates
         both from your labs using the <strong>Vermeulen equation</strong> — the method
@@ -116,7 +116,7 @@ export default function FreeTestosteronePage() {
           Not a diagnosis and not medical advice. Whether a value is &quot;low&quot;
           depends on your total testosterone, your symptoms, and your lab&apos;s own
           reference range — read it with a clinician.{" "}
-          <Link href="/learn/read-your-labs">Read your labs</Link> walks through what
+          <Link href="/learn/read-your-labs">Read your labs</Link>{" "}walks through what
           each marker means.
         </p>
       </div>

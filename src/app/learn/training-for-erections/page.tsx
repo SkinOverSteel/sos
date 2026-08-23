@@ -49,7 +49,7 @@ export default function TrainingForErectionsPage() {
         An erection is, mechanically, a <strong>vascular event</strong>: blood in,
         fast, and held — driven by nitric oxide and a healthy artery lining (the
         endothelium). That&apos;s the exact pathway a{" "}
-        <Link href="/learn/pde5-lineup">PDE5 pill</Link> amplifies for a few hours.
+        <Link href="/learn/pde5-lineup">PDE5 pill</Link>{" "}amplifies for a few hours.
         Here&apos;s the part that gets undersold: <strong>that machinery
         adapts</strong>. A pill rents the effect for a night; training builds the
         system that produces it. And the training that moves it hardest isn&apos;t
@@ -139,7 +139,7 @@ export default function TrainingForErectionsPage() {
         </p>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Push to the vasculature itself and intensity earns its keep further:{" "}
-          <strong>interval training beats gentle steady-state</strong> for
+          <strong>interval training beats gentle steady-state</strong>{" "}for
           improving flow-mediated dilation and cardiorespiratory fitness — the
           endothelial and pump upgrades erections ride on. The honest caveat: the
           head-to-head <em>erectile</em>-outcome trials are mostly on aerobic
@@ -154,15 +154,15 @@ export default function TrainingForErectionsPage() {
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Lifting doesn&apos;t flush the endothelium the way intervals do — but it
-          attacks the <strong>other</strong> drivers of erectile trouble. Resistance
+          attacks the <strong>other</strong>{" "}drivers of erectile trouble. Resistance
           training strips visceral fat, sharpens{" "}
           <strong>insulin sensitivity</strong>, and supports{" "}
-          <strong>testosterone</strong> and body composition — the metabolic ground
+          <strong>testosterone</strong>{" "}and body composition — the metabolic ground
           erections grow in, and the same terrain behind{" "}
           <Link href="/learn/erectile-function-signal">erectile function as a signal</Link>.
           One nuance worth keeping honest: very heavy, breath-holding max efforts
           can stiffen arteries in the moment, so the win is <strong>consistent,
-          hard, smart</strong> resistance work — not ego-max singles.
+          hard, smart</strong>{" "}resistance work — not ego-max singles.
         </p>
       </section>
 
@@ -177,7 +177,7 @@ export default function TrainingForErectionsPage() {
             reason <Link href="/learn/erectile-function-signal">it&apos;s a signal</Link>.
             So the wrong move is to read this and sprint straight into all-out
             intervals with a heart nobody has checked. Get the{" "}
-            <Link href="/learn/ed-workup">workup</Link> first, get cleared — then
+            <Link href="/learn/ed-workup">workup</Link>{" "}first, get cleared — then
             train hard. The evaluation that protects you is the same one that finds
             what&apos;s driving the ED in the first place.
           </p>
@@ -193,7 +193,7 @@ export default function TrainingForErectionsPage() {
           visceral fat, going easy on alcohol, and not smoking all feed the same
           vascular and metabolic machinery — handle them and every session pays
           back more. None of it replaces a{" "}
-          <Link href="/learn/pde5-lineup">pill</Link> when a pill is warranted; it
+          <Link href="/learn/pde5-lineup">pill</Link>{" "}when a pill is warranted; it
           just means fewer men need one, and the ones who do often need less.
         </p>
       </section>

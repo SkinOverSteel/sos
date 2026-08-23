@@ -44,7 +44,7 @@ export default function PenileDopplerPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         Most of the{" "}
-        <Link href="/learn/ed-workup">ED workup</Link> is a conversation, an exam,
+        <Link href="/learn/ed-workup">ED workup</Link>{" "}is a conversation, an exam,
         and blood work — and most men never need more than that. But when the
         question is specifically <em>vascular</em> — is enough blood flowing in,
         and is it staying in? — there&apos;s a test that measures it directly: the{" "}
@@ -56,11 +56,11 @@ export default function PenileDopplerPage() {
 
       <div className="sos-card" style={{ marginBottom: "40px" }}>
         <p className="sos-prose" style={{ fontSize: "16px", margin: 0 }}>
-          <strong>This is a specialized test, not a routine one.</strong> It&apos;s
+          <strong>This is a specialized test, not a routine one.</strong>{" "}It&apos;s
           usually considered for younger men, a history of pelvic trauma or
           surgery, suspected venous leak, or cases where first-line treatment
           fails and surgery is on the table. If you haven&apos;t had the basic{" "}
-          <Link href="/learn/ed-workup">workup</Link> yet, that comes first.
+          <Link href="/learn/ed-workup">workup</Link>{" "}yet, that comes first.
         </p>
       </div>
 
@@ -76,7 +76,7 @@ export default function PenileDopplerPage() {
               so the test starts with an in-office injection (commonly
               alprostadil). The goal here is different from a treatment like{" "}
               <Link href="/learn/penile-injections">trimix</Link>: it&apos;s to{" "}
-              <strong>produce</strong> an erection long enough to image, not to
+              <strong>produce</strong>{" "}an erection long enough to image, not to
               give you something to use at home. Then the ultrasound probe reads
               the arteries and veins while the erection develops.
             </p>
@@ -152,7 +152,7 @@ export default function PenileDopplerPage() {
           The three numbers to ask for
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "20px" }}>
-          Request these for the right <em>and</em> left sides. The specific values
+          Request these for the right <em>and</em>{" "}left sides. The specific values
           are read by your clinician against the lab&apos;s reference ranges — but
           having them in hand lets you ask real questions instead of accepting a
           verdict.
@@ -268,7 +268,7 @@ export default function PenileDopplerPage() {
           engage the erection for me?</em> <em>What are my PSV, EDV, and RI on
           each side?</em> <em>Does the result point to inflow, leak, both, or
           neither?</em> <em>If it&apos;s inconclusive, is cavernosography the next
-          step?</em> And <em>what does this change about the plan?</em> If the
+          step?</em>{" "}And <em>what does this change about the plan?</em>{" "}If the
           answer to everything is just a prescription with no explanation,
           that&apos;s the same tell described in{" "}
           <Link href="/learn/telemedicine-visit">what a good telemedicine visit looks like</Link>.
@@ -283,7 +283,7 @@ export default function PenileDopplerPage() {
           The Doppler measures your plumbing — and it does that well. What it
           can&apos;t measure is the large role anxiety and context play in
           erectile function, which is why the{" "}
-          <Link href="/learn/ed-workup">full workup</Link> starts with the story,
+          <Link href="/learn/ed-workup">full workup</Link>{" "}starts with the story,
           not the machine. Used at the right time, with an adequate dose and your
           numbers in hand, it turns &ldquo;something feels wrong&rdquo; into
           something specific you and your clinician can actually act on.

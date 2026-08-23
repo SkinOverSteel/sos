@@ -44,7 +44,7 @@ export default function GenericPde5ValuePage() {
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         If you&apos;re a long-term PDE5 user, you&apos;re probably overpaying. Both
         sildenafil (generic Viagra) and tadalafil (generic Cialis) went generic
-        years ago — the difference between <strong>$3 and $400</strong> a fill is
+        years ago — the difference between <strong>$3 and $400</strong>{" "}a fill is
         markup, not medicine. Here&apos;s the honest value play, entirely inside
         the licensed channel.
       </p>
@@ -53,7 +53,7 @@ export default function GenericPde5ValuePage() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Generic tadalafil runs roughly <strong>$9–$45 for 30 tablets</strong>{" "}
           against $350–$450 for brand Cialis, and generic sildenafil can drop to
-          around <strong>$3</strong> a tablet. Paying brand-name money for a PDE5
+          around <strong>$3</strong>{" "}a tablet. Paying brand-name money for a PDE5
           inhibitor today is a choice the pricing lets you avoid — you just have to
           shop the cash price instead of accepting the default.
         </p>
@@ -65,7 +65,7 @@ export default function GenericPde5ValuePage() {
           which prices by a simple formula — wholesale cost plus a flat 15% margin
           plus a pharmacy/shipping fee — instead of the usual insurance markup
           games. In a published analysis it offered the{" "}
-          <strong>lowest direct-to-consumer price</strong> on 90-day sildenafil
+          <strong>lowest direct-to-consumer price</strong>{" "}on 90-day sildenafil
           and tadalafil, undercutting telehealth bundlers by hundreds of dollars
           (over $300 on sildenafil and $900 on tadalafil versus one popular
           platform).
@@ -82,7 +82,7 @@ export default function GenericPde5ValuePage() {
 
       <Section title="The 90-day lever">
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          For a steady long-term user, a <strong>90-day supply</strong> of a
+          For a steady long-term user, a <strong>90-day supply</strong>{" "}of a
           generic almost always beats three separate 30-day fills on a per-dose
           basis, and it&apos;s where the transparent pharmacies price most
           aggressively. If you take it routinely, ask your prescriber to write the
@@ -104,13 +104,13 @@ export default function GenericPde5ValuePage() {
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>It&apos;s drug- and strength-specific.</strong> The flat-price
+            <strong>It&apos;s drug- and strength-specific.</strong>{" "}The flat-price
             pattern holds for sildenafil, but not always for tadalafil — at some
             pharmacies the 10&nbsp;mg costs several times the 5&nbsp;mg, so
             splitting saves nothing. Check before you assume.
           </li>
           <li>
-            <strong>The dose stays with your prescriber.</strong> Only certain
+            <strong>The dose stays with your prescriber.</strong>{" "}Only certain
             scored, immediate-release tablets are appropriate to split, your
             prescription has to be written for it, and a pharmacist should confirm
             the tablet is splittable. That&apos;s the conversation to have — not a
@@ -123,7 +123,7 @@ export default function GenericPde5ValuePage() {
         <p className="sos-prose">
           This is about paying less for a <em>legitimate prescription</em> — not a
           reason to self-source from a{" "}
-          <Link href="/learn/product-forms">gray-market vial</Link> or to
+          <Link href="/learn/product-forms">gray-market vial</Link>{" "}or to
           self-escalate. Long-term use, daily dosing, and any interaction with
           blood-pressure medication still need the supervision covered in{" "}
           <Link href="/learn/pde5-long-term">PDE5 inhibitors, long term</Link>, and

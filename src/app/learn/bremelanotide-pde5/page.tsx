@@ -56,7 +56,7 @@ export default function BremelanotidePde5Page() {
           Read this first
         </p>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          Bremelanotide <strong>raises blood pressure</strong> and is
+          Bremelanotide <strong>raises blood pressure</strong>{" "}and is
           contraindicated in uncontrolled hypertension or known cardiovascular
           disease. In men it is <strong>off-label</strong>, and combining it with
           a PDE5 inhibitor is not an approved regimen. This is a decision for a
@@ -105,9 +105,9 @@ export default function BremelanotidePde5Page() {
       <Section title="What the evidence actually shows">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Early-phase trials found that co-administering PT-141 with sildenafil
-          produced a <strong>significantly greater erectile response</strong> than
+          produced a <strong>significantly greater erectile response</strong>{" "}than
           sildenafil alone. In men who didn&apos;t respond adequately to sildenafil,
-          PT-141 outperformed placebo (roughly <strong>34% vs 9%</strong> reporting
+          PT-141 outperformed placebo (roughly <strong>34% vs 9%</strong>{" "}reporting
           meaningful improvement) — pointing to a real add-on role for PDE5
           non-responders.
         </p>
@@ -115,7 +115,7 @@ export default function BremelanotidePde5Page() {
           Read that with care. These were <strong style={{ color: "var(--sos-text-hi)" }}>small, early-stage</strong>{" "}
           studies, largely of an intranasal formulation that was later
           discontinued. The only approved bremelanotide product (Vyleesi, a
-          subcutaneous injection) is approved <strong style={{ color: "var(--sos-text-hi)" }}>for women</strong> with
+          subcutaneous injection) is approved <strong style={{ color: "var(--sos-text-hi)" }}>for women</strong>{" "}with
           low sexual desire — use in men, and the combination with a PDE5
           inhibitor, is off-label and not established. Promising ≠ proven.
         </p>
@@ -127,14 +127,14 @@ export default function BremelanotidePde5Page() {
           wrong. Bremelanotide <strong>transiently raises blood pressure</strong>{" "}
           (about 6 mmHg systolic, peaking a few hours after a dose) and lowers
           heart rate, returning to baseline within about half a day. Its label
-          <strong> contraindicates</strong> it in uncontrolled hypertension or
+          <strong> contraindicates</strong>{" "}it in uncontrolled hypertension or
           known cardiovascular disease, does not recommend it in people at high
           cardiovascular risk, and caps use at no more than a few doses a month.
         </p>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           So it isn&apos;t &quot;extra vasodilation&quot; layered on a PDE5
           inhibitor — it&apos;s a drug pushing blood pressure the{" "}
-          <em>opposite</em> direction, with its own cardiac profile. That&apos;s
+          <em>opposite</em>{" "}direction, with its own cardiac profile. That&apos;s
           precisely why the combination belongs with a prescriber who has checked
           your heart and blood pressure first — and why the{" "}
           <Link href="/learn/erectile-function-signal">cardiovascular workup</Link>{" "}

@@ -150,7 +150,7 @@ export default function TrtFertilityPage() {
         <p className="sos-note" style={{ marginTop: "14px" }}>
           One honest caveat: reversible is not instant or guaranteed. Recovery
           takes months, and <strong style={{ color: "var(--sos-text-hi)" }}>older
-          men and those on TRT for longer</strong> recover more slowly and less
+          men and those on TRT for longer</strong>{" "}recover more slowly and less
           reliably. That&apos;s a reason to plan earlier, not to panic.
         </p>
       </section>
@@ -164,24 +164,24 @@ export default function TrtFertilityPage() {
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>Enclomiphene or clomiphene.</strong> A pill that nudges your
+            <strong>Enclomiphene or clomiphene.</strong>{" "}A pill that nudges your
             own body to make more testosterone by raising LH and FSH — so it
-            lifts your level <em>without</em> switching sperm off. Often the whole
+            lifts your level <em>without</em>{" "}switching sperm off. Often the whole
             answer for a man who wants both.
           </li>
           <li>
-            <strong>hCG alongside TRT.</strong> It mimics LH, keeping the
+            <strong>hCG alongside TRT.</strong>{" "}It mimics LH, keeping the
             testicles working — and making sperm — even while you&apos;re on
             testosterone.
           </li>
           <li>
-            <strong>Bank sperm first.</strong> The simple insurance when timing is
+            <strong>Bank sperm first.</strong>{" "}The simple insurance when timing is
             uncertain and you&apos;d rather not think about it again.
           </li>
         </ul>
         <p className="sos-note" style={{ marginTop: "14px" }}>
           Which one — and whether at all — is a prescriber&apos;s call, and it
-          belongs in the conversation <em>before</em> you start, not after. It is
+          belongs in the conversation <em>before</em>{" "}you start, not after. It is
           the same &quot;real diagnosis, real monitoring&quot; standard behind{" "}
           <Link href="/learn/testosterone-therapy">testosterone therapy, done right</Link>.
         </p>

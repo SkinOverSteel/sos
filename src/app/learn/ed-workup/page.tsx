@@ -53,7 +53,7 @@ export default function EdWorkupPage() {
 
       <div className="sos-card" style={{ marginBottom: "40px" }}>
         <p className="sos-prose" style={{ fontSize: "16px", margin: 0 }}>
-          <strong>Not sure where you land?</strong> The{" "}
+          <strong>Not sure where you land?</strong>{" "}The{" "}
           <Link href="/tools/erectile-function-score">two-minute self-check</Link>{" "}
           scores the same five-question screen clinicians use — a number to bring
           into the workup below.
@@ -100,13 +100,13 @@ export default function EdWorkupPage() {
             <p className="sos-step__title">The labs</p>
             <p className="sos-prose" style={{ fontSize: "16px" }}>
               Blood work looks for treatable drivers and hidden risk at the same
-              time: an early-morning <strong>testosterone</strong> (repeated if
-              it&apos;s low), <strong>blood sugar / HbA1c</strong> and{" "}
+              time: an early-morning <strong>testosterone</strong>{" "}(repeated if
+              it&apos;s low), <strong>blood sugar / HbA1c</strong>{" "}and{" "}
               <strong>lipids</strong>, and thyroid or prolactin when the picture
               calls for it. <Link href="/learn/read-your-labs">Read your labs</Link>{" "}
               decodes what each one means — and this is the step that quietly
               screens for diabetes and heart risk. You can{" "}
-              <Link href="/directory">line up the blood work</Link> before your
+              <Link href="/directory">line up the blood work</Link>{" "}before your
               visit if you&apos;d rather walk in with numbers.
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function EdWorkupPage() {
             <p className="sos-prose" style={{ fontSize: "16px" }}>
               Only now does treatment make sense — and it follows the cause.
               First-line <Link href="/learn/pde5-long-term">PDE5 inhibitors</Link>,{" "}
-              <Link href="/learn/testosterone-therapy">testosterone</Link> if
+              <Link href="/learn/testosterone-therapy">testosterone</Link>{" "}if
               it&apos;s genuinely low, treating the metabolic or cardiovascular
               risk the workup surfaced, and the lifestyle levers that actually
               move erectile function. Matched to what&apos;s wrong, not picked

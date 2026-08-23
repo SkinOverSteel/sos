@@ -149,9 +149,9 @@ export default function EnhancementPage() {
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Most men who go looking for enhancement fall within the normal range to
           begin with. The distress is real — but it&apos;s far more often about{" "}
-          <strong>perception</strong> than anatomy, and no filler fixes that. It&apos;s
+          <strong>perception</strong>{" "}than anatomy, and no filler fixes that. It&apos;s
           exactly why sexual-medicine guidelines put a psychological conversation{" "}
-          <em>before</em> any procedure: the most effective first appointment is
+          <em>before</em>{" "}any procedure: the most effective first appointment is
           usually a talk, not a table. If the worry is function rather than size,
           that&apos;s not cosmetic at all — that&apos;s an{" "}
           <Link href="/learn/ed-workup">ED workup</Link>, and{" "}
@@ -170,7 +170,7 @@ export default function EnhancementPage() {
             an area that&apos;s breaking down</strong> — treat it as an emergency
             and get seen now. Silicone and oil cause infection and tissue death
             that only worsen with time, and the fixes get bigger the longer they
-            wait. Our <Link href="/support">Get support now</Link> page is the
+            wait. Our <Link href="/support">Get support now</Link>{" "}page is the
             fastest route.
           </p>
         </div>
