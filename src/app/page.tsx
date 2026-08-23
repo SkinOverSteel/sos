@@ -8,14 +8,27 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 // The site-wide WebSite + Organization graph is emitted once in the root
 // layout (see lib/jsonld.ts → siteJsonLd), so the homepage no longer repeats it.
 
-const GRADES: { grade: Grade; meaning: string }[] = [
-  { grade: "established", meaning: "Guideline-level evidence." },
-  { grade: "emerging", meaning: "Early or mixed research." },
-  { grade: "anecdote", meaning: "Member experience, fenced off from fact." },
+const GRADE_EXAMPLES: { grade: Grade; meaning: string; claim: string }[] = [
+  {
+    grade: "established",
+    meaning: "Guideline-level evidence.",
+    claim: "PDE5 inhibitors like sildenafil are first-line therapy for erectile dysfunction.",
+  },
+  {
+    grade: "emerging",
+    meaning: "Early or mixed research.",
+    claim: "Higher-intensity exercise may improve erectile function through vascular adaptation.",
+  },
+  {
+    grade: "anecdote",
+    meaning: "Member experience, fenced off from fact.",
+    claim: "“Cutting alcohol brought my morning erections back within a month.”",
+  },
 ];
 
 export default function Home() {
-  const featured = articles.slice(0, 4);
+  const featuredArticles = articles.filter((a) => a.featured);
+  const featured = (featuredArticles.length ? featuredArticles : articles).slice(0, 4);
   return (
     <div>
       {/* Hero */}
@@ -70,7 +83,7 @@ export default function Home() {
         </p>
         <p className="sos-prose" style={{ maxWidth: "52ch", margin: "18px auto 0", fontSize: "17px" }}>
           Evidence-graded education, private self-assessment tools, and a
-          transparent directory of licensed providers. No hype, no shame, no
+          transparent directory of licensed providers — no hype, no shame, no
           supplement funnel.
         </p>
 
@@ -94,7 +107,7 @@ export default function Home() {
         <MorseSOS style={{ margin: "48px auto 0", width: "fit-content" }} />
       </section>
 
-      {/* Thesis */}
+      {/* Thesis + the grade system (claim, then proof) */}
       <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
         <div className="sos-container" style={{ paddingTop: "56px", paddingBottom: "20px" }}>
           <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
@@ -106,6 +119,40 @@ export default function Home() {
             evidence grade, sources are named, and the point is to get you to a
             clinician better informed, not to sell you around one.
           </p>
+          <p style={{ marginTop: "18px" }}>
+            <Link
+              href="/methodology"
+              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
+            >
+              Sources named, reviewed against a public standard →
+            </Link>
+          </p>
+
+          <div className="sos-card sos-card--deep" style={{ marginTop: "28px" }}>
+            {GRADE_EXAMPLES.map((ex, i) => (
+              <div
+                key={ex.grade}
+                style={{
+                  display: "flex",
+                  gap: "18px",
+                  alignItems: "flex-start",
+                  flexWrap: "wrap",
+                  padding: i === 0 ? "0 0 18px" : "18px 0",
+                  borderTop: i > 0 ? "1px solid var(--sos-line)" : "none",
+                }}
+              >
+                <div style={{ flex: "0 0 150px" }}>
+                  <EvidenceBadge grade={ex.grade} />
+                  <p className="sos-note" style={{ marginTop: "8px" }}>
+                    {ex.meaning}
+                  </p>
+                </div>
+                <p className="sos-prose" style={{ flex: "1 1 260px", fontSize: "16px", margin: 0 }}>
+                  {ex.claim}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -162,28 +209,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Evidence grades */}
-      <section>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "80px" }}>
-          <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-            Every claim carries a grade
-          </h2>
-          <div className="sos-card sos-card--deep">
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {GRADES.map(({ grade, meaning }) => (
-                <div
-                  key={grade}
-                  style={{ display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" }}
-                >
-                  <EvidenceBadge grade={grade} />
-                  <span className="sos-prose" style={{ fontSize: "16px" }}>{meaning}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Tools */}
       <section>
         <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
@@ -223,6 +248,37 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Find a provider */}
+      <section>
+        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              justifyContent: "space-between",
+              gap: "12px",
+              flexWrap: "wrap",
+              marginBottom: "20px",
+            }}
+          >
+            <h2 className="sos-h2">Ranked on trust, never on who pays</h2>
+            <Link
+              href="/directory"
+              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
+            >
+              The directory →
+            </Link>
+          </div>
+          <Link href="/directory" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              Licensed labs, telemedicine, and compounding pharmacies, ranked only
+              on transparent trust criteria. A paid relationship never moves a
+              ranking or a grade, it only adds a disclosure.
+            </p>
+          </Link>
         </div>
       </section>
 

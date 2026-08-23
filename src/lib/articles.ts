@@ -17,6 +17,8 @@ export type Article = {
   summary: string;
   grade: Grade;
   section: string;
+  /** Curated onto the homepage "Start here" set. */
+  featured?: boolean;
   /** First published (ISO date). */
   published: string;
   /** Last reviewed against the editorial standard (ISO date). */
@@ -29,6 +31,7 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "erectile-function-signal",
+    featured: true,
     title: "Erectile function is a signal",
     summary:
       "Often the first visible sign of a vascular or metabolic problem, years before a heart attack or a diabetes diagnosis. Why the body flags it here first, and why it's a reason to get a workup, not to feel shame.",
@@ -69,6 +72,7 @@ export const articles: Article[] = [
   },
   {
     slug: "ed-workup",
+    featured: true,
     title: "The ED workup, start to finish",
     summary:
       "Erectile dysfunction is a symptom, not a diagnosis. The full evaluation (history, exam, and the labs that find the cause) walked start to finish, so you know the map before you go, and know why skipping it is the part that costs you.",
@@ -109,6 +113,7 @@ export const articles: Article[] = [
   },
   {
     slug: "read-your-labs",
+    featured: true,
     title: "Read your labs",
     summary:
       "You got the workup. Now decode it. What total and free testosterone, SHBG, LH/FSH, fasting insulin, HbA1c, and hs-CRP actually mean, enough to have a real conversation with your clinician instead of guessing.",
@@ -139,6 +144,7 @@ export const articles: Article[] = [
   },
   {
     slug: "pde5-lineup",
+    featured: true,
     title: "The PDE5 line-up: sildenafil, tadalafil, and the rest",
     summary:
       "Viagra vs Cialis vs the rest, answered. How the four PDE5 inhibitors compare on speed, duration, food, and on-demand vs daily, plus the one hard safety rule they all share, and why they're more alike than different.",
