@@ -78,6 +78,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "nocturnal-tumescence-testing",
+    title: "Overnight erection testing (NPT), explained",
+    summary:
+      "The oldest question in an ED workup: is the wiring intact? Nocturnal penile tumescence testing checks whether you get erections in your sleep — the classic way to separate a physical cause from a psychological one. What the home and clinic versions measure, why the answer is rarely black-and-white, and where it fits now.",
+    grade: "established",
+    section: "The workup",
+    published: "2026-08-22",
+    reviewed: "2026-08-22",
+  },
+  {
     slug: "penile-doppler-ultrasound",
     title: "The penile Doppler ultrasound, explained",
     summary:

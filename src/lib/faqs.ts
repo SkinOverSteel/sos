@@ -161,6 +161,24 @@ export const faqs: Record<string, Faq[]> = {
       a: "A pre-mixed baggie means no verifiable source, purity, or dose — the opposite of what a licensed pharmacy provides. The form itself reveals the risk.",
     },
   ],
+  "nocturnal-tumescence-testing": [
+    {
+      q: "What is nocturnal penile tumescence (NPT) testing?",
+      a: "NPT testing measures the erections that happen naturally during sleep, mostly in REM. Healthy men typically have several a night without being aware of them. The test records whether they occur and how rigid they are, because their presence points to intact nerves and blood flow — regardless of what happens when you're awake.",
+    },
+    {
+      q: "What does an NPT test tell you about ED?",
+      a: "It helps separate a physical cause from a psychological one. If strong erections happen reliably in your sleep but not during sex, the hardware is largely working and the barrier is more likely psychological or situational. If they're weak or absent asleep too, that points toward a physical (vascular, neurological, or hormonal) cause worth pursuing. It's a pointer, not a diagnosis on its own.",
+    },
+    {
+      q: "How is NPT testing done — can I do it at home?",
+      a: "There are two levels. The formal version is RigiScan, a device worn overnight (sometimes in a sleep lab) that continuously logs the number, rigidity, and duration of erections. A simpler screening version uses a snap-gauge or postage-stamp-style band around the shaft that breaks if an erection occurs — cheap and doable at home, but it only tells you something happened, not how rigid or how long. Which one fits is a clinician's call.",
+    },
+    {
+      q: "Is NPT testing still used?",
+      a: "Less than it once was. A good history, exam, and blood work answer the physical-versus-psychological question for most men, and treatment often moves ahead without it. NPT keeps a role in specific situations — younger men, complex or unclear cases, or medico-legal ones — but it's a selective tool now, not a routine step.",
+    },
+  ],
   "penile-doppler-ultrasound": [
     {
       q: "What is a penile Doppler ultrasound and what does it show?",
