@@ -67,7 +67,7 @@ export default function BremelanotidePde5Page() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         The reason combining these two is even interesting is that they don&apos;t
-        do the same job. A PDE5 inhibitor is <strong>peripheral hydraulics</strong>
+        do the same job. A PDE5 inhibitor is <strong>peripheral hydraulics</strong>{" "}
         — it helps the blood vessels of the penis open once arousal is already
         happening. Bremelanotide works <strong>upstream, in the brain</strong>, on
         desire and arousal itself. Two different levers on two different parts of
