@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articleEntries = articles.map((a) => ({
     url: `${SITE.url}/learn/${a.slug}`,
+    lastModified: new Date(a.reviewed),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { JsonLd } from "@/components/JsonLd";
+import { learnHubJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Learn",
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 export default function LearnHub() {
   return (
     <div className="sos-container">
+      <JsonLd data={learnHubJsonLd()} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         The Open Floor
       </p>

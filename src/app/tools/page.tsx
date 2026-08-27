@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { tools } from "@/lib/tools";
+import { JsonLd } from "@/components/JsonLd";
+import { toolsHubJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Tools",
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function ToolsHub() {
   return (
     <div className="sos-container">
+      <JsonLd data={toolsHubJsonLd()} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Instruments
       </p>

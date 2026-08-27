@@ -11,6 +11,8 @@ import {
   rankedByCategory,
   trustScore,
 } from "@/lib/providers";
+import { JsonLd } from "@/components/JsonLd";
+import { directoryHubJsonLd } from "@/lib/jsonld";
 
 // Indexed only once live; kept out of nav + sitemap while in draft.
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ export const metadata: Metadata = {
 export default function DirectoryPage() {
   return (
     <div className="sos-container">
+      <JsonLd data={directoryHubJsonLd()} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
         Directory · <b>How we rank</b>
       </p>

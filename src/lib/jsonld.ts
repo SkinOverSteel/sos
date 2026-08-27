@@ -1,5 +1,7 @@
 import { SITE } from "@/lib/site";
 import { articles, type Reviewer } from "@/lib/articles";
+import { liveTools } from "@/lib/tools";
+import { CATEGORY_LABELS, CATEGORY_ORDER, rankedByCategory } from "@/lib/providers";
 
 /**
  * Stable @id for the site's Organization node. The node itself is emitted once,
@@ -118,5 +120,95 @@ export function withReview<T extends Record<string, unknown>>(base: T, slug: str
     publisher: ORG_REF,
     isPartOf: { "@type": "CollectionPage", name: "Learn", url: `${SITE.url}/learn` },
     ...(related.length ? { relatedLink: related } : {}),
+  };
+}
+
+/**
+ * CollectionPage + ItemList for the /learn hub. Lists every article with its
+ * evidence grade, section, and review date so search engines see the full
+ * catalog topology in one shot.
+ */
+export function learnHubJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Learn",
+    url: `${SITE.url}/learn`,
+    description:
+      "Evidence-graded men's sexual-health education: the Open Floor. Every claim carries a visible evidence grade.",
+    isPartOf: { "@id": `${SITE.url}/#website` },
+    publisher: ORG_REF,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: articles.length,
+      itemListElement: articles.map((a, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE.url}/learn/${a.slug}`,
+        name: a.title,
+      })),
+    },
+  };
+}
+
+/**
+ * CollectionPage + ItemList for the /tools hub. Lists every live interactive
+ * tool so search engines can discover and potentially carousel them.
+ */
+export function toolsHubJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Tools",
+    url: `${SITE.url}/tools`,
+    description:
+      "Private, browser-only self-assessment tools for men's sexual health. Nothing is stored or transmitted.",
+    isPartOf: { "@id": `${SITE.url}/#website` },
+    publisher: ORG_REF,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: liveTools.length,
+      itemListElement: liveTools.map((t, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE.url}/tools/${t.slug}`,
+        name: t.title,
+      })),
+    },
+  };
+}
+
+/**
+ * CollectionPage + ItemList for the /directory hub. Lists gate-passing
+ * providers grouped by category, ranked by trust score, so search engines
+ * see the directory structure with no rendering.
+ */
+export function directoryHubJsonLd() {
+  const items: { "@type": string; position: number; url: string; name: string }[] = [];
+  let pos = 1;
+  for (const cat of CATEGORY_ORDER) {
+    for (const p of rankedByCategory(cat)) {
+      items.push({
+        "@type": "ListItem",
+        position: pos++,
+        url: `${SITE.url}/directory#${p.slug}`,
+        name: `${p.name} — ${CATEGORY_LABELS[cat]}`,
+      });
+    }
+  }
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Find a provider",
+    url: `${SITE.url}/directory`,
+    description:
+      "A transparent directory of licensed labs, telemedicine, and compounding pharmacies, ranked only on trust criteria, never on who pays.",
+    isPartOf: { "@id": `${SITE.url}/#website` },
+    publisher: ORG_REF,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: items.length,
+      itemListElement: items,
+    },
   };
 }
