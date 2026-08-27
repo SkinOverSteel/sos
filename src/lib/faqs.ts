@@ -143,6 +143,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "The combination is early-stage and off-label in men, and bremelanotide raises blood pressure, so it is a careful, prescriber-supervised conversation. Most of what is sold online is not the approved drug.",
     },
   ],
+  "urologist-visit": [
+    {
+      q: "What should I expect at a urologist appointment for ED?",
+      a: "A real evaluation follows a known sequence: a detailed history (which situations fail and which don't), a physical exam, and blood work. Imaging like a penile Doppler ultrasound is a specialized add-on for specifically vascular questions, not a routine step. If the visit is two questions and a prescription with no labs and no stated diagnosis, the evaluation was skipped and you can ask why.",
+    },
+    {
+      q: "What should I tell the urologist before a penile Doppler ultrasound?",
+      a: "Exactly what you already take and what it actually takes to give you a full, reliable erection, with no rounding and nothing left out. The test uses an in-office injection, and if the dose isn't adequate for your physiology the scan can show a venous leak that isn't really there. Your precise history is what lets the clinician dose and interpret the study correctly.",
+    },
+    {
+      q: "How much does a penile Doppler ultrasound cost?",
+      a: "Patients commonly report anywhere from a few hundred dollars to around a thousand for the same test, depending on the facility and how it bills. Ask for the cash price and the insurance price before you consent; imaging is one of the most shoppable services in medicine, and prices vary far more than quality does.",
+    },
+    {
+      q: "What results should I ask for after an ED workup?",
+      a: "Actual numbers, not summaries. From a Doppler: PSV, EDV, and RI for both the right and left sides. From blood work: the values and reference ranges. And from the visit itself: a stated working diagnosis, even if it's 'we don't know yet.' Ask for copies of the full reports before you leave; portal summaries often omit the numbers.",
+    },
+    {
+      q: "What if the doctor just prescribes Viagra without any workup?",
+      a: "A PDE5 inhibitor can be a reasonable first treatment, but only after someone actually evaluated you, since ED can be the first visible sign of a vascular or metabolic problem. Ask why this treatment before an answer, how you'll know it's working, and when you'll re-check. If those questions never get real answers, a second opinion is routine and reasonable.",
+    },
+  ],
   "telemedicine-visit": [
     {
       q: "How do I know if an online men's health clinic is legitimate?",

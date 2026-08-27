@@ -204,6 +204,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "urologist-visit",
+    title: "The urologist visit, on your terms",
+    summary:
+      "The specialist visit is where the workup gets real, and where too many men go passive. How to prepare for the appointment (and the Doppler, if one's coming), why precision about what you already take protects your diagnosis, the data to leave with, and how to push back when the visit turns into a conveyor belt. Shaped with a contributor who learned it the expensive way.",
+    grade: "established",
+    section: "Choosing care",
+    published: "2026-08-27",
+    reviewed: "2026-08-27",
+  },
+  {
     slug: "telemedicine-visit",
     title: "What a good telemedicine visit looks like",
     summary:
