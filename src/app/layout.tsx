@@ -128,7 +128,7 @@ export default function RootLayout({
               { href: "/methodology", label: "How we review" },
               { href: "/support", label: "Support" },
             ].map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 style={{
@@ -140,7 +140,7 @@ export default function RootLayout({
                 }}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <p
