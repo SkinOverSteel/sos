@@ -111,6 +111,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "Some, such as nebivolol or telmisartan, tend to be more erection-friendly than older options, worth raising if you are treating both high blood pressure and ED.",
     },
   ],
+  "apomorphine-troches": [
+    {
+      q: "What is apomorphine and how does it work for ED?",
+      a: "Apomorphine is a dopamine agonist, not an opioid. It acts in the brain, mainly on D2 receptors in the hypothalamus, sending a pro-erectile signal from the top down. That makes it a central lever, unlike PDE5 inhibitors such as sildenafil and tadalafil, which work peripherally on penile blood flow.",
+    },
+    {
+      q: "Why was Uprima (sublingual apomorphine) taken off the market?",
+      a: "Uprima was approved in Europe in 2001 but produced erections firm enough for intercourse in only about half of attempts, clearly weaker than PDE5 inhibitors, while nausea was common enough to drive men off the drug and rare fainting raised safety concerns. The US application was withdrawn and the product was later discontinued in Europe.",
+    },
+    {
+      q: "Is the sildenafil-tadalafil-apomorphine troche FDA-approved?",
+      a: "No. The three-drug combination has never been through a clinical trial, and apomorphine has never been FDA-approved for erectile dysfunction. The troches are compounded prescription products, which is a legal channel but one that does not require efficacy evidence for the combination.",
+    },
+    {
+      q: "Do sublingual ED troches work faster than pills?",
+      a: "Somewhat, and less than the marketing implies. Sublingual absorption can shorten onset for part of the dose, but much of a troche is still swallowed and absorbed like a pill. The reliability users report tracks the large PDE5-inhibitor doses inside, not the delivery format.",
+    },
+    {
+      q: "Does Proviron (mesterolone) improve erections?",
+      a: "There are decades of consistent first-person reports of improved desire and erection quality, and a plausible mechanism through androgen-receptor binding and lower SHBG, but no modern clinical trials. Mesterolone is not FDA-approved and is a controlled substance in the US. The legitimate version of that signal is having your androgen status properly evaluated by a clinician.",
+    },
+  ],
   "bremelanotide-pde5": [
     {
       q: "What is the difference between bremelanotide and Viagra?",

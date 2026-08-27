@@ -184,6 +184,16 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "apomorphine-troches",
+    title: "Apomorphine's second act",
+    summary:
+      "A molecule that failed the ED market on its own evidence in 2001 is back inside \"3-in-1\" sublingual troches from compounding pharmacies and telehealth brands. What apomorphine actually does, why Uprima died, which ingredient in the troche is doing the work, and why the locker-room conversation quietly moved to androgens instead.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+    published: "2026-08-26",
+    reviewed: "2026-08-26",
+  },
+  {
     slug: "bremelanotide-pde5",
     title: "Bremelanotide + PDE5: two different levers",
     summary:
