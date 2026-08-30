@@ -19,7 +19,7 @@ const jsonLd = {
   description:
     "How Skin Over Steel grades evidence, sources claims, reviews content, discloses money, and issues corrections.",
   datePublished: "2026-08-04",
-  dateModified: "2026-08-04",
+  dateModified: "2026-08-30",
   publisher: { "@id": `${SITE.url}/#org` },
 };
 
@@ -111,9 +111,14 @@ export default function MethodologyPage() {
       <Section title="The lines we won't cross">
         <ul className="sos-prose" style={list}>
           <li>
-            <strong>No dosing or self-treatment protocols</strong>{" "}for
-            prescription or gray-market compounds. That call belongs to your
-            prescriber, every time.
+            <strong>Published numbers, not DIY protocols.</strong>{" "}For
+            supervised prescription therapies we publish the dosing and reversal
+            numbers a competent program already prints on its handout, framed
+            as literacy: knowing what a normal dose looks like is what keeps a
+            man safe, not ignorance. The prescriber&apos;s call stays the
+            prescriber&apos;s: titration, adjustment, and the first in-office
+            dose. Gray-market and unsupervised compounds get education and
+            warning signs, never a protocol.
           </li>
           <li>
             <strong>No how-to for physically risky procedures.</strong>{" "}We cover
