@@ -431,6 +431,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "Because time changes which tools work. Acidotic smooth muscle stops responding to phenylephrine, clotting defeats simple drainage, and late fixes like surgical shunts often leave erectile dysfunction anyway. Early reversal is a needle and an afternoon; late reversal is surgery with a poor functional prognosis.",
     },
   ],
+  "cialis-pre-workout": [
+    {
+      q: "Does Cialis (tadalafil) improve gym performance?",
+      a: "The evidence says mostly no. A randomized trial in trained athletes found no effect of 20 mg tadalafil on sprint power, the largest PDE5-inhibition exercise trial (RELAX) found no improvement in exercise capacity, and WADA-funded altitude research found no benefit for most athletes below about 4,000 meters. What the drug does deliver is a visible muscle pump, which is a cosmetic effect, not a performance one.",
+    },
+    {
+      q: "Why do bodybuilders take tadalafil before training?",
+      a: "For the pump: PDE5 inhibitors widen blood vessels wherever the enzyme appears, including the vessels feeding working muscle, and tadalafil's 17.5-hour half-life keeps the vasodilation going long after the session. The effect is real but cosmetic: extra blood and fluid in the muscle, not extra strength, reps, or growth.",
+    },
+    {
+      q: "Can you take tadalafil with pre-workout supplements?",
+      a: "It's the risky part of the trend. Many pre-workouts stack nitric-oxide boosters (citrulline, arginine, beetroot) that lower blood pressure on the same pathway the drug acts on, so the effects add together. Heavy straining on top of a lowered resting pressure is how a lift ends in lightheadedness under a loaded bar. No one has measured the combinations, which is the problem.",
+    },
+    {
+      q: "How long after tadalafil is nitroglycerin unsafe?",
+      a: "In the dedicated interaction study, blood pressure responses to nitroglycerin were still dangerously amplified 24 hours after a tadalafil dose and only normalized around 48 hours out, which is why the label's nitrate guidance is longer than for shorter-acting drugs like sildenafil. If you've taken tadalafil and develop chest pain, tell the medics exactly what you took and when.",
+    },
+    {
+      q: "Is the tadalafil pump muscle growth?",
+      a: "No. A pump is transient cell swelling from extra blood and fluid, and nothing shows tadalafil adds muscle tissue. It looks good in the mirror and feels significant, which is why the trend persists, but it resolves as the drug wears off. The growth signal still comes from progressive training, nutrition, and recovery.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",

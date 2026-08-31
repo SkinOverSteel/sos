@@ -273,4 +273,14 @@ export const articles: Article[] = [
     published: "2026-08-30",
     reviewed: "2026-08-30",
   },
+  {
+    slug: "cialis-pre-workout",
+    title: "Why bodybuilders take Cialis as a pre-workout",
+    summary:
+      "Tadalafil for the gym pump is a real trend with real pharmacology behind it: PDE5 lives in your muscles' blood vessels too. But the performance trials mostly say it does nothing, one shows raised muscle-damage markers, and the blood-pressure math with pre-workout stacks is worse than the pump is worth.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+    published: "2026-08-30",
+    reviewed: "2026-08-30",
+  },
 ];
