@@ -54,7 +54,7 @@ export default function AboutPage() {
 
       <Section title="What we won't do">
         <ul className="sos-prose" style={list}>
-          <li><strong>No dosing or self-treatment protocols</strong>{" "}for prescription or gray-market compounds. The dose is your prescriber&apos;s call.</li>
+          <li><strong>No dosing protocols for gray-market compounds.</strong>{" "}For supervised prescription therapies we publish what competent programs already publish, as literacy; the dose itself stays your prescriber&apos;s call.</li>
           <li><strong>No gray-market sourcing.</strong>{" "}We point toward licensed clinicians and pharmacies, and explain how to tell the difference.</li>
           <li><strong>No pay-to-rank.</strong>{" "}In the directory, a paid relationship never moves a ranking or a grade: it only adds a disclosure.</li>
           <li><strong>No hype, no shame, no medical advice.</strong>{" "}Education, graded honestly.</li>

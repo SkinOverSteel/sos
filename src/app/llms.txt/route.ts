@@ -6,8 +6,9 @@ import { liveTools } from "@/lib/tools";
  * /llms.txt: a curated, machine-readable index for LLM crawlers and agents
  * (see llmstxt.org). Generated from the same article data as the sitemap so it
  * never drifts. Each entry carries its evidence grade, and the standard is
- * stated up top, so a model that cites us represents the graded, no-dosing,
- * bridges-toward-medicine stance correctly.
+ * stated up top, so a model that cites us represents the graded,
+ * harm-reduction stance correctly: published dosing and reversal numbers as
+ * literacy, bridges toward medicine, never DIY protocols.
  */
 export const dynamic = "force-static";
 
@@ -32,7 +33,7 @@ const CORE_PAGES: { path: string; label: string; note: string }[] = [
   {
     path: "/support",
     label: "Get support",
-    note: "Priapism (>4hr) emergency guidance using the prescriber's own instructions, plus mental-health and crisis resources.",
+    note: "Priapism (>4hr) rescue ladder by the clock, with the published rescue doses and what the ER actually does to reverse it, plus mental-health and crisis resources.",
   },
   {
     path: "/about",
@@ -48,7 +49,7 @@ function buildLlmsTxt(): string {
   lines.push(`# ${SITE.name}`);
   lines.push("");
   lines.push(
-    `> ${SITE.tagline} Evidence-graded, cited men's sexual-health education that bridges toward medicine. Never dosing instructions, never hype.`,
+    `> ${SITE.tagline} Evidence-graded, cited men's sexual-health education on a harm-reduction footing: published dosing and reversal numbers as literacy, always bridging toward medicine, never hype.`,
   );
   lines.push("");
   lines.push(
@@ -91,7 +92,7 @@ function buildLlmsTxt(): string {
     "- Established: guideline-level evidence. Emerging: early or mixed research. Anecdote: member n=1, fenced off. High risk: evidence points to injury.",
   );
   lines.push(
-    "- Hard lines: no dosing instructions for prescription or gray-market compounds, and no how-to for physically risky enhancement procedures. Risk, warning signs, and when to seek care: yes; instructions: no.",
+    "- Hard lines: harm reduction, not DIY. For supervised prescription therapies we publish the dosing and reversal numbers competent programs already print, framed as literacy. Gray-market compounds get education and warning signs, never self-treatment protocols. No how-to for physically risky enhancement procedures.",
   );
   lines.push("");
 

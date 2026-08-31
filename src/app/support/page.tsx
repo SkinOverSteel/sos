@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Get support now",
   description:
-    "Prolonged erection (priapism) after a penile injection is a medical emergency. What to do, how to lower the risk, and when to go to the ER.",
+    "Prolonged erection (priapism) after a penile injection, act by the clock: the non-drug steps, the rescue doses used in standard programs (pseudoephedrine, terbutaline, phenylephrine), and what the ER actually does to reverse it.",
   alternates: { canonical: "/support" },
 };
 
@@ -16,7 +16,7 @@ const jsonLd = {
   name: "Prolonged erection (priapism): emergency guidance",
   url: `${SITE.url}/support`,
   description:
-    "When a prolonged erection after penile injection therapy becomes a medical emergency, how to lower the risk, and when to go to the ER.",
+    "Harm-reduction guidance for a prolonged erection after penile injection therapy: the clock, the rescue doses published in standard patient handouts, and the ER reversal procedure (aspiration, phenylephrine, shunting).",
   about: { "@type": "MedicalCondition", name: "Priapism" },
   audience: { "@type": "Patient" },
   publisher: { "@id": `${SITE.url}/#org` },
@@ -132,7 +132,10 @@ export default function SupportPage() {
             and doesn&apos;t go down after ejaculation. For anyone using trimix
             or another injection (ICP) therapy, it is the main serious risk to
             know cold, because acting quickly is what protects your long-term
-            function.
+            function. The trapped blood is starving the tissue of oxygen, and
+            the damage clock is running the whole time. So this page runs on a
+            clock too, with the actual numbers, because harm reduction means
+            knowing what to do at hour two <em>before</em>{" "}it&apos;s hour three.
           </p>
         </Section>
 
@@ -146,44 +149,136 @@ export default function SupportPage() {
               hours as Viagra, Cialis, Levitra, or similar.
             </li>
             <li style={liStyle}>
-              <strong style={strong}>Start low, go slow.</strong>{" "}Your
-              prescriber sets your dose. First doses are kept small and increased
-              only under their direction. Never self-adjust.
+              <strong style={strong}>Start low, go slow.</strong>{" "}
+              Standard programs start the first injection at no more than
+              0.05&nbsp;mL (5 units on the syringe) and go up only in
+              0.05&nbsp;mL steps under a prescriber&apos;s direction. Never
+              self-adjust. The dose that works is almost never the dose that
+              feels impressive.
             </li>
             <li style={liStyle}>
               <strong style={strong}>Keep your rescue plan within reach.</strong>{" "}
               If your prescriber gave you rescue instructions or a rescue
-              medication, store them somewhere you can find in seconds.
+              medication, store them somewhere you can find in seconds, and read
+              them once now, at peace, not for the first time at hour three.
+            </li>
+            <li style={liStyle}>
+              <strong style={strong}>No rescue plan yet?</strong> Ask your
+              prescriber for one before you need it: a written protocol and,
+              where appropriate, a rescue prescription to keep on hand. That is
+              a normal request in a competent injection program, not a paranoid
+              one.
             </li>
           </ul>
         </Section>
 
-        <Section title="If an erection won't go down, act by the clock">
+        <Section title="The ladder: act by the clock">
+          <p style={{ ...pStyle, marginBottom: "18px" }}>
+            The moves below are the ones published in standard patient handouts
+            for injection therapy. We print the numbers because they already
+            exist on paper in every good program, and freezing at hour three
+            because you never saw them is the failure mode we&apos;re here to
+            prevent. They are the ladder, not a substitute for it: at four
+            hours, the ladder ends at the ER.
+          </p>
           <ul style={ulStyle}>
             <li style={liStyle}>
-              <strong style={strong}>Safe first steps you can do now:</strong>{" "}
-              apply an ice pack to the perineum/scrotal area, and walk or climb
-              stairs to help redirect blood flow.
+              <strong style={strong}>Past your usual window, or approaching 2 hours:</strong>{" "}
+              non-drug measures first. Apply an ice pack to the perineum or
+              scrotal area (a frozen bag of vegetables works), and walk or climb
+              stairs to redirect blood flow. These are real first steps, but
+              know their limit: the urology guidelines are explicit that once
+              this is a true ischemic priapism, ice, exercise, and pills are
+              unlikely to fix it and must never delay definitive treatment.
             </li>
             <li style={liStyle}>
-              <strong style={strong}>Rescue medication is prescriber-directed.</strong>{" "}
-              Some clinicians recommend an over-the-counter first step
-              (pseudoephedrine) or provide a rescue prescription to keep on hand
-              (such as terbutaline or phenylephrine). Use these{" "}
-              <em>only as, and in the exact amounts, your prescriber told you.</em>{" "}
-              We don&apos;t publish rescue doses here on purpose. The right ones
-              come from the clinician who prescribed your injections.
+              <strong style={strong}>Still going around 2 to 3 hours:</strong>{" "}
+              the over-the-counter step in standard handouts is{" "}
+              <strong style={strong}>pseudoephedrine 30&nbsp;mg by mouth</strong>{" "}
+              (the real Sudafed, sold behind the pharmacy counter, ID required)
+              or <strong style={strong}>diphenhydramine 25 to 50&nbsp;mg</strong>{" "}
+              (Benadryl). Pick one, not both. If you have heart disease, high
+              blood pressure, or take interacting medications, skip straight to
+              calling your prescriber or the ER instead.
             </li>
             <li style={liStyle}>
               <strong style={strong}>
-                At 4 hours (or sooner if it&apos;s severely painful) go to the
-                ER.
+                Around 3 hours, or the OTC step didn&apos;t work: prescription
+                rescue, if your prescriber gave you one.
               </strong>{" "}
-              Don&apos;t keep waiting for it to resolve on its own.
+              The two standard options:{" "}
+              <strong style={strong}>terbutaline 10&nbsp;mg once</strong>, then
+              another 5 to 10&nbsp;mg fifteen minutes later only if needed; or,{" "}
+              <strong style={strong}>
+                phenylephrine HCl 0.1%: 0.25&nbsp;mL injected into the penis
+                every 3 to 5 minutes
+              </strong>
+              , up to a total of 1&nbsp;mL (1,000&nbsp;mcg) over no more than
+              one hour, pressing on the injection site and massaging the shaft
+              after each one so the drug spreads. Use these only as, and in the
+              exact amounts, your prescriber told you. The numbers are printed
+              here so you can recognize them and verify your own paperwork, not
+              to replace it.
             </li>
             <li style={liStyle}>
-              Afterward, if you notice lumps, curvature, swelling, or tenderness,
-              contact your prescriber.
+              <strong style={strong}>
+                At 4 hours (or sooner if it&apos;s severely painful): go to the
+                ER. Now.
+              </strong>{" "}
+              The self-management phase is over. Nothing you take at home at
+              hour four is a substitute for what they do there, and every hour
+              past four raises the odds of permanent damage.
+            </li>
+            <li style={liStyle}>
+              <strong style={strong}>Afterward:</strong> if you notice lumps,
+              curvature, swelling, or tenderness, contact your prescriber. That
+              is scar tissue forming, the same process behind{" "}
+              <a href="/learn/peyronies-disease" style={link}>
+                Peyronie&apos;s disease
+              </a>
+              , and early attention matters.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="What the ER actually does: the reversal">
+          <p style={{ ...pStyle, marginBottom: "18px" }}>
+            Men delay because they imagine the ER visit is worse than the
+            problem. It isn&apos;t. Here is the actual sequence, from the
+            AUA/SMSNA priapism guideline:
+          </p>
+          <ul style={ulStyle}>
+            <li style={liStyle}>
+              <strong style={strong}>Confirm what kind it is.</strong> A blood
+              sample is drawn from the penis (a corporal blood gas). Ischemic
+              priapism, the kind injection therapy causes, shows up as dark,
+              oxygen-starved blood, and it is the emergency.
+            </li>
+            <li style={liStyle}>
+              <strong style={strong}>First-line reversal: drain and reverse.</strong>{" "}
+              A needle goes into the corpora and the trapped blood is aspirated
+              out, usually with saline irrigation, while{" "}
+              <strong style={strong}>phenylephrine</strong>, the reversal drug,
+              is injected in small repeated doses until the erection comes down.
+              Blood pressure and heart rate are monitored while they do it.
+              For a prolonged erection from an injection, the same drug is the
+              guideline&apos;s recommended treatment even before four hours.
+            </li>
+            <li style={liStyle}>
+              <strong style={strong}>If that fails: a shunt.</strong>{" "}A small
+              surgical window is made between the erection chambers and the head
+              of the penis (a distal shunt, sometimes with tunneling) to let the
+              blood drain. It is a last resort, but it exists, and it works when
+              the drugs don&apos;t.
+            </li>
+            <li style={liStyle}>
+              <strong style={strong}>The part nobody says out loud:</strong>{" "}
+              after an ischemic event lasting more than about 36 hours, the
+              guideline itself counsels that the likelihood of recovering
+              erectile function is low, and early penile prosthesis placement
+              becomes the conversation. That is the entire reason the four-hour
+              rule exists. Go early and the fix is usually a needle and an
+              afternoon. Wait and it can cost you erections permanently.
             </li>
           </ul>
         </Section>
@@ -193,8 +288,8 @@ export default function SupportPage() {
           <p style={pStyle}>
             Sexual health and mental health are tied together, and reaching out
             is the strong move. In the U.S., the{" "}
-            <strong style={strong}>988 Suicide &amp; Crisis Lifeline</strong>{" "}is
-            free and confidential, 24/7. Call or text{" "}
+            <strong style={strong}>988 Suicide &amp; Crisis Lifeline</strong>{" "}
+            is free and confidential, 24/7. Call or text{" "}
             <a href="tel:988" style={link}>
               988
             </a>
@@ -233,7 +328,7 @@ export default function SupportPage() {
               color: "var(--sos-text-lo)",
             }}
           >
-            Adapted for general education from patient guidance published by{" "}
+            Rescue doses adapted from patient guidance published by{" "}
             <a
               href="https://www.defymedical.com/wp-content/uploads/2022/06/Trimix-Priapism-Instructions.pdf"
               target="_blank"
@@ -241,11 +336,23 @@ export default function SupportPage() {
               style={link}
             >
               Defy Medical (Trimix Priapism Instructions, 2022)
-            </a>{" "}
-            and standard urologic-emergency practice. Dosing of trimix itself is
-            set and adjusted only by your prescribing provider. This page is
-            education, not medical advice, and does not replace the specific
-            instructions your prescriber gave you.
+            </a>
+            ; ER management from the{" "}
+            <a
+              href="https://www.auanet.org/guidelines-and-quality/guidelines/diagnosis-and-management-of-priapism-aua/smsna-guideline-(2022)"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={link}
+            >
+              AUA/SMSNA Priapism Guideline (2022)
+            </a>
+            . This page practices harm reduction on purpose: the numbers are
+            published because they already exist in every responsible
+            program&apos;s paperwork, and a man who recognizes them acts faster
+            than one who never saw them. They are education, not medical
+            advice, and they do not replace the specific instructions your
+            prescriber gave you. If your paperwork disagrees with this page,
+            follow your prescriber and ask why.
           </p>
         </div>
       </div>

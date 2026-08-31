@@ -2,7 +2,9 @@
  * Per-article FAQs. Rendered as a visible "Common questions" section AND
  * emitted as FAQPage JSON-LD from the same source (Google requires the Q&A to
  * be visible on the page). Answers are plain text: concise, evidence-consistent
- * with the article, no dosing, no how-to.
+ * with the article, on a harm-reduction footing (numbers where published
+ * handouts already carry them, framed as literacy, never as a do-it-yourself
+ * instruction).
  */
 export type Faq = { q: string; a: string };
 
@@ -381,6 +383,22 @@ export const faqs: Record<string, Faq[]> = {
     {
       q: "Are penile injections for ED safe?",
       a: "In a monitored program, yes. The main risk is a prolonged erection (priapism), which is why the dose is set carefully by a clinician and the first one is done in the office. An erection lasting more than four hours is an emergency, but it happens in only about 0.5 to 5% of users.",
+    },
+    {
+      q: "What is a typical trimix dose?",
+      a: "Standard programs start at 0.05 mL (5 units on the syringe) and increase in 0.05 mL steps under a prescriber's direction, with the first injection given in the office. Most trimix vials are mixed at papaverine 30 mg/mL, phentolamine 1 mg/mL, and alprostadil 10 to 40 mcg/mL. The right dose is individual: the one that produces an erection firm enough for intercourse lasting under an hour.",
+    },
+    {
+      q: "How often can you use trimix?",
+      a: "No more than three times per week, with at least 24 hours between injections. That limit is in the drug labeling itself and exists to protect the tissue from fibrosis and to keep the dose-response honest.",
+    },
+    {
+      q: "Why can't I adjust my trimix dose myself?",
+      a: "Because priapism risk rises with dose and the curve is steep: the same mechanism that makes injections reliable, bypassing arousal entirely, means an overshoot has no natural brake. Titration happens under supervision, and an erection lasting longer than your prescriber's target is a signal to lower the dose, not push through it.",
+    },
+    {
+      q: "How is a prolonged erection from trimix reversed?",
+      a: "The standard rescue ladder starts with ice to the perineum and walking, then oral pseudoephedrine 30 mg (or diphenhydramine), then prescriber-directed rescue medication such as terbutaline or injected phenylephrine. If the erection reaches four hours, the ER reverses it by aspirating the trapped blood and injecting phenylephrine in repeated small doses, with a surgical shunt if that fails. Full protocol: the Support page.",
     },
     {
       q: "What can I do if ED pills don't work?",

@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Penile injections, when pills aren't enough",
   description:
-    "When ED pills fail or can't be used, penile injection therapy (trimix) is the most effective second line. What it is, where it sits on the treatment ladder, how it stays legitimate, and the four-hour priapism rule that isn't optional.",
+    "When ED pills fail or can't be used, penile injection therapy (trimix) is the most effective second line. What it is, how the dose is actually set (with real numbers), where it stays legitimate, and the four-hour priapism rule that isn't optional.",
   alternates: { canonical: "/learn/penile-injections" },
 };
 
@@ -22,7 +22,7 @@ const jsonLd = {
   name: "Penile injections, when pills aren't enough",
   url: `${SITE.url}/learn/penile-injections`,
   description:
-    "Intracavernosal injection therapy (trimix/alprostadil) as second-line treatment for erectile dysfunction: how it works, the treatment ladder, legitimate sourcing, and priapism safety.",
+    "Intracavernosal injection therapy (trimix/alprostadil) as second-line treatment for erectile dysfunction: how it works, how dosing is titrated, legitimate sourcing, and priapism safety.",
   about: { "@type": "MedicalTherapy", name: "Intracavernosal injection therapy" },
   audience: { "@type": "Patient" },
 };
@@ -131,6 +131,85 @@ export default function PenileInjectionsPage() {
 
       <section style={{ marginTop: "44px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
+          How the dose actually gets set
+        </h2>
+        <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "16px" }}>
+          This is the part most pages refuse to print, and refusal is how men
+          get hurt: a man who has never seen what a normal trimix dose looks
+          like cannot tell when his is wrong, when the pharmacy mixed the wrong
+          strength, or when someone on a forum is telling him to freelance his
+          way into priapism. So here are the numbers the way a competent
+          program prints them on its handout, with what each one is for. They
+          are literacy, not a prescription: your prescriber still sets yours.
+        </p>
+
+        <div className="sos-card" style={{ display: "flex", flexDirection: "column", gap: "14px", marginBottom: "18px" }}>
+          <div>
+            <p className="sos-note" style={{ marginBottom: "6px" }}>
+              <strong>The standard trimix formulation</strong>
+            </p>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              Papaverine 30&nbsp;mg/mL, phentolamine 1&nbsp;mg/mL, alprostadil
+              10&nbsp;mcg/mL is the common starting strength; stronger versions
+              (20 or 40&nbsp;mcg/mL of alprostadil) exist for men who stop
+              responding. What&apos;s on <em>your</em> vial label is the
+              difference between a dose and a guess, so read it.
+            </p>
+          </div>
+          <div>
+            <p className="sos-note" style={{ marginBottom: "6px" }}>
+              <strong>First doses</strong>
+            </p>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              Standard programs start at <strong>0.05&nbsp;mL</strong> (that is
+              5 units on the insulin-style syringe, where 1 unit = 0.01&nbsp;mL)
+              and climb in <strong>0.05&nbsp;mL steps</strong>, with the first
+              injection given in the office. For reference, the FDA-labeled
+              single-drug version (alprostadil alone) starts at 2.5&nbsp;mcg and
+              titrates in 5 to 10&nbsp;mcg steps at least 24 hours apart.
+            </p>
+          </div>
+          <div>
+            <p className="sos-note" style={{ marginBottom: "6px" }}>
+              <strong>What &quot;right&quot; looks like</strong>
+            </p>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              Onset in 5 to 20 minutes, an erection firm enough for intercourse
+              lasting <strong>under an hour</strong>. That is the official
+              titration target from the drug label itself. A dose that keeps you
+              hard for two or three hours is not a great dose; it is a warning
+              shot, and the answer is a lower one, not toughering it out.
+            </p>
+          </div>
+          <div>
+            <p className="sos-note" style={{ marginBottom: "6px" }}>
+              <strong>Frequency and ceiling</strong>
+            </p>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              No more than <strong>3 times per week</strong>{" "}and never twice in
+              24 hours. Most protocols also cap the injected volume around
+              0.5&nbsp;mL per dose: past that, the fix is a stronger mix, not a
+              bigger puddle of the same one. And every few months you go back
+              to the prescriber so the dose, and the tissue, get checked.
+            </p>
+          </div>
+        </div>
+
+        <p className="sos-prose" style={{ fontSize: "16px" }}>
+          Why the dose is never self-adjusted: priapism risk is dose-dependent,
+          and the curve is not forgiving. The same mechanism that makes trimix
+          reliable, that it ignores arousal entirely, means an overshoot has no
+          natural brake. That is why titration happens under supervision and
+          why{" "}
+          <Link href="/support">a written rescue plan</Link>{" "}
+          belongs in the same drawer as the vial. Knowing the numbers does not
+          make you your own prescriber. It makes you impossible to shortchange,
+          and faster to recognize an emergency.
+        </p>
+      </section>
+
+      <section style={{ marginTop: "44px" }}>
+        <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
           The one rule that isn&apos;t optional: the four-hour mark
         </h2>
         <div className="sos-card" style={{ borderLeft: "3px solid var(--sos-emergency)" }}>
@@ -196,15 +275,20 @@ export default function PenileInjectionsPage() {
         <p className="sos-note" style={{ marginBottom: "12px" }}>
           Drawn from:{" "}
           <a href="https://www.ncbi.nlm.nih.gov/books/NBK542217/" target="_blank" rel="noopener noreferrer">StatPearls: Alprostadil</a>;{" "}
-          <a href="https://pubmed.ncbi.nlm.nih.gov/37078428/" target="_blank" rel="noopener noreferrer">current status of intracavernosal injection therapy in ED</a>; and the{" "}
+          <a href="https://pubmed.ncbi.nlm.nih.gov/37078428/" target="_blank" rel="noopener noreferrer">current status of intracavernosal injection therapy in ED</a>; the{" "}
+          <a href="https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=a295fc1e-d82c-4f44-bc2d-a552bf594c98" target="_blank" rel="noopener noreferrer">CAVERJECT (alprostadil) FDA label</a>; patient dosing guidance from{" "}
+          <a href="https://www.defymedical.com/blog/trimix-patient-info-sheet/" target="_blank" rel="noopener noreferrer">Defy Medical (Trimix patient info)</a> and{" "}
+          <a href="https://www.olympiapharmacy.com/blog/trimix-injection-dosage-chart-explained/" target="_blank" rel="noopener noreferrer">Olympia Pharmacy</a>; and the{" "}
           <a href="https://www.auanet.org/guidelines-and-quality/guidelines/diagnosis-and-management-of-priapism-aua/smsna-guideline-(2022)" target="_blank" rel="noopener noreferrer">AUA/SMSNA Priapism Guideline (2022)</a>.
         </p>
         <p className="sos-note">
-          General education, not medical advice, and deliberately not a dosing or
-          injection how-to. Penile injection therapy is prescribed, dosed, and
-          first administered by a licensed clinician. And any prolonged erection
-          is an emergency, handled through your prescriber&apos;s instructions and
-          emergency care, never self-managed dosing.
+          General education on a harm-reduction footing: we print the numbers a
+          competent program prints, because literacy is what keeps a man safe,
+          not ignorance. They explain the therapy; they do not replace your
+          prescriber, who still sets and adjusts your dose, and who runs the
+          first injection in the office. Any erection that runs long is an
+          emergency handled through your rescue plan and emergency care, never
+          more self-dosing.
         </p>
       </div>
 
