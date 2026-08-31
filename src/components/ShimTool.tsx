@@ -305,7 +305,7 @@ export function ShimTool() {
             }}
           >
             <Link href="/learn/ed-workup" className="sos-btn sos-btn--primary">
-              The ED workup →
+              See the full ED workup →
             </Link>
             <Link href="/learn/read-your-labs" className="sos-btn sos-btn--ghost">
               Read your labs

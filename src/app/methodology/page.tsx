@@ -53,11 +53,32 @@ export default function MethodologyPage() {
         How we review
       </h1>
 
-      <p className="sos-prose" style={{ marginBottom: "40px", maxWidth: "64ch" }}>
+      <p className="sos-prose" style={{ marginBottom: "28px", maxWidth: "64ch" }}>
         Most information in men&apos;s sexual health is a funnel dressed up as
         advice. Here, the trust is the product, so this is the standard every
         article is held to, stated plainly enough that you can hold us to it.
       </p>
+
+      <blockquote
+        style={{
+          margin: "0 0 40px",
+          paddingLeft: "18px",
+          borderLeft: "2px solid var(--sos-copper)",
+          maxWidth: "58ch",
+        }}
+      >
+        <p
+          className="sos-prose"
+          style={{ fontFamily: "var(--sos-serif)", fontSize: "19px", lineHeight: 1.5, margin: 0 }}
+        >
+          Knowing what a normal dose looks like is what keeps a man safe, not
+          ignorance.
+        </p>
+        <p className="sos-note" style={{ marginTop: "10px" }}>
+          The whole site in one sentence. It is the reason we publish the
+          numbers at all, and the reason we publish them this carefully.
+        </p>
+      </blockquote>
 
       <Section title="How we grade evidence">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "22px" }}>
