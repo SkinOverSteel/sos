@@ -211,7 +211,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Choosing care",
     published: "2026-08-27",
-    reviewed: "2026-08-27",
+    reviewed: "2026-08-30",
   },
   {
     slug: "telemedicine-visit",
