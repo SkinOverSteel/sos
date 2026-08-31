@@ -409,6 +409,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "Pills failing isn't the end of the road. Penile injections are the most effective second line, vacuum devices are a drug-free option, and a penile implant is the definitive fix when nothing else works. It's a urology conversation, not a dead end.",
     },
   ],
+  "priapism-clock": [
+    {
+      q: "How long can an erection last before it causes damage?",
+      a: "The emergency line is four hours: beyond that, an erection is ischemic priapism by definition, with trapped, oxygen-starved blood. Tissue damage starts earlier than most men think: smooth muscle changes can begin around six hours, necrosis and fibrosis are underway by twelve to twenty-four, and past thirty-six hours the likelihood of recovering erectile function is low.",
+    },
+    {
+      q: "What happens to the penis during priapism?",
+      a: "The outflow valves stay clamped, so the blood that built the erection is trapped and cut off from the lungs. It becomes hypoxic and acidotic, the smooth muscle that runs erections begins to die, and the body replaces it with scar tissue (fibrosis). That scarring is what causes the permanent erectile dysfunction and penile shortening.",
+    },
+    {
+      q: "Is a 3-hour erection an emergency?",
+      a: "It's the gray zone, called a prolonged erection. The rescue steps (ice, walking, the OTC and prescriber-directed options in standard handouts) still have their best chance here. If it reaches four hours it is a full emergency: go to the ER rather than keep trying home steps.",
+    },
+    {
+      q: "Can you recover erectile function after priapism?",
+      a: "Usually, if it's reversed early: aspiration plus phenylephrine resolves 71 to 93% of events, preserving function in 70 to 92% of patients. The odds fall steeply with time: in one study, more than half of men with 24 to 48 hours of priapism had permanent ED, and past 36 hours the guideline counsels that recovery is unlikely.",
+    },
+    {
+      q: "Why does waiting make treatment harder, not just riskier?",
+      a: "Because time changes which tools work. Acidotic smooth muscle stops responding to phenylephrine, clotting defeats simple drainage, and late fixes like surgical shunts often leave erectile dysfunction anyway. Early reversal is a needle and an afternoon; late reversal is surgery with a poor functional prognosis.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",

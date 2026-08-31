@@ -263,4 +263,14 @@ export const articles: Article[] = [
     published: "2026-07-20",
     reviewed: "2026-08-04",
   },
+  {
+    slug: "priapism-clock",
+    title: "The priapism clock: what a prolonged erection does, hour by hour",
+    summary:
+      "Trapped blood turns acidotic within hours, smooth muscle starts dying by around hour twelve, and by hour thirty-six the odds of recovering an erection are grim. The ischemic priapism damage timeline from the AUA/SMSNA guideline, hour by hour, and what each hour means for the fix.",
+    grade: "established",
+    section: "Quality & safety",
+    published: "2026-08-30",
+    reviewed: "2026-08-30",
+  },
 ];
