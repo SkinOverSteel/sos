@@ -127,9 +127,16 @@ export default function Home() {
           </h2>
           <p className="sos-prose" style={{ maxWidth: "62ch" }}>
             Sexual-health information online is mostly funnels: content built to
-            sell you something. This is the opposite. Every claim carries a visible
-            evidence grade, sources are named, and the point is to get you to a
-            clinician better informed, not to sell you around one.
+            sell you something. This is the opposite.
+          </p>
+          <p className="sos-prose" style={{ maxWidth: "62ch", marginTop: "14px" }}>
+            Consider the asymmetry. A good clinic gates the explanation behind
+            a visit fee. A telehealth brand gives the explanation only as a
+            funnel into a prescription. This site sells nothing and prescribes
+            nothing, so the explanation is the whole product: every claim
+            carries a visible evidence grade, every source is named, and the
+            point is to get you to a clinician better informed, not to sell
+            you around one.
           </p>
           <p style={{ marginTop: "18px" }}>
             <Link
