@@ -61,6 +61,45 @@ export default function UrologistVisitPage() {
 
       <section style={{ marginTop: "44px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
+          The same visit, two ways
+        </h2>
+        <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "18px" }}>
+          Same appointment, same minutes, same clinician. The only variable is
+          whether you walk in as throughput or as a participant:
+        </p>
+        <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+          <div
+            className="sos-card"
+            style={{ flex: "1 1 300px", display: "flex", flexDirection: "column", gap: "14px" }}
+          >
+            <p className="sos-kicker">The throughput visit</p>
+            {MOMENTS.map((m) => (
+              <div key={m.at}>
+                <p className="sos-note" style={{ marginBottom: "4px" }}>{m.at}</p>
+                <p className="sos-prose" style={{ fontSize: "15.5px" }}>{m.passive}</p>
+              </div>
+            ))}
+          </div>
+          <div
+            className="sos-card sos-card--deep"
+            style={{ flex: "1 1 300px", display: "flex", flexDirection: "column", gap: "14px" }}
+          >
+            <p className="sos-kicker">The visit on your terms</p>
+            {MOMENTS.map((m) => (
+              <div key={m.at}>
+                <p className="sos-note" style={{ marginBottom: "4px" }}>{m.at}</p>
+                <p className="sos-prose" style={{ fontSize: "15.5px" }}>{m.prepared}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="sos-note" style={{ marginTop: "14px" }}>
+          The rest of this page is the right-hand column, unpacked.
+        </p>
+      </section>
+
+      <section style={{ marginTop: "44px" }}>
+        <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
           Know the map before you walk in
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
@@ -288,3 +327,50 @@ const list: React.CSSProperties = {
   gap: "12px",
   fontSize: "16px",
 };
+
+/**
+ * The mirror pairs for "The same visit, two ways": one appointment, two
+ * postures. Every line restates a lesson the page unpacks below; nothing
+ * here introduces a new claim.
+ */
+const MOMENTS: { at: string; passive: string; prepared: string }[] = [
+  {
+    at: "Before you arrive",
+    passive:
+      "You plan to wing it, and to minimize the problem if asked.",
+    prepared:
+      "Five minutes of notes: which situations fail and which don't, when it started, every medication and supplement, any labs you already have.",
+  },
+  {
+    at: "The history",
+    passive:
+      "You answer what's asked, keep it short, and skip what's awkward.",
+    prepared:
+      "Total precision about what you take and what actually works for you, because any test they run will be dosed and interpreted against it.",
+  },
+  {
+    at: "A test is proposed",
+    passive: "You consent on the spot and ask about price later.",
+    prepared:
+      "You ask the cash price and the billed-to-insurance price before you consent. Imaging is one of the most shoppable services in medicine.",
+  },
+  {
+    at: "Results",
+    passive: "You hear \"everything looks fine\" and accept it.",
+    prepared:
+      "You ask for the actual numbers: PSV, EDV, and RI for both sides from a Doppler, values and reference ranges from blood work, and copies before you leave.",
+  },
+  {
+    at: "Treatment",
+    passive: "You take the script, thank the doctor, and leave.",
+    prepared:
+      "You ask three words: why, how, when. Why this, how will we know it's working, when do we check again.",
+  },
+  {
+    at: "The end of the visit",
+    passive:
+      "Eleven minutes, a coupon, and no stated diagnosis. You'll be back to guess next time.",
+    prepared:
+      "Numbers, copies, and a stated working diagnosis, even if it's \"we don't know yet.\" Next steps are yours to own.",
+  },
+];

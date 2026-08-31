@@ -166,6 +166,10 @@ export const faqs: Record<string, Faq[]> = {
       q: "What if the doctor just prescribes Viagra without any workup?",
       a: "A PDE5 inhibitor can be a reasonable first treatment, but only after someone actually evaluated you, since ED can be the first visible sign of a vascular or metabolic problem. Ask why this treatment before an answer, how you'll know it's working, and when you'll re-check. If those questions never get real answers, a second opinion is routine and reasonable.",
     },
+    {
+      q: "How do I get the most out of a urologist visit for ED?",
+      a: "Walk in as a participant, not throughput. Bring written notes (which situations fail, when it started, every medication, any labs), be precise about what you take before any test, ask costs before consenting to one, and ask why, how, and when at the treatment step. Then leave with the actual numbers (PSV, EDV, and RI for both sides from a Doppler, values and ranges from blood work), copies of the full reports, and a stated working diagnosis.",
+    },
   ],
   "telemedicine-visit": [
     {
