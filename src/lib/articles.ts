@@ -303,4 +303,14 @@ export const articles: Article[] = [
     published: "2026-08-30",
     reviewed: "2026-08-30",
   },
+  {
+    slug: "semen-retention",
+    title: "Semen retention: the 7-day testosterone spike is real, and it's a trap",
+    summary:
+      "The study behind the famous 7-day testosterone spike was retracted in 2021, the spike was never replicated, and even at face value it describes a blip, not a superpower. What the semen-retention evidence actually says, including the prostate-cancer finding that points the other way.",
+    grade: "emerging",
+    section: "Foundations",
+    published: "2026-08-30",
+    reviewed: "2026-08-30",
+  },
 ];
