@@ -261,7 +261,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Quality & safety",
     published: "2026-07-20",
-    reviewed: "2026-08-04",
+    reviewed: "2026-08-30",
   },
   {
     slug: "priapism-clock",
@@ -310,6 +310,16 @@ export const articles: Article[] = [
       "The study behind the famous 7-day testosterone spike was retracted in 2021, the spike was never replicated, and even at face value it describes a blip, not a superpower. What the semen-retention evidence actually says, including the prostate-cancer finding that points the other way.",
     grade: "emerging",
     section: "Foundations",
+    published: "2026-08-30",
+    reviewed: "2026-08-30",
+  },
+  {
+    slug: "honey-packets",
+    title: "That $5 'horny honey' packet is unregulated Viagra",
+    summary:
+      "The viral honey-packet trend, sold at gas stations and on TikTok, is honey plus hidden prescription drugs. FDA lab testing found sildenafil and tadalafil in dozens of named products, at unknown doses. What's actually in the packet, the documented injuries, and how to read the risk.",
+    grade: "established",
+    section: "Quality & safety",
     published: "2026-08-30",
     reviewed: "2026-08-30",
   },
