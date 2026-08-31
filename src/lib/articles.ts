@@ -251,7 +251,7 @@ export const articles: Article[] = [
     grade: "high-risk",
     section: "Quality & safety",
     published: "2026-08-04",
-    reviewed: "2026-08-04",
+    reviewed: "2026-08-30",
   },
   {
     slug: "product-forms",
@@ -290,6 +290,16 @@ export const articles: Article[] = [
       "The internet's rudest search term describes something sexual medicine takes seriously: men who climax easily solo but can't finish with a partner, often because their technique trained them that way. What the evidence actually says, what it doesn't, and the retraining that works.",
     grade: "emerging",
     section: "Conditions",
+    published: "2026-08-30",
+    reviewed: "2026-08-30",
+  },
+  {
+    slug: "stuck-cock-ring",
+    title: "The ER visit nobody talks about: the stuck cock ring",
+    summary:
+      "Constriction rings are supposed to come off after 30 minutes. When one won't, it's the same ischemic clock as priapism, wound around the outside: swelling tightens the trap, the injury grades climb with the hours, and the only variable that decides the outcome is how long you wait. The warning signs and what the ER actually does.",
+    grade: "established",
+    section: "Quality & safety",
     published: "2026-08-30",
     reviewed: "2026-08-30",
   },
