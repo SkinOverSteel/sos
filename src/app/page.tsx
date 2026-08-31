@@ -143,7 +143,7 @@ export default function Home() {
               href="/methodology"
               style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
             >
-              Sources named, reviewed against a public standard →
+              Read the standard before you trust a word →
             </Link>
           </p>
 
@@ -193,7 +193,7 @@ export default function Home() {
               href="/learn"
               style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
             >
-              See all {articles.length} in the library →
+              Browse all {articles.length} in the library →
             </Link>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -246,7 +246,7 @@ export default function Home() {
               href="/tools"
               style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
             >
-              All tools →
+              Score yourself, privately →
             </Link>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
@@ -288,7 +288,7 @@ export default function Home() {
               href="/directory"
               style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
             >
-              The directory →
+              Compare providers on trust →
             </Link>
           </div>
           <Link href="/directory" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
