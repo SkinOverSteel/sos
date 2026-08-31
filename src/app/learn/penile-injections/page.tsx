@@ -228,7 +228,10 @@ export default function PenileInjectionsPage() {
             If an erection passes the four-hour mark: follow{" "}
             <strong>your prescriber&apos;s own reversal instructions</strong>{" "}and
             get emergency care <em>now</em>. Don&apos;t wait it out.{" "}
-            <Link href="/support">Get support now</Link>{" "}is the fastest route.
+            <Link href="/support">Get support now</Link>{" "}is the fastest route,
+            and the hour-by-hour damage timeline,{" "}
+            <Link href="/learn/priapism-clock">the priapism clock</Link>, is the
+            reason why.
           </p>
         </div>
       </section>

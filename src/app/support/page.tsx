@@ -136,6 +136,11 @@ export default function SupportPage() {
             the damage clock is running the whole time. So this page runs on a
             clock too, with the actual numbers, because harm reduction means
             knowing what to do at hour two <em>before</em>{" "}it&apos;s hour three.
+            (What the damage looks like, hour by hour, is{" "}
+            <a href="/learn/priapism-clock" style={link}>
+              the priapism clock
+            </a>
+            .)
           </p>
         </Section>
 
