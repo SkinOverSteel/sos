@@ -497,6 +497,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "That's the variable the case literature keeps naming as what decides outcomes: patients typically arrive late, after home remedies fail, and late converts mild injuries into severe ones. Emergency teams manage this with standard techniques that go back centuries, the standard of care is fast removal, and nobody is calling anyone. The wait costs more than the visit.",
     },
   ],
+  "semen-retention": [
+    {
+      q: "Does holding semen for 7 days raise testosterone?",
+      a: "That claim comes from a single 2003 study of 28 men reporting a day-seven peak at 145.7% of baseline. The journal retracted the paper in December 2021 for duplicate publication, the finding was never replicated, and even the original authors reported no sustained elevation after the peak. It is best treated as a viral footnote, not settled physiology.",
+    },
+    {
+      q: "Does masturbation lower testosterone?",
+      a: "No. Direct endocrine measurements show testosterone doesn't meaningfully move with orgasm; the post-orgasm change is a prolactin rise and dopamine dip (the refractory period), with any small downstream testosterone drift resolving within hours. There is no cumulative drain across ejaculations, no depletion, and no evidence regular ejaculation lowers baseline testosterone.",
+    },
+    {
+      q: "Is frequent ejaculation bad for you?",
+      a: "The best large-scale data points the other way. In the Health Professionals Follow-up Study, men reporting 21 or more ejaculations per month in middle age had roughly a third lower risk of prostate cancer diagnosis than men reporting four to seven, with later analyses suggesting an even larger difference. It's observational, so association rather than proof, but nothing in the literature supports frequent ejaculation being harmful.",
+    },
+    {
+      q: "Can semen retention help with porn addiction or focus?",
+      a: "The plausible benefit is behavioral, not hormonal. Changing a compulsive pornography pattern that interferes with sleep, relationships, or partnered response can help, through recalibration of arousal, not retained hormones, and large cross-national studies find no link between pornography use as such and sexual dysfunction. The discipline and self-efficacy retention communities report are real experiences that don't require an endocrine explanation.",
+    },
+    {
+      q: "What about nocturnal emissions during retention?",
+      a: "Wet dreams are a normal physiological release and don't undo anything hormonal. They are the body's thermostat adjusting, not a failure of the retention premise, and they carry no evidence of testosterone loss or harm.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",
