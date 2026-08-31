@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -152,7 +153,9 @@ export default function ProductFormsPage() {
           <strong>licensed prescriber</strong>{" "}(telemedicine counts) and a{" "}
           <strong>licensed compounding pharmacy</strong>. That&apos;s the version
           where someone&apos;s license is on the line for what&apos;s in the vial, and it&apos;s the only kind of source this site will ever point you
-          toward.
+          toward. The trend version of this lesson is currently being sold at
+          gas stations in a foil packet, documented under{" "}
+          <Link href="/learn/honey-packets">honey packets</Link>.
         </p>
       </Section>
 

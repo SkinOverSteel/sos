@@ -519,6 +519,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "Wet dreams are a normal physiological release and don't undo anything hormonal. They are the body's thermostat adjusting, not a failure of the retention premise, and they carry no evidence of testosterone loss or harm.",
     },
   ],
+  "honey-packets": [
+    {
+      q: "What's actually in honey packets?",
+      a: "FDA laboratory testing has confirmed hidden prescription drugs in dozens of named honey-based sexual-enhancement products, most commonly sildenafil (Viagra) and tadalafil (Cialis), sometimes both, sometimes with undeclared extras like acetaminophen. The doses are unknown and unlisted. Products not on the FDA's tested list aren't clean, just untested.",
+    },
+    {
+      q: "Are honey packets just natural supplements?",
+      a: "No. The 'natural' marketing is the cover story for what is, in lab-confirmed cases, an unmeasured dose of a real vasodilator sold outside every system that would otherwise check it. There is no prescriber, no pharmacy, no quality control, and no way to know the dose or the drug, which is precisely the problem.",
+    },
+    {
+      q: "What are the risks of taking a honey packet?",
+      a: "The documented ones are severe hypotension and syncope, cardiovascular instability (the EMS literature has a guide for this exact presentation), priapism requiring urgent hospital treatment, and dangerous interaction with nitrates. The risk is an unknown dose of a real drug with real contraindications, taken by someone who believes they took neither.",
+    },
+    {
+      q: "I already took a honey packet. What should I watch for?",
+      a: "Treat yourself as having taken an unknown dose of a PDE5 inhibitor: no nitrates, and tell any clinician what you took and when if anything goes wrong, because the interaction window runs long. An erection past the usual window is a rescue-ladder event, not a wait-it-out event, and four hours is the emergency line.",
+    },
+    {
+      q: "Is it safer to just buy generic Viagra or Cialis instead?",
+      a: "Yes, and the value math already ran the numbers. Generic sildenafil and tadalafil are cheap, legal, labeled, and prescriber-supervised, which is the entire point of the legitimate channel. The packet is the same mechanism minus every safety feature that makes it survivable, at a similar or worse price.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",
