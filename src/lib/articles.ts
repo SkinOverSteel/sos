@@ -58,7 +58,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Conditions",
     published: "2026-08-04",
-    reviewed: "2026-08-04",
+    reviewed: "2026-08-30",
   },
   {
     slug: "psychogenic-ed",
@@ -280,6 +280,16 @@ export const articles: Article[] = [
       "Tadalafil for the gym pump is a real trend with real pharmacology behind it: PDE5 lives in your muscles' blood vessels too. But the performance trials mostly say it does nothing, one shows raised muscle-damage markers, and the blood-pressure math with pre-workout stacks is worse than the pump is worth.",
     grade: "emerging",
     section: "Treatment & pharmacology",
+    published: "2026-08-30",
+    reviewed: "2026-08-30",
+  },
+  {
+    slug: "death-grip",
+    title: "Death grip is real, and it's fixable",
+    summary:
+      "The internet's rudest search term describes something sexual medicine takes seriously: men who climax easily solo but can't finish with a partner, often because their technique trained them that way. What the evidence actually says, what it doesn't, and the retraining that works.",
+    grade: "emerging",
+    section: "Conditions",
     published: "2026-08-30",
     reviewed: "2026-08-30",
   },
