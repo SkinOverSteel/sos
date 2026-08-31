@@ -190,7 +190,9 @@ export default function EnhancementPage() {
           yours alone. If it&apos;s about function, get a workup. If it&apos;s
           about how you feel, the first appointment is a conversation, and
           that&apos;s not a consolation prize, it&apos;s the treatment that
-          actually works.
+          actually works. And if a constriction ring is part of the plan, the
+          thirty-minute rule is not optional,{" "}
+          <Link href="/learn/stuck-cock-ring">for reasons documented in the ER literature</Link>.
         </p>
       </section>
 

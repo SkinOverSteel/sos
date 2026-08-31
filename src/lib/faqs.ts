@@ -475,6 +475,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "When you can't climax solo at all, when the problem appeared suddenly alongside a new medication (SSRIs commonly delay orgasm), or when a couple of months of reshaping changes nothing. Those patterns point to medication effects, hormones, or neurology rather than habit, and a clinician can sort them.",
     },
   ],
+  "stuck-cock-ring": [
+    {
+      q: "How long can you safely wear a cock ring?",
+      a: "Thirty minutes is the standard limit from the vacuum-erection-device literature. The ring works by blocking venous outflow, so the trapped blood stops being oxygenated; past about 30 minutes the tissue goes ischemic. Stretchy novelty rings that come off with the erection are lower stakes than rigid metal ones, which keep their diameter no matter what the tissue does.",
+    },
+    {
+      q: "What happens if a cock ring stays on too long?",
+      a: "It becomes a strangulation injury on a time clock: reversible vascular congestion, then lymphedema, loss of sensation, ischemic skin necrosis, urethral injury or fistula, and in the worst cases gangrene and amputation, with sepsis possible behind them. The urologic literature grades these injuries I through V, and which grade you land on is mostly a function of hours.",
+    },
+    {
+      q: "When is a stuck cock ring an emergency?",
+      a: "When there's color or temperature change beyond the ring (pale, dusky, blue, cool skin), numbness, inability to urinate, rapidly worsening swelling or pain, or simply hours of a rigid ring that won't move. Those are emergency-department signs, not another hour of home attempts.",
+    },
+    {
+      q: "How does the ER remove a stuck metal ring?",
+      a: "Standard techniques matched to the object, usually under local anesthetic or sedation: soft rings get cut; rigid rings come off by decompression, aspirating trapped blood from the corpora to shrink the tissue, often combined with the string method that compresses edema down the shaft so the ring slides over it. Cutting tools are a last resort for stubborn metal, and hospitals have the ones that work without burning tissue.",
+    },
+    {
+      q: "Is it embarrassing to go to the ER for this?",
+      a: "That's the variable the case literature keeps naming as what decides outcomes: patients typically arrive late, after home remedies fail, and late converts mild injuries into severe ones. Emergency teams manage this with standard techniques that go back centuries, the standard of care is fast removal, and nobody is calling anyone. The wait costs more than the visit.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",
