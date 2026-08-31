@@ -158,7 +158,10 @@ export default function PrematureEjaculationPage() {
           sorts the type, checks for a fixable cause, and matches a treatment to
           it. A clinician (or a{" "}
           <Link href="/learn/telemedicine-visit">telemedicine visit that actually evaluates you</Link>){" "}
-          can start that today.
+          can start that today. And if your problem is the mirror image,
+          finishing too late or not at all with a partner,{" "}
+          <Link href="/learn/death-grip">the delayed-ejaculation side</Link>{" "}
+          of the same conversation has its own honest write-up.
         </p>
       </section>
 

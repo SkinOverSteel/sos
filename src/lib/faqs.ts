@@ -453,6 +453,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "No. A pump is transient cell swelling from extra blood and fluid, and nothing shows tadalafil adds muscle tissue. It looks good in the mirror and feels significant, which is why the trend persists, but it resolves as the drug wears off. The growth signal still comes from progressive training, nutrition, and recovery.",
     },
   ],
+  "death-grip": [
+    {
+      q: "Is death grip syndrome a real medical condition?",
+      a: "Not as an official diagnosis, no. But the underlying phenomenon is documented in sexual-medicine literature: delayed orgasm or anorgasmia with a partner, linked to vigorous, idiosyncratic masturbation technique that a partner can't replicate. The slang names the cause; medicine names the effect, delayed ejaculation, and treats it.",
+    },
+    {
+      q: "Can masturbating too much make you unable to finish with a partner?",
+      a: "Frequency alone isn't the mechanism, specificity is. A grip, pace, or context practiced for years can raise the stimulation threshold until partnered sex can't reach it. The tell-tale pattern is fast, easy climax solo but slow or impossible with a partner. It's a learned pattern, which means it can be unlearned.",
+    },
+    {
+      q: "How do you fix death grip syndrome?",
+      a: "The fixes are behavioral, because there are no approved drugs for delayed ejaculation: a two-to-three-week reset, then progressive reshaping of technique toward partnered sensations (looser grip, lubricant, slower pace, switching hands), sometimes with vibratory stimulation, which restored orgasm in 72% of men in one trial. If the pattern fits, give it weeks to months.",
+    },
+    {
+      q: "Does masturbation cause erectile dysfunction or nerve damage?",
+      a: "No credible evidence that masturbation itself damages nerves, lowers testosterone, or causes ED. The issue with an overly tight technique is sensory calibration, not injury, and calibration reverses. If you have erection problems rather than climax problems, that's a separate question with its own workup.",
+    },
+    {
+      q: "When should I see a doctor about delayed ejaculation?",
+      a: "When you can't climax solo at all, when the problem appeared suddenly alongside a new medication (SSRIs commonly delay orgasm), or when a couple of months of reshaping changes nothing. Those patterns point to medication effects, hormones, or neurology rather than habit, and a clinician can sort them.",
+    },
+  ],
   enhancement: [
     {
       q: "Do penis enlargement methods actually work?",
