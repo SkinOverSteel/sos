@@ -17,8 +17,14 @@ ownership before shipping anything public).
 
 ## Hard content lines (enforce in code, seeds, moderation, and copy)
 
-1. NEVER dosing instructions for prescription or gray-market compounds —
-   editorial or UGC.
+1. Harm reduction, not DIY (repositioned 2026-08-30, PR #4). For SUPERVISED
+   prescription therapies (trimix, PDE5, TRT) we publish the dosing and
+   reversal numbers a competent program already prints on its patient
+   handout, framed as literacy and cited to that source; titration, first
+   in-office dose, and adjustment stay the prescriber's call. Gray-market
+   and unsupervised compounds (peptides, "wolverine blend", honey packets,
+   retatrutide) get education and warning signs, NEVER a self-treatment
+   protocol. UGC never prescribes to others.
 2. NEVER how-to technique protocols for physically risky enhancement
    procedures. Risk landscape, warning signs, "when to seek care" — yes.
    Instructions — no.
@@ -85,11 +91,14 @@ that later converts to transparent referral revenue. Reducing harm IS the funnel
 
 - **Safety layer ("Get support now"):** harm-reduction first, permanent nav.
   Flagship = trimix priapism emergency. Prolonged erection (>4 hrs) is a true
-  emergency (ischemic priapism → permanent damage). Present the PRESCRIBER's /
-  pharmacy's OWN official patient instructions (e.g. Empower Pharmacy trimix
-  reversal sheet), attributed, plus unambiguous ER-escalation. Frame as "follow
-  your prescriber's instructions / seek emergency care" — NEVER our own
-  self-administered pharmacological reversal dosing (respects hard line #1/#2).
+  emergency (ischemic priapism → permanent damage). /support publishes a
+  clock-based rescue ladder with the rescue doses from standard patient
+  handouts (pseudoephedrine, diphenhydramine, terbutaline, phenylephrine
+  intracavernosal) plus what the ER does per AUA/SMSNA 2022 (blood gas,
+  aspiration + phenylephrine, shunt, the >36h cliff), every number attributed
+  to its source, with unambiguous ER escalation at the 4-hour mark. The
+  numbers are literacy per hard line #1; the framing is always "your
+  prescriber's sheet first, ER at 4 hours", never "treat it yourself at home".
   Mental-health/crisis resources live here too.
 - **Product-form transparency (consumer protection):** teach users to read what
   they're actually buying — gray-market "ziplock of premix" (red flag) vs

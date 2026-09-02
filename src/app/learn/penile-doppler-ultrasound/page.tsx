@@ -6,6 +6,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { DopplerWaveforms } from "@/components/figures/DopplerWaveforms";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -157,6 +159,22 @@ export default function PenileDopplerPage() {
           having them in hand lets you ask real questions instead of accepting a
           verdict.
         </p>
+        <Figure
+          num={1}
+          caption={
+            <>
+              What the numbers look like on the screen. PSV is the height of
+              the peak on each heartbeat (inflow); EDV is where the trace sits
+              between beats (outflow); RI is the ratio of the two. Insufficient
+              inflow shows as a peak that never gets tall enough. A venous leak
+              shows as a good peak on a floor that will not come down. The
+              cutoffs are the commonly used ones; your lab&apos;s ranges govern.
+              Waveforms illustrative.
+            </>
+          }
+        >
+          <DopplerWaveforms />
+        </Figure>
         <div className="sos-card" style={{ padding: 0, overflow: "hidden" }}>
           <table
             style={{
@@ -298,7 +316,9 @@ export default function PenileDopplerPage() {
           Drawn from:{" "}
           <a href="https://www.auanet.org/guidelines-and-quality/guidelines/erectile-dysfunction-(ed)-guideline" target="_blank" rel="noopener noreferrer">AUA Erectile Dysfunction Guideline</a>;{" "}
           <a href="https://www.ncbi.nlm.nih.gov/books/NBK537320/" target="_blank" rel="noopener noreferrer">StatPearls: Penile Doppler Ultrasound / Duplex Ultrasonography</a>; and{" "}
-          <a href="https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/diagnosis" target="_blank" rel="noopener noreferrer">NIDDK: Diagnosis of Erectile Dysfunction</a>.
+          <a href="https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/diagnosis" target="_blank" rel="noopener noreferrer">NIDDK: Diagnosis of Erectile Dysfunction</a>. The figure&apos;s cutoffs (PSV, EDV, RI) follow{" "}
+          <a href="https://www.ajronline.org/doi/10.2214/AJR.19.22141" target="_blank" rel="noopener noreferrer">AJR 2020: Penile Doppler Ultrasound for ED, technique and interpretation</a>{" "}and{" "}
+          <a href="https://pubmed.ncbi.nlm.nih.gov/33960127/" target="_blank" rel="noopener noreferrer">Andrology 2021: the penile duplex ultrasound, how and when</a>.
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a substitute for your own

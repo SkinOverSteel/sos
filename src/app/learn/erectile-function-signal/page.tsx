@@ -7,6 +7,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { VesselCaliber } from "@/components/figures/VesselCaliber";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -67,6 +69,23 @@ export default function SignalPage() {
           <em>the same underlying disorder</em> (systemic endothelial
           dysfunction) showing up in the most sensitive place first.
         </p>
+        <Figure
+          num={1}
+          caption={
+            <>
+              The artery size hypothesis, to scale. The same thickness of
+              plaque laid into a penile artery (1 to 2 mm), a coronary artery
+              (3 to 4 mm), and an internal carotid (5 to 7 mm). The small
+              vessel is nearly shut while the large one barely notices, which
+              is why the plaque burden that impairs an erection may only
+              narrow a coronary by 30 to 40 percent, and why erectile symptoms
+              typically run two to three years ahead of chest symptoms.
+              Plaque thickness illustrative; calibers as published.
+            </>
+          }
+        >
+          <VesselCaliber />
+        </Figure>
       </Section>
 
       <Section title="What it can be warning about">
@@ -148,7 +167,10 @@ export default function SignalPage() {
           Drawn from:{" "}
           <a href="https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/in-depth/erectile-dysfunction/art-20045141" target="_blank" rel="noopener noreferrer">Mayo Clinic (ED: a sign of heart disease?)</a>;{" "}
           <a href="https://pubmed.ncbi.nlm.nih.gov/24011423/" target="_blank" rel="noopener noreferrer">systematic review of ED &amp; cardiovascular disease</a>;{" "}
-          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9405076/" target="_blank" rel="noopener noreferrer">review of endothelial dysfunction, ED &amp; CVD</a>; and{" "}
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9405076/" target="_blank" rel="noopener noreferrer">review of endothelial dysfunction, ED &amp; CVD</a>;{" "}
+          <a href="https://pubmed.ncbi.nlm.nih.gov/16387561/" target="_blank" rel="noopener noreferrer">Montorsi et al., the artery size hypothesis (Am J Cardiol 2005)</a>{" "}with the calibers as summarized in{" "}
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4442980/" target="_blank" rel="noopener noreferrer">ED and cardiovascular disease (PMC)</a>{" "}and{" "}
+          <a href="https://cuaj.ca/index.php/journal/article/view/2311" target="_blank" rel="noopener noreferrer">Brock, CUAJ 2014</a>; and{" "}
           <a href="https://diabetesjournals.org/care/article/34/7/1669/38648/Low-Testosterone-Associated-With-Obesity-and-the" target="_blank" rel="noopener noreferrer">Diabetes Care (low testosterone, metabolic syndrome &amp; T2D)</a>.
         </p>
         <p className="sos-note">
