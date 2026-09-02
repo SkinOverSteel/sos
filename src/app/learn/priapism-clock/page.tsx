@@ -6,6 +6,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { PriapismDial } from "@/components/figures/PriapismDial";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -124,6 +126,23 @@ export default function PriapismClockPage() {
           where each window leaves you. Times are approximate: biology is a
           slope, not a staircase, and the slope is steep.
         </p>
+        <Figure
+          num={1}
+          caption={
+            <>
+              One lap is 48 hours. Copper is the range a prescriber is aiming
+              for and the zone where the prescriber&apos;s own sheet applies.
+              The red line at four hours is where the event becomes ischemic
+              priapism by definition and the emergency room takes over. The
+              red bands are where the biopsy evidence sits: necrosis and
+              fibrosis from around twelve hours, no viable smooth muscle by
+              thirty-six. The hand stops at four because that is the last
+              hour that is still mostly in your hands.
+            </>
+          }
+        >
+          <PriapismDial />
+        </Figure>
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           {clockRows.map((row) => (
             <div

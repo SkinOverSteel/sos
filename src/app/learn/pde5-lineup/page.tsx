@@ -6,6 +6,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { Pde5Curves } from "@/components/figures/Pde5Curves";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -96,6 +98,23 @@ export default function Pde5LineupPage() {
             </div>
           ))}
         </div>
+        <Figure
+          num={1}
+          caption={
+            <>
+              Why the bars differ. Each curve is that drug&apos;s plasma level
+              as a share of its own peak, modeled from two numbers on its label:
+              time to peak and half-life. Three of the four rise inside an hour
+              and are back to half of peak by five to seven hours. Tadalafil
+              peaks later and decays five times more slowly, which is the whole
+              reason it can be taken as a small daily dose. Half of peak is a
+              shape marker, not the clinical window; tadalafil keeps working
+              well past it.
+            </>
+          }
+        >
+          <Pde5Curves />
+        </Figure>
       </section>
 
       <section style={{ marginTop: "44px" }}>
@@ -213,7 +232,10 @@ export default function Pde5LineupPage() {
           Drawn from:{" "}
           <a href="https://www.auanet.org/guidelines-and-quality/guidelines/erectile-dysfunction-(ed)-guideline" target="_blank" rel="noopener noreferrer">AUA Erectile Dysfunction Guideline</a>;{" "}
           <a href="https://www.ncbi.nlm.nih.gov/books/NBK549843/" target="_blank" rel="noopener noreferrer">StatPearls: PDE5 Inhibitors</a>; and a{" "}
-          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4542406/" target="_blank" rel="noopener noreferrer">comparative review of the available PDE5 inhibitors</a>.
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4542406/" target="_blank" rel="noopener noreferrer">comparative review of the available PDE5 inhibitors</a>. The figure&apos;s time-to-peak and half-life values follow the FDA labels for{" "}
+          <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2014/20895s039s042lbl.pdf" target="_blank" rel="noopener noreferrer">Viagra</a>{" "}and{" "}
+          <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2008/021400s011lbl.pdf" target="_blank" rel="noopener noreferrer">Levitra</a>{" "}and the{" "}
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3776492/" target="_blank" rel="noopener noreferrer">PMC review of PDE5 inhibitors in ED</a>.
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a dosing guide. Which

@@ -89,7 +89,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "The workup",
     published: "2026-08-04",
-    reviewed: "2026-08-04",
+    reviewed: "2026-09-01",
   },
   {
     slug: "nocturnal-tumescence-testing",
@@ -161,7 +161,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Treatment & pharmacology",
     published: "2026-08-04",
-    reviewed: "2026-08-04",
+    reviewed: "2026-09-01",
   },
   {
     slug: "trt-fertility",
@@ -271,7 +271,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Quality & safety",
     published: "2026-08-30",
-    reviewed: "2026-08-30",
+    reviewed: "2026-09-01",
   },
   {
     slug: "cialis-pre-workout",
