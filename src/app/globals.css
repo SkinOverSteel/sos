@@ -601,3 +601,14 @@ a.sos-card:hover {
 @keyframes sos-fig-settle {
   from { transform: scale(0.35); opacity: 0; }
 }
+
+/* figure additions: emergency ink (safety-critical zones only) and a dial hand
+   that sweeps into place once; reduced motion leaves it at its final angle. */
+.sos-figure .f-em { fill: var(--sos-emergency); }
+.sos-figure .s-em { stroke: var(--sos-emergency); }
+.sos-fig-sweep {
+  animation: sos-fig-sweep 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes sos-fig-sweep {
+  from { transform: rotate(-30deg); }
+}

@@ -6,6 +6,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { WorkupFunnel } from "@/components/figures/WorkupFunnel";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -160,6 +162,20 @@ export default function EdWorkupPage() {
           produces a prescription in ninety seconds, that&apos;s the tell in{" "}
           <Link href="/learn/telemedicine-visit">what a good telemedicine visit looks like</Link>.
         </p>
+        <Figure
+          num={1}
+          caption={
+            <>
+              How deep it goes. The first tier (the story, the exam, the labs)
+              is the whole workup for most men, and it is the tier that catches
+              diabetes and heart risk. Each narrower tier is reserved for the
+              situations on the right, which are the guideline&apos;s own
+              indications for specialized testing. Widths illustrative.
+            </>
+          }
+        >
+          <WorkupFunnel />
+        </Figure>
       </section>
 
       <section style={{ marginTop: "44px" }}>
@@ -184,7 +200,7 @@ export default function EdWorkupPage() {
           Drawn from:{" "}
           <a href="https://www.auanet.org/guidelines-and-quality/guidelines/erectile-dysfunction-(ed)-guideline" target="_blank" rel="noopener noreferrer">AUA Erectile Dysfunction Guideline</a>;{" "}
           <a href="https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/diagnosis" target="_blank" rel="noopener noreferrer">NIDDK: Diagnosis of Erectile Dysfunction</a>; and{" "}
-          <a href="https://www.ncbi.nlm.nih.gov/books/NBK562253/" target="_blank" rel="noopener noreferrer">StatPearls: Erectile Dysfunction</a>.
+          <a href="https://www.ncbi.nlm.nih.gov/books/NBK562253/" target="_blank" rel="noopener noreferrer">StatPearls: Erectile Dysfunction</a>. The figure&apos;s tiers and triggers follow the AUA guideline&apos;s indications for specialized testing.
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a substitute for your own
