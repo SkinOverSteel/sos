@@ -38,7 +38,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Why it matters",
     published: "2026-07-20",
-    reviewed: "2026-08-04",
+    reviewed: "2026-09-01",
   },
   {
     slug: "training-for-erections",
@@ -109,7 +109,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "The workup",
     published: "2026-08-22",
-    reviewed: "2026-08-22",
+    reviewed: "2026-09-01",
   },
   {
     slug: "cavernosography",
@@ -119,7 +119,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "The workup",
     published: "2026-08-22",
-    reviewed: "2026-08-22",
+    reviewed: "2026-09-01",
   },
   {
     slug: "read-your-labs",

@@ -496,3 +496,108 @@ a.sos-card:hover {
     width: 100%;
   }
 }
+
+/* ---- figures: original explanatory SVGs (see components/Figure.tsx).
+   Colors come from the tokens via the f- (fill) and s- (stroke) utility classes so a figure
+   re-themes with the page. Every animation here is CSS, so the global
+   prefers-reduced-motion rule (tokens.css) stills it; the draw-in trace gets
+   an explicit reduced-motion fallback so the line is never left invisible. ---- */
+.sos-figure {
+  margin: 30px 0 10px;
+}
+.sos-figure__frame {
+  background: var(--sos-e1);
+  border: 1px solid var(--sos-line);
+  border-radius: 12px;
+  padding: 16px 12px 8px;
+  overflow: hidden;
+}
+.sos-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--sos-mono);
+}
+.sos-figure__cap {
+  margin-top: 12px;
+  font-family: var(--sos-serif);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--sos-text-md);
+}
+.sos-figure__num {
+  font-family: var(--sos-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sos-copper);
+  margin-right: 10px;
+}
+/* ink (fill) and stroke utilities, scoped to figures */
+.sos-figure .f-hi { fill: var(--sos-text-hi); }
+.sos-figure .f-md { fill: var(--sos-text-md); }
+.sos-figure .f-lo { fill: var(--sos-text-lo); }
+.sos-figure .f-cu { fill: var(--sos-copper); }
+.sos-figure .f-glow { fill: var(--sos-copper-glow); }
+.sos-figure .f-line { fill: var(--sos-line); }
+.sos-figure .f-e0 { fill: var(--sos-e0); }
+.sos-figure .f-e2 { fill: var(--sos-e2); }
+.sos-figure .f-none { fill: none; }
+.sos-figure .s-hi { stroke: var(--sos-text-hi); }
+.sos-figure .s-md { stroke: var(--sos-text-md); }
+.sos-figure .s-lo { stroke: var(--sos-text-lo); }
+.sos-figure .s-cu { stroke: var(--sos-copper); }
+.sos-figure .s-line { stroke: var(--sos-line); }
+.sos-figure .s-soft { stroke: var(--sos-line-soft); }
+.sos-figure .t-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sos-figure .t-num {
+  font-size: 12px;
+  font-weight: 600;
+}
+.sos-figure .t-title {
+  font-family: var(--sos-sans);
+  font-weight: 700;
+  font-stretch: 90%;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sos-figure .t-serif {
+  font-family: var(--sos-serif);
+  font-size: 13px;
+}
+/* a trace that draws itself in once */
+.sos-fig-trace {
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: sos-fig-draw 2.4s cubic-bezier(0.3, 0.6, 0.2, 1) forwards;
+}
+.sos-fig-trace--late { animation-delay: 0.5s; }
+@keyframes sos-fig-draw {
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sos-fig-trace { stroke-dashoffset: 0; }
+}
+/* marching dashes: flow along a path (contrast, blood) */
+.sos-fig-flow {
+  stroke-dasharray: 4 9;
+  animation: sos-fig-march 1.5s linear infinite;
+}
+@keyframes sos-fig-march {
+  to { stroke-dashoffset: -26; }
+}
+/* a shape that settles into place once (plaque, lumen) */
+.sos-fig-settle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sos-fig-settle 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes sos-fig-settle {
+  from { transform: scale(0.35); opacity: 0; }
+}

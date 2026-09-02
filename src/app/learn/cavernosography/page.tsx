@@ -6,6 +6,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { VenousLeakMap } from "@/components/figures/VenousLeakMap";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -79,6 +81,23 @@ export default function CavernosographyPage() {
           leak</em>, and <em>where is it</em>) with a precision the Doppler
           can&apos;t reach.
         </p>
+        <Figure
+          num={1}
+          caption={
+            <>
+              Two halves of one study. Left, the contrast map: as the chamber
+              fills, a competent tunica pinches the small exit veins shut; on a
+              leak, the contrast is seen escaping down a specific route, which
+              is what a surgeon needs. Right, the pressure half: after the
+              infusion stops, a competent chamber holds and a leaking one falls
+              fast (a drop past roughly 45 mmHg in 30 seconds, or a high flow
+              needed just to hold pressure, is the usual signature). Schematic,
+              not anatomy; curves illustrative.
+            </>
+          }
+        >
+          <VenousLeakMap />
+        </Figure>
       </section>
 
       <section style={{ marginTop: "44px" }}>
@@ -137,7 +156,9 @@ export default function CavernosographyPage() {
           Drawn from:{" "}
           <a href="https://www.auanet.org/guidelines-and-quality/guidelines/erectile-dysfunction-(ed)-guideline" target="_blank" rel="noopener noreferrer">AUA Erectile Dysfunction Guideline</a>;{" "}
           <a href="https://www.ncbi.nlm.nih.gov/books/NBK562253/" target="_blank" rel="noopener noreferrer">StatPearls: Erectile Dysfunction</a>; and{" "}
-          <a href="https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/diagnosis" target="_blank" rel="noopener noreferrer">NIDDK: Diagnosis of Erectile Dysfunction</a>.
+          <a href="https://www.niddk.nih.gov/health-information/urologic-diseases/erectile-dysfunction/diagnosis" target="_blank" rel="noopener noreferrer">NIDDK: Diagnosis of Erectile Dysfunction</a>. The figure&apos;s pressure-decay and flow-to-maintain signature follows{" "}
+          <a href="https://journals.lww.com/cmj/fulltext/2019/02200/dynamic_infusion_cavernosometry_and.4.aspx" target="_blank" rel="noopener noreferrer">Chinese Medical Journal 2019 (DICC classification of venous ED)</a>{" "}and{" "}
+          <a href="https://www.nature.com/articles/3901177" target="_blank" rel="noopener noreferrer">Int J Impot Res (congruence of veno-occlusive parameters during DICC)</a>.
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a substitute for your own
