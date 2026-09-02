@@ -7,6 +7,8 @@ import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { EvidenceBadge, type Grade } from "@/components/EvidenceBadge";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { EnhancementMap } from "@/components/figures/EnhancementMap";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -140,6 +142,22 @@ export default function EnhancementPage() {
             </div>
           ))}
         </div>
+        <Figure
+          num={1}
+          caption={
+            <>
+              The same list on two axes: how much evidence there is for a
+              lasting size gain, against how badly it can hurt you. Most of the
+              map sits top-left, where nothing is gained and real harm is
+              documented. The one honest corner is bottom-right, and it is
+              occupied by a slow, modest, clinician-supervised device.
+              Positions are editorial placements consistent with each verdict
+              above; the grades are the list&apos;s own.
+            </>
+          }
+        >
+          <EnhancementMap />
+        </Figure>
       </section>
 
       <section style={{ marginTop: "48px" }}>

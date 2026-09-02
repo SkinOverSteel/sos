@@ -612,3 +612,8 @@ a.sos-card:hover {
 @keyframes sos-fig-sweep {
   from { transform: rotate(-30deg); }
 }
+
+/* figure additions: evidence-grade inks for plotting graded methods */
+.sos-figure .f-est { fill: var(--sos-grade-established); }
+.sos-figure .f-emg { fill: var(--sos-grade-emerging); }
+.sos-figure .f-anec { fill: var(--sos-grade-anecdote); }

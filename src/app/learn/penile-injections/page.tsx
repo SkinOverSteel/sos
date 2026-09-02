@@ -6,6 +6,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { TitrationStaircase } from "@/components/figures/TitrationStaircase";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
@@ -194,6 +196,23 @@ export default function PenileInjectionsPage() {
             </p>
           </div>
         </div>
+
+        <Figure
+          num={1}
+          caption={
+            <>
+              The handout, drawn. Left: the dose climbs one supervised step at a
+              time from 0.05 mL (five units on the insulin syringe), and most
+              programs stop adding volume near half a millilitre and change the
+              strength instead. Right: the label&apos;s own target is an erection
+              that lasts under an hour. Two to three hours means the dose is too
+              high, and four hours is the emergency line. Literacy, not a
+              prescription: your prescriber sets yours.
+            </>
+          }
+        >
+          <TitrationStaircase />
+        </Figure>
 
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           Why the dose is never self-adjusted: priapism risk is dose-dependent,

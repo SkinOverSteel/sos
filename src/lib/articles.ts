@@ -130,7 +130,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "The workup",
     published: "2026-07-20",
-    reviewed: "2026-08-04",
+    reviewed: "2026-09-01",
   },
   {
     slug: "testosterone-therapy",
@@ -181,7 +181,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Treatment & pharmacology",
     published: "2026-08-04",
-    reviewed: "2026-08-30",
+    reviewed: "2026-09-01",
   },
   {
     slug: "apomorphine-troches",
@@ -251,7 +251,7 @@ export const articles: Article[] = [
     grade: "high-risk",
     section: "Quality & safety",
     published: "2026-08-04",
-    reviewed: "2026-08-30",
+    reviewed: "2026-09-01",
   },
   {
     slug: "product-forms",
