@@ -7,6 +7,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Figure } from "@/components/Figure";
+import { LabBands } from "@/components/figures/LabBands";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -174,6 +176,22 @@ export default function ReadYourLabsPage() {
       <MarkerGroup title="The hormones" markers={HORMONES} />
       <MarkerGroup title="The metabolism (the drivers underneath)" markers={METABOLIC} />
       <MarkerGroup title="Safety baselines (before & during treatment)" markers={SAFETY} />
+
+      <Figure
+        num={1}
+        caption={
+          <>
+            The five cut points worth memorizing, drawn to scale. Gray is the
+            unremarkable range, copper is where attention starts, and deep
+            copper is the diagnostic threshold. Testosterone only counts as low
+            on two separate morning draws. The metabolic three often move
+            before anything else does. Reference ranges vary by lab and assay,
+            so read yours against the sheet it came on.
+          </>
+        }
+      >
+        <LabBands />
+      </Figure>
 
       <Section title="How to actually read it">
         <ul className="sos-prose" style={list}>
