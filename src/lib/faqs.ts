@@ -559,4 +559,34 @@ export const faqs: Record<string, Faq[]> = {
       a: "There is no credible evidence it adds lasting size, and a real record of bruising and scarring. Connective tissue heals toward scar (the raw material of curvature), not length.",
     },
   ],
+  "trt-high-hematocrit": [
+    {
+      q: "What hematocrit level is too high on TRT?",
+      a: "The Endocrine Society guideline says stop therapy if hematocrit exceeds 54%, evaluate for hypoxia and sleep apnea, and restart at a reduced dose once it comes down; the EAU uses the same 54% line with venesection considered. Below that, management is individual and belongs to you and your prescriber. Note that the 'keep it under 45' target floating around TRT circles is borrowed from polycythemia vera treatment, a different disease.",
+    },
+    {
+      q: "Why does testosterone raise hematocrit?",
+      a: "Two engines: testosterone increases erythropoietin (EPO) and resets the EPO/hemoglobin set point higher, and it stimulates the bone marrow directly, independent of EPO. A 2014 study also showed ferritin and hepcidin falling alongside the hemoglobin rise, which is why iron stores drain on TRT even before anyone donates blood.",
+    },
+    {
+      q: "Do I have to donate blood if my hematocrit is high on TRT?",
+      a: "At guideline level (above 54%) you need a prescriber-led plan that may include pausing therapy, venesection, and evaluating sleep apnea and other drivers. Below that it is individual. Donation and therapeutic phlebotomy are the most direct levers that exist, and the studies people cite as 'proof' donation fails actually show the opposite: TRT keeps pushing the number back up between donations, so for some men it is a maintenance rhythm rather than a one-time fix.",
+    },
+    {
+      q: "Can blood donation centers turn me away for being on testosterone?",
+      a: "Testosterone replacement does not appear on the Red Cross deferral criteria, and collection organizations state that donors on TRT may donate if they meet all general qualifications, including the hemoglobin check (minimum 13.0 g/dL for men, maximum 20.0). One nuance: blood centers collect donations, they do not perform therapy, so a donation that is medically necessary is really therapeutic phlebotomy, a clinician-ordered procedure.",
+    },
+    {
+      q: "Will lowering my testosterone dose fix high hematocrit?",
+      a: "Rarely. In a 2024 retrospective covering roughly 7,000 testosterone cypionate patients at one clinic, only 60 (well under 1%) reached a defined stable state where the polycythemia effect stopped, at total testosterone between 605 and 1051 ng/dL. The levers with more support are fixing sleep apnea and smoking, changing delivery (gel, nasal, more frequent split injections, or the subcutaneous autoinjector, which showed about 41% lower hematocrit rises than the same weekly IM dose), and phlebotomy when the number says so.",
+    },
+    {
+      q: "Why do men on TRT who donate blood feel terrible even with normal hemoglobin?",
+      a: "Usually ferritin. TRT suppresses hepcidin and drains iron stores, and every donated unit removes roughly 200-250 mg more. Community reports converge on ferritin below about 30 ng/mL as the 'feel like crap' zone, though that threshold is forum-observed, not guideline-grade. If you are donating or getting phlebotomized on TRT, ask for ferritin with every CBC, and rule out hemochromatosis before any iron loading.",
+    },
+    {
+      q: "What is rusfertide and does it help TRT hematocrit?",
+      a: "Rusfertide (Mimrylo), FDA-approved in August 2026, is a synthetic hepcidin mimetic that limits iron available for red-cell production; in the phase 3 VERIFY trial 76.9% of patients needed no phlebotomy over 32 weeks versus 32.9% on placebo. It is approved for polycythemia vera, not for testosterone-induced erythrocytosis, but it proves the hepcidin pathway is druggable and is the closest thing to a real fix on the horizon for the TRT version.",
+    },
+  ],
 };

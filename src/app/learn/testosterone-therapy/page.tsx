@@ -82,7 +82,9 @@ export default function TestosteroneTherapyPage() {
         <ul className="sos-prose" style={list}>
           <li>
             <strong>Hematocrit</strong>: testosterone can thicken the blood
-            (polycythemia). If it climbs too high (above ~54%), therapy is paused.
+            (polycythemia). If it climbs too high (above ~54%), therapy is paused.{" "}
+            <Link href="/learn/trt-high-hematocrit">The full hematocrit story</Link>,
+            including the donation debate and the myths, has its own page.
           </li>
           <li>
             <strong>PSA</strong>: a prostate baseline in men over 40, watched for
