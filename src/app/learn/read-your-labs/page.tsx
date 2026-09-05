@@ -140,7 +140,14 @@ const SAFETY: Marker[] = [
   },
   {
     name: "Hematocrit / CBC",
-    body: "Testosterone therapy can thicken the blood by raising red-cell count, so hematocrit is a baseline and a monitored safety marker, not something to read in isolation.",
+    body: (
+      <>
+        Testosterone therapy can thicken the blood by raising red-cell count, so
+        hematocrit is a baseline and a monitored safety marker, not something to
+        read in isolation. If yours is climbing, that has its own playbook:{" "}
+        <Link href="/learn/trt-high-hematocrit">high hematocrit on TRT</Link>.
+      </>
+    ),
   },
 ];
 

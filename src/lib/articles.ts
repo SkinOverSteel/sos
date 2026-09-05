@@ -130,7 +130,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "The workup",
     published: "2026-07-20",
-    reviewed: "2026-09-01",
+    reviewed: "2026-09-05",
   },
   {
     slug: "testosterone-therapy",
@@ -140,7 +140,7 @@ export const articles: Article[] = [
     grade: "established",
     section: "Treatment & pharmacology",
     published: "2026-07-20",
-    reviewed: "2026-08-04",
+    reviewed: "2026-09-05",
   },
   {
     slug: "pde5-long-term",
@@ -322,5 +322,16 @@ export const articles: Article[] = [
     section: "Quality & safety",
     published: "2026-08-30",
     reviewed: "2026-08-30",
+  },
+  {
+    slug: "trt-high-hematocrit",
+    title:
+      "High hematocrit on TRT: the number that ends therapy, and the bad advice that follows",
+    summary:
+      "Erythrocytosis is the most common TRT side effect, and the advice that follows it is a mess: the guideline's 54% number versus the borrowed 45%, the misread blood-donation studies, the altitude and athlete myths, the delivery-route and BP-drug levers that actually move it, and the ferritin crash from repeated phlebotomy that nobody tests for.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+    published: "2026-09-05",
+    reviewed: "2026-09-05",
   },
 ];
