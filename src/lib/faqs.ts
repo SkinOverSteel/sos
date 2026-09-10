@@ -35,6 +35,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "No. The calculator runs entirely in your browser, and nothing you enter is saved or transmitted.",
     },
   ],
+  "treatment-cost": [
+    {
+      q: "How much does testosterone replacement therapy cost per month?",
+      a: "The medication is the small part. A 10 mL vial of generic testosterone cypionate (200 mg/mL) lists at roughly $38–$90 cash at U.S. retail pharmacies in 2026 and lasts three to five months at typical doses. Labs, consults, and any clinic membership are what move the monthly figure from under $50 to $150–$300. The estimator adds each line up for your plan.",
+    },
+    {
+      q: "Is testosterone cheaper through a compounding pharmacy?",
+      a: "Often, yes, when the prescriber routes the script there. Prescribers who work with a compounding pharmacy typically get testosterone cypionate 10–20% under retail cash pay, and the same pharmacy can fill the ancillaries (hCG, anastrozole) and other oil-based esters or blends written on the same prescription. It is a licensed, prescription-only channel, and the estimator's compounding option models exactly that discount.",
+    },
+    {
+      q: "Why is a telehealth ED subscription more expensive than the pharmacy?",
+      a: "Because it bundles the consult and the convenience into a per-dose price for the same generic sildenafil or tadalafil. Filled at a pharmacy with a discount card, generic tablets commonly run a dollar or two each; bundled per-dose prices are usually several times that. Switching the channel in the estimator shows the difference.",
+    },
+    {
+      q: "Do the defaults apply outside the United States?",
+      a: "No. The defaults are U.S. cash prices. Every field is editable, so enter your own local quotes and the arithmetic still works.",
+    },
+    {
+      q: "Are my numbers stored or sent anywhere?",
+      a: "No. The estimator runs entirely in your browser, and nothing you enter is saved or transmitted.",
+    },
+  ],
   "erectile-function-score": [
     {
       q: "What is a normal score on this test?",
