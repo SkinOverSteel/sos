@@ -155,6 +155,11 @@ export default function WhatItCostsPage() {
 
       <Section title="Getting the greatest value, legitimately">
         <ul className="sos-prose" style={list}>
+          <li>
+            <strong>Run your own numbers:</strong>{" "}the{" "}
+            <Link href="/tools/treatment-cost">treatment-cost estimator</Link>{" "}adds the
+            stack up by channel, including the prescriber-routed compounding option for TRT.
+          </li>
           <li><strong>Unbundle when you can:</strong>{" "}labs direct, a consult for the script, the pharmacy&apos;s cash price for the product.</li>
           <li><strong>Watch for lock-in:</strong>{" "}a membership that quietly marks up product can cost more than it saves.</li>
           <li><strong>Use tax-advantaged dollars:</strong>{" "}HSA/FSA where you&apos;re eligible.</li>

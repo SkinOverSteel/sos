@@ -33,9 +33,9 @@ export const tools: Tool[] = [
     slug: "treatment-cost",
     title: "ED-treatment cost estimator",
     blurb:
-      "Add up the real stack (labs, consult, and medication) and see where the markup hides across the legitimate channels.",
+      "Add up the real stack of ED medication or testosterone therapy (labs, consult, medication, ancillaries) and see where the markup hides across pharmacy cash, discount card, prescriber-routed compounding, and clinic bundles.",
     kind: "Calculator",
-    status: "soon",
+    status: "live",
   },
 ];
 
