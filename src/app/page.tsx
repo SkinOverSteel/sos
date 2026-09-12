@@ -93,9 +93,10 @@ export default function Home() {
           The conversation your urologist doesn&apos;t have time for.
         </p>
         <p className="sos-prose" style={{ maxWidth: "52ch", margin: "18px auto 0", fontSize: "17px" }}>
-          Evidence-graded education, private self-assessment tools, and a
-          transparent directory of licensed providers — no hype, no shame, no
-          supplement funnel.
+          Plain explanations of erectile function, testosterone, and the
+          treatments, each claim graded by its evidence. Private tools to
+          score yourself. A directory of licensed providers. All of it built to
+          get you to a clinician better informed.
         </p>
 
         <div
@@ -119,65 +120,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Thesis + the grade system (claim, then proof) */}
+      {/* Start here: featured articles */}
       <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
         <div className="sos-container" style={{ paddingTop: "56px", paddingBottom: "20px" }}>
-          <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-            Trust is the product
-          </h2>
-          <p className="sos-prose" style={{ maxWidth: "62ch" }}>
-            Sexual-health information online is mostly funnels: content built to
-            sell you something. This is the opposite.
-          </p>
-          <p className="sos-prose" style={{ maxWidth: "62ch", marginTop: "14px" }}>
-            Consider the asymmetry. A good clinic gates the explanation behind
-            a visit fee. A telehealth brand gives the explanation only as a
-            funnel into a prescription. This site sells nothing and prescribes
-            nothing, so the explanation is the whole product: every claim
-            carries a visible evidence grade, every source is named, and the
-            point is to get you to a clinician better informed, not to sell
-            you around one.
-          </p>
-          <p style={{ marginTop: "18px" }}>
-            <Link
-              href="/methodology"
-              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
-            >
-              Read the standard before you trust a word →
-            </Link>
-          </p>
-
-          <div className="sos-card sos-card--deep" style={{ marginTop: "28px" }}>
-            {GRADE_EXAMPLES.map((ex, i) => (
-              <div
-                key={ex.grade}
-                style={{
-                  display: "flex",
-                  gap: "18px",
-                  alignItems: "flex-start",
-                  flexWrap: "wrap",
-                  padding: i === 0 ? "0 0 18px" : "18px 0",
-                  borderTop: i > 0 ? "1px solid var(--sos-line)" : "none",
-                }}
-              >
-                <div style={{ flex: "0 0 150px" }}>
-                  <EvidenceBadge grade={ex.grade} />
-                  <p className="sos-note" style={{ marginTop: "8px" }}>
-                    {ex.meaning}
-                  </p>
-                </div>
-                <p className="sos-prose" style={{ flex: "1 1 260px", fontSize: "16px", margin: 0 }}>
-                  {ex.claim}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Start here: featured articles */}
-      <section>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
           <div
             style={{
               display: "flex",
@@ -241,7 +186,7 @@ export default function Home() {
               marginBottom: "20px",
             }}
           >
-            <h2 className="sos-h2">Instruments, not opinions</h2>
+            <h2 className="sos-h2">Tools</h2>
             <Link
               href="/tools"
               style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
@@ -270,6 +215,55 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The standard: how every claim is graded (claim, then proof) */}
+      <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
+        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
+          <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
+            How every claim is graded
+          </h2>
+          <p className="sos-prose" style={{ maxWidth: "62ch" }}>
+            Every claim on this site carries one of three grades, and every
+            source is named. The grade tells you how much weight the evidence
+            can bear before you take it into an appointment. A member&apos;s
+            experience is welcome here, and it is always marked as one.
+          </p>
+          <p style={{ marginTop: "18px" }}>
+            <Link
+              href="/methodology"
+              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
+            >
+              Read the full standard →
+            </Link>
+          </p>
+
+          <div className="sos-card sos-card--deep" style={{ marginTop: "28px" }}>
+            {GRADE_EXAMPLES.map((ex, i) => (
+              <div
+                key={ex.grade}
+                style={{
+                  display: "flex",
+                  gap: "18px",
+                  alignItems: "flex-start",
+                  flexWrap: "wrap",
+                  padding: i === 0 ? "0 0 18px" : "18px 0",
+                  borderTop: i > 0 ? "1px solid var(--sos-line)" : "none",
+                }}
+              >
+                <div style={{ flex: "0 0 150px" }}>
+                  <EvidenceBadge grade={ex.grade} />
+                  <p className="sos-note" style={{ marginTop: "8px" }}>
+                    {ex.meaning}
+                  </p>
+                </div>
+                <p className="sos-prose" style={{ flex: "1 1 260px", fontSize: "16px", margin: 0 }}>
+                  {ex.claim}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Find a provider */}
       <section>
         <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
@@ -283,45 +277,34 @@ export default function Home() {
               marginBottom: "20px",
             }}
           >
-            <h2 className="sos-h2">Ranked on trust, never on who pays</h2>
+            <h2 className="sos-h2">Find a provider</h2>
             <Link
               href="/directory"
               style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
             >
-              Compare providers on trust →
+              See the directory →
             </Link>
           </div>
           <Link href="/directory" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-              Licensed labs, telemedicine, and compounding pharmacies, ranked only
-              on transparent trust criteria. A paid relationship never moves a
-              ranking or a grade, it only adds a disclosure.
+              Licensed labs, telemedicine, and compounding pharmacies, ranked on
+              published trust criteria. Where a listing pays a referral fee, the
+              disclosure sits on the link and the ranking does not move.
             </p>
           </Link>
         </div>
       </section>
 
-      {/* The Vault (coming) */}
+      {/* The Log (in progress): one line, no dead-end panel */}
       <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
-        <div className="sos-container" style={{ paddingTop: "48px", paddingBottom: "80px" }}>
-          <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-            The Vault · being built
+        <div className="sos-container" style={{ paddingTop: "40px", paddingBottom: "80px" }}>
+          <p className="sos-kicker" style={{ marginBottom: "12px" }}>
+            Next · The Log
           </p>
-          <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-            A place to log the work
-          </h2>
           <p className="sos-prose" style={{ maxWidth: "62ch" }}>
-            The library is the open floor. The next layer is private: The Log, an
-            n=1 tracker that runs from baseline through intervention to outcome,
-            publishable with its evidence grade attached and exportable as a
-            one-page summary for your clinician. Pseudonymous by default, with
-            reputation earned through the work instead of likes.
-          </p>
-          <p
-            className="sos-prose"
-            style={{ maxWidth: "62ch", marginTop: "14px", color: "var(--sos-text-lo)", fontSize: "15.5px" }}
-          >
-            Being built now. The open library stays free, and stays the point.
+            A private tracker for the work itself, from baseline through
+            intervention to outcome, exportable as one page for your clinician.
+            In progress. The library stays free either way.
           </p>
           {process.env.BUTTONDOWN_API_KEY ? <NewsletterSignup /> : null}
         </div>

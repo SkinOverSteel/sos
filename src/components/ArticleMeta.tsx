@@ -44,6 +44,18 @@ export function ArticleMeta({
         borderBottom: "1px solid var(--sos-line-soft)",
       }}
     >
+      <p
+        style={{
+          fontFamily: "var(--sos-serif)",
+          fontSize: "clamp(17px, 2vw, 19px)",
+          lineHeight: 1.5,
+          color: "var(--sos-text-md)",
+          maxWidth: "58ch",
+          margin: "0 0 6px",
+        }}
+      >
+        {a.deck}
+      </p>
       <div
         style={{
           display: "flex",
