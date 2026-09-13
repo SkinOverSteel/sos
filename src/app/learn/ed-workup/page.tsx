@@ -46,8 +46,8 @@ export default function EdWorkupPage() {
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
         Erectile dysfunction is a <strong>symptom, not a diagnosis</strong>. The
-        whole point of a workup is to answer one question (<em>why</em>) because
-        the answer changes everything that comes after it, and occasionally it
+        whole point of a workup is to answer one question: <em>why</em>. The
+        answer changes everything that comes after it, and occasionally it
         turns up something that matters more than the ED itself. A good clinician
         runs a systematic path, not a guess. Here&apos;s the entire thing, so you
         walk in already holding the map.
@@ -166,7 +166,7 @@ export default function EdWorkupPage() {
           num={1}
           caption={
             <>
-              How deep it goes. The first tier (the story, the exam, the labs)
+              How deep it goes. The first tier of story, exam, and labs
               is the whole workup for most men, and it is the tier that catches
               diabetes and heart risk. Each narrower tier is reserved for the
               situations on the right, which are the guideline&apos;s own

@@ -141,7 +141,7 @@ export default function ProductFormsPage() {
             definition, gray-market research product with unverified identity,
             purity, and dose. There is no legitimate form to compare it against
             yet. Human safety and efficacy data for this use are still emerging.
-            (Its approval status can change. Check current status before acting.)
+            Its approval status can change. Check current status before acting.
           </CompoundRow>
         </div>
       </Section>
@@ -150,7 +150,7 @@ export default function ProductFormsPage() {
         <p className="sos-prose">
           If you want any of these therapies, the path that comes with quality
           guarantees is the same one: a{" "}
-          <strong>licensed prescriber</strong>{" "}(telemedicine counts) and a{" "}
+          <strong>licensed prescriber</strong>, telemedicine included, and a{" "}
           <strong>licensed compounding pharmacy</strong>. That&apos;s the version
           where someone&apos;s license is on the line for what&apos;s in the vial, and it&apos;s the only kind of source this site will ever point you
           toward. The trend version of this lesson is currently being sold at

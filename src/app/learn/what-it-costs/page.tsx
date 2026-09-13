@@ -87,9 +87,9 @@ export default function WhatItCostsPage() {
         range="$0–$150 up front, or $20–$133/mo"
       >
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
-          A licensed prescriber (telemedicine counts) reviews your labs and, if
+          A licensed prescriber, telemedicine included, reviews your labs and, if
           appropriate, writes the prescription. This is the first place the{" "}
-          <strong>&quot;vig&quot;</strong> (the prescriber&apos;s cut) enters
+          <strong>&quot;vig&quot;</strong>, the prescriber&apos;s cut, enters
           the stack.
         </p>
         <ul className="sos-prose" style={list}>
@@ -118,7 +118,7 @@ export default function WhatItCostsPage() {
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           Your prescription is filled by a licensed compounding pharmacy. Using
           trimix as the worked example: a vial runs roughly{" "}
-          <strong>$50–$300</strong>, and how long it lasts (weeks to months)
+          <strong>$50–$300</strong>, and how long it lasts, weeks to months,
           depends on the protocol <em>your prescriber</em>{" "}sets, which is what
           turns a per-vial price into your real monthly cost.
         </p>

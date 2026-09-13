@@ -178,7 +178,7 @@ export default function PsychogenicEdPage() {
 
       <section style={{ marginTop: "44px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-          The questions to ask (so they don&apos;t just hand you a pill)
+          The questions to ask, so they don&apos;t just hand you a pill
         </h2>
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           This is the contributor&apos;s central point, and it&apos;s a good one:
@@ -270,7 +270,7 @@ export default function PsychogenicEdPage() {
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a dosing guide. Whether
-          a treatment fits (and at what dose, if any) is a decision for a
+          a treatment fits, and at what dose if any, is a decision for a
           licensed clinician who knows your history.
         </p>
       </div>

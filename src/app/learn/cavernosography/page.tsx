@@ -77,8 +77,8 @@ export default function CavernosographyPage() {
           from flow speeds, but seen. The paired{" "}
           <strong>cavernosometry</strong>{" "}half measures the pressures: how much
           infusion it takes to reach an erection, and how fast pressure falls when
-          the infusion stops. Together they answer two questions (<em>is there a
-          leak</em>, and <em>where is it</em>) with a precision the Doppler
+          the infusion stops. Together they answer two questions, <em>is there a
+          leak</em> and <em>where is it</em>, with a precision the Doppler
           can&apos;t reach.
         </p>
         <Figure
@@ -128,7 +128,7 @@ export default function CavernosographyPage() {
           effective treatment doesn&apos;t depend on this level of detail:{" "}
           <Link href="/learn/pde5-lineup">PDE5 inhibitors</Link>,{" "}
           <Link href="/learn/penile-injections">penile injections</Link>, a vacuum
-          device, or (when nothing else works) a penile implant, which sidesteps
+          device, or, when nothing else works, a penile implant, which sidesteps
           the leak question entirely. Cavernosography earns its place only when the
           answer would actually change the plan.
         </p>

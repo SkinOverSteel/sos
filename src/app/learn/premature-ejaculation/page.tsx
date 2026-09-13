@@ -177,7 +177,7 @@ export default function PrematureEjaculationPage() {
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a dosing guide. Which
-          treatment fits (and at what dose, if any) is a decision for a licensed
+          treatment fits, and at what dose if any, is a decision for a licensed
           clinician who knows your history.
         </p>
       </div>

@@ -171,7 +171,7 @@ export default function TrtFertilityPage() {
           </li>
           <li>
             <strong>hCG alongside TRT.</strong>{" "}It mimics LH, keeping the
-            testicles working (and making sperm) even while you&apos;re on
+            testicles working and making sperm even while you&apos;re on
             testosterone.
           </li>
           <li>
@@ -180,7 +180,7 @@ export default function TrtFertilityPage() {
           </li>
         </ul>
         <p className="sos-note" style={{ marginTop: "14px" }}>
-          Which one (and whether at all) is a prescriber&apos;s call, and it
+          Which one, and whether at all, is a prescriber&apos;s call, and it
           belongs in the conversation <em>before</em>{" "}you start, not after. It is
           the same &quot;real diagnosis, real monitoring&quot; standard behind{" "}
           <Link href="/learn/testosterone-therapy">testosterone therapy, done right</Link>.

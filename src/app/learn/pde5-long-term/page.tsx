@@ -13,7 +13,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "PDE5 inhibitors, long term",
   description:
-    "Why PDE5 inhibitors seem to lose effect (usually disease progression, not tolerance), the emerging case for long-term vascular benefit, and why blood-pressure drug choice (nebivolol, telmisartan) matters when you have both ED and hypertension.",
+    "Why PDE5 inhibitors seem to lose effect, which is usually disease progression rather than tolerance, the emerging case for long-term vascular benefit, and why blood-pressure drug choice (nebivolol, telmisartan) matters when you have both ED and hypertension.",
   alternates: { canonical: "/learn/pde5-long-term" },
 };
 
@@ -75,7 +75,7 @@ export default function Pde5Page() {
 
       <Section title="Why they seem to stop working, and usually haven't">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
-          True tolerance (<em>tachyphylaxis</em>, the drug genuinely wearing out)
+          True tolerance, <em>tachyphylaxis</em>, the drug genuinely wearing out,
           has <strong>not</strong>{" "}been confirmed clinically. Chronic use
           doesn&apos;t appear to breed resistance. So when the response fades, the
           more likely explanation is that the <strong>underlying disease is
@@ -145,7 +145,7 @@ export default function Pde5Page() {
               Unusual among beta-blockers: it triggers{" "}
               <strong>nitric-oxide-mediated vasodilation</strong>. In head-to-head
               study, metoprolol worsened erectile-function scores while nebivolol
-              did not (and it improved some) at comparable blood-pressure
+              did not, and even improved some, at comparable blood-pressure
               control. Among beta-blockers, it&apos;s the erection-friendlier
               choice.
             </p>
@@ -180,8 +180,8 @@ export default function Pde5Page() {
             nitroglycerin and recreational poppers. <EvidenceBadge grade="established" />
           </li>
           <li>
-            <strong>Alpha-blockers:</strong>{" "}risk of a sudden blood-pressure drop
-            (fainting, and worse); needs careful timing and dosing by a prescriber.
+            <strong>Alpha-blockers:</strong>{" "}risk of a sudden blood-pressure drop,
+            with fainting and worse; needs careful timing and dosing by a prescriber.
           </li>
           <li>
             <strong>Other antihypertensives</strong>{" "}(beta-blockers like nebivolol,

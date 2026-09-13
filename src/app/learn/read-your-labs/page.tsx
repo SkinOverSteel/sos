@@ -136,7 +136,7 @@ const METABOLIC: Marker[] = [
 const SAFETY: Marker[] = [
   {
     name: "PSA",
-    body: "A prostate baseline your clinician establishes and monitors (particularly before and during testosterone therapy).",
+    body: "A prostate baseline your clinician establishes and monitors, particularly before and during testosterone therapy.",
   },
   {
     name: "Hematocrit / CBC",

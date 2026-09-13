@@ -98,8 +98,8 @@ export default function SignalPage() {
               Research consistently finds ED often precedes cardiovascular
               disease by roughly <strong>2–5 years</strong>, a window in which
               risk can actually be measured and lowered. Guidelines increasingly
-              treat new ED (especially in a younger or otherwise-healthy man) as a
-              prompt to screen for cardiovascular risk factors.
+              treat new ED as a prompt to screen for cardiovascular risk factors,
+              especially in a younger or otherwise healthy man.
             </p>
           </div>
           <div className="sos-card" style={{ borderLeft: "3px solid var(--sos-copper)" }}>
@@ -121,8 +121,8 @@ export default function SignalPage() {
         <p className="sos-prose">
           The point isn&apos;t alarm. It&apos;s leverage. A symptom that shows up
           early is a <strong>gift of time</strong>{" "}if you act on it. Treating the
-          erection in isolation (a pill, a peptide, an injection) without asking
-          what it&apos;s signaling is treating the smoke and ignoring the fire.
+          erection in isolation with a pill, a peptide, or an injection, without asking
+          what it&apos;s signaling, is treating the smoke and ignoring the fire.
           The strong move is to bring it to a clinician and get screened. No
           shame in it; it&apos;s exactly the conversation your urologist
           doesn&apos;t always have time for.
