@@ -124,8 +124,8 @@ export default function BremelanotidePde5Page() {
       <Section title="The catch that changes the calculus: it raises blood pressure">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "12px" }}>
           This is the part that makes &quot;just add it for more effect&quot;
-          wrong. Bremelanotide <strong>transiently raises blood pressure</strong>{" "}
-          (about 6 mmHg systolic, peaking a few hours after a dose) and lowers
+          wrong. Bremelanotide <strong>transiently raises blood pressure</strong>, about 6 mmHg
+          systolic, peaking a few hours after a dose, and lowers
           heart rate, returning to baseline within about half a day. Its label
           <strong> contraindicates</strong>{" "}it in uncontrolled hypertension or
           known cardiovascular disease, does not recommend it in people at high

@@ -32,7 +32,7 @@ const myths: { claim: string; record: string; tone?: "emergency" }[] = [
   {
     claim: "\u201CJust lower your dose until it normalizes.\u201D",
     record:
-      "Rarely works. A 2024 Journal of Men's Health retrospective tracked roughly 7,000 testosterone cypionate patients at one clinic over seven years, and only 60 reached a defined \u201Cstable\u201D state where the polycythemia effect had stopped, at total testosterone levels between 605 and 1051 ng/dL. That is well under 1%. Read it with the caveats (single clinic, retrospective, most patients also on anastrozole), but the direction is clear: chasing a hematocrit fix by shrinking the dose is a long-odds strategy, and the men who do \u201Cfix\u201D it this way often land in the 500s and still see erythrocytosis.",
+      "Rarely works. A 2024 Journal of Men's Health retrospective tracked roughly 7,000 testosterone cypionate patients at one clinic over seven years, and only 60 reached a defined \u201Cstable\u201D state where the polycythemia effect had stopped, at total testosterone levels between 605 and 1051 ng/dL. That is well under 1%. Read it with the caveats, since it is a single clinic, retrospective, and most patients were also on anastrozole, but the direction is clear: chasing a hematocrit fix by shrinking the dose is a long-odds strategy, and the men who do \u201Cfix\u201D it this way often land in the 500s and still see erythrocytosis.",
   },
   {
     claim: "\u201CHigh hematocrit on TRT is the same as living at altitude, and those people don't donate.\u201D",
@@ -220,8 +220,8 @@ export default function TrtHighHematocritPage() {
           <li>
             <strong>Blood-pressure drugs your prescriber may choose.</strong>{" "}
             ARBs like telmisartan and losartan have literature and heavy
-            community reporting behind modest hematocrit-lowering effects
-            (angiotensin II feeds EPO production in the kidney), and
+            community reporting behind modest hematocrit-lowering effects, since
+            angiotensin II feeds EPO production in the kidney, and
             telmisartan is{" "}
             <Link href="/learn/pde5-long-term">already a favorite on this site</Link>{" "}
             for men with both ED and hypertension. The evidence for
@@ -360,8 +360,8 @@ export default function TrtHighHematocritPage() {
           guideline thresholds are Established, but the management layer,
           when to donate, which delivery switch, ARB co-therapy, ferritin
           repletion, is thin-trialed and community-driven, and the page says
-          so wherever it leans on that layer. Community-observed thresholds
-          (the ferritin symptom numbers, telmisartan reports) are flagged as
+          so wherever it leans on that layer. Community-observed thresholds,
+          the ferritin symptom numbers and the telmisartan reports, are flagged as
           anecdote-grade. Not medical advice; the prescriber owns the
           hematocrit plan, and a hematocrit at or above 54% is a prescriber
           conversation this week.

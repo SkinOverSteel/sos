@@ -239,7 +239,7 @@ export default function Pde5LineupPage() {
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a dosing guide. Which
-          agent fits (and at what dose, if any) is a decision for a licensed
+          agent fits, and at what dose if any, is a decision for a licensed
           prescriber who knows your heart history and medications.
         </p>
       </div>

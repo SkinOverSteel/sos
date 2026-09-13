@@ -43,7 +43,7 @@ export default function TestosteroneTherapyPage() {
       <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "40px" }}>
-        If you&apos;re on testosterone (or weighing it) almost all of the
+        If you&apos;re on testosterone, or weighing it, almost all of the
         difference between doing it well and drifting into the gray zone comes
         down to two things: a <strong>real diagnosis</strong>{" "}and{" "}
         <strong>real monitoring</strong>. Get those right and TRT is legitimate,

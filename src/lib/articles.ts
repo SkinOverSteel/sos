@@ -99,7 +99,7 @@ export const articles: Article[] = [
     deck:
       "What a full erectile dysfunction evaluation includes, in order, and what each step rules out.",
     summary:
-      "Erectile dysfunction is a symptom, not a diagnosis. The full evaluation (history, exam, and the labs that find the cause) walked start to finish, so you know the map before you go, and know why skipping it is the part that costs you.",
+      "Erectile dysfunction is a symptom, not a diagnosis. The full evaluation, from history and exam to the labs that find the cause, walked start to finish, so you know the map before you go, and know why skipping it is the part that costs you.",
     grade: "established",
     section: "The workup",
     published: "2026-08-04",
@@ -160,7 +160,7 @@ export const articles: Article[] = [
     deck:
       "How testosterone replacement is diagnosed, monitored, and paid for when it is done properly.",
     summary:
-      "Most of the difference between safe TRT and the gray zone is a real diagnosis and real monitoring. What it is (and isn't), the labs that keep it safe, how to make it affordable through legitimate coverage and cash levers, and the hard line between replacement and anabolic enhancement.",
+      "Most of the difference between safe TRT and the gray zone is a real diagnosis and real monitoring. What it is and isn't, the labs that keep it safe, how to make it affordable through legitimate coverage and cash levers, and the hard line between replacement and anabolic enhancement.",
     grade: "established",
     section: "Treatment & pharmacology",
     published: "2026-07-20",
@@ -209,7 +209,7 @@ export const articles: Article[] = [
     deck:
       "What trimix and other penile injections are, where they sit after pills, and how dosing is set by a prescriber.",
     summary:
-      "When PDE5 pills fail or can't be used, there's a real, effective second line, and the most reliable of it is trimix, injected. What it is, where it sits on the treatment ladder, how the dose actually gets set (numbers included), and the one rule that isn't optional: the four-hour priapism emergency.",
+      "When PDE5 pills fail or can't be used, there's a real, effective second line, and the most reliable of it is trimix, injected. What it is, where it sits on the treatment ladder, how the dose actually gets set, numbers included, and the one rule that isn't optional: the four-hour priapism emergency.",
     grade: "established",
     section: "Treatment & pharmacology",
     published: "2026-08-04",
@@ -245,7 +245,7 @@ export const articles: Article[] = [
     deck:
       "How to prepare for a urologist appointment for ED, what to bring, and what to expect from the visit.",
     summary:
-      "The specialist visit is where the workup gets real, and where too many men go passive. How to prepare for the appointment (and the Doppler, if one's coming), why precision about what you already take protects your diagnosis, the data to leave with, and how to push back when the visit turns into a conveyor belt. Shaped with a contributor who learned it the expensive way.",
+      "The specialist visit is where the workup gets real, and where too many men go passive. How to prepare for the appointment, and for the Doppler if one's coming, why precision about what you already take protects your diagnosis, the data to leave with, and how to push back when the visit turns into a conveyor belt. Shaped with a contributor who learned it the expensive way.",
     grade: "established",
     section: "Choosing care",
     published: "2026-08-27",
@@ -281,7 +281,7 @@ export const articles: Article[] = [
     deck:
       "How to fill generic sildenafil or tadalafil for a few dollars a dose through transparent-pricing pharmacies.",
     summary:
-      "The molecule went generic years ago. The gap between $3 and $400 is markup, not medicine. Transparent-pricing pharmacies like Cost Plus Drugs, the 90-day lever, and why a higher strength can cost less per dose (a prescriber conversation, not a DIY recipe).",
+      "The molecule went generic years ago. The gap between $3 and $400 is markup, not medicine. Transparent-pricing pharmacies like Cost Plus Drugs, the 90-day lever, and why a higher strength can cost less per dose, which is a prescriber conversation and not a DIY recipe.",
     grade: "established",
     section: "Money & value",
     published: "2026-07-20",

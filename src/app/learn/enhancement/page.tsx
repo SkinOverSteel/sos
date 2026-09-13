@@ -64,7 +64,7 @@ const METHODS: { grade: Grade; name: string; what: string; verdict: string }[] =
     name: "“Exercises” (jelqing) and extreme pumping",
     what: "Manual “milking” routines and over-pumping promoted online for growth.",
     verdict:
-      "No credible evidence of lasting size, and a real record of bruising, pain, and scarring. The “heal-and-grow” theory behind it (injure the tissue on purpose so it rebuilds bigger) borrows muscle logic for connective tissue that heals toward scar (the raw material of Peyronie's disease), not length. It's also the usual excuse for the injectable “healing stacks” below. We won't publish the technique, because here the technique is the risk.",
+      "No credible evidence of lasting size, and a real record of bruising, pain, and scarring. The “heal-and-grow” theory behind it, injuring the tissue on purpose so it rebuilds bigger, borrows muscle logic for connective tissue that heals toward scar (the raw material of Peyronie's disease), not length. It's also the usual excuse for the injectable “healing stacks” below. We won't publish the technique, because here the technique is the risk.",
   },
   {
     grade: "high-risk",

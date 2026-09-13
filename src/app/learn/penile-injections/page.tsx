@@ -202,7 +202,7 @@ export default function PenileInjectionsPage() {
           caption={
             <>
               The handout, drawn. Left: the dose climbs one supervised step at a
-              time from 0.05 mL (five units on the insulin syringe), and most
+              time from 0.05 mL, five units on the insulin syringe, and most
               programs stop adding volume near half a millilitre and change the
               strength instead. Right: the label&apos;s own target is an erection
               that lasts under an hour. Two to three hours means the dose is too

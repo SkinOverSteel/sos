@@ -48,7 +48,7 @@ export default function PeyroniesDiseasePage() {
         <strong>Peyronie&apos;s disease is common, it is not cancer, and it is
         treatable</strong>. It&apos;s scar tissue, and the one thing that matters
         most to your outcome is understanding which <em>phase</em>{" "}you&apos;re in,
-        because that decides what should (and shouldn&apos;t) happen next.
+        because that decides what should happen next, and what shouldn&apos;t.
       </p>
 
       <section>
