@@ -396,4 +396,64 @@ export const articles: Article[] = [
     published: "2026-09-05",
     reviewed: "2026-09-05",
   },
+  {
+    slug: "lying-to-your-urologist",
+    title: "A brief history of men lying to their urologist",
+    deck:
+      "What men leave out of the ED visit, why the research says they do, and what each omission costs the workup.",
+    summary:
+      "Most patients withhold something from a clinician, and men in an erectile dysfunction workup withhold the things that matter most: the real drug list, steroid history, poppers, the supplement bag, how often it actually fails. The nondisclosure literature on why, and the concrete cost of each omission (a mis-dosed Doppler, a hidden nitrate interaction, a missed hypogonadism, a wrong psychogenic label), ending with what to actually say.",
+    grade: "established",
+    section: "Choosing care",
+    published: "2026-09-14",
+    reviewed: "2026-09-14",
+  },
+  {
+    slug: "withdrawn-erection-drugs",
+    title: "Every erection drug that got pulled, ranked by how bad the idea was",
+    deck:
+      "A countdown of the ED drugs and products that were withdrawn, rejected, banned, or prosecuted, and why the survivors survived.",
+    summary:
+      "Uprima, yohimbine, Vasomax, papaverine, Topiglan and Vitaros, the nasal apomorphine that never launched, Enzyte, ExtenZe, and the gas-station Rhino wave: what each was, why it sold, why it was pulled, and what we learned. Ranked against a printed rubric (evidence at launch, harm, honesty of marketing). The closing lesson is that PDE5 inhibitors, alprostadil, and implants are still here because trials and regulators did their job.",
+    grade: "established",
+    section: "Treatment & pharmacology",
+    published: "2026-09-14",
+    reviewed: "2026-09-14",
+  },
+  {
+    slug: "proviron-underground",
+    title: "The Proviron underground",
+    deck:
+      "Why mesterolone became the forums' favorite libido drug, what its real trials showed, and where the honest signal actually leads.",
+    summary:
+      "Mesterolone (Proviron) is a real 1960s Schering androgen, oral, non-aromatizing, weakly anabolic, a strong SHBG binder. Its two approved-era indications tested weak or null, no trial has ever tested it for erectile function, and the closest controlled evidence for its class (DHT gel trials) shows at most a transient effect in androgen-deficient men. Schedule III in the US with no legal channel. The honest version of the signal is a lab draw with a clinician, not a package.",
+    grade: "anecdote",
+    section: "Treatment & pharmacology",
+    published: "2026-09-14",
+    reviewed: "2026-09-14",
+  },
+  {
+    slug: "wolverine-blend",
+    title: "The Wolverine Blend: how two peptides became a meme",
+    deck:
+      "Where BPC-157 and TB-500 actually came from, how a forum thread became a TikTok genre, and what the human evidence holds: almost nothing.",
+    summary:
+      "A Croatian gastric-peptide lab, a racehorse-doping fragment, and a bodybuilding forum produced the internet's favorite \"healing stack.\" The rodent data is real and broad; controlled human evidence is essentially absent, no dose was ever established, WADA and USADA prohibit both, and the FDA compounding saga left the only supply gray-market. Why it shows up after enhancement injuries and next to trimix, and why the smart move is the conversation the forums always dodged.",
+    grade: "anecdote",
+    section: "Quality & safety",
+    published: "2026-09-14",
+    reviewed: "2026-09-14",
+  },
+  {
+    slug: "pegym-decade",
+    title: "Ten years of r/PEGym, so you don't have to",
+    deck:
+      "A veteran's history of the enhancement-exercise forums, and what the urology literature says about the practices they built.",
+    summary:
+      "Thunder's Place, MattersOfSize, PEGym, then Reddit: the vocabulary, the measuring rituals, the gains logs, the earned reputation, and the survivorship bias that wrote the FAQ. Set against the evidence: small-effect traction trials, no trials and a documented injury record for manual methods, and clinic data showing the men seeking enlargement were almost all already normal.",
+    grade: "high-risk",
+    section: "Quality & safety",
+    published: "2026-09-14",
+    reviewed: "2026-09-14",
+  },
 ];

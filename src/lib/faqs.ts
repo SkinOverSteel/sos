@@ -611,4 +611,134 @@ export const faqs: Record<string, Faq[]> = {
       a: "Rusfertide (Mimrylo), FDA-approved in August 2026, is a synthetic hepcidin mimetic that limits iron available for red-cell production; in the phase 3 VERIFY trial 76.9% of patients needed no phlebotomy over 32 weeks versus 32.9% on placebo. It is approved for polycythemia vera, not for testosterone-induced erythrocytosis, but it proves the hepcidin pathway is druggable and is the closest thing to a real fix on the horizon for the TRT version.",
     },
   ],
+  "lying-to-your-urologist": [
+    {
+      q: "How common is it for patients to withhold information from their doctor?",
+      a: "Very. In a 2018 JAMA Network Open survey of more than 4,500 US adults, 81% of the younger sample and 61% of the older sample said they had withheld at least one type of medically relevant information from a clinician. The most common reasons were not wanting to be judged or lectured, not wanting to hear how harmful a behavior is, and embarrassment.",
+    },
+    {
+      q: "What percentage of men with erectile dysfunction never tell a doctor?",
+      a: "Most. A six-country survey of more than 32,000 men found that only a minority of men with erectile dysfunction seek treatment, with men aged 20 to 39 least likely to. In a study of 500 men over 50 visiting a urologist for unrelated problems, 44% had some degree of erectile dysfunction they had not raised, and embarrassment was the top reason (74%).",
+    },
+    {
+      q: "Do I have to tell my urologist about steroid use?",
+      a: "You should, because it changes the diagnosis. Anabolic steroids suppress the brain's signal to the testes, and a low testosterone result without that history can be read as a different condition and treated with standard testosterone therapy, which deepens the suppression and impairs fertility. With the history, a clinician orders LH, FSH, and estradiol alongside testosterone and manages recovery instead. Surveys in 2004 and 2020 both found that about 56% of steroid users had not told a doctor.",
+    },
+    {
+      q: "Why does my doctor need to know about poppers before prescribing sildenafil or tadalafil?",
+      a: "Because poppers are nitrates, and every PDE5 inhibitor label contraindicates nitrates in any form. The combination can drop blood pressure to unsafe levels. The FDA patient information for sildenafil names amyl nitrate, amyl nitrite, and butyl nitrate (poppers) specifically. A doctor cannot warn about an interaction with a substance he was not told about.",
+    },
+    {
+      q: "Can an incomplete history lead to a wrong diagnosis of psychogenic ED?",
+      a: "Yes. A vague history plus normal labs and exam often ends in a psychogenic label. If the real pattern includes lost morning erections, failure both solo and with a partner, or recent steroid use, that label is wrong and a vascular or hormonal cause goes unexamined. If the real pattern is that function is fine solo and fails only with partners, that points toward a psychogenic picture and can save an unneeded Doppler test. The history is what sorts the two.",
+    },
+    {
+      q: "What should I actually tell my urologist about erectile dysfunction?",
+      a: "Bring a written list: everything you take (prescribed, telehealth, compounded, gray-market, supplements) with source and last dose; any anabolic steroid use, ever, with dates; alcohol as a weekly number plus any recreational drugs including poppers; the pattern (onset, how many attempts fail, morning erections, solo versus partnered); and relationship context. Say the hardest item first. A good sexual-medicine clinician treats it as data, not a confession.",
+    },
+  ],
+  "withdrawn-erection-drugs": [
+    {
+      q: "Why was Uprima (sublingual apomorphine) withdrawn?",
+      a: "Two reasons, in two places. In the US, the maker withdrew its application in 2000 after fainting and low-blood-pressure episodes in the trials (Public Citizen counted roughly one man in thirty at the 4 mg dose), even though an FDA advisory committee had voted 9 to 3 in its favour. In Europe it was approved in 2001 and the company let the marketing authorisation expire in 2006 for commercial reasons: efficacy was modest (about 49% of attempts versus 24% on placebo) and nausea was common, so it could not compete with the PDE5 inhibitors.",
+    },
+    {
+      q: "Is yohimbine FDA-approved for erectile dysfunction?",
+      a: "No. Yohimbine has never held an FDA approval for erectile dysfunction. Prescription yohimbine tablets were sold for decades as unapproved drugs, and in 1989 the FDA's over-the-counter aphrodisiac rule listed yohimbine by name among ingredients that cannot be considered safe and effective for OTC use. Yohimbe bark supplements are still sold, but NIH notes most do not state their yohimbine content and the compound is linked to irregular heartbeat, blood-pressure problems, heart attacks, and seizures.",
+    },
+    {
+      q: "What is in gas-station male enhancement pills like Rhino?",
+      a: "Often a real prescription drug that is not on the label. FDA laboratory testing has repeatedly found undeclared sildenafil, tadalafil, or chemical analogs such as sulfoaildenafil in products sold as herbal. The FDA's public list of tainted sexual-enhancement products runs to more than four hundred notifications, and in 2018 the agency warned consumers against all Rhino-branded products after reports of chest pain, severe headaches, and prolonged erections that ended in hospital. The hidden drug interacts dangerously with nitrates.",
+    },
+    {
+      q: "Why did papaverine injections get replaced by alprostadil?",
+      a: "Papaverine worked, but long-term follow-up showed the cost. A 1990 series of 100 men on papaverine-based injections found a fibrotic complication rate of 31% at twelve months, and priapism after a diagnostic papaverine dose ran roughly 3 to 5% in large series. Intracavernosal alprostadil produced comparable erections with lower rates of both, so it became the base of modern injection therapy. Papaverine survives as one ingredient in compounded trimix, under prescriber monitoring.",
+    },
+    {
+      q: "What happened to Enzyte and ExtenZe?",
+      a: "Enzyte's founder, Steven Warshak, was convicted by a federal jury in 2008 on 93 counts including mail fraud, bank fraud, and money laundering, tied to fabricated satisfaction surveys, fictitious doctors, and an auto-ship billing scheme; the Justice Department later returned about $24 million to victims. ExtenZe's maker, Biotab Nutraceuticals, settled with the Orange County District Attorney in 2006 and again in 2011 ($1.75 million) over unsubstantiated enlargement claims, unauthorised charges, and lots that exceeded California's lead limit. No pill has ever been shown to increase penile size.",
+    },
+    {
+      q: "Which erectile dysfunction treatments have survived regulatory review?",
+      a: "The PDE5 inhibitors (sildenafil, tadalafil, vardenafil, avanafil), alprostadil as an injection and as the MUSE urethral pellet, and penile implants. All went through controlled trials, carry labels that disclose their risks, and have decades of post-market safety data. That is the common thread: the treatments still standing are the ones that went through the evidence process rather than around it. If you are considering a product for erectile function, that channel, a clinician and a licensed pharmacy, is the difference.",
+    },
+  ],
+  "proviron-underground": [
+    {
+      q: "What is Proviron (mesterolone)?",
+      a: "Mesterolone is an oral androgen introduced by Schering in 1967 under the brand name Proviron. Chemically it is 1-methyl-dihydrotestosterone: it cannot convert to estrogen, has weak anabolic activity, acts like DHT at the androgen receptor, and binds sex hormone-binding globulin (SHBG) strongly. It was approved in Europe and elsewhere for male hypogonadism and as an infertility adjunct. It has never been approved in the United States.",
+    },
+    {
+      q: "Does Proviron improve libido or erections?",
+      a: "There is no clinical trial of mesterolone for erectile dysfunction or erection quality, in any population. The claims come from decades of first-person forum reports, which is Anecdote grade. The one head-to-head trial in hypogonadal men (1980) found oral testosterone significantly better than mesterolone for libido and erections. The closest controlled evidence for the DHT class, transdermal DHT gel trials, showed a transient improvement in morning erections in androgen-deficient older men and no sexual-function benefit in healthy men over two years.",
+    },
+    {
+      q: "Is Proviron legal in the United States?",
+      a: "No. Mesterolone is listed by name in the federal definition of anabolic steroids (21 U.S.C. 802(41)) and is a Schedule III controlled substance. Because it is not FDA-approved, no US prescription or compounded version exists, so any product sold as Proviron to a US buyer is gray market with unverified identity and purity.",
+    },
+    {
+      q: "Does mesterolone raise free testosterone?",
+      a: "It binds SHBG strongly, so in principle it can shift the ratio of free to total testosterone. The small uncontrolled study that measured this found total testosterone and SHBG both fell while the free fraction rose, with no change in absolute free testosterone. Whether that ratio shift changes symptoms was never tested. If you suspect high SHBG is masking low free testosterone, that is a question a blood panel and a clinician can answer directly.",
+    },
+    {
+      q: "What are the risks of mesterolone?",
+      a: "It is a DHT-derived androgen, so acne, body hair, and acceleration of male-pattern hair loss are the documented androgenic effects. Like all exogenous androgens it suppresses the body's own testosterone, LH, and FSH, which matters for fertility. Oral androgens as a class lower HDL, and DHT-axis drugs raise hematocrit. It is not hepatotoxic in its genuine form, but gray-market product may not be mesterolone at all. Prostate monitoring is standard with any androgen.",
+    },
+    {
+      q: "Did mesterolone work for male infertility?",
+      a: "No. A World Health Organization randomized, double-blind, placebo-controlled trial in 1989 (248 couples, seven centres) found pregnancy rates on mesterolone were not significantly different from placebo and semen quality did not improve. A 1991 Belgian placebo-controlled trial and a Cochrane review pooling eleven androgen trials reached the same conclusion.",
+    },
+  ],
+  "wolverine-blend": [
+    {
+      q: "What is the Wolverine stack?",
+      a: "Internet shorthand for combining two gray-market peptides, BPC-157 and TB-500, for injury repair. The name comes from the Marvel character who heals from anything. It originated on bodybuilding forums in the 2010s and spread through Reddit, podcasts and TikTok. Neither peptide is approved for human use anywhere.",
+    },
+    {
+      q: "Is BPC-157 proven to heal injuries in humans?",
+      a: "No. BPC-157 has a large rodent literature, mostly from one lab at the University of Zagreb that first described it in 1993, showing faster healing across many injury models in rats. Human evidence amounts to a few small pilot reports and a Phase I safety study that was registered in 2015 and cancelled without results. No controlled human trial has established efficacy or a dose.",
+    },
+    {
+      q: "What is TB-500 and where did it come from?",
+      a: "TB-500 is a synthetic seven-amino-acid fragment of the human protein thymosin beta-4, sold as a veterinary preparation. Its first documented market was horse racing; by 2012 the Hong Kong racing laboratory had published an anti-doping assay for it in equine urine and plasma. There are no human clinical trials of TB-500.",
+    },
+    {
+      q: "Are BPC-157 and TB-500 banned in sport?",
+      a: "Yes, at all times, in and out of competition. TB-500 falls under S2 (peptide hormones, growth factors and related substances) on the WADA Prohibited List, where thymosin beta-4 and its derivatives are named. BPC-157 was added in 2022 under S0, the class for substances with no current human approval anywhere. USADA has warned that no safe dose is known and that it appears undeclared in some wellness products.",
+    },
+    {
+      q: "Is BPC-157 legal to compound or prescribe in the US?",
+      a: "As of 2026, no lawful compounding channel exists. In September 2023 the FDA placed BPC-157 in Category 2 of its 503A bulk drug substances list, citing immunogenicity and impurity concerns, which stopped licensed compounding pharmacies from making it. In April 2026 the FDA removed it from Category 2 on procedural grounds and scheduled an advisory committee review; that is not approval and does not place it on the compounding list. Products sold online as BPC-157 or TB-500 are unregulated research-labeled vials.",
+    },
+    {
+      q: "Why do men use the Wolverine stack after penile injuries or with trimix?",
+      a: "Two real worries drive it: injuries from enhancement routines that men are embarrassed to show a doctor, and the long-term scarring risk of repeated intracavernosal injections. The stack promises a fix for both without a conversation. There is no human evidence it delivers one, and injuries with pain, new curvature or a sudden change in erectile function have time-sensitive clinical paths that a peptide is not on. See a urologist and describe exactly what happened.",
+    },
+  ],
+  "pegym-decade": [
+    {
+      q: "Does jelqing work?",
+      a: "There are no clinical trials of jelqing or other manual penile enlargement exercises, so there is no evidence of benefit. What the medical literature does document is the injury side: repetitive trauma to the penis can cause scarring and plaque with a Peyronie's-like curve, nerve and vascular injury, penile fracture, and hard flaccid syndrome. Urologists advise against it.",
+    },
+    {
+      q: "Do penile traction devices actually add length?",
+      a: "Traction is the one non-surgical method with clinical studies. Small, uncontrolled urology trials (Gontero 2009, Nikoobakht 2011) reported modest average length gains of roughly one to two centimeters after months of many hours of daily wear, with no change in girth. The same device class is used in Peyronie's disease and after prostatectomy. The effect is real but small and slow, and device use belongs in a plan with a urologist.",
+    },
+    {
+      q: "What is hard flaccid syndrome?",
+      a: "An acquired, chronic condition first described in online forums and now characterized in the urology literature: the flaccid penis stays semi-rigid and won't relax, often with pain, sensory changes, pelvic-floor tension, and reduced erectile rigidity. It typically follows a traumatic injury at the base of an erect penis. It is a reason to see a urologist, not to rest and resume an exercise routine.",
+    },
+    {
+      q: "Is my penis size normal?",
+      a: "Very likely. The Veale 2015 nomograms, built from clinician measurements of up to 15,521 men, put the average erect length at about 13 cm and average erect circumference at about 11.7 cm. In a clinic study of 67 men requesting surgical lengthening, none had a severely short penis and none had an anatomical abnormality. A urologist can measure you once, properly, and tell you where you sit on the curve.",
+    },
+    {
+      q: "What is small penis syndrome?",
+      a: "A clinical term from Wylie and Eardley (2007) for excessive worry about penis size in men whose size is normal. It ranges from ordinary concern to obsessive rumination with checking rituals and body dysmorphic disorder. Men with body dysmorphic concern about size are more likely to have tried jelqing, pumps, or stretching devices with poor results, and more likely to have erectile difficulty. The effective response is assessment and reassurance from a clinician, and psychological help when the worry does not lift.",
+    },
+    {
+      q: "What symptoms after enhancement exercises need a doctor?",
+      a: "New pain, bruising, a new bend or curve, numbness or sensory change, a hard lump or plaque, a loss of erectile rigidity, or a flaccid penis that stays firm and won't relax all warrant a urology visit. A sudden pop with pain and rapid swelling during an erection may be a penile fracture, which is a surgical emergency: go to the emergency department immediately.",
+    },
+  ],
 };
