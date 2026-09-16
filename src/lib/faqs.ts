@@ -9,6 +9,32 @@
 export type Faq = { q: string; a: string };
 
 export const faqs: Record<string, Faq[]> = {
+  "atx-304": [
+    {
+      q: "What is ATX-304, also called ATX304 or O304?",
+      a: "ATX-304 is an investigational oral small molecule studied for AMPK activation and mitochondrial effects in metabolic disease. It was previously studied as O304. It is not a peptide, and the developer describes it as unavailable for human use outside clinical trials.",
+    },
+    {
+      q: "Does ATX-304 cause weight loss in humans?",
+      a: "Dramatic human weight loss is not established. The developer's June 2026 report of a small Phase 1b trial in adults with obesity and prediabetes described metabolic improvements but minimal weight loss at the exposure tested. Animal fat-loss results cannot be substituted for human efficacy.",
+    },
+    {
+      q: "Did ATX-304 increase metabolism by 8% or 33%?",
+      a: "The 2026 ADA abstract reports a resting metabolic rate increase of 'up to 33%' compared with baseline; the developer's later release reports 8%. The available text does not reconcile the analysis populations, time points, or summary statistics. Neither should be presented as a guaranteed response or a placebo-adjusted effect without the corresponding analysis.",
+    },
+    {
+      q: "Does ATX-304 improve erections or testosterone?",
+      a: "Neither the older O304 TELLUS report nor the newer Phase 1b abstract establishes a benefit for erectile function or testosterone. TELLUS measured calf-muscle microvascular perfusion, not penile blood flow or an erectile-function outcome. Metabolic promise is not proof of a sexual-health benefit.",
+    },
+    {
+      q: "Can ATX-304 preserve muscle when combined with a GLP-1 drug?",
+      a: "The cited muscle-sparing combination findings are animal evidence. They do not establish human muscle retention, strength preservation, or a safe ATX-304 and GLP-1 combination regimen. A human combination trial is needed rather than a self-directed stack.",
+    },
+    {
+      q: "Is ATX-304 approved and safe to take?",
+      a: "The developer describes ATX-304 as investigational, not an approved medicine available outside trials. Early study reports describe generally mild adverse events and no increase in monitored core temperature or heart rate, but small, short studies cannot establish long-term safety, uncommon harms, or drug interactions. Research-vendor products are not validated by those trials.",
+    },
+  ],
   "free-testosterone": [
     {
       q: "What is free testosterone?",

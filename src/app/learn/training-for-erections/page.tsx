@@ -231,6 +231,11 @@ export default function TrainingForErectionsPage() {
         </p>
       </div>
 
+      <p className="sos-note" style={{ marginTop: "28px" }}>
+        Looking at the experimental-drug version of this idea? Read the separate{" "}
+        <Link href="/learn/atx-304">ATX-304 human-trial evidence audit</Link>{" "}before
+        treating an &quot;exercise mimetic&quot; as a replacement for training.
+      </p>
       <Faq slug="training-for-erections" />
       <RelatedArticles slug="training-for-erections" />
     </article>
