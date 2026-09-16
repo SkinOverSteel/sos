@@ -32,6 +32,19 @@ export type Article = {
 /** Open Floor education library: single source for the /learn hub + sitemap. */
 export const articles: Article[] = [
   {
+    slug: "atx-304",
+    title: "ATX-304: the exercise pill is real. The six-pack is still hypothetical.",
+    deck:
+      "What ATX304's human trials actually show about metabolism, fat loss, and safety, and where the gym and sexual-health promises outrun the data.",
+    summary:
+      "The investigational AMPK and mitochondrial activator, formerly O304, has real early human data. The 2018 TELLUS study, the 23-person obesity trial, the 8% versus 'up to 33%' metabolism claims, minimal weight loss at the tested exposure, and why animal muscle-sparing results are not a human cutting protocol.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+    published: "2026-09-16",
+    reviewed: "2026-09-16",
+    reviewer: null,
+  },
+  {
     slug: "erectile-function-signal",
     featured: true,
     title: "Erectile function is a signal",
@@ -54,7 +67,7 @@ export const articles: Article[] = [
     grade: "emerging",
     section: "Foundations",
     published: "2026-08-04",
-    reviewed: "2026-08-04",
+    reviewed: "2026-09-16",
   },
   {
     slug: "premature-ejaculation",
