@@ -123,8 +123,9 @@ export default function PeyroniesDiseasePage() {
         <ul className="sos-prose" style={list}>
           <li>
             <strong>Injections into the plaque.</strong>{" "}An FDA-approved enzyme
-            (collagenase) can reduce curves greater than 30° in men with intact
-            erections; verapamil and interferon are other in-office options.
+            (<Link href="/learn/xiaflex-collagenase">collagenase, sold as Xiaflex</Link>)
+            can reduce curves greater than 30° in men with intact erections;
+            verapamil and interferon are other in-office options.
           </li>
           <li>
             <strong>Traction therapy.</strong>{" "}A medical device worn on a

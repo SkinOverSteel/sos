@@ -217,6 +217,19 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "xiaflex-collagenase",
+    title: "Xiaflex: the enzyme that eats the plaque",
+    deck:
+      "How collagenase injections straighten a Peyronie's curve, what the trials actually delivered, who qualifies, and the rupture risk the consent form is about.",
+    summary:
+      "The only FDA-approved drug for Peyronie's disease is a bacterial enzyme injected straight into the scar. What the IMPRESS trials measured (about 17 degrees, not a straight line), the eight-injection course and the modeling that goes with it, the 30 to 90 degree window, the corporal-rupture risk, the sex-embargo weeks, and why the same vial treats a bent finger.",
+    grade: "established",
+    section: "Treatment & pharmacology",
+    published: "2026-09-24",
+    reviewed: "2026-09-24",
+    reviewer: null,
+  },
+  {
     slug: "penile-injections",
     title: "Penile injections, when pills aren't enough",
     deck:
