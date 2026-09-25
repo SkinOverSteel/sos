@@ -371,6 +371,32 @@ export const faqs: Record<string, Faq[]> = {
       a: "Sex therapy or CBT with a licensed clinician is the highest-yield option, alongside mindfulness and open communication with a partner. A PDE5 inhibitor can help short-term as a confidence bridge that overwrites the failure memory, prescribed and tapered by a clinician. It responds well to treatment, and rarely to a pill alone.",
     },
   ],
+  "post-prostatectomy-rehabilitation": [
+    {
+      q: "How long does it take for erections to come back after prostatectomy?",
+      a: "Recovery runs on the nerves' timetable, typically 12 to 24 months after nerve-sparing surgery, with most gains in the first year. Age, erectile function before surgery, and how completely the nerves were spared are the biggest predictors. Some men never fully recover unassisted erections, and an implant remains an option.",
+    },
+    {
+      q: "Does daily Cialis after prostatectomy help erections recover?",
+      a: "Daily tadalafil improves erections while you take it and reduced penile length loss in a large trial, but trials have not shown it speeds the return of unassisted erections once it is stopped. Guidelines say clinicians should discuss rehabilitation; the evidence for any single protocol is limited.",
+    },
+    {
+      q: "What is penile rehabilitation after prostate surgery?",
+      a: "A program to keep the erectile tissue oxygenated and stretched while the nerves heal, so that it does not scar and shrink. Tools include PDE5 inhibitors, a vacuum erection device, penile injections if pills do not work, and pelvic floor muscle training, usually started within the first weeks after surgery.",
+    },
+    {
+      q: "Can pelvic floor exercises improve erectile function?",
+      a: "Yes, with supervision. The ischiocavernosus and bulbospongiosus muscles trap blood in the erect penis. A small randomized trial after prostatectomy found nearly four times the potency recovery at 12 months with early biofeedback-guided training, and training also reduces urine leakage at orgasm. A pelvic floor physiotherapist teaches the correct contraction; doing it wrong trains the wrong muscles.",
+    },
+    {
+      q: "Does a vacuum device after prostatectomy prevent shrinkage?",
+      a: "Small trials suggest starting daily vacuum device use about a month after surgery preserves penile length and improves erectile scores compared with waiting. It is a low-risk, guideline-mentioned part of rehabilitation, used without the constriction ring for tissue stretching.",
+    },
+    {
+      q: "What new treatments are being studied for erections after prostatectomy?",
+      a: "NeuroSAFE, a real-time margin check that lets surgeons spare more nerve tissue, improved erectile function scores at 12 months in a 2025 randomized trial. Stem cell injections, nerve grafts and amniotic membrane wraps, and low-intensity shockwave therapy are under study; shockwave added to tadalafil did not beat tadalafil alone in a randomized trial.",
+    },
+  ],
   "xiaflex-collagenase": [
     {
       q: "What is Xiaflex and how does it treat Peyronie's disease?",
