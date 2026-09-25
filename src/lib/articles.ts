@@ -217,6 +217,19 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "shockwave-therapy",
+    title: "Shockwave therapy: the regenerative promise, graded",
+    deck:
+      "What low-intensity shockwave actually does to erectile tissue, what the sham-controlled trials found, why the clinic version often is not the trial version, and who it might genuinely help.",
+    summary:
+      "The first ED treatment that claims to repair rather than assist. The Israeli trials that started it, the meta-analyses (a few IIEF points, mostly in mild vascular ED), how long it lasts, why guidelines still call it investigational, the focused-versus-radial device problem behind most clinic offerings, and the honest case for who should consider it.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+    published: "2026-09-25",
+    reviewed: "2026-09-25",
+    reviewer: null,
+  },
+  {
     slug: "post-prostatectomy-rehabilitation",
     title: "After prostatectomy: rebuilding the erection",
     deck:
