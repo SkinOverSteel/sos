@@ -354,8 +354,8 @@ export default function PostProstatectomyRehabilitationPage() {
               <b>Shockwave therapy</b> · tested, and it lost
             </p>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-              Low-intensity shockwave is marketed hard for post-surgical
-              recovery. The one randomized trial that tested it in this
+              <Link href="/learn/shockwave-therapy">Low-intensity shockwave</Link>{" "}
+              is marketed hard for post-surgical recovery. The one randomized trial that tested it in this
               setting, 92 men given early tadalafil with or without eight
               weeks of shockwave, found no difference in recovery. Its
               evidence in mild vascular ED is modest and separate; in the

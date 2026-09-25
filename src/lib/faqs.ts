@@ -371,6 +371,32 @@ export const faqs: Record<string, Faq[]> = {
       a: "Sex therapy or CBT with a licensed clinician is the highest-yield option, alongside mindfulness and open communication with a partner. A PDE5 inhibitor can help short-term as a confidence bridge that overwrites the failure memory, prescribed and tapered by a clinician. It responds well to treatment, and rarely to a pill alone.",
     },
   ],
+  "shockwave-therapy": [
+    {
+      q: "Does shockwave therapy work for erectile dysfunction?",
+      a: "Sham-controlled trials and meta-analyses show a modest average improvement, roughly 2 to 4 points on the erectile function score, mainly in men with mild to moderate vascular ED. That is a real signal, not a cure, and some sham-controlled trials found no benefit. Professional guidelines still classify it as investigational.",
+    },
+    {
+      q: "How long do the effects of shockwave therapy for ED last?",
+      a: "In the largest follow-up study, about two-thirds of men responded initially and roughly half of those responders still had the benefit at two years. Men with milder ED and no diabetes held their gains best; men with severe ED and diabetes lost them.",
+    },
+    {
+      q: "Is GAINSWave the same as the shockwave therapy in the studies?",
+      a: "Not necessarily. The published trials used focused low-intensity shockwave devices at controlled energy settings. Many clinics and med-spas use radial pressure wave machines, which are physically different and far less studied. Ask which device is used and whether it is a focused unit.",
+    },
+    {
+      q: "How much does shockwave therapy for ED cost, and is it covered by insurance?",
+      a: "In the US a course typically runs from about $2,000 to $6,000 cash across 6 to 12 sessions. Insurance does not cover it because it remains investigational. That is why guideline societies say it should be offered inside a trial or with clear informed consent about the evidence.",
+    },
+    {
+      q: "Is shockwave therapy safe for the penis?",
+      a: "At the low intensities studied, the trials report essentially no adverse events beyond mild discomfort during treatment. The risk is financial and opportunity cost, not injury, as long as it is not substituted for a cardiometabolic workup of the ED itself.",
+    },
+    {
+      q: "Does shockwave therapy help Peyronie's disease?",
+      a: "It reduces plaque pain in a randomized trial but does not reduce curvature. Guidelines allow it for pain only. For straightening, collagenase injections, traction, and surgery are the evidence-based options.",
+    },
+  ],
   "post-prostatectomy-rehabilitation": [
     {
       q: "How long does it take for erections to come back after prostatectomy?",
