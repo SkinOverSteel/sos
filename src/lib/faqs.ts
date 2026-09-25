@@ -371,6 +371,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "Sex therapy or CBT with a licensed clinician is the highest-yield option, alongside mindfulness and open communication with a partner. A PDE5 inhibitor can help short-term as a confidence bridge that overwrites the failure memory, prescribed and tapered by a clinician. It responds well to treatment, and rarely to a pill alone.",
     },
   ],
+  "xiaflex-collagenase": [
+    {
+      q: "What is Xiaflex and how does it treat Peyronie's disease?",
+      a: "Xiaflex is collagenase clostridium histolyticum, a bacterial enzyme that breaks down collagen. Injected directly into the Peyronie's plaque by a certified urologist, it partially dissolves the scar so the penis can be gently straightened with modeling. It is the only FDA-approved drug for Peyronie's disease.",
+    },
+    {
+      q: "How much does Xiaflex straighten the curve?",
+      a: "In the IMPRESS trials the average improvement was about 34 percent of the starting curve, roughly 17 degrees, versus about 18 percent with placebo. It reduces the curve; it does not usually make the penis straight. Bigger curves tend to lose more degrees.",
+    },
+    {
+      q: "Who is a candidate for Xiaflex injections?",
+      a: "Men with stable Peyronie's disease, a curve between 30 and 90 degrees, and erections adequate for sex. It is not approved for ventral curves, calcified plaques, plaques that involve the urethra, or an hourglass deformity without curvature, and the disease needs to have stopped changing first.",
+    },
+    {
+      q: "What are the risks of Xiaflex for Peyronie's?",
+      a: "Bruising, swelling, and pain at the site are expected in most men. The serious risk is corporal rupture, a tear of the erectile chamber, in roughly 1 in 200 men in the trials, which needs surgical repair. That is why sex is off the table for at least four weeks after each treatment cycle and why only certified prescribers can give it.",
+    },
+    {
+      q: "How many Xiaflex injections are needed and how long does treatment take?",
+      a: "The approved course is up to four cycles of two injections each, one to three days apart, with cycles about six weeks apart: up to eight injections over roughly six months. Many urologists now use shortened protocols with fewer visits, and traction is often added between cycles.",
+    },
+  ],
   "peyronies-disease": [
     {
       q: "Is Peyronie's disease cancer or dangerous?",
