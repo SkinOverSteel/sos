@@ -217,6 +217,19 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "post-prostatectomy-rehabilitation",
+    title: "After prostatectomy: rebuilding the erection",
+    deck:
+      "Why erections vanish after prostate surgery, what penile rehabilitation actually protects, a deep look at pelvic floor training, and the science arriving next.",
+    summary:
+      "Nerve-sparing surgery stuns the erection nerves for a year or more, and tissue that never fills starts to scar. What the rehabilitation trials really showed about daily tadalafil, vacuum devices, and injections; a deep dive into pelvic floor muscle training, the one intervention that helps continence, climacturia, and erections at once; and the emerging frontier from NeuroSAFE to stem cells.",
+    grade: "established",
+    section: "Treatment & pharmacology",
+    published: "2026-09-24",
+    reviewed: "2026-09-24",
+    reviewer: null,
+  },
+  {
     slug: "xiaflex-collagenase",
     title: "Xiaflex: the enzyme that eats the plaque",
     deck:
