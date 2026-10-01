@@ -295,17 +295,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Log (in progress): one line, no dead-end panel */}
+      {/* The Log: phase one is live, browser-local */}
       <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
         <div className="sos-container" style={{ paddingTop: "40px", paddingBottom: "80px" }}>
           <p className="sos-kicker" style={{ marginBottom: "12px" }}>
-            Next · The Log
+            New · The Log
           </p>
-          <p className="sos-prose" style={{ maxWidth: "62ch" }}>
+          <p className="sos-prose" style={{ maxWidth: "62ch", marginBottom: "18px" }}>
             A private tracker for the work itself, from baseline through
             intervention to outcome, exportable as one page for your clinician.
-            In progress. The library stays free either way.
+            It runs in your browser and nowhere else. The library stays free
+            either way.
           </p>
+          <Link href="/log" className="sos-btn sos-btn--ghost" style={{ marginBottom: "8px" }}>
+            Open the Log →
+          </Link>
           {process.env.BUTTONDOWN_API_KEY ? <NewsletterSignup /> : null}
         </div>
       </section>

@@ -31,6 +31,11 @@ const CORE_PAGES: { path: string; label: string; note: string }[] = [
     note: "Licensed providers (labs, telemedicine, compounding pharmacies) ranked on trust criteria only, never pay-to-rank, FTC-disclosed.",
   },
   {
+    path: "/log",
+    label: "The Log",
+    note: "A browser-local n=1 protocol tracker (baseline, prescribed intervention, weekly IIEF-5 items, outcome) with a printable clinician summary. Records a prescriber's regimen; never suggests one.",
+  },
+  {
     path: "/support",
     label: "Get support",
     note: "Priapism (>4hr) rescue ladder by the clock, with the published rescue doses and what the ER actually does to reverse it, plus mental-health and crisis resources.",

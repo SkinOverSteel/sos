@@ -40,6 +40,13 @@ export default function PrivacyPage() {
           responses. Close the tab and it is gone. If you print or save the
           clinician summary, that copy lives on your device, not ours.
         </p>
+        <p className="sos-prose">
+          The Log is the one tool that remembers anything, and it remembers it
+          in your browser&apos;s local storage only. We cannot read it, and it
+          never leaves your device unless you download a backup yourself.
+          Clearing your browser data deletes it; the Delete button on the page
+          does the same.
+        </p>
       </Section>
 
       <Section title="The waitlist, and your email">
