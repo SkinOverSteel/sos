@@ -62,8 +62,6 @@ design:
 - **Ranking never reads affiliate status.** See `trustScore` in
   `src/lib/providers.ts`.
 
-Current program status and application history live in `CLAUDE.md`.
-
 ## Notes
 
 - This project uses Next.js 16 — see `AGENTS.md`; check the bundled docs in

@@ -1,11 +1,9 @@
 # Skin Over Steel (SOS) — Project Brief
 
 Men's sexual health platform: evidence-graded education + pseudonymous community
-+ a protocol-tracking utility app. Heritage: private bodybuilding forum culture
-circa 2004 (structured n=1 logs, earned reputation, private sections), rebuilt
-as a modern, cost-effective web application. Domain target: skinoversteel.com
-(NOTE: as of Jul 2026 the domain was listed for sale on GoDaddy — verify
-ownership before shipping anything public).
++ a protocol-tracking utility app. Model: the best of private forum culture
+(structured n=1 logs, earned reputation, private sections) as a modern,
+cost-effective web application. Live at skinoversteel.com.
 
 ## Positioning (the spine — do not drift from this)
 
@@ -17,7 +15,7 @@ ownership before shipping anything public).
 
 ## Hard content lines (enforce in code, seeds, moderation, and copy)
 
-1. Harm reduction, not DIY (repositioned 2026-08-30, PR #4). For SUPERVISED
+1. Harm reduction, not DIY. For SUPERVISED
    prescription therapies (trimix, PDE5, TRT) we publish the dosing and
    reversal numbers a competent program already prints on its patient
    handout, framed as literacy and cited to that source; titration, first
@@ -111,7 +109,6 @@ that later converts to transparent referral revenue. Reducing harm IS the funnel
   compounding pharmacies, and telemedicine (the legitimate Rx channel). FTC
   disclosure required; a paid relationship can NEVER move an evidence grade or a
   ranking. Gate every listing on legitimacy (licensed, prescription-based).
-  See sibling model in american-peptide affiliate notes.
 - **Drug-tier guardrail (critical — differentiate by legal status):**
   - Trimix = legitimately compounded Rx (alprostadil/papaverine/phentolamine).
     OK for education + licensed-pharmacy/telemed referral.
@@ -121,15 +118,18 @@ that later converts to transparent referral revenue. Reducing harm IS the funnel
   - Retatrutide = INVESTIGATIONAL (Lilly, Phase 3), NOT FDA-approved and NOT
     lawfully compoundable. EDUCATION-ONLY, EMERGING/ANECDOTE grade, explicit
     "no legitimate pharmacy channel exists" warning. Do NOT build buy/referral
-    flows for it. Revisit only if it earns approval. (Verify status at build
-    time — investigational status changes.)
+    flows for it. Revisit only if it earns approval; verify current status
+    whenever it comes up.
 
-## Build phases (cost-effective path)
+## Stack and roadmap
 
-Original brief suggested: 1) Open Floor static (Astro/Eleventy), 2) self-hosted
-Discourse community, 3) The Log app (SvelteKit or Next + Postgres/Supabase).
-Current implementation: unified on **Next.js 16** (App Router) so the static
-Open Floor (SSG) and the later Log app share one stack/repo. See AGENTS.md.
+One repo, one stack: **Next.js 16** (App Router) on Vercel. The Open Floor is
+statically generated; The Log and community features ship in the same app so
+they share tokens, components, and the article data. See AGENTS.md.
+
+Shipped: Open Floor library, tools, /support, /methodology, provider directory.
+Next: The Log (private, browser-first tracker with clinician export), then a
+named clinician reviewer on every article, then the Vault membership.
 
 ## Repo conventions
 
