@@ -4,6 +4,7 @@ import { useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { LogTrend, type TrendPoint } from "@/components/LogTrend";
 import {
   CONFIDENCE_ANCHORS,
   FIRMNESS_ANCHORS,
@@ -261,6 +262,30 @@ export function LogTool() {
   const info = iv ? INTERVENTIONS[iv.category] : null;
   const stage = log.outcome ? "Closed" : iv ? "Active" : "Baseline";
   const sorted = [...log.checkins].sort((a, b) => a.date.localeCompare(b.date));
+  const trend = (pick: (c: CheckIn) => number): TrendPoint[] =>
+    sorted.map((c) => ({ week: weekOf(log, c.date), value: pick(c), date: formatDate(c.date) }));
+  const trendBlock =
+    sorted.length >= 2 ? (
+      <div
+        style={{
+          display: "grid",
+          gap: "18px 24px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          margin: "20px 0 4px",
+        }}
+      >
+        <LogTrend
+          title="Hard enough for penetration"
+          points={trend((c) => c.firmness)}
+          anchors={[FIRMNESS_ANCHORS[0], FIRMNESS_ANCHORS[4]]}
+        />
+        <LogTrend
+          title="Confidence"
+          points={trend((c) => c.confidence)}
+          anchors={[CONFIDENCE_ANCHORS[0], CONFIDENCE_ANCHORS[4]]}
+        />
+      </div>
+    ) : null;
   const canAddCheckin = Boolean(iv && ciFirm && ciConf);
 
   function setBaseline(patch: Partial<Log["baseline"]>) {
@@ -586,6 +611,7 @@ export function LogTool() {
               Add check-in
             </button>
 
+            {trendBlock}
             {sorted.length > 0 && (
               <table
                 style={{
@@ -787,6 +813,7 @@ export function LogTool() {
             <p className="sos-letterhead__legend-title" style={{ margin: "16px 0 8px" }}>
               Weekly check-ins ({sorted.length})
             </p>
+            {trendBlock}
             {sorted.length ? (
               <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "var(--sos-mono)", fontSize: "12px" }}>
                 <thead>
