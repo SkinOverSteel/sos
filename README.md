@@ -26,6 +26,7 @@ Open <http://localhost:3000>.
 | `npm run start` | Serve the production build                         |
 | `npm run lint`  | Run ESLint                                         |
 | `npm run gsc`   | Google Search Console report (`scripts/gsc-report.mjs`) |
+| `npm run test:e2e` | Playwright browser tests against the production build (`e2e/`) |
 
 ## Repository structure
 
@@ -35,6 +36,8 @@ Open <http://localhost:3000>.
 | `public/`   | Static assets                                       |
 | `brand/`    | Brand assets and design references                  |
 | `scripts/`  | Operational scripts (GSC reporting)                 |
+| `e2e/`      | Playwright browser tests (the Log flow, brand-voice copy lint) |
+| `.github/`  | CI: lint, typecheck, build, browser tests on every PR |
 | `.claude/`  | Claude Code configuration                           |
 | `CLAUDE.md` | Project context for Claude Code                     |
 | `AGENTS.md` | Agent instructions, incl. Next.js 16 conventions    |
