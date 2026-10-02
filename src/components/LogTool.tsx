@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useSyncExternalStore } from "react";
+import { cloneElement, isValidElement, useId, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
@@ -92,14 +92,22 @@ function Field({
 }: {
   label: string;
   hint?: string;
-  children: React.ReactNode;
+  /** A single input, textarea, or select; it receives the label's id. */
+  children: React.ReactElement<{ id?: string; "aria-describedby"?: string }>;
 }) {
+  const id = useId();
+  const hintId = hint ? `${id}-hint` : undefined;
+  const control = isValidElement(children)
+    ? cloneElement(children, { id, "aria-describedby": hintId })
+    : children;
   return (
     <div style={{ marginBottom: "16px" }}>
-      <label className="sos-label">{label}</label>
-      {children}
+      <label className="sos-label" htmlFor={id}>
+        {label}
+      </label>
+      {control}
       {hint && (
-        <p className="sos-note" style={{ marginTop: "6px", fontSize: "13px" }}>
+        <p id={hintId} className="sos-note" style={{ marginTop: "6px", fontSize: "13px" }}>
           {hint}
         </p>
       )}
