@@ -1,0 +1,28 @@
+{
+  "built": "2026-10-03",
+  "region": "Dallas\u2013Fort Worth",
+  "counts": {
+    "trt": 254,
+    "glp1": 2221,
+    "pharmacy": 9,
+    "gym": 101
+  },
+  "sources": [
+    "fda_503b",
+    "npi",
+    "open_payments",
+    "osm"
+  ],
+  "weights": {
+    "trt": 0.3,
+    "glp1": 0.25,
+    "pharmacy": 0.2,
+    "gym": 0.25
+  },
+  "hexes": {
+    "7": 1029,
+    "8": 2082,
+    "9": 2594
+  },
+  "priced_pois": 0
+}

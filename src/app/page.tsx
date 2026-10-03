@@ -215,6 +215,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Near me: the utility layer. A zip in, the nearest clinics out. */}
+      <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
+        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              justifyContent: "space-between",
+              gap: "12px",
+              flexWrap: "wrap",
+              marginBottom: "20px",
+            }}
+          >
+            <h2 className="sos-h2">Near me · Dallas–Fort Worth</h2>
+            <Link
+              href="/map"
+              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
+            >
+              See the whole map →
+            </Link>
+          </div>
+          <p className="sos-prose" style={{ maxWidth: "62ch", marginBottom: "18px" }}>
+            Who treats this near you: testosterone clinics, GLP-1 prescribers,
+            licensed compounding pharmacies, and the gyms where people actually
+            lift, ranked by distance from your zip, with the prices members
+            report paying. Built from public registries. Businesses only.
+          </p>
+          <form action="/near-me" method="get" style={{ display: "flex", gap: "10px", alignItems: "flex-end", flexWrap: "wrap" }}>
+            <div style={{ flex: "1 1 160px", maxWidth: "220px" }}>
+              <label className="sos-label" htmlFor="home-zip">Zip code</label>
+              <input id="home-zip" name="zip" className="sos-field" inputMode="numeric" pattern="[0-9]{5}" maxLength={5} placeholder="75201" autoComplete="postal-code" />
+            </div>
+            <button type="submit" className="sos-btn sos-btn--primary" style={{ border: 0, cursor: "pointer" }}>
+              Find
+            </button>
+          </form>
+        </div>
+      </section>
+
       {/* The standard: how every claim is graded (claim, then proof) */}
       <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
         <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
