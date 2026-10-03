@@ -16,6 +16,12 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  # Near Me data shards live in Vercel Blob (public), not the repo; the build
+  # reads the per-state POI shards from here and the browser tests fetch the
+  # hex layers from it. See README "Near Me data".
+  NEXT_PUBLIC_NEARME_DATA_BASE: https://vkjdtmbzzqg4pfot.public.blob.vercel-storage.com/data/nearme
+
 jobs:
   check:
     name: Lint, typecheck, build
