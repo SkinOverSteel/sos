@@ -62,12 +62,17 @@ def main():
             if "pr" in p:
                 prices[(p["c"], p["k"])].append((p["pr"]["low"] + p["pr"]["high"]) / 2)
 
+    # Idempotent within a quarter: re-running replaces this quarter's rows.
     ts = os.path.join(SNAP, "timeseries.csv")
-    new = not os.path.exists(ts)
-    with open(ts, "a", newline="") as f:
+    header = ["quarter", "city", "kind", "total", "opened", "closed", "median_monthly_usd", "priced_n"]
+    kept = []
+    if os.path.exists(ts):
+        with open(ts, newline="") as f:
+            kept = [r for r in csv.reader(f) if r and r[0] != "quarter" and r[0] != q]
+    with open(ts, "w", newline="") as f:
         w = csv.writer(f)
-        if new:
-            w.writerow(["quarter", "city", "kind", "total", "opened", "closed", "median_monthly_usd", "priced_n"])
+        w.writerow(header)
+        w.writerows(kept)
         for (city, kind) in sorted(set(total) | set(closed)):
             pr = sorted(prices.get((city, kind), []))
             med = pr[len(pr) // 2] if pr else ""

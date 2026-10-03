@@ -33,6 +33,8 @@ function isInstrumentSurface(path: string): boolean {
 }
 
 test("every page keeps the brand voice and the support link", async ({ page, request }) => {
+  // One test walks every URL in the sitemap (180+ with the city pages).
+  test.setTimeout(300_000);
   const xml = await (await request.get("/sitemap.xml")).text();
   const paths = [...xml.matchAll(/<loc>https?:\/\/[^/]+(\/[^<]*)?<\/loc>/g)].map((m) => m[1] || "/");
   expect(paths.length).toBeGreaterThan(40);

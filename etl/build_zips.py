@@ -18,7 +18,7 @@ def fetch(z):
         lat, lon = float(p["latitude"]), float(p["longitude"])
         if not in_bbox(lat, lon):
             return None
-        return (f"{z:05d}", p["place name"], lat, lon)
+        return (f"{z:05d}", p["place name"].replace("Mc Kinney", "McKinney").replace("De Soto", "DeSoto"), lat, lon)
     except Exception:
         return None
 

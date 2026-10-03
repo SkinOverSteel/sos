@@ -43,6 +43,18 @@ RESOLUTIONS = (7, 8, 9)
 MIN_CONFIDENCE = 0.3
 
 
+_ZIP_CITY: dict[str, str] | None = None
+
+
+def canonical_city(zip5: str, fallback: str) -> str:
+    """Registries spell cities freely (Ft Worth, Mckiney, Grand Prarie). The
+    zip table's city is the canonical label whenever the zip is known."""
+    global _ZIP_CITY
+    if _ZIP_CITY is None:
+        _ZIP_CITY = {r["zip"]: r["city"] for r in read_seed_csv("dfw_zips.csv")}
+    return _ZIP_CITY.get(zip5, fallback)
+
+
 def load_pois() -> list[dict]:
     rows: dict[str, dict] = {}
     for path in sorted(glob.glob(os.path.join(OUT_DIR, "pois.*.jsonl"))):
@@ -51,6 +63,7 @@ def load_pois() -> list[dict]:
         for r in read_jsonl(path):
             if r["kind"] not in KINDS or r["confidence"] < MIN_CONFIDENCE or not in_bbox(r["lat"], r["lon"]):
                 continue
+            r["city"] = canonical_city(r["zip"], r["city"])
             prev = rows.get(r["id"])
             if prev is None or prev["confidence"] < r["confidence"]:
                 rows[r["id"]] = r
