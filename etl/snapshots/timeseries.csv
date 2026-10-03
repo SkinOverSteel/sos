@@ -1,0 +1,144 @@
+quarter,city,kind,total,opened,closed,median_monthly_usd,priced_n
+2026-Q4,Addison,glp1,8,,0,,0
+2026-Q4,Addison,gym,1,,0,,0
+2026-Q4,Addison,pharmacy,1,,0,,0
+2026-Q4,Addison,trt,3,,0,,0
+2026-Q4,Allen,glp1,40,,0,,0
+2026-Q4,Allen,gym,1,,0,,0
+2026-Q4,Allen,trt,3,,0,,0
+2026-Q4,Anna,glp1,1,,0,,0
+2026-Q4,Anna,trt,1,,0,,0
+2026-Q4,Argyle,glp1,5,,0,,0
+2026-Q4,Argyle,gym,1,,0,,0
+2026-Q4,Arlington,glp1,118,,0,,0
+2026-Q4,Arlington,gym,3,,0,,0
+2026-Q4,Arlington,trt,14,,0,,0
+2026-Q4,Aubrey,glp1,7,,0,,0
+2026-Q4,Azle,glp1,8,,0,,0
+2026-Q4,Bedford,glp1,32,,0,,0
+2026-Q4,Bedford,gym,4,,0,,0
+2026-Q4,Bedford,trt,6,,0,,0
+2026-Q4,Boyd,glp1,2,,0,,0
+2026-Q4,Burleson,glp1,30,,0,,0
+2026-Q4,Burleson,gym,1,,0,,0
+2026-Q4,Burleson,trt,1,,0,,0
+2026-Q4,Caddo Mills,glp1,1,,0,,0
+2026-Q4,Carrollton,glp1,38,,0,,0
+2026-Q4,Carrollton,gym,1,,0,,0
+2026-Q4,Carrollton,trt,7,,0,,0
+2026-Q4,Cedar Hill,glp1,8,,0,,0
+2026-Q4,Cedar Hill,gym,1,,0,,0
+2026-Q4,Celina,glp1,6,,0,,0
+2026-Q4,Colleyville,glp1,12,,0,,0
+2026-Q4,Colleyville,trt,3,,0,,0
+2026-Q4,Coppell,glp1,21,,0,,0
+2026-Q4,Coppell,gym,2,,0,,0
+2026-Q4,Coppell,trt,2,,0,,0
+2026-Q4,Crandall,gym,1,,0,,0
+2026-Q4,Crowley,glp1,9,,0,,0
+2026-Q4,Dallas,glp1,479,,0,,0
+2026-Q4,Dallas,gym,20,,0,,0
+2026-Q4,Dallas,pharmacy,4,,0,,0
+2026-Q4,Dallas,trt,68,,0,,0
+2026-Q4,Decatur,glp1,19,,0,,0
+2026-Q4,Decatur,gym,1,,0,,0
+2026-Q4,Decatur,trt,2,,0,,0
+2026-Q4,Denton,glp1,55,,0,,0
+2026-Q4,Denton,gym,4,,0,,0
+2026-Q4,Denton,trt,5,,0,,0
+2026-Q4,Desoto,glp1,21,,0,,0
+2026-Q4,Desoto,trt,1,,0,,0
+2026-Q4,Duncanville,glp1,15,,0,,0
+2026-Q4,Duncanville,trt,5,,0,,0
+2026-Q4,Euless,glp1,4,,0,,0
+2026-Q4,Euless,gym,1,,0,,0
+2026-Q4,Euless,trt,2,,0,,0
+2026-Q4,Farmersville,gym,1,,0,,0
+2026-Q4,Flower Mound,glp1,30,,0,,0
+2026-Q4,Flower Mound,gym,3,,0,,0
+2026-Q4,Flower Mound,trt,4,,0,,0
+2026-Q4,Forney,glp1,17,,0,,0
+2026-Q4,Forney,gym,1,,0,,0
+2026-Q4,Fort Worth,glp1,256,,0,,0
+2026-Q4,Fort Worth,gym,4,,0,,0
+2026-Q4,Fort Worth,trt,33,,0,,0
+2026-Q4,Frisco,glp1,103,,0,,0
+2026-Q4,Frisco,gym,10,,0,,0
+2026-Q4,Frisco,trt,8,,0,,0
+2026-Q4,Garland,glp1,46,,0,,0
+2026-Q4,Garland,gym,2,,0,,0
+2026-Q4,Garland,trt,3,,0,,0
+2026-Q4,Godley,glp1,1,,0,,0
+2026-Q4,Grand Prairie,glp1,32,,0,,0
+2026-Q4,Grand Prairie,gym,1,,0,,0
+2026-Q4,Grand Prairie,trt,4,,0,,0
+2026-Q4,Grapevine,glp1,28,,0,,0
+2026-Q4,Grapevine,gym,2,,0,,0
+2026-Q4,Grapevine,trt,3,,0,,0
+2026-Q4,Haltom City,glp1,2,,0,,0
+2026-Q4,Haslet,glp1,1,,0,,0
+2026-Q4,Hurst,glp1,11,,0,,0
+2026-Q4,Hurst,gym,3,,0,,0
+2026-Q4,Hurst,trt,1,,0,,0
+2026-Q4,Irving,glp1,73,,0,,0
+2026-Q4,Irving,gym,1,,0,,0
+2026-Q4,Irving,pharmacy,2,,0,,0
+2026-Q4,Irving,trt,14,,0,,0
+2026-Q4,Joshua,glp1,2,,0,,0
+2026-Q4,Joshua,gym,1,,0,,0
+2026-Q4,Justin,glp1,2,,0,,0
+2026-Q4,Kaufman,glp1,6,,0,,0
+2026-Q4,Keller,glp1,46,,0,,0
+2026-Q4,Keller,trt,2,,0,,0
+2026-Q4,Lake Dallas,glp1,2,,0,,0
+2026-Q4,Lancaster,glp1,2,,0,,0
+2026-Q4,Lewisville,glp1,31,,0,,0
+2026-Q4,Lewisville,trt,1,,0,,0
+2026-Q4,Little Elm,glp1,5,,0,,0
+2026-Q4,Mansfield,glp1,53,,0,,0
+2026-Q4,Mansfield,trt,5,,0,,0
+2026-Q4,McKinney,glp1,78,,0,,0
+2026-Q4,McKinney,gym,1,,0,,0
+2026-Q4,McKinney,pharmacy,1,,0,,0
+2026-Q4,McKinney,trt,7,,0,,0
+2026-Q4,Mckinney,glp1,4,,0,,0
+2026-Q4,Mckinney,gym,2,,0,,0
+2026-Q4,Melissa,glp1,4,,0,,0
+2026-Q4,Mesquite,glp1,55,,0,,0
+2026-Q4,Mesquite,gym,1,,0,,0
+2026-Q4,Mesquite,trt,5,,0,,0
+2026-Q4,Midlothian,glp1,13,,0,,0
+2026-Q4,Midlothian,trt,1,,0,,0
+2026-Q4,Newark,glp1,1,,0,,0
+2026-Q4,North Richland Hills,glp1,21,,0,,0
+2026-Q4,North Richland Hills,trt,1,,0,,0
+2026-Q4,Plano,glp1,196,,0,,0
+2026-Q4,Plano,gym,9,,0,,0
+2026-Q4,Plano,trt,31,,0,,0
+2026-Q4,Prosper,glp1,16,,0,,0
+2026-Q4,Prosper,gym,1,,0,,0
+2026-Q4,Prosper,trt,1,,0,,0
+2026-Q4,Red Oak,glp1,4,,0,,0
+2026-Q4,Rhome,glp1,1,,0,,0
+2026-Q4,Richardson,glp1,56,,0,,0
+2026-Q4,Richardson,gym,6,,0,,0
+2026-Q4,Richardson,trt,4,,0,,0
+2026-Q4,Roanoke,glp1,9,,0,,0
+2026-Q4,Roanoke,gym,3,,0,,0
+2026-Q4,Rockwall,glp1,41,,0,,0
+2026-Q4,Rockwall,gym,2,,0,,0
+2026-Q4,Rockwall,trt,2,,0,,0
+2026-Q4,Rowlett,glp1,16,,0,,0
+2026-Q4,Royse City,glp1,3,,0,,0
+2026-Q4,Royse City,gym,1,,0,,0
+2026-Q4,Sachse,glp1,7,,0,,0
+2026-Q4,Seagoville,glp1,1,,0,,0
+2026-Q4,Southlake,glp1,22,,0,,0
+2026-Q4,Southlake,gym,3,,0,,0
+2026-Q4,Southlake,pharmacy,1,,0,,0
+2026-Q4,Southlake,trt,4,,0,,0
+2026-Q4,Sunnyvale,glp1,7,,0,,0
+2026-Q4,Terrell,glp1,2,,0,,0
+2026-Q4,The Colony,glp1,11,,0,,0
+2026-Q4,Wylie,glp1,9,,0,,0
+2026-Q4,Wylie,gym,1,,0,,0

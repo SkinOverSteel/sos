@@ -1,0 +1,149 @@
+"""
+"Serious" gyms in DFW: CrossFit boxes, powerlifting / strongman / barbell
+clubs, boutique strength studios. Big-box chains are filtered out (they are a
+different signal and are everywhere).
+
+Sources:
+1. OpenStreetMap via Overpass (leisure=fitness_centre / sport=*), when
+   reachable. Set OVERPASS_URL to a mirror if the default is blocked.
+2. Nominatim keyword search in the DFW bbox (always available, lower recall).
+3. Google Places Text Search when GOOGLE_PLACES_KEY is set (best recall;
+   results are cached and only name/address/geometry/types are kept, per the
+   Places ToS - no reviews or photos are stored).
+"""
+from __future__ import annotations
+
+import os
+import re
+import sys
+import time
+import requests
+from common import DFW_BBOX, POI, in_bbox, write_jsonl
+
+UA = {"User-Agent": "skinoversteel-nearme-etl/0.1 (hello@skinoversteel.com)"}
+SERIOUS = re.compile(r"\b(crossfit|powerlifting|barbell|strength|strongman|weightlifting|iron|lifting|athletic|performance|f45|orangetheory|ot[fF]|kettlebell|hyrox|bodybuilding|metroflex)\b", re.I)
+BIG_BOX = re.compile(r"\b(planet fitness|la fitness|24 hour|anytime fitness|lifetime|life time|equinox|gold'?s gym|ymca|snap fitness|crunch|eos|fitness connection|texas family fitness)\b", re.I)
+KEYWORDS = ["crossfit", "powerlifting", "barbell club", "strength gym", "strongman", "weightlifting", "kettlebell", "metroflex"]
+
+
+def classify(name: str, osm_class: str = "") -> list[str] | None:
+    """Tags for a gym we keep, or None. Big-box chains are dropped. A name
+    keyword (CrossFit, barbell, strength...) marks it "serious"; an
+    independent fitness centre with no keyword is kept as "independent" at
+    lower confidence so boutique strength studios are not lost."""
+    if BIG_BOX.search(name):
+        return None
+    tags = [m.lower() for m in SERIOUS.findall(name)]
+    if tags:
+        return tags
+    if osm_class == "fitness_centre" and not re.search(r"\b(yoga|pilates|barre|cycle|cycling|spin|dance|zumba|swim|aquatic|martial|karate|taekwondo|jiu|boxing|mma|climb|physical therapy|rehab)\b", name, re.I):
+        return ["independent"]
+    return None
+
+
+def overpass(s):
+    url = os.environ.get("OVERPASS_URL", "https://overpass-api.de/api/interpreter")
+    b = DFW_BBOX
+    q = f"""[out:json][timeout:120];
+    ( nwr["leisure"="fitness_centre"]({b['south']},{b['west']},{b['north']},{b['east']});
+      nwr["sport"~"crossfit|weightlifting|powerlifting|fitness"]({b['south']},{b['west']},{b['north']},{b['east']}); );
+    out center tags;"""
+    try:
+        r = s.post(url, data={"data": q}, headers=UA, timeout=180)
+        r.raise_for_status()
+        for el in r.json().get("elements", []):
+            t = el.get("tags", {})
+            name = t.get("name")
+            if not name:
+                continue
+            tags = classify(name + " " + t.get("sport", ""), t.get("leisure", ""))
+            if not tags:
+                continue
+            lat = el.get("lat") or el.get("center", {}).get("lat")
+            lon = el.get("lon") or el.get("center", {}).get("lon")
+            yield POI(kind="gym", name=name,
+                      address=" ".join(filter(None, [t.get("addr:housenumber"), t.get("addr:street")])),
+                      city=t.get("addr:city", ""), state="TX", zip=t.get("addr:postcode", "")[:5],
+                      lat=lat, lon=lon, source="osm", source_id=f"{el['type']}/{el['id']}", tags=tags, confidence=0.7)
+    except Exception as e:  # noqa: BLE001
+        print(f"[gyms] overpass unavailable ({e.__class__.__name__}); falling back to Nominatim", file=sys.stderr)
+
+
+def tiles(n=4):
+    b = DFW_BBOX
+    for i in range(n):
+        for j in range(n):
+            w = b["west"] + (b["east"] - b["west"]) * i / n
+            e = b["west"] + (b["east"] - b["west"]) * (i + 1) / n
+            so = b["south"] + (b["north"] - b["south"]) * j / n
+            no = b["south"] + (b["north"] - b["south"]) * (j + 1) / n
+            yield f"{w},{no},{e},{so}"
+
+
+def nominatim(s):
+    """Nominatim caps at 50 results per query, so the bbox is tiled 4x4 and
+    each tile is searched for the fitness-centre class and the keywords."""
+    seen = set()
+    for kw in ["gym", "fitness", *KEYWORDS]:
+      for vb in tiles():
+        time.sleep(1.1)
+        try:
+            r = s.get("https://nominatim.openstreetmap.org/search",
+                      params={"q": kw, "viewbox": vb, "bounded": 1,
+                              "format": "jsonv2", "limit": 50, "addressdetails": 1}, headers=UA, timeout=60)
+            hits = r.json() if r.ok else []
+        except Exception:
+            hits = []
+        for h in hits:
+            if h["osm_id"] in seen:
+                continue
+            seen.add(h["osm_id"])
+            name = h.get("name") or h["display_name"].split(",")[0]
+            tags = classify(name, h.get("type", ""))
+            if not tags:
+                continue
+            a = h.get("address", {})
+            yield POI(kind="gym", name=name,
+                      address=" ".join(filter(None, [a.get("house_number"), a.get("road")])),
+                      city=a.get("city") or a.get("town") or a.get("suburb") or "", state="TX",
+                      zip=a.get("postcode", "")[:5], lat=float(h["lat"]), lon=float(h["lon"]),
+                      source="osm", source_id=f"{h['osm_type']}/{h['osm_id']}", tags=tags,
+                      confidence=0.45 if tags == ["independent"] else 0.65)
+
+
+def google_places(s):
+    key = os.environ.get("GOOGLE_PLACES_KEY")
+    if not key:
+        return
+    for city in ["Dallas", "Fort Worth", "Plano", "Frisco", "Arlington", "Denton", "McKinney", "Irving"]:
+        for kw in ["crossfit", "powerlifting gym", "strength training gym"]:
+            r = s.post("https://places.googleapis.com/v1/places:searchText",
+                       headers={"X-Goog-Api-Key": key, "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.location,places.types"},
+                       json={"textQuery": f"{kw} in {city} TX", "maxResultCount": 20}, timeout=60)
+            for p in r.json().get("places", []) if r.ok else []:
+                name = p["displayName"]["text"]
+                tags = classify(name)
+                if not tags:
+                    continue
+                parts = [x.strip() for x in p.get("formattedAddress", "").split(",")]
+                zip5 = re.search(r"\b(7[56]\d{3})\b", p.get("formattedAddress", ""))
+                yield POI(kind="gym", name=name, address=parts[0] if parts else "", city=parts[1] if len(parts) > 1 else city,
+                          state="TX", zip=zip5.group(1) if zip5 else "", lat=p["location"]["latitude"], lon=p["location"]["longitude"],
+                          source="google_places", source_id=p["id"], tags=tags, confidence=0.8)
+            time.sleep(0.3)
+
+
+def run():
+    s = requests.Session()
+    out: dict[str, POI] = {}
+    for src in (overpass(s), nominatim(s), google_places(s)):
+        for p in src:
+            if in_bbox(p.lat, p.lon):
+                p.finalize()
+                if p.id not in out or out[p.id].confidence < p.confidence:
+                    out[p.id] = p
+    write_jsonl(out.values(), "gyms")
+
+
+if __name__ == "__main__":
+    run()

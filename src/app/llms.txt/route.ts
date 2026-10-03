@@ -31,6 +31,11 @@ const CORE_PAGES: { path: string; label: string; note: string }[] = [
     note: "Licensed providers (labs, telemedicine, compounding pharmacies) ranked on trust criteria only, never pay-to-rank, FTC-disclosed.",
   },
   {
+    path: "/near-me",
+    label: "Near me",
+    note: "Zip lookup of the nearest TRT clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms in Dallas–Fort Worth, with member-reported price ranges. Businesses only, from public registries; methodology at /near-me/methodology; hex map at /map.",
+  },
+  {
     path: "/log",
     label: "The Log",
     note: "A browser-local n=1 protocol tracker (baseline, prescribed intervention, weekly IIEF-5 items, outcome) with a printable clinician summary. Records a prescriber's regimen; never suggests one.",
