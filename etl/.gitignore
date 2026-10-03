@@ -2,3 +2,4 @@ out/
 *.log
 __pycache__/
 snapshots/*/pois.jsonl
+cache/

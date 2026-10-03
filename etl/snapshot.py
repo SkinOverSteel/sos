@@ -38,7 +38,7 @@ def main():
     if not os.path.exists(merged):
         sys.exit("run aggregate_h3.py first")
     shutil.copy(merged, os.path.join(dest, "pois.jsonl"))
-    for n in ("cities.json", "meta.json"):
+    for n in ("cities.json", "meta.json", "metros.json", "states.json"):
         shutil.copy(os.path.join(SRC, n), os.path.join(dest, n))
 
     cur = {r["id"]: r for r in read_jsonl(merged)}
@@ -49,22 +49,24 @@ def main():
 
     opened = Counter(); closed = Counter(); total = Counter()
     for pid, r in cur.items():
-        total[(r["city"], r["kind"])] += 1
+        total[(r["state"], r["city"], r["kind"])] += 1
         if pid not in prev:
-            opened[(r["city"], r["kind"])] += 1
+            opened[(r["state"], r["city"], r["kind"])] += 1
     for pid, r in prev.items():
         if pid not in cur:
-            closed[(r["city"], r["kind"])] += 1
+            closed[(r["state"], r["city"], r["kind"])] += 1
 
     prices = defaultdict(list)
-    with open(os.path.join(SRC, "pois.json")) as f:
-        for p in json.load(f):
-            if "pr" in p:
-                prices[(p["c"], p["k"])].append((p["pr"]["low"] + p["pr"]["high"]) / 2)
+    import glob
+    for path in glob.glob(os.path.join(ROOT, "public", "data", "nearme", "pois", "*.json")):
+        with open(path) as f:
+            for p in json.load(f):
+                if "pr" in p:
+                    prices[(p["st"], p["c"], p["k"])].append((p["pr"]["low"] + p["pr"]["high"]) / 2)
 
     # Idempotent within a quarter: re-running replaces this quarter's rows.
     ts = os.path.join(SNAP, "timeseries.csv")
-    header = ["quarter", "city", "kind", "total", "opened", "closed", "median_monthly_usd", "priced_n"]
+    header = ["quarter", "state", "city", "kind", "total", "opened", "closed", "median_monthly_usd", "priced_n"]
     kept = []
     if os.path.exists(ts):
         with open(ts, newline="") as f:
@@ -73,10 +75,10 @@ def main():
         w = csv.writer(f)
         w.writerow(header)
         w.writerows(kept)
-        for (city, kind) in sorted(set(total) | set(closed)):
-            pr = sorted(prices.get((city, kind), []))
+        for (st, city, kind) in sorted(set(total) | set(closed)):
+            pr = sorted(prices.get((st, city, kind), []))
             med = pr[len(pr) // 2] if pr else ""
-            w.writerow([q, city, kind, total[(city, kind)], opened[(city, kind)] if prev else "", closed[(city, kind)], med, len(pr)])
+            w.writerow([q, st, city, kind, total[(st, city, kind)], opened[(st, city, kind)] if prev else "", closed[(st, city, kind)], med, len(pr)])
     print(f"[snapshot] {q}: {len(cur)} POIs ({'first snapshot' if not prev else f'{sum(opened.values())} opened / {sum(closed.values())} closed vs {prev_dirs[-1]}'})", file=sys.stderr)
 
 

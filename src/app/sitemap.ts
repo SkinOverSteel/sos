@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { articles } from "@/lib/articles";
 import { liveTools } from "@/lib/tools";
-import { citiesWithPages } from "@/lib/nearme";
+import { citiesWithPages, METROS, STATES } from "@/lib/nearme";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: { path: string; priority: number }[] = [
@@ -39,13 +39,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const regionEntries = [...METROS.map((m) => m.slug), ...STATES.map((s) => s.slug)].map((slug) => ({
+    url: `${SITE.url}/map/${slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const cityEntries = (["trt", "glp1"] as const).flatMap((kind) =>
     citiesWithPages(kind).map((c) => ({
-      url: `${SITE.url}/${kind}/${c.slug}`,
+      url: `${SITE.url}/${kind}/${c.state.toLowerCase()}/${c.slug}`,
       changeFrequency: "monthly" as const,
-      priority: 0.6,
+      priority: 0.5,
     })),
   );
 
-  return [...staticEntries, ...articleEntries, ...toolEntries, ...cityEntries];
+  return [...staticEntries, ...articleEntries, ...toolEntries, ...regionEntries, ...cityEntries];
 }

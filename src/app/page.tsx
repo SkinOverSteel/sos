@@ -228,7 +228,7 @@ export default function Home() {
               marginBottom: "20px",
             }}
           >
-            <h2 className="sos-h2">Near me · Dallas–Fort Worth</h2>
+            <h2 className="sos-h2">Near me · every US zip</h2>
             <Link
               href="/map"
               style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
@@ -240,7 +240,8 @@ export default function Home() {
             Who treats this near you: testosterone clinics, GLP-1 prescribers,
             licensed compounding pharmacies, and the gyms where people actually
             lift, ranked by distance from your zip, with the prices members
-            report paying. Built from public registries. Businesses only.
+            report paying. Every state from public registries, twenty metros at
+            street scale. Businesses only.
           </p>
           <form action="/near-me" method="get" style={{ display: "flex", gap: "10px", alignItems: "flex-end", flexWrap: "wrap" }}>
             <div style={{ flex: "1 1 160px", maxWidth: "220px" }}>

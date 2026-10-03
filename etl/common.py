@@ -27,14 +27,12 @@ from typing import Iterable, Iterator
 OUT_DIR = os.path.join(os.path.dirname(__file__), "out")
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
-# DFW MSA working bounding box (lat/lon). Generous on purpose; the hex
-# aggregation clips to the county list below.
-DFW_BBOX = {"south": 32.45, "north": 33.35, "west": -97.60, "east": -96.20}
+from regions import METRO_BY_SLUG, STATES, US_BBOX  # noqa: E402
 
-# Dallas–Fort Worth–Arlington core counties.
-DFW_COUNTIES = ["Dallas", "Tarrant", "Collin", "Denton", "Rockwall", "Kaufman", "Ellis", "Johnson", "Parker"]
+# Kept for the per-metro API fallback in fetch_npi.py (--metro dfw).
+DFW_BBOX = METRO_BY_SLUG["dfw"].bbox
 
-# Cities used for programmatic pages and NPI city-scoped queries.
+# Cities used for the NPI API fallback path (per-metro queries).
 DFW_CITIES = [
     "Dallas", "Fort Worth", "Arlington", "Plano", "Irving", "Garland", "Frisco",
     "McKinney", "Grand Prairie", "Denton", "Mesquite", "Carrollton", "Richardson",
@@ -70,7 +68,7 @@ class POI:
         self.name = re.sub(r"\s+", " ", (self.name or "")).strip()
         self.address = re.sub(r"\s+", " ", (self.address or "")).strip()
         self.city = (self.city or "").strip().title()
-        self.state = (self.state or "TX").upper()
+        self.state = (self.state or "").upper()[:2]
         if not self.fetched_at:
             self.fetched_at = time.strftime("%Y-%m-%d")
         key = f"{self.kind}|{self.name.lower()}|{self.address.lower()}|{self.zip}"
@@ -78,10 +76,11 @@ class POI:
         return self
 
 
-def in_bbox(lat: float | None, lon: float | None) -> bool:
+def in_bbox(lat: float | None, lon: float | None, bbox: dict | None = None) -> bool:
+    """Inside the given box (default: the whole US)."""
     if lat is None or lon is None:
         return False
-    b = DFW_BBOX
+    b = bbox or US_BBOX
     return b["south"] <= lat <= b["north"] and b["west"] <= lon <= b["east"]
 
 
@@ -116,17 +115,28 @@ def read_seed_csv(name: str) -> Iterator[dict]:
 
 # ---- geocoding -------------------------------------------------------------
 
-_ZIP_CACHE: dict[str, tuple[float, float]] | None = None
+_ZIP_CACHE: dict[str, tuple[float, float, str, str]] | None = None
 
 
-def zip_centroid(zip5: str) -> tuple[float, float] | None:
-    """ZIP → (lat, lon) from etl/data/dfw_zips.csv (ZCTA centroids)."""
+def _zips() -> dict[str, tuple[float, float, str, str]]:
     global _ZIP_CACHE
     if _ZIP_CACHE is None:
         _ZIP_CACHE = {}
-        for row in read_seed_csv("dfw_zips.csv"):
-            _ZIP_CACHE[row["zip"]] = (float(row["lat"]), float(row["lon"]))
-    return _ZIP_CACHE.get(zip5[:5])
+        for row in read_seed_csv("us_zips.csv"):
+            _ZIP_CACHE[row["zip"]] = (float(row["lat"]), float(row["lon"]), row["city"], row["state"])
+    return _ZIP_CACHE
+
+
+def zip_centroid(zip5: str) -> tuple[float, float] | None:
+    """ZIP → (lat, lon) from etl/data/us_zips.csv (Census ZCTA / GeoNames)."""
+    hit = _zips().get((zip5 or "")[:5])
+    return (hit[0], hit[1]) if hit else None
+
+
+def zip_city(zip5: str) -> tuple[str, str] | None:
+    """ZIP → (canonical city, state)."""
+    hit = _zips().get((zip5 or "")[:5])
+    return (hit[2], hit[3]) if hit else None
 
 
 def geocode_cache_path() -> str:

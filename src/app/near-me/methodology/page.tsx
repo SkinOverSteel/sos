@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { KINDS, KIND_SHORT, META } from "@/lib/nearme";
+import { KINDS, KIND_SHORT, META, METROS } from "@/lib/nearme";
 
 export const metadata: Metadata = {
   title: "Near me: how the map is built",
@@ -23,26 +23,26 @@ const jsonLd = {
 const SOURCES: { layer: string; source: string; keep: string; drop: string }[] = [
   {
     layer: "TRT clinics",
-    source: "NPI registry (NPPES): endocrinology 207RE0101X, urology 208U00000X, preventive medicine 2083X0100X; family and internal medicine only on a name-keyword hit (testosterone, hormone, low T, men's health, andropause, anti-aging, longevity).",
+    source: "NPI registry, monthly NPPES file, all states: endocrinology 207RE0101X, urology 208U00000X, preventive medicine 2083X0100X; family and internal medicine only on a name-keyword hit (testosterone, hormone, low T, men's health, andropause, anti-aging, longevity). Deactivated NPIs skipped.",
     keep: "Practice-location address, organization name, taxonomy codes.",
     drop: "Individual practitioners' names (a solo office is labelled by specialty only), mailing addresses, phone numbers.",
   },
   {
     layer: "GLP-1 prescribers",
-    source: "NPI obesity medicine 207RB0002X and weight-loss name keywords; CMS Open Payments general payments from Novo Nordisk and Eli Lilly tied to Ozempic, Wegovy, Mounjaro, Zepbound, Rybelsus, Saxenda, Victoza.",
+    source: "NPI obesity medicine 207RB0002X and weight-loss name keywords; CMS Open Payments general payments from Novo Nordisk and Eli Lilly tied to Ozempic, Wegovy, Mounjaro, Zepbound, Rybelsus, Saxenda, Victoza, grouped to distinct business addresses per state.",
     keep: "Practice address, specialty.",
     drop: "Recipient name, NPI, payment amounts, payment nature.",
   },
   {
     layer: "Compounding pharmacies",
-    source: "Texas State Board of Pharmacy license verification (503A), FDA registered outsourcing facilities (503B), OpenStreetMap name search for candidates.",
+    source: "FDA registered outsourcing facilities (503B), all states; state boards of pharmacy license exports (503A), one CSV per state as operators add them; OpenStreetMap name search inside metros for candidates.",
     keep: "Name, address, license class.",
     drop: "Nothing hidden: an unlicensed candidate is shown at low confidence, never as licensed.",
   },
   {
     layer: "Gyms",
-    source: "OpenStreetMap fitness centres and sport tags; optional Google Places text search.",
-    keep: "Name, address, coordinates, tag words (CrossFit, powerlifting, barbell, strength, strongman).",
+    source: "OpenStreetMap fitness centres and sport tags inside metro boxes; optional Google Places text search.",
+    keep: "Name, address, coordinates, tag words (CrossFit, powerlifting, barbell, strength, strongman; independent fitness centres at lower confidence).",
     drop: "Big-box chains, reviews, photos.",
   },
 ];
@@ -52,14 +52,15 @@ export default function NearMeMethodologyPage() {
     <div className="sos-container">
       <JsonLd data={jsonLd} />
       <p className="sos-kicker" style={{ marginBottom: 14 }}>
-        Near me · <b>methodology</b> · v1 · {META.built}
+        Near me · <b>methodology</b> · v2 · {META.built}
       </p>
       <h1 className="sos-h1" style={{ marginBottom: 18 }}>How the map is built</h1>
 
       <p className="sos-prose" style={{ marginBottom: 28, maxWidth: "64ch" }}>
         A map of businesses that treat, supply, or support men&apos;s metabolic and hormonal
-        health in Dallas–Fort Worth. Each hexagon gets a Metabolic Infrastructure Index from
-        0 to 100. This page is the whole method, stated plainly enough that you can hold us to it.
+        health. Every state is covered by the public registries; {META.metros} metros are also mapped
+        at street scale. Each hexagon gets a Metabolic Infrastructure Index from 0 to 100. This page
+        is the whole method, stated plainly enough that you can hold us to it.
       </p>
 
       <Section title="What it is not">
@@ -75,11 +76,29 @@ export default function NearMeMethodologyPage() {
             <Link href="/directory">directory</Link>, where the trust criteria are published.
           </li>
           <li>
+            <strong>Not a legal opinion.</strong> Compounding, telehealth, and controlled-substance
+            rules differ by state. The pharmacy layer asserts licensure or FDA registration only,
+            never that a particular prescription is lawful in a particular state.
+          </li>
+          <li>
             <strong>Not for housing, lending, or insurance.</strong> The index must not be used in,
             or marketed toward, any decision about a person&apos;s housing, credit, or insurability.
             The data license (CC BY-NC 4.0) and this page say so.
           </li>
         </ul>
+      </Section>
+
+      <Section title="Coverage">
+        <ul className="sos-note" style={{ ...ul, gap: 6 }}>
+          <li><b style={{ color: "var(--sos-text-hi)" }}>National overview</b> · TRT, GLP-1, pharmacy · H3 r4–r5 · scored against the national distribution.</li>
+          <li><b style={{ color: "var(--sos-text-hi)" }}>Every state</b> · the registry layers, plus gyms inside metros · H3 r6–r7 · scored nationally.</li>
+          <li><b style={{ color: "var(--sos-text-hi)" }}>{META.metros} metros</b> · all four layers · H3 r7–r9 · scored against the metro&apos;s own distribution, with the national score alongside.</li>
+        </ul>
+        <p className="sos-note" style={{ marginTop: 10 }}>
+          Metros: {METROS.map((m) => m.name).join(", ")}. The gym layer and the OpenStreetMap
+          pharmacy candidates exist only inside these boxes; outside them the index uses the three
+          registry layers with their weights renormalised, and the hex says so.
+        </p>
       </Section>
 
       <Section title="Sources (public, business-level)">
@@ -94,8 +113,11 @@ export default function NearMeMethodologyPage() {
           ))}
         </div>
         <p className="sos-note" style={{ marginTop: 12 }}>
-          Zips resolve to ZCTA centroids (Zippopotam.us). Street geocoding uses Nominatim under its
-          usage policy, one request per second. Distances are great-circle miles from the zip centroid.
+          Zips resolve to Census ZCTA centroids (2023 Gazetteer), with GeoNames filling names and
+          non-ZCTA zips. Street geocoding uses the Census Bureau batch geocoder; rows it cannot match
+          stay at their zip centroid and are labelled as such wherever they appear. Inside metros,
+          Nominatim fills some gaps under its usage policy. Distances are great-circle miles from the
+          zip centroid.
         </p>
       </Section>
 
@@ -113,18 +135,28 @@ export default function NearMeMethodologyPage() {
 
       <Section title="The index">
         <p className="sos-prose" style={{ fontSize: 16, marginBottom: 12 }}>
-          For each H3 hexagon at resolution 7 (county scale), 8 (metro), and 9 (street), and each
-          layer:
+          For each H3 hexagon and each layer that covers it:
         </p>
         <pre className="sos-note" style={{ background: "var(--sos-e1)", border: "1px solid var(--sos-line)", borderRadius: 8, padding: 14, overflowX: "auto", color: "var(--sos-text-md)" }}>
 {`raw_k  = Σ confidence inside the hex + 0.5 × Σ confidence in the 6 neighbours
-comp_k = min(1, ln(1 + raw_k) / ln(1 + P95_k))     P95 over DFW hexes
-MII    = 100 × (${KINDS.map((k) => `${META.weights[k].toFixed(2)} ${KIND_SHORT[k]}`).join(" + ")})`}
+comp_k = min(1, ln(1 + raw_k) / ln(1 + P95_k))     P95 over the scoring region
+MII    = 100 × Σ w_k·comp_k / Σ w_k                 w: ${KINDS.map((k) => `${KIND_SHORT[k]} ${META.weights[k].toFixed(2)}`).join(", ")}`}
         </pre>
         <p className="sos-note" style={{ marginTop: 10 }}>
-          The log compresses the top so one medical tower does not flatten the rest of the map. The
-          neighbour term smooths single-listing noise. Empty hexes are not drawn. Weights are a
-          published judgment call, revisited each quarter.
+          P95 is taken over the whole country for national and state layers and over the metro
+          itself for metro layers; every hex also carries the nationally scored value. The log
+          compresses the top so one medical tower does not flatten the rest of the map. The neighbour
+          term smooths single-listing noise. Empty hexes are not drawn. Weights are a published
+          judgment call, revisited each quarter.
+        </p>
+      </Section>
+
+      <Section title="Programmatic pages">
+        <p className="sos-prose" style={{ fontSize: 16 }}>
+          A city gets a TRT page only with five or more TRT listings and a GLP-1 page only with eight
+          or more GLP-1 listings. Below that it is reachable through the lookup and the state map but
+          has no page of its own: a page with two rows is noise for readers and search engines alike.
+          Current build: {META.cities_with_pages.trt} TRT city pages, {META.cities_with_pages.glp1} GLP-1 city pages.
         </p>
       </Section>
 
@@ -168,16 +200,17 @@ MII    = 100 × (${KINDS.map((k) => `${META.weights[k].toFixed(2)} ${KIND_SHORT[
           <li>Registries lag; a clinic can close months before NPPES notices.</li>
           <li>Keyword match is exactly that. A wellness clinic&apos;s name is not a workup.</li>
           <li>Open Payments is a prescribing proxy, not a prescribing record.</li>
-          <li>OpenStreetMap gym coverage is uneven; Google Places improves recall where configured.</li>
-          <li>DFW only, for now.</li>
+          <li>State board exports are manual, so 503A coverage grows state by state; until a state&apos;s file exists, its licensed compounders appear only as FDA 503B facilities or OpenStreetMap candidates.</li>
+          <li>The gym layer is metro-only. A state hex&apos;s score outside a metro says nothing about gyms.</li>
+          <li>About one registry row in ten sits at its zip centroid rather than its street; those rows say so.</li>
         </ul>
       </Section>
 
       <p className="sos-note" style={{ marginTop: 32 }}>
-        Current build: {KINDS.map((k) => `${KIND_SHORT[k]} ${META.counts[k]}`).join(" · ")} · hexes r7
-        {" "}{META.hexes["7"]}, r8 {META.hexes["8"]}, r9 {META.hexes["9"]}. Pipeline: standalone Python
-        scripts in the repository&apos;s /etl directory. Hex layers: GeoJSON at /data/nearme/hex-r7,
-        r8, r9 (CC BY-NC 4.0). <Link href="/near-me">Back to the lookup</Link> · <Link href="/map">the map</Link>.
+        Current build: {KINDS.map((k) => `${KIND_SHORT[k]} ${META.counts[k].toLocaleString("en-US")}`).join(" · ")} ·{" "}
+        {META.states} states · {META.metros} metros · {META.geocoded.toLocaleString("en-US")} rows at street level.
+        Pipeline: standalone Python scripts in the repository&apos;s /etl directory. Hex layers: compact JSON
+        under /data/nearme/ (us, states, metros; one row per hex; CC BY-NC 4.0). <Link href="/near-me">Back to the lookup</Link> · <Link href="/map">the map</Link>.
       </p>
     </div>
   );

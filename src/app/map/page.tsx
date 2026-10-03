@@ -1,53 +1,54 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HexMap } from "@/components/nearme/HexMap";
+import { HexMap, US_VIEW } from "@/components/nearme/HexMap";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { CITIES, KINDS, KIND_SHORT, META, miiBand } from "@/lib/nearme";
+import { KINDS, KIND_SHORT, META, METROS, STATES, miiBand } from "@/lib/nearme";
 
 export const metadata: Metadata = {
-  title: "DFW metabolic infrastructure map",
+  title: "US metabolic infrastructure map",
   description:
-    "Dallas–Fort Worth on a hex grid, each cell scored 0–100 by its density of testosterone clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms. Businesses only; public sources; published methodology.",
+    "The United States on a hex grid, each cell scored 0–100 by its density of testosterone clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms. Businesses only; public sources; published methodology. 20 metros at street scale, every state at county scale.",
   alternates: { canonical: "/map" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  name: "Metabolic Infrastructure Index, Dallas–Fort Worth",
+  name: "Metabolic Infrastructure Index, United States",
   url: `${SITE.url}/map`,
   description:
-    "H3 hexagon (resolution 7–9) scores of men's-health and metabolic business density in DFW: TRT clinics, GLP-1 prescribers, 503A/503B compounding pharmacies, strength gyms. Business locations only, no person-level data.",
+    "H3 hexagon scores of men's-health and metabolic business density: TRT clinics, GLP-1 prescribers, 503A/503B compounding pharmacies, strength gyms. Business locations only, no person-level data. National (r4–r5), per state (r6–r7), and per metro (r7–r9) layers.",
   license: "https://creativecommons.org/licenses/by-nc/4.0/",
   creator: { "@id": `${SITE.url}/#org` },
   temporalCoverage: META.built,
-  spatialCoverage: "Dallas–Fort Worth–Arlington, TX",
-  distribution: [7, 8, 9].map((r) => ({
+  spatialCoverage: "United States",
+  distribution: [4, 5].map((r) => ({
     "@type": "DataDownload",
-    encodingFormat: "application/geo+json",
-    contentUrl: `${SITE.url}/data/nearme/hex-r${r}.geojson`,
+    encodingFormat: "application/json",
+    contentUrl: `${SITE.url}/data/nearme/us/hex-r${r}.json`,
   })),
 };
 
 export default function MapPage() {
-  const top = [...CITIES].filter((c) => c.total >= 5).sort((a, b) => b.mii - a.mii).slice(0, 12);
+  const metroLabels = METROS.map((m) => ({ name: m.name.split("–")[0].split(",")[0].replace(/ Bay Area$| Bay$/, ""), lat: (m.bbox.south + m.bbox.north) / 2, lon: (m.bbox.west + m.bbox.east) / 2 }));
+  const topMetros = [...METROS].sort((a, b) => b.mii_us - a.mii_us);
+  const topStates = [...STATES].sort((a, b) => b.total - a.total);
   return (
     <div className="sos-container" style={{ maxWidth: 1040 }}>
       <JsonLd data={jsonLd} />
       <p className="sos-kicker" style={{ marginBottom: 14 }}>
         Map · <b>Metabolic Infrastructure Index</b> · {META.region} · {META.built}
       </p>
-      <h1 className="sos-h1" style={{ marginBottom: 18 }}>
-        Where the infrastructure is
-      </h1>
+      <h1 className="sos-h1" style={{ marginBottom: 18 }}>Where the infrastructure is</h1>
       <p className="sos-prose" style={{ marginBottom: 22, maxWidth: "64ch" }}>
         Every hex is scored 0–100 on the clinics, prescribers, pharmacies, and gyms inside it and
-        next to it. Brighter copper is denser. Zoom in and the grid refines from county-scale to
-        street-scale. It says where the businesses are. It says nothing about who lives there.
+        next to it. Brighter copper is denser. The national view is county-scale; each state and
+        each of the {META.metros} mapped metros has its own finer grid. It says where the businesses
+        are. It says nothing about who lives there.
       </p>
 
-      <HexMap height={600} initialZoom={1.1} />
+      <HexMap region="us" resolutions={[4, 5]} bbox={US_VIEW} labels={metroLabels} height={560} initialZoom={1} national />
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 14, marginTop: 22 }}>
         <div className="sos-card sos-card--deep">
@@ -60,35 +61,35 @@ export default function MapPage() {
               </li>
             ))}
           </ul>
+          <p className="sos-note" style={{ marginTop: 10 }}>
+            Weights: {KINDS.map((k) => `${KIND_SHORT[k]} ${Math.round(META.weights[k] * 100)}%`).join(" · ")}. Outside the mapped metros the gym layer is absent and the other three are reweighted.
+          </p>
         </div>
         <div className="sos-card sos-card--deep">
-          <h2 className="sos-h2" style={{ marginBottom: 10 }}>Weights</h2>
-          <ul className="sos-note" style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 4 }}>
-            {KINDS.map((k) => (
-              <li key={k} style={{ display: "flex", justifyContent: "space-between" }}>
-                <span>{KIND_SHORT[k]}</span>
-                <span style={{ color: "var(--sos-text-hi)" }}>{Math.round(META.weights[k] * 100)}%</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="sos-card sos-card--deep">
-          <h2 className="sos-h2" style={{ marginBottom: 10 }}>Densest cities</h2>
+          <h2 className="sos-h2" style={{ marginBottom: 10 }}>Metros at street scale</h2>
           <ol className="sos-note" style={{ margin: 0, paddingLeft: 18, display: "grid", gap: 3 }}>
-            {top.map((c) => (
-              <li key={c.slug}>
-                <Link href={`/trt/${c.slug}`} style={{ color: "var(--sos-text-md)" }}>{c.city}</Link>{" "}
-                <span style={{ color: "var(--sos-text-lo)" }}>· MII {c.mii}</span>
+            {topMetros.map((m) => (
+              <li key={m.slug}>
+                <Link href={`/map/${m.slug}`} style={{ color: "var(--sos-text-md)" }}>{m.name}</Link>{" "}
+                <span style={{ color: "var(--sos-text-lo)" }}>· MII {m.mii_us}</span>
               </li>
             ))}
           </ol>
         </div>
+        <div className="sos-card sos-card--deep">
+          <h2 className="sos-h2" style={{ marginBottom: 10 }}>States</h2>
+          <p className="sos-note" style={{ display: "flex", flexWrap: "wrap", gap: "4px 10px" }}>
+            {topStates.map((s) => (
+              <Link key={s.state} href={`/map/${s.slug}`} style={{ color: "var(--sos-text-md)" }}>{s.state}</Link>
+            ))}
+          </p>
+        </div>
       </div>
 
       <p className="sos-note" style={{ marginTop: 28 }}>
-        Data: GeoJSON at r7, r8, r9 is{" "}
-        <a href="/data/nearme/hex-r8.geojson">downloadable</a> (CC BY-NC 4.0, attribution to
-        Skin Over Steel). Methodology, sources, and limits:{" "}
+        Data: the national, state, and metro hex layers are{" "}
+        <a href="/data/nearme/us/hex-r5.json">downloadable</a> as compact JSON (H3 index + scores
+        per row; CC BY-NC 4.0, attribution to Skin Over Steel). Methodology, sources, and limits:{" "}
         <Link href="/near-me/methodology">how the map is built</Link>. Not for use in housing,
         lending, or insurance decisions. <Link href="/near-me">Look up a zip</Link>.
       </p>
