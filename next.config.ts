@@ -8,7 +8,9 @@ import path from "node:path";
 // - Fonts are self-hosted via next/font, so no external font origins.
 // - Vercel Analytics loads from va.vercel-scripts.com and posts to
 //   vitals.vercel-insights.com.
-// - No iframes, remote images, external fetches, blobs, or workers are used.
+// - The Near Me data shards (hex layers, POIs, zips) are fetched from Vercel
+//   Blob in production (NEXT_PUBLIC_NEARME_DATA_BASE), hence its host in
+//   connect-src. Nothing else is fetched cross-origin.
 const csp = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -20,7 +22,7 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self' data:",
-  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+  "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com https://*.public.blob.vercel-storage.com",
   "media-src 'self'",
   "manifest-src 'self'",
   "worker-src 'self'",

@@ -72,12 +72,12 @@ export function cityMetadata(kind: PageKind, state: string, slug: string): Metad
   };
 }
 
-export function CityPage({ kind, state, slug }: { kind: PageKind; state: string; slug: string }) {
+export async function CityPage({ kind, state, slug }: { kind: PageKind; state: string; slug: string }) {
   const c = cityBySlug(state, slug);
   if (!c || !c.pages.includes(kind)) notFound();
   const st = c.state;
   const stateName = stateByCode(st)?.name ?? st;
-  const all = poisInCity(st, c.city, kind);
+  const all = await poisInCity(st, c.city, kind);
   const isGeneric = (n: string) => n.endsWith(" practice");
   const list = all.filter((p) => !isGeneric(p.n));
   const generic = all.filter((p) => isGeneric(p.n));

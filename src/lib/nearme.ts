@@ -6,14 +6,15 @@
  * deploy depends only on the committed dataset. See docs/near-me/methodology.md.
  *
  * Small summaries (meta, cities, metros, states) are bundled. The big tables
- * (POIs per state, zip centroids) live under /public/data/nearme and are
- * fetched on demand: by the browser on /near-me, by the server (fs) on the
- * city pages. See nearme-server.ts for the latter.
+ * (POIs per state, zip centroids) live under /public/data/nearme locally and
+ * in Vercel Blob in production (see nearme-data.ts), fetched on demand: by
+ * the browser on /near-me, by the build on the city pages (nearme-server.ts).
  */
 import cities from "@/data/nearme/cities.json";
 import metros from "@/data/nearme/metros.json";
 import states from "@/data/nearme/states.json";
 import meta from "@/data/nearme/meta.json";
+import { dataUrl } from "@/lib/nearme-data";
 
 export type Kind = "trt" | "glp1" | "pharmacy" | "gym";
 
@@ -213,11 +214,11 @@ export function titleCase(s: string): string {
 
 export type ZipHit = { zip: string; lat: number; lon: number; city: string; state: string };
 
-/** Resolve a zip from the sharded table under /data/nearme/zips. */
+/** Resolve a zip from the sharded table (zips/<zip3>.json in the data store). */
 export async function fetchZip(zip: string): Promise<ZipHit | null> {
   const z = zip.trim().slice(0, 5);
   if (!/^\d{5}$/.test(z)) return null;
-  const r = await fetch(`/data/nearme/zips/${z.slice(0, 3)}.json`);
+  const r = await fetch(dataUrl(`zips/${z.slice(0, 3)}.json`));
   if (!r.ok) return null;
   const shard = (await r.json()) as Record<string, [number, number, string, string]>;
   const hit = shard[z];
@@ -231,7 +232,7 @@ export function fetchStatePois(state: string): Promise<Poi[]> {
   const st = state.toUpperCase();
   let p = poiCache.get(st);
   if (!p) {
-    p = fetch(`/data/nearme/pois/${st}.json`).then((r) => (r.ok ? (r.json() as Promise<Poi[]>) : []));
+    p = fetch(dataUrl(`pois/${st}.json`)).then((r) => (r.ok ? (r.json() as Promise<Poi[]>) : []));
     poiCache.set(st, p);
   }
   return p;

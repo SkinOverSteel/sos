@@ -27,6 +27,7 @@ Open <http://localhost:3000>.
 | `npm run lint`  | Run ESLint                                         |
 | `npm run gsc`   | Google Search Console report (`scripts/gsc-report.mjs`) |
 | `npm run test:e2e` | Playwright browser tests against the production build (`e2e/`) |
+| `npm run data:upload` | Push the Near Me data shards to Vercel Blob (`scripts/upload-nearme-data.mjs`) |
 
 ## Repository structure
 
@@ -64,6 +65,23 @@ design:
   redirect.
 - **Ranking never reads affiliate status.** See `trustScore` in
   `src/lib/providers.ts`.
+
+## Near Me data (Vercel Blob)
+
+The Near Me map and lookup read ~40 MB of data shards (hex layers, POIs per
+state, zip centroids) that the ETL writes to `public/data/nearme/`. In
+production they are served from a Vercel Blob store under the same relative
+paths, so the repo does not carry them:
+
+1. Create a Blob store (Vercel → Storage) and pull `BLOB_READ_WRITE_TOKEN`.
+2. After a dataset rebuild: `BLOB_READ_WRITE_TOKEN=… npm run data:upload`
+   (idempotent; `--prune` removes stale files, `--dry-run` lists changes).
+3. Set `NEXT_PUBLIC_NEARME_DATA_BASE` in Vercel (Production + Preview) to the
+   base URL the script prints, e.g.
+   `https://<store>.public.blob.vercel-storage.com/data/nearme`, and redeploy.
+
+Unset, the app reads the local copies, so development and CI need no token.
+The small build-time summaries (`src/data/nearme/*.json`) stay in git.
 
 ## Notes
 

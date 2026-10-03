@@ -4,6 +4,7 @@ import { HexMap, US_VIEW } from "@/components/nearme/HexMap";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 import { KINDS, KIND_SHORT, META, METROS, STATES, miiBand } from "@/lib/nearme";
+import { dataDownloadUrl, dataUrl } from "@/lib/nearme-data";
 
 export const metadata: Metadata = {
   title: "US metabolic infrastructure map",
@@ -26,7 +27,7 @@ const jsonLd = {
   distribution: [4, 5].map((r) => ({
     "@type": "DataDownload",
     encodingFormat: "application/json",
-    contentUrl: `${SITE.url}/data/nearme/us/hex-r${r}.json`,
+    contentUrl: dataDownloadUrl(SITE.url, `us/hex-r${r}.json`),
   })),
 };
 
@@ -88,7 +89,7 @@ export default function MapPage() {
 
       <p className="sos-note" style={{ marginTop: 28 }}>
         Data: the national, state, and metro hex layers are{" "}
-        <a href="/data/nearme/us/hex-r5.json">downloadable</a> as compact JSON (H3 index + scores
+        <a href={dataUrl("us/hex-r5.json")}>downloadable</a> as compact JSON (H3 index + scores
         per row; CC BY-NC 4.0, attribution to Skin Over Steel). Methodology, sources, and limits:{" "}
         <Link href="/near-me/methodology">how the map is built</Link>. Not for use in housing,
         lending, or insurance decisions. <Link href="/near-me">Look up a zip</Link>.
