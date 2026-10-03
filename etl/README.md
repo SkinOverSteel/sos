@@ -17,6 +17,7 @@ python fetch_pharmacies.py      # FDA 503B (live) + data/state_boards/*.csv + OS
 python fetch_gyms.py [slug...]  # OSM gyms per metro (Overpass, else tiled Nominatim; ~3 min/metro)
 python geocode.py [--census-only] [files...]   # Census batch geocoder; Nominatim fallback inside metros
 python aggregate_h3.py          # -> public/data/nearme/{us,states,metros,pois,zips}, src/data/nearme/*.json
+npm run data:upload             # (from the repo root) push public/data/nearme to Vercel Blob
 python snapshot.py              # quarterly time series (snapshots/timeseries.csv)
 python moderate.py list|approve|reject|export   # submissions queue
 ```
@@ -33,9 +34,10 @@ Operator-maintained inputs in `data/`:
 | `tsbp_compounders.csv` | the Texas file from v1 (same columns) |
 | `price_reports.csv` | written by `moderate.py export` |
 
-`out/` and `cache/` are gitignored. The committed artifacts are the exported
-JSON/GeoJSON the site serves, so a deploy never depends on the upstream
-sources being up.
+`out/` and `cache/` are gitignored. The exported shards under
+`public/data/nearme/` are served from Vercel Blob in production (see the root
+README, "Near Me data"); the small summaries under `src/data/nearme/` are
+committed, so a deploy never depends on the upstream sources being up.
 
 ### State board exports (manual)
 

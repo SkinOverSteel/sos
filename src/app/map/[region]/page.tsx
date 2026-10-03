@@ -5,6 +5,7 @@ import { HexMap } from "@/components/nearme/HexMap";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 import { CITIES, KINDS, KIND_LABELS, META, METROS, STATES, citiesWithPages, metroBySlug, miiBand, stateByCode } from "@/lib/nearme";
+import { dataDownloadUrl } from "@/lib/nearme-data";
 import cityCenters from "@/data/nearme/city-centers.json";
 import stateBoxes from "@/data/nearme/state-boxes.json";
 
@@ -77,7 +78,7 @@ export default async function RegionMapPage({ params }: { params: Params }) {
     distribution: (r.metro ? [7, 8, 9] : [6, 7]).map((res) => ({
       "@type": "DataDownload",
       encodingFormat: "application/json",
-      contentUrl: `${SITE.url}/data/nearme/${r.metro ? "metros" : "states"}/${region}/hex-r${res}.json`,
+      contentUrl: dataDownloadUrl(SITE.url, `${r.metro ? "metros" : "states"}/${region}/hex-r${res}.json`),
     })),
   };
 

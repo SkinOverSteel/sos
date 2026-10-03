@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { miiBand } from "@/lib/nearme";
+import { dataUrl } from "@/lib/nearme-data";
 
 /**
  * Hex map rendered as SVG from the exported GeoJSON (no tile server, no
@@ -39,7 +40,7 @@ async function decode(layer: CompactLayer): Promise<Feature[]> {
 }
 
 type Props = {
-  /** Path under /data/nearme, e.g. "us", "states/tx", "metros/dfw". */
+  /** Path in the data store, e.g. "us", "states/tx", "metros/dfw". */
   region: string;
   /** Resolutions the region exported, low to high. */
   resolutions: number[];
@@ -91,7 +92,7 @@ export function HexMap({ region, resolutions, bbox, labels = [], focus, height =
   useEffect(() => {
     if (layers[res]) return;
     let live = true;
-    fetch(`/data/nearme/${region}/hex-r${res}.json`)
+    fetch(dataUrl(`${region}/hex-r${res}.json`))
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((layer: CompactLayer) => decode(layer))
       .then((features) => {
