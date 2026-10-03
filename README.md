@@ -80,8 +80,10 @@ paths, so the repo does not carry them:
    base URL the script prints, e.g.
    `https://<store>.public.blob.vercel-storage.com/data/nearme`, and redeploy.
 
-Unset, the app reads the local copies, so development and CI need no token.
-The small build-time summaries (`src/data/nearme/*.json`) stay in git.
+`public/data/nearme/` is gitignored: the ETL writes it locally and the upload
+publishes it. Unset, the app reads the local copies (after running the ETL);
+CI sets the variable to the public store URL, which needs no token. The small
+build-time summaries (`src/data/nearme/*.json`) stay in git.
 
 ## Notes
 

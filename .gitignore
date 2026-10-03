@@ -48,3 +48,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Near Me data shards: written by etl/aggregate_h3.py, served from Vercel Blob
+# (NEXT_PUBLIC_NEARME_DATA_BASE; see README "Near Me data"). Never committed.
+/public/data/nearme/
