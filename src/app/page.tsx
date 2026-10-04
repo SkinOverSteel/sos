@@ -2,6 +2,7 @@ import Link from "next/link";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { MorseSOS } from "@/components/MorseSOS";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { StepHeader } from "@/components/StepHeader";
 import { articles } from "@/lib/articles";
 import { ROUTES } from "@/lib/routes";
 import { liveTools } from "@/lib/tools";
@@ -23,41 +24,6 @@ const LOG_PHASES: { name: string; note: string }[] = [
   { name: "Weekly check-ins", note: "The same five questions, every week." },
   { name: "Outcome", note: "What moved, on one page for your clinician." },
 ];
-
-function SectionTitle({
-  id,
-  step,
-  verb,
-  title,
-  children,
-  more,
-}: {
-  id: string;
-  step: string;
-  verb: string;
-  title: string;
-  children?: React.ReactNode;
-  more?: { href: string; label: string };
-}) {
-  return (
-    <div className="sos-home__section-head">
-      <div>
-        <p className="sos-home__step">
-          <b>{step}</b> · {verb}
-        </p>
-        <h2 id={id} className="sos-home__title">
-          {title}
-        </h2>
-        {children ? <p>{children}</p> : null}
-      </div>
-      {more ? (
-        <Link href={more.href} className="sos-home__more">
-          {more.label}
-        </Link>
-      ) : null}
-    </div>
-  );
-}
 
 /** Metro labels for the homepage map preview, same derivation as /map. */
 const METRO_LABELS = METROS.map((m) => ({
@@ -151,6 +117,8 @@ export default function Home() {
                     style={{ flex: "1 1 120px" }}
                     inputMode="numeric"
                     pattern="[0-9]{5}"
+                    title="A five-digit US zip code"
+                    required
                     maxLength={5}
                     placeholder="Zip code"
                     autoComplete="postal-code"
@@ -199,12 +167,9 @@ export default function Home() {
               <b>{liveTools.length}</b>{" "}
               private tools, nothing leaves your browser
             </span>
-            <span>
-              <b>0</b>{" "}
-              supplements sold, ever
-            </span>
             <span className="sos-home__rail-note">
-              Every source named, every fee disclosed.{" "}
+              Nothing sold, no supplements, ever. Every source named, every
+              referral fee disclosed.{" "}
               <Link href="/methodology" className="sos-home__more">
                 The standard →
               </Link>
@@ -216,16 +181,15 @@ export default function Home() {
       <div className="sos-home">
         {/* 01 Understand: the situation routes, then the curated four */}
         <section className="sos-home__section" aria-labelledby="home-routes">
-          <SectionTitle
+          <StepHeader
             id="home-routes"
-            step="01"
-            verb="Understand"
+            step="understand"
             title="Start where you are"
             more={{ href: "/learn", label: `Browse all ${articles.length} in the library →` }}
           >
             Where you begin depends on where you&apos;re stuck, not on how the
             library is filed. Pick the situation; we hand you the first page.
-          </SectionTitle>
+          </StepHeader>
           <div className="sos-home__routes">
             {ROUTES.map((r) => {
               const crisis = r.href === "/support";
@@ -277,17 +241,16 @@ export default function Home() {
 
         {/* 02 Measure: the instruments */}
         <section className="sos-home__section" aria-labelledby="home-tools" style={{ paddingTop: "40px" }}>
-          <SectionTitle
+          <StepHeader
             id="home-tools"
-            step="02"
-            verb="Measure"
+            step="measure"
             title="Turn the worry into a number"
             more={{ href: "/tools", label: "All tools →" }}
           >
             Validated screens and calculators that run in your browser and
             nowhere else. Each one ends in a figure you can take to an
             appointment.
-          </SectionTitle>
+          </StepHeader>
           <div className="sos-home__grid sos-home__grid--3">
             {liveTools.map((t) => (
               <Link key={t.slug} href={`/tools/${t.slug}`} className="sos-home__tile">
@@ -302,16 +265,15 @@ export default function Home() {
 
         {/* 03 Find care: near me (the utility) and the directory (the trust standard) */}
         <section className="sos-home__section" aria-labelledby="home-care">
-          <SectionTitle
+          <StepHeader
             id="home-care"
-            step="03"
-            verb="Find care"
+            step="care"
             title="Someone licensed, near you"
             more={{ href: "/map", label: "See the whole map →" }}
           >
             Businesses only, from public registries, ranked by distance and by
             published trust criteria. Never by who pays.
-          </SectionTitle>
+          </StepHeader>
           <div className="sos-home__care">
             <Link href="/map" className="sos-home__map" aria-label="Open the US map">
               <HexMap region="us" resolutions={[4]} bbox={PREVIEW_VIEW} labels={METRO_LABELS} height={400} national preview />
@@ -343,6 +305,8 @@ export default function Home() {
                       className="sos-field"
                       inputMode="numeric"
                       pattern="[0-9]{5}"
+                      title="A five-digit US zip code"
+                      required
                       maxLength={5}
                       placeholder="75201"
                       autoComplete="postal-code"
@@ -369,12 +333,7 @@ export default function Home() {
 
         {/* 04 Track: the Log, phase one live and browser-local */}
         <section className="sos-home__log" aria-labelledby="home-log">
-          <p className="sos-home__step">
-            <b>04</b> · Track
-          </p>
-          <h2 id="home-log" className="sos-home__title" style={{ marginBottom: "14px" }}>
-            One protocol, start to finish
-          </h2>
+          <StepHeader id="home-log" step="track" title="One protocol, start to finish" className="sos-home__log-head" />
           <p className="sos-prose" style={{ maxWidth: "54ch", fontSize: "17px" }}>
             A private tracker for the work itself, from baseline through
             intervention to outcome, exportable as one page for your clinician.

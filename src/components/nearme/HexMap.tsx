@@ -122,6 +122,24 @@ export function HexMap({
   const [dragging, setDragging] = useState(false);
   const drag = useRef<{ x: number; y: number; cx: number; cy: number } | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  // A preview fetches its hex layer only once it is near the viewport, so the
+  // homepage never pays for the shard a reader never scrolls to.
+  const [near, setNear] = useState(() => !preview || typeof IntersectionObserver === "undefined");
+  useEffect(() => {
+    if (near || !wrapRef.current) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(wrapRef.current);
+    return () => io.disconnect();
+  }, [near]);
 
   const maxZoom = 2 ** (resolutions.length + 1);
   const clampZoom = useCallback((z: number) => Math.min(maxZoom, Math.max(0.8, z)), [maxZoom]);
@@ -204,7 +222,7 @@ export function HexMap({
   const res = resolutions[step];
 
   useEffect(() => {
-    if (layers[res]) return;
+    if (layers[res] || !near) return;
     let live = true;
     fetch(dataUrl(`${region}/hex-r${res}.json`))
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
@@ -218,7 +236,7 @@ export function HexMap({
     return () => {
       live = false;
     };
-  }, [region, res, layers]);
+  }, [region, res, layers, near]);
 
   const features = useMemo(() => {
     for (const r of [res, ...resolutions]) if (layers[r]) return layers[r];
@@ -312,7 +330,7 @@ export function HexMap({
   };
 
   return (
-    <div style={{ position: "relative", background: "var(--sos-e1)", border: preview ? 0 : "1px solid var(--sos-line)", borderRadius: preview ? 0 : "10px", overflow: "hidden" }}>
+    <div ref={wrapRef} data-map-state={error ? "unavailable" : paths.length ? "ready" : "loading"} style={{ position: "relative", background: "var(--sos-e1)", border: preview ? 0 : "1px solid var(--sos-line)", borderRadius: preview ? 0 : "10px", overflow: "hidden" }}>
       <style>{`
         .sos-focus-halo { animation: sosFocusPulse 2.4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
         @keyframes sosFocusPulse { 0% { opacity: .5; transform: scale(.6); } 70% { opacity: 0; } 100% { opacity: 0; transform: scale(2.4); } }
@@ -469,6 +487,15 @@ export function HexMap({
             {hover.properties.n} listings{hover.properties.coverage === "registry" ? " · registry only" : ""}
           </div>
         </div>
+      )}
+
+      {preview && error && (
+        <p
+          role="status"
+          style={{ position: "absolute", top: 10, left: 12, margin: 0, fontFamily: "var(--sos-mono)", fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--sos-text-lo)" }}
+        >
+          Live index unavailable · outline only
+        </p>
       )}
 
       {showReadout && !preview && (
