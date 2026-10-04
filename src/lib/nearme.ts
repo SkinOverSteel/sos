@@ -187,6 +187,20 @@ export function miiBand(mii: number): string {
   return "sparse";
 }
 
+/**
+ * Copper fill opacity for an index value, quantised to the four bands above so
+ * the map reads as banded instrumentation and every legend swatch is exactly
+ * the colour the map paints. Near-empty cells return 0 so the land shows
+ * through instead of a copper haze. Single source of truth for map + legend.
+ */
+export function miiOpacity(mii: number): number {
+  if (mii >= 75) return 0.7;
+  if (mii >= 50) return 0.49;
+  if (mii >= 25) return 0.285;
+  if (mii >= 5) return 0.12;
+  return 0;
+}
+
 export function confidenceLabel(cf: number): string {
   if (cf >= 0.85) return "licensed / verified";
   if (cf >= 0.6) return "specialty match";

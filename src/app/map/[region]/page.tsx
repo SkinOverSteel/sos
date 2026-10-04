@@ -105,8 +105,9 @@ export default async function RegionMapPage({ params }: { params: Params }) {
         resolutions={r.metro ? [7, 8, 9] : [6, 7]}
         bbox={bbox}
         labels={labels}
-        height={560}
+        height={600}
         initialZoom={1}
+        showLegend
         national={!r.metro}
       />
 
