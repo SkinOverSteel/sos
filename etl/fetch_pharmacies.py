@@ -2,6 +2,10 @@
 Compounding pharmacies (503A / 503B), nationwide.
 
 Sources, in order of authority:
+0. NPI registry (NPPES monthly file): organizations whose taxonomy includes
+   3336C0002X "Pharmacy, Compounding Pharmacy". Nationwide, business-level,
+   self-declared, so it is a registry match (confidence 0.7), not a license.
+   A board row (below) matching it by name + zip raises it to 0.9.
 1. FDA registered outsourcing facilities (503B), scraped live from
    https://www.fda.gov/drugs/human-drug-compounding/registered-outsourcing-facilities
    Every state. The page gives name + city + state only; the row is geocoded
@@ -19,15 +23,53 @@ Sources, in order of authority:
 """
 from __future__ import annotations
 
+import csv
 import glob
 import html
+import io
 import os
 import re
 import sys
 import time
+import zipfile
 import requests
 from common import DATA_DIR, POI, in_bbox, nominatim_geocode, read_seed_csv, write_jsonl, zip_centroid, zip_city
+from fetch_npi import BULK
 from regions import METROS, STATES
+
+COMPOUNDING_TAXONOMY = "3336C0002X"
+
+
+def npi_compounders():
+    """Organizations self-declaring the compounding-pharmacy taxonomy, all states."""
+    if not os.path.exists(BULK):
+        print(f"[pharmacy] no NPPES file at {BULK}; skipping the taxonomy pass", file=sys.stderr)
+        return
+    t0 = time.time()
+    n = 0
+    with zipfile.ZipFile(BULK) as zf:
+        name = next(x for x in zf.namelist() if x.startswith("npidata_pfile") and not x.endswith("fileheader.csv"))
+        with zf.open(name) as raw:
+            rd = csv.reader(io.TextIOWrapper(raw, encoding="utf-8", newline=""))
+            header = next(rd)
+            col = {h: i for i, h in enumerate(header)}
+            i_type, i_org = col["Entity Type Code"], col["Provider Organization Name (Legal Business Name)"]
+            i_a1, i_a2 = col["Provider First Line Business Practice Location Address"], col["Provider Second Line Business Practice Location Address"]
+            i_city, i_st, i_zip = col["Provider Business Practice Location Address City Name"], col["Provider Business Practice Location Address State Name"], col["Provider Business Practice Location Address Postal Code"]
+            i_deact, i_react = col["NPI Deactivation Date"], col["NPI Reactivation Date"]
+            i_tax = [col[f"Healthcare Provider Taxonomy Code_{k}"] for k in range(1, 16)]
+            for row in rd:
+                if len(row) <= i_tax[-1] or row[i_type] != "2" or (row[i_deact] and not row[i_react]):
+                    continue
+                if row[i_st] not in STATES or not any(row[i] == COMPOUNDING_TAXONOMY for i in i_tax):
+                    continue
+                zip5 = row[i_zip][:5]
+                ll = zip_centroid(zip5)
+                n += 1
+                yield POI(kind="pharmacy", name=row[i_org], address=" ".join(filter(None, [row[i_a1], row[i_a2]])),
+                          city=row[i_city], state=row[i_st], zip=zip5, lat=ll[0] if ll else None, lon=ll[1] if ll else None,
+                          source="npi", source_id="org", tags=["npi-compounding", "503a"], confidence=0.7)
+    print(f"[pharmacy] NPPES taxonomy pass: {n} compounding pharmacies ({time.time()-t0:.0f}s)", file=sys.stderr)
 
 UA = {"User-Agent": "skinoversteel-nearme-etl/0.1 (hello@skinoversteel.com)"}
 FDA_503B = "https://www.fda.gov/drugs/human-drug-compounding/registered-outsourcing-facilities"
@@ -77,6 +119,11 @@ def run():
     s = requests.Session()
     out: dict[str, POI] = {}
 
+    for p in npi_compounders():
+        p.finalize()
+        out[p.id] = p
+    n_npi = len(out)
+
     for st, src, row in board_rows():
         zip5 = row.get("zip", "")[:5]
         ll = zip_centroid(zip5)  # street level comes from geocode.py
@@ -84,8 +131,14 @@ def run():
                 lat=ll[0] if ll else None, lon=ll[1] if ll else None, source=src, source_id=row.get("license", ""),
                 tags=["503a", "sterile" if row.get("sterile", "").upper().startswith("Y") else "non-sterile"],
                 confidence=0.9).finalize()
+        # A board row matching an NPPES self-declaration by name prefix + zip
+        # verifies it: keep one row, licensed.
+        twin = next((q for q in out.values() if q.source == "npi" and q.zip == zip5 and q.name.lower()[:12] == p.name.lower()[:12]), None)
+        if twin:
+            del out[twin.id]
+            p.tags = sorted(set(p.tags) | {"npi-compounding"})
         out[p.id] = p
-    n_board = len(out)
+    n_board = len(out) - n_npi
 
     for name, city, st in fda_503b_live(s):
         time.sleep(1.05)
@@ -111,7 +164,7 @@ def run():
         p = POI(kind="pharmacy", name=name, address=addr, city=city, state=st, zip=zip5, lat=lat, lon=lon,
                 source="fda_503b", source_id="fda-503b-registry", tags=tags, confidence=0.95).finalize()
         out[p.id] = p
-    print(f"[pharmacy] {n_board} board rows, {len(out) - n_board} FDA 503B rows", file=sys.stderr)
+    print(f"[pharmacy] {n_npi} NPPES rows, {n_board} board rows, {len(out) - n_npi - n_board} FDA 503B rows", file=sys.stderr)
 
     seen_hits = set()
     board_keys = {(p.name.lower()[:12], p.zip) for p in out.values() if p.source != "fda_503b"}

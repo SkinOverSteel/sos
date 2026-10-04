@@ -144,21 +144,26 @@ def geocode_cache_path() -> str:
     return os.path.join(OUT_DIR, "geocode_cache.json")
 
 
-def nominatim_geocode(session, address: str, city: str, state: str, zip5: str) -> tuple[float, float] | None:
+def nominatim_geocode(session, address: str, city: str, state: str, zip5: str, force: bool = False) -> tuple[float, float] | None:
     """Structured Nominatim lookup with an on-disk cache and the 1 req/s policy.
 
     Business addresses only. Nominatim's usage policy requires a UA that
     identifies the app; see https://operations.osmfoundation.org/policies/nominatim/
+
+    force=True skips the cache entirely (read and write): geocode.py uses it
+    to retry addresses the Census geocoder cached as misses, and manages the
+    cache itself.
     """
     path = geocode_cache_path()
     cache: dict = {}
-    if os.path.exists(path):
-        with open(path) as f:
-            cache = json.load(f)
-    key = f"{address}|{city}|{state}|{zip5}".lower()
-    if key in cache:
-        v = cache[key]
-        return tuple(v) if v else None
+    if not force:
+        if os.path.exists(path):
+            with open(path) as f:
+                cache = json.load(f)
+        key = f"{address}|{city}|{state}|{zip5}".lower()
+        if key in cache:
+            v = cache[key]
+            return tuple(v) if v else None
     time.sleep(1.05)
     try:
         r = session.get(
@@ -172,7 +177,8 @@ def nominatim_geocode(session, address: str, city: str, state: str, zip5: str) -
         val = (float(hit["lat"]), float(hit["lon"])) if hit else None
     except Exception:
         val = None
-    cache[key] = val
-    with open(path, "w") as f:
-        json.dump(cache, f)
+    if not force:
+        cache[key] = val
+        with open(path, "w") as f:
+            json.dump(cache, f)
     return val

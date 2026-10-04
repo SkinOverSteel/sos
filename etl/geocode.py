@@ -92,9 +92,11 @@ def main(files: list[str]):
         for k, r in todo:
             if "--census-only" in sys.argv:
                 break
-            if cache.get(k) is None and k in cache and metro_for(r.get("lat"), r.get("lon")):
-                ll = nominatim_geocode(session, SUITE.sub("", r["address"]).strip(" ,"), r["city"], r["state"], r["zip"])
+            if cache.get(k) is None and k in cache and "nominatim-miss" not in r.get("tags", []) and metro_for(r.get("lat"), r.get("lon")):
+                ll = nominatim_geocode(session, SUITE.sub("", r["address"]).strip(" ,"), r["city"], r["state"], r["zip"], force=True)
                 cache[k] = list(ll) if ll else None
+                if not ll:
+                    r["tags"] = sorted(set(r.get("tags", [])) | {"nominatim-miss"})  # don't retry every run
                 n_nom += 1
                 if n_nom % 100 == 0:
                     with open(CACHE, "w") as f:
