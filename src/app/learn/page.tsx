@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { StepHeader } from "@/components/StepHeader";
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
@@ -6,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { learnHubJsonLd } from "@/lib/jsonld";
 import { LibraryBrowser } from "@/components/LibraryBrowser";
 import { ROUTES } from "@/lib/routes";
+import { SignalRail } from "@/components/SignalRail";
 
 export const metadata: Metadata = {
   title: "Learn",
@@ -19,17 +21,11 @@ export default function LearnHub() {
   return (
     <div className="sos-container">
       <JsonLd data={learnHubJsonLd()} />
-      <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        The Open Floor
-      </p>
-      <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        Learn
-      </h1>
-      <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "20px" }}>
+      <StepHeader as="h1" step="understand" title="The library, graded" className="sos-page-head">
         Evidence-graded education, in plain language. Every claim carries a
         visible grade so you always know how much weight it holds. This bridges
         toward your clinician, never around them.
-      </p>
+      </StepHeader>
 
       <dl className="sos-lib__legend" aria-label="How the library is graded">
         <div>
@@ -96,6 +92,7 @@ export default function LearnHub() {
         </p>
         <LibraryBrowser articles={articles} />
       </section>
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

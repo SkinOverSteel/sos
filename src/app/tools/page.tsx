@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { StepHeader } from "@/components/StepHeader";
 import Link from "next/link";
 import { tools } from "@/lib/tools";
 import { JsonLd } from "@/components/JsonLd";
 import { toolsHubJsonLd } from "@/lib/jsonld";
+import { SignalRail } from "@/components/SignalRail";
 
 export const metadata: Metadata = {
   title: "Tools",
@@ -15,17 +17,11 @@ export default function ToolsHub() {
   return (
     <div className="sos-container">
       <JsonLd data={toolsHubJsonLd()} />
-      <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Instruments
-      </p>
-      <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        Tools
-      </h1>
-      <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "40px" }}>
+      <StepHeader as="h1" step="measure" title="Turn the worry into a number" className="sos-page-head">
         Small, private instruments: a validated screen, a calculator, an
         estimate. They run entirely in your browser, keep nothing, and point you
         toward a clinician rather than around one.
-      </p>
+      </StepHeader>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
         {tools.map((t) => {
@@ -77,6 +73,7 @@ export default function ToolsHub() {
           );
         })}
       </div>
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

@@ -52,7 +52,7 @@ const HORMONES: Marker[] = [
         is borderline, or when symptoms don&apos;t match the total, especially if
         SHBG is off. Not the primary diagnostic on its own. If your panel shows
         total T and SHBG but not free T, you can{" "}
-        <Link href="/tools/free-testosterone">estimate it here</Link>.
+        <Link href="/tools/free-testosterone">estimate free T with the calculator</Link>.
       </>
     ),
   },

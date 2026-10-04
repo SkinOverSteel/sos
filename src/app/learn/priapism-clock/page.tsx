@@ -215,7 +215,7 @@ export default function PriapismClockPage() {
           four-hour erection than reconstruct a 48-hour one, and every hour of
           delay is measured in tissue, not in awkwardness. If you are reading
           this with a clock running,{" "}
-          <Link href="/support">start here</Link>. The ladder is already laid
+          <Link href="/support">go to the support page now</Link>. The ladder is already laid
           out, and it runs by the hour.
         </p>
       </section>

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { StepHeader } from "@/components/StepHeader";
 import Link from "next/link";
 import { NearMeTool } from "@/components/nearme/NearMeTool";
 import { JsonLd } from "@/components/JsonLd";
+import { SignalRail } from "@/components/SignalRail";
 import { SITE } from "@/lib/site";
 import { KINDS, KIND_LABELS, META, METROS } from "@/lib/nearme";
 
@@ -29,15 +31,14 @@ export default function NearMePage() {
   return (
     <div className="sos-container" style={{ maxWidth: 880 }}>
       <JsonLd data={jsonLd} />
-      <p className="sos-kicker" style={{ marginBottom: 14 }}>
-        Near me · <b>{META.states} states</b> · {META.metros} metros at street scale · dataset {META.built}
-      </p>
-      <h1 className="sos-h1" style={{ marginBottom: 18 }}>Who treats this near you</h1>
-      <p className="sos-prose" style={{ marginBottom: 24, maxWidth: "64ch" }}>
+      <StepHeader as="h1" step="care" title="Who treats this near you" className="sos-page-head" more={{ href: "/map", label: "See the whole map →" }}>
         A zip in, the nearest clinics and pharmacies out: testosterone therapy, GLP-1 prescribing,
         licensed compounding, and the gyms where people actually lift. Distances are from your
         zip&apos;s center. Prices are what members report paying, and until three members have
         reported, the published range. The map is the same data, scored per hex.
+      </StepHeader>
+      <p className="sos-kicker" style={{ margin: "-10px 0 24px" }}>
+        <b>{META.states} states</b> · {META.metros} metros at street scale · dataset {META.built}
       </p>
 
       <NearMeTool />
@@ -76,6 +77,7 @@ export default function NearMePage() {
         <Link href="/directory">provider directory</Link>, where the trust criteria are published.
         Not for use in housing, lending, or insurance decisions.
       </p>
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

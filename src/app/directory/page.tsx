@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { StepHeader } from "@/components/StepHeader";
 import {
   AFFILIATE_NETWORK_LABELS,
   CATEGORY_LABELS,
@@ -13,6 +14,7 @@ import {
 } from "@/lib/providers";
 import { JsonLd } from "@/components/JsonLd";
 import { directoryHubJsonLd } from "@/lib/jsonld";
+import { SignalRail } from "@/components/SignalRail";
 
 // Indexed only once live; kept out of nav + sitemap while in draft.
 export const metadata: Metadata = {
@@ -27,12 +29,10 @@ export default function DirectoryPage() {
   return (
     <div className="sos-container">
       <JsonLd data={directoryHubJsonLd()} />
-      <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Directory · <b>How we rank</b>
-      </p>
-      <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        Find a provider
-      </h1>
+      <StepHeader as="h1" step="care" title="Find a provider" className="sos-page-head" more={{ href: "/near-me", label: "Who treats this near you →" }}>
+        Licensed labs, telemedicine, and compounding pharmacies, ranked only on
+        published trust criteria. Never on who pays.
+      </StepHeader>
 
       {!DIRECTORY_LIVE && (
         <div
@@ -241,6 +241,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           <span style={{ color: "var(--sos-copper)" }}>Basis:</span> {p.sourceNote}
         </p>
       )}
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

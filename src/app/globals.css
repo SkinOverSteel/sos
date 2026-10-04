@@ -824,7 +824,7 @@ a.sos-card:hover {
 /* the signal rail: what the site is, in numbers, instrument voice */
 .sos-home__rail {
   display: grid;
-  grid-template-columns: auto repeat(4, minmax(0, 1fr));
+  grid-template-columns: auto repeat(2, minmax(0, 1fr)) minmax(0, 2fr);
   align-items: center;
   gap: 18px 28px;
   padding: 18px 0;
@@ -939,6 +939,25 @@ a.sos-card:hover {
   text-transform: uppercase;
   color: var(--sos-text-hi);
   margin: 0;
+}
+.sos-rail--close {
+  margin-top: 56px;
+  border-bottom: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.sos-rail--close > .sos-morse,
+.sos-rail--close > .sos-home__rail-note {
+  grid-column: 1 / -1;
+}
+.sos-page-head {
+  margin-bottom: 32px;
+}
+.sos-page-head .sos-home__title {
+  font-size: clamp(32px, 4.8vw, 48px);
+}
+.sos-page-head p:not(.sos-home__step) {
+  font-size: 18px;
+  max-width: 60ch;
 }
 .sos-home__sub-head {
   display: flex;
@@ -1284,6 +1303,9 @@ a.sos-card:hover {
   border: 1px solid var(--sos-line);
   border-left: 3px solid var(--sos-copper);
 }
+.sos-home__log-head {
+  margin-bottom: 14px;
+}
 .sos-home__log-phases {
   list-style: none;
   margin: 32px 0 0;
@@ -1328,7 +1350,8 @@ a.sos-card:hover {
   .sos-home__hero { grid-template-columns: 1fr; gap: 36px; align-items: start; padding-top: 48px; }
   .sos-home__h1 { max-width: none; }
   .sos-home__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .sos-home__rail > .sos-morse { grid-column: 1 / -1; }
+  .sos-home__rail > .sos-morse,
+  .sos-home__rail > .sos-home__rail-note { grid-column: 1 / -1; }
   .sos-home__routes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sos-home__grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sos-home__log-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
