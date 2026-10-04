@@ -4,6 +4,7 @@ import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { siteJsonLd } from "@/lib/jsonld";
 import { Wordmark } from "@/components/Wordmark";
+import { MorseSOS } from "@/components/MorseSOS";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -127,7 +128,6 @@ export default function RootLayout({
               { href: "/directory", label: "Find a provider" },
               { href: "/near-me", label: "Near me" },
               { href: "/about", label: "About" },
-              { href: "/methodology", label: "How we review" },
               { href: "/support", label: "Support" },
             ].map((l) => (
               <Link
@@ -160,6 +160,31 @@ export default function RootLayout({
             disclosed at the link; a paid relationship never changes an evidence
             grade or a ranking.
           </p>
+          <div
+            style={{
+              marginTop: "36px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "14px",
+              textAlign: "center",
+            }}
+          >
+            <MorseSOS dim label="Morse code S O S" />
+            <Wordmark size="13px" />
+            <p
+              style={{
+                fontFamily: "var(--sos-serif)",
+                fontStyle: "italic",
+                fontSize: "14px",
+                lineHeight: 1.5,
+                color: "var(--sos-copper)",
+                margin: 0,
+              }}
+            >
+              The signal, answered.
+            </p>
+          </div>
         </footer>
         <Analytics />
       </body>
