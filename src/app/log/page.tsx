@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { StepHeader } from "@/components/StepHeader";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { LogTool } from "@/components/LogTool";
+import { LogTool } from "@/components/LogToolLazy";
 import { MorseSOS } from "@/components/MorseSOS";
 import { SITE } from "@/lib/site";
 import { SignalRail } from "@/components/SignalRail";

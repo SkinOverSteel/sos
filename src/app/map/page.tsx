@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { HexMap, US_VIEW } from "@/components/nearme/HexMap";
+import { HexMap } from "@/components/nearme/HexMapLazy";
+import { US_VIEW } from "@/components/nearme/view";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 import { KINDS, KIND_SHORT, META, METROS, STATES, miiBand, miiOpacity } from "@/lib/nearme";
