@@ -34,6 +34,70 @@ body {
   color: #fff;
 }
 
+/* ---- site header: wordmark, primary nav, and the permanent support link.
+   On phones the nav drops to its own row under the wordmark. ---- */
+.sos-header {
+  display: flex;
+  align-items: center;
+  gap: 8px 28px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--sos-line-soft);
+}
+.sos-header__brand {
+  text-decoration: none;
+  margin-right: auto;
+}
+.sos-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.sos-header__link,
+.sos-header__support {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.sos-header__link {
+  color: var(--sos-text-md);
+}
+.sos-header__link:hover {
+  color: var(--sos-text-hi);
+  background: var(--sos-e2);
+}
+.sos-header__support {
+  color: var(--sos-text-hi);
+  border: 1px solid var(--sos-line);
+  margin-left: 8px;
+}
+.sos-header__support:hover {
+  border-color: var(--sos-copper);
+  color: var(--sos-copper);
+}
+.sos-header__link:focus-visible,
+.sos-header__support:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+@media (max-width: 640px) {
+  .sos-header {
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+  }
+  .sos-header__nav {
+    order: 3;
+    flex-basis: 100%;
+    margin-left: -10px;
+    overflow-x: auto;
+  }
+}
+
 /* ---- SOS brand type/layout utilities (education "Open Floor" surface) ---- */
 .sos-container {
   max-width: 760px;
@@ -722,23 +786,40 @@ a.sos-card:hover {
   padding-bottom: 14px;
   border-bottom: 1px solid var(--sos-line);
 }
-.sos-home__grade {
-  display: grid;
-  grid-template-columns: 118px 1fr;
-  gap: 14px;
-  padding: 14px 0;
+/* instrument panel rows: one utility per row, hairlines between */
+.sos-home__panel-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
   border-bottom: 1px solid var(--sos-line-soft);
 }
-.sos-home__grade:last-of-type {
+.sos-home__panel-row:last-child {
   border-bottom: 0;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
 }
-.sos-home__grade p {
-  font-family: var(--sos-serif);
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--sos-text-md);
-  margin: 0;
+.sos-home__panel-link {
+  text-decoration: none;
+  margin: 0 -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.sos-home__panel-link:hover {
+  background: var(--sos-e2);
+}
+.sos-home__panel-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+.sos-home__panel-title {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 17px;
+  line-height: 1.2;
+  color: var(--sos-text-hi);
 }
 /* the signal rail: what the site is, in numbers, instrument voice */
 .sos-home__rail {
@@ -758,6 +839,9 @@ a.sos-card:hover {
 .sos-home__rail > span {
   padding-left: 16px;
   border-left: 1px solid var(--sos-line-soft);
+}
+.sos-home__rail-note {
+  align-self: center;
 }
 .sos-home__rail b {
   display: block;
@@ -831,7 +915,38 @@ a.sos-card:hover {
   line-height: 1.55;
   color: var(--sos-text-md);
   max-width: 56ch;
-  margin: 10px 0 0;
+  margin: 12px 0 0;
+}
+.sos-home__step {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+  margin: 0 0 10px;
+}
+.sos-home__step b {
+  font-weight: 600;
+  color: var(--sos-copper);
+}
+.sos-home__title {
+  font-family: var(--sos-sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: clamp(26px, 3.2vw, 36px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+  margin: 0;
+}
+.sos-home__sub-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 44px 0 14px;
 }
 .sos-home__more {
   font-family: var(--sos-mono);
@@ -1184,7 +1299,6 @@ a.sos-card:hover {
   .sos-home__list,
   .sos-home__log-phases { grid-template-columns: 1fr; }
   .sos-home__tile--alert { grid-column: auto; }
-  .sos-home__grade { grid-template-columns: 1fr; gap: 8px; }
   .sos-home__section { padding-top: 44px; }
   .sos-home__log { padding: 28px 22px; margin-top: 44px; }
 }
