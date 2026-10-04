@@ -79,30 +79,24 @@ export default function RootLayout({
             __html: JSON.stringify(siteJsonLd()).replace(/</g, "\\u003c"),
           }}
         />
-        <header
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "16px 24px",
-            borderBottom: "1px solid var(--sos-line-soft)",
-          }}
-        >
-          <Link href="/" style={{ textDecoration: "none" }}>
+        <header className="sos-header">
+          <Link href="/" className="sos-header__brand">
             <Wordmark />
           </Link>
-          <a
-            href="/support"
-            className="uppercase"
-            style={{
-              fontFamily: "var(--sos-mono)",
-              fontSize: "12px",
-              fontWeight: 500,
-              letterSpacing: "0.1em",
-              color: "var(--sos-text-lo)",
-              textDecoration: "none",
-            }}
-          >
+          <nav className="sos-header__nav" aria-label="Primary">
+            {[
+              { href: "/learn", label: "Learn" },
+              { href: "/tools", label: "Tools" },
+              { href: "/near-me", label: "Near me" },
+              { href: "/log", label: "The Log" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="sos-header__link">
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+          {/* Hard line 4: the support path is a permanent nav item, never buried. */}
+          <a href="/support" className="sos-header__support">
             Support
           </a>
         </header>

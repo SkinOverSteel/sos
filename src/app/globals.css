@@ -34,6 +34,70 @@ body {
   color: #fff;
 }
 
+/* ---- site header: wordmark, primary nav, and the permanent support link.
+   On phones the nav drops to its own row under the wordmark. ---- */
+.sos-header {
+  display: flex;
+  align-items: center;
+  gap: 8px 28px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--sos-line-soft);
+}
+.sos-header__brand {
+  text-decoration: none;
+  margin-right: auto;
+}
+.sos-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.sos-header__link,
+.sos-header__support {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.sos-header__link {
+  color: var(--sos-text-md);
+}
+.sos-header__link:hover {
+  color: var(--sos-text-hi);
+  background: var(--sos-e2);
+}
+.sos-header__support {
+  color: var(--sos-text-hi);
+  border: 1px solid var(--sos-line);
+  margin-left: 8px;
+}
+.sos-header__support:hover {
+  border-color: var(--sos-copper);
+  color: var(--sos-copper);
+}
+.sos-header__link:focus-visible,
+.sos-header__support:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+@media (max-width: 640px) {
+  .sos-header {
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+  }
+  .sos-header__nav {
+    order: 3;
+    flex-basis: 100%;
+    margin-left: -10px;
+    overflow-x: auto;
+  }
+}
+
 /* ---- SOS brand type/layout utilities (education "Open Floor" surface) ---- */
 .sos-container {
   max-width: 760px;
