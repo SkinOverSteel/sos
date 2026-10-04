@@ -115,7 +115,7 @@ export default function TelemedicineVisitPage() {
           <ul className="sos-prose" style={{ ...flagList, gap: "12px" }}>
             {QUESTIONS.map((q, i) => (
               <li key={i}>
-                <span style={{ fontFamily: "var(--sos-mono)", color: "var(--sos-copper)", fontSize: "13px", marginRight: "8px" }}>
+                <span style={{ fontFamily: "var(--sos-mono)", color: "var(--sos-copper-hot)", fontSize: "13px", marginRight: "8px" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {q}

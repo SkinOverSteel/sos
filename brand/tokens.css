@@ -30,13 +30,14 @@
   --sos-line-soft: #272E36;
   --sos-text-hi: #E8EAEC;   /* bone */
   --sos-text-md: #AEB6BD;
-  --sos-text-lo: #78828B;
+  --sos-text-lo: #8F99A3;   /* 4.5:1 on E3, 5.0 on E2, 7.3 on E0 (was #78828B: 3.8 on E2) */
   --sos-copper: #C97438;      /* the one warm voice, ~10% of any screen */
   --sos-copper-hot: #E08A47;  /* hover / pressed */
   --sos-copper-deep: #8A4519;
   --sos-copper-glow: rgba(201, 116, 56, 0.14);
   --sos-emergency: #E0563D;   /* semantic: medical emergency / HIGH RISK. Safety-critical use only, never decorative. Fills the v2.1 red-family slot. */
   --sos-emergency-glow: rgba(224, 86, 61, 0.12);
+  --sos-emergency-hot: #F0705A;  /* small emergency text on a card (E2/E3), 5:1; the base red reads 4.0 there */
 }
 
 /* ---- light (marketing / education) ---- */
@@ -59,6 +60,7 @@
   --sos-grade-anecdote: #5C6873;
   --sos-emergency: #B23A22;   /* semantic: medical emergency / HIGH RISK (light) */
   --sos-emergency-glow: rgba(178, 58, 34, 0.10);
+  --sos-emergency-hot: #9E3220;  /* light: darker, same role */
 }
 
 /* ---- signature: morse SOS divider (··· ––– ···) ---- */

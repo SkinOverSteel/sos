@@ -8,7 +8,7 @@ const GRADE: Record<Grade, { label: string; color: string }> = {
   established: { label: "Established", color: "var(--sos-grade-established)" },
   emerging: { label: "Emerging", color: "var(--sos-grade-emerging)" },
   anecdote: { label: "Anecdote", color: "var(--sos-grade-anecdote)" },
-  "high-risk": { label: "High risk", color: "var(--sos-emergency)" },
+  "high-risk": { label: "High risk", color: "var(--sos-emergency-hot)" }, // 11px on a card: the base red reads 4.0:1, the hot red 5:1
 };
 
 export function EvidenceBadge({

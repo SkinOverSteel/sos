@@ -114,7 +114,7 @@ export default function Home() {
                   <p className="sos-home__tile-body">{r.bestFor}</p>
                   <p
                     className="sos-home__tile-foot"
-                    style={crisis ? { color: "var(--sos-emergency)" } : undefined}
+                    style={crisis ? { color: "var(--sos-emergency-hot)" } : undefined}
                   >
                     {crisis ? "Get support now →" : `Start: ${r.startWith} →`}
                   </p>
