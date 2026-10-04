@@ -658,6 +658,114 @@ a.sos-card:hover {
 }
 
 .sos-lib__head {
+/* ---- homepage: the front door. A wider, asymmetric canvas than the reading
+   column (the article pages stay at 760px). Every grid collapses to a single
+   column under 760px; hover motion is the same copper line the cards already
+   use, so the page reads as one instrument, not a brochure. ---- */
+.sos-home {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.sos-home__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
+  gap: 48px 56px;
+  align-items: end;
+  padding: 64px 0 48px;
+}
+.sos-home__h1 {
+  font-family: var(--sos-sans);
+  font-weight: 850;
+  font-stretch: 78%;
+  font-size: clamp(42px, 5.4vw, 64px);
+  line-height: 0.94;
+  max-width: 17ch;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+  margin: 0;
+}
+.sos-home__h1 em {
+  display: block;
+  font-family: var(--sos-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-stretch: 100%;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.56em;
+  line-height: 1.12;
+  color: var(--sos-copper);
+  margin-top: 0.22em;
+}
+/* the standard, as an instrument panel beside the headline */
+.sos-home__panel {
+  background: var(--sos-e1);
+  border: 1px solid var(--sos-line);
+  border-radius: 12px;
+  padding: 22px 22px 18px;
+}
+.sos-home__panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--sos-line);
+}
+.sos-home__grade {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--sos-line-soft);
+}
+.sos-home__grade:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 8px;
+}
+.sos-home__grade p {
+  font-family: var(--sos-serif);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--sos-text-md);
+  margin: 0;
+}
+/* the signal rail: what the site is, in numbers, instrument voice */
+.sos-home__rail {
+  display: grid;
+  grid-template-columns: auto repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 18px 28px;
+  padding: 18px 0;
+  border-top: 1px solid var(--sos-line-soft);
+  border-bottom: 1px solid var(--sos-line-soft);
+  font-family: var(--sos-mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--sos-text-lo);
+}
+.sos-home__rail > span {
+  padding-left: 16px;
+  border-left: 1px solid var(--sos-line-soft);
+}
+.sos-home__rail b {
+  display: block;
+  font-family: var(--sos-sans);
+  font-weight: 800;
+  font-stretch: 86%;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--sos-text-hi);
+  margin-bottom: 4px;
+}
+.sos-home__section {
+  padding: 56px 0 0;
+}
+.sos-home__section-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -707,6 +815,127 @@ a.sos-card:hover {
   margin: 0;
 }
 .sos-route__text {
+  margin-bottom: 22px;
+}
+.sos-home__section-head p {
+  font-family: var(--sos-serif);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--sos-text-md);
+  max-width: 56ch;
+  margin: 10px 0 0;
+}
+.sos-home__more {
+  font-family: var(--sos-mono);
+  font-size: 13px;
+  color: var(--sos-copper);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sos-home__more:hover {
+  color: var(--sos-copper-hot);
+}
+.sos-home__grid {
+  display: grid;
+  gap: 14px;
+}
+.sos-home__grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sos-home__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* situation routes: five tiles, the fifth (crisis) always visible, never last-and-lost */
+.sos-home__routes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.sos-home__tile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--sos-e2);
+  border: 1px solid var(--sos-line);
+  border-radius: 10px;
+  padding: 22px 22px 20px;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+.sos-home__tile:hover {
+  border-color: var(--sos-copper);
+  background: var(--sos-e3);
+  transform: translateY(-1px);
+}
+/* editorial list: open entries on hairlines, not boxes, so the library reads
+   as reading and the tools read as instruments */
+.sos-home__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 48px;
+  border-top: 1px solid var(--sos-line);
+}
+.sos-home__list li {
+  border-bottom: 1px solid var(--sos-line-soft);
+}
+.sos-home__entry {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 24px 0 22px;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.sos-home__entry-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.sos-home__entry-title {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 23px;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--sos-text-hi);
+  transition: color 0.15s;
+}
+.sos-home__entry:hover .sos-home__entry-title {
+  color: var(--sos-copper-hot);
+}
+.sos-home__entry:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+  border-radius: 6px;
+}
+.sos-home__tile:focus-visible {
+  outline: none;
+  border-color: var(--sos-copper);
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+.sos-home__tile--deep {
+  background: var(--sos-e1);
+}
+.sos-home__tile--alert {
+  grid-column: span 2;
+  border-color: color-mix(in srgb, var(--sos-emergency) 55%, var(--sos-line));
+}
+.sos-home__tile--alert:hover {
+  border-color: var(--sos-emergency);
+  background: var(--sos-emergency-glow);
+}
+.sos-home__tile-title {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 19px;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--sos-text-hi);
+  margin: 0;
+}
+.sos-home__tile-body {
   font-family: var(--sos-serif);
   font-size: 15.5px;
   line-height: 1.55;
@@ -846,4 +1075,108 @@ a.sos-card:hover {
   font-size: 16px;
   line-height: 1.55;
   color: var(--sos-text-md);
+  flex: 1;
+}
+.sos-home__tile-foot {
+  font-family: var(--sos-mono);
+  font-size: 12.5px;
+  color: var(--sos-copper);
+  margin: 4px 0 0;
+}
+.sos-home__tile-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sos-home__index {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--sos-copper);
+}
+/* find care: the near-me instrument on a panel, the directory beside it */
+.sos-home__care {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 14px;
+}
+.sos-home__care-form {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+/* the Log: a closing band with the copper edge on the left, skin over steel */
+.sos-home__log {
+  margin-top: 56px;
+  padding: 36px 32px 32px;
+  border-radius: 12px;
+  background: var(--sos-e1);
+  border: 1px solid var(--sos-line);
+  border-left: 3px solid var(--sos-copper);
+}
+.sos-home__log-phases {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.sos-home__log-phases li {
+  display: grid;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--sos-line);
+  position: relative;
+}
+.sos-home__log-phases li::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 36px;
+  height: 1px;
+  background: var(--sos-copper);
+}
+.sos-home__log-name {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+}
+.sos-home__log-note {
+  font-family: var(--sos-mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--sos-text-lo);
+}
+
+@media (max-width: 980px) {
+  .sos-home__hero { grid-template-columns: 1fr; gap: 36px; align-items: start; padding-top: 48px; }
+  .sos-home__h1 { max-width: none; }
+  .sos-home__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sos-home__rail > .sos-morse { grid-column: 1 / -1; }
+  .sos-home__routes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sos-home__grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sos-home__log-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .sos-home__routes,
+  .sos-home__grid--2,
+  .sos-home__grid--3,
+  .sos-home__care,
+  .sos-home__list,
+  .sos-home__log-phases { grid-template-columns: 1fr; }
+  .sos-home__tile--alert { grid-column: auto; }
+  .sos-home__grade { grid-template-columns: 1fr; gap: 8px; }
+  .sos-home__section { padding-top: 44px; }
+  .sos-home__log { padding: 28px 22px; margin-top: 44px; }
 }
