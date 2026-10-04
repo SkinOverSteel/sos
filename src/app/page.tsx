@@ -1,359 +1,344 @@
 import Link from "next/link";
 import { EvidenceBadge, type Grade } from "@/components/EvidenceBadge";
 import { MorseSOS } from "@/components/MorseSOS";
-import { articles } from "@/lib/articles";
-import { liveTools } from "@/lib/tools";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { articles } from "@/lib/articles";
+import { ROUTES } from "@/lib/routes";
+import { liveTools } from "@/lib/tools";
 
 // The site-wide WebSite + Organization graph is emitted once in the root
 // layout (see lib/jsonld.ts → siteJsonLd), so the homepage no longer repeats it.
 
+/** The standard, shown as an instrument beside the headline: one real claim per grade. */
 const GRADE_EXAMPLES: { grade: Grade; meaning: string; claim: string }[] = [
   {
     grade: "established",
-    meaning: "Guideline-level evidence.",
+    meaning: "Guideline-level",
     claim: "PDE5 inhibitors like sildenafil are first-line therapy for erectile dysfunction.",
   },
   {
     grade: "emerging",
-    meaning: "Early or mixed research.",
+    meaning: "Early or mixed",
     claim: "Higher-intensity exercise may improve erectile function through vascular adaptation.",
   },
   {
     grade: "anecdote",
-    meaning: "Member experience, fenced off from fact.",
+    meaning: "Member n=1, fenced off",
     claim: "“Cutting alcohol brought my morning erections back within a month.”",
   },
+];
+
+const LOG_PHASES: { name: string; note: string }[] = [
+  { name: "Baseline", note: "Your score and labs before anything changes." },
+  { name: "Intervention", note: "The prescribed protocol, as written." },
+  { name: "Weekly check-ins", note: "The same five questions, every week." },
+  { name: "Outcome", note: "What moved, on one page for your clinician." },
 ];
 
 export default function Home() {
   const featuredArticles = articles.filter((a) => a.featured);
   const featured = (featuredArticles.length ? featuredArticles : articles).slice(0, 4);
+  const gradedCount = articles.filter((a) => a.grade === "established").length;
+
   return (
     <div>
-      {/* Hero — full-bleed "skin over steel" lighting on the dark ground: warm
-          copper glow (--sos-copper, #C97438) upper-left, faint cool steel
-          counter-light lower-right, a subtle center vignette for depth. */}
+      {/* Hero — "skin over steel" lighting on the dark ground: a warm copper
+          glow upper-left, a faint cool steel counter-light lower-right. The
+          headline sits left; the grading standard sits beside it as the
+          instrument that makes the headline credible. */}
       <section
         style={{
           backgroundColor: "var(--sos-e0)",
           backgroundImage:
-            "radial-gradient(1000px 560px at 14% -6%, rgba(201,116,56,0.17), rgba(18,22,26,0) 60%)," +
-            "radial-gradient(760px 440px at 101% 116%, rgba(140,161,180,0.07), rgba(18,22,26,0) 58%)," +
-            "radial-gradient(120% 130% at 50% 34%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.24))",
+            "radial-gradient(1100px 600px at 8% -10%, rgba(201,116,56,0.16), rgba(18,22,26,0) 60%)," +
+            "radial-gradient(800px 460px at 104% 110%, rgba(140,161,180,0.07), rgba(18,22,26,0) 58%)",
         }}
       >
-        <div
-          style={{
-            maxWidth: "820px",
-            margin: "0 auto",
-            padding: "72px 24px 56px",
-            textAlign: "center",
-          }}
-        >
-        <p className="sos-kicker" style={{ marginBottom: "24px" }}>
-          Men&apos;s sexual health · <b>evidence-graded</b>
-        </p>
-        <h1
-          style={{
-            fontFamily: "var(--sos-sans)",
-            fontWeight: 850,
-            fontStretch: "78%",
-            fontSize: "clamp(46px, 8vw, 84px)",
-            lineHeight: 0.96,
-            letterSpacing: "-0.015em",
-            textTransform: "uppercase",
-            color: "var(--sos-text-hi)",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--sos-serif)",
-              fontStyle: "italic",
-              fontWeight: 560,
-              textTransform: "none",
-              letterSpacing: 0,
-              color: "var(--sos-copper)",
-            }}
-          >
-            Skin
-          </span>{" "}
-          Over Steel
-        </h1>
-        <p
-          style={{
-            fontFamily: "var(--sos-serif)",
-            fontSize: "clamp(19px, 2.4vw, 23px)",
-            lineHeight: 1.5,
-            color: "var(--sos-text-md)",
-            maxWidth: "40ch",
-            margin: "26px auto 0",
-          }}
-        >
-          The conversation your urologist doesn&apos;t have time for.
-        </p>
-        <p className="sos-prose" style={{ maxWidth: "52ch", margin: "18px auto 0", fontSize: "17px" }}>
-          Plain explanations of erectile function, testosterone, and the
-          treatments, each claim graded by its evidence. Private tools to
-          score yourself. A directory of licensed providers. All of it built to
-          get you to a clinician better informed.
-        </p>
+        <div className="sos-home">
+          <div className="sos-home__hero">
+            <div>
+              <p className="sos-kicker" style={{ marginBottom: "22px" }}>
+                Men&apos;s sexual health · <b>evidence-graded</b>
+              </p>
+              <h1 className="sos-home__h1">
+                The conversation your urologist
+                <em>doesn&apos;t have time for.</em>
+              </h1>
+              <p
+                className="sos-prose"
+                style={{ maxWidth: "50ch", margin: "26px 0 0", fontSize: "18px" }}
+              >
+                Plain explanations of erectile function, testosterone, and the
+                treatments, each claim graded by its evidence. Private tools to
+                score yourself. Licensed providers, ranked on trust. All of it
+                built to get you to a clinician better informed, never around
+                one.
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  flexWrap: "wrap",
+                  marginTop: "32px",
+                }}
+              >
+                <Link href="/learn" className="sos-btn sos-btn--primary">
+                  Explore the library
+                </Link>
+                <Link href="/tools/erectile-function-score" className="sos-btn sos-btn--ghost">
+                  Score yourself, privately
+                </Link>
+              </div>
+            </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "14px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            marginTop: "34px",
-          }}
-        >
-          <Link href="/learn" className="sos-btn sos-btn--primary">
-            Explore the library
-          </Link>
-          <Link href="/directory" className="sos-btn sos-btn--ghost">
-            Find a provider
-          </Link>
-        </div>
+            <aside className="sos-home__panel" aria-labelledby="home-standard">
+              <div className="sos-home__panel-head">
+                <h2 id="home-standard" className="sos-h2">
+                  How every claim is graded
+                </h2>
+                <Link href="/methodology" className="sos-home__more">
+                  The standard →
+                </Link>
+              </div>
+              {GRADE_EXAMPLES.map((ex) => (
+                <div key={ex.grade} className="sos-home__grade">
+                  <div>
+                    <EvidenceBadge grade={ex.grade} />
+                    <p className="sos-note" style={{ marginTop: "6px", lineHeight: 1.45 }}>
+                      {ex.meaning}
+                    </p>
+                  </div>
+                  <p>{ex.claim}</p>
+                </div>
+              ))}
+            </aside>
+          </div>
 
-          <MorseSOS style={{ margin: "48px auto 0", width: "fit-content" }} />
+          {/* The signal rail: what this is, in instrument voice */}
+          <div className="sos-home__rail">
+            <MorseSOS />
+            <span>
+              <b>{articles.length}</b>{" "}
+              articles, every claim graded
+            </span>
+            <span>
+              <b>{gradedCount}</b>{" "}
+              at guideline-level evidence
+            </span>
+            <span>
+              <b>{liveTools.length}</b>{" "}
+              private tools, nothing leaves your browser
+            </span>
+            <span>
+              <b>0</b>{" "}
+              supplements sold, ever
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* Start here: featured articles */}
-      <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
-        <div className="sos-container" style={{ paddingTop: "56px", paddingBottom: "20px" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-              gap: "12px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
-            <h2 className="sos-h2">Start here</h2>
-            <Link
-              href="/learn"
-              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
-            >
+      <div className="sos-home">
+        {/* Start where you are: the situation routes shared with /learn */}
+        <section className="sos-home__section" aria-labelledby="home-routes">
+          <div className="sos-home__section-head">
+            <div>
+              <h2 id="home-routes" className="sos-h2">
+                Start where you are
+              </h2>
+              <p>
+                Where you begin depends on where you&apos;re stuck, not on how
+                the library is filed. Pick the situation; we hand you the first
+                page.
+              </p>
+            </div>
+            <Link href="/learn" className="sos-home__more">
               Browse all {articles.length} in the library →
             </Link>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-            {featured.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/learn/${a.slug}`}
-                className="sos-card"
-                style={{ display: "block", textDecoration: "none" }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    flexWrap: "wrap",
-                    marginBottom: "8px",
-                  }}
+          <div className="sos-home__routes">
+            {ROUTES.map((r) => {
+              const crisis = r.href === "/support";
+              return (
+                <Link
+                  key={r.title}
+                  href={r.href}
+                  className={`sos-home__tile${crisis ? " sos-home__tile--alert" : ""}`}
                 >
-                  <span className="sos-kicker">{a.section}</span>
-                  <EvidenceBadge grade={a.grade} />
-                </div>
-                <h3 className="sos-h2" style={{ fontSize: "18px", textTransform: "none", marginBottom: "6px" }}>
-                  {a.title}
-                </h3>
-                <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-                  {a.summary}
-                </p>
-              </Link>
-            ))}
+                  <h3 className="sos-home__tile-title">{r.title}</h3>
+                  <p className="sos-home__tile-body">{r.bestFor}</p>
+                  <p
+                    className="sos-home__tile-foot"
+                    style={crisis ? { color: "var(--sos-emergency)" } : undefined}
+                  >
+                    {crisis ? "Get support now →" : `Start: ${r.startWith} →`}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Tools */}
-      <section>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-              gap: "12px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
-            <h2 className="sos-h2">Tools</h2>
-            <Link
-              href="/tools"
-              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
-            >
-              Score yourself, privately →
+        {/* Start here: the curated four */}
+        <section className="sos-home__section" aria-labelledby="home-featured">
+          <div className="sos-home__section-head">
+            <h2 id="home-featured" className="sos-h2">
+              Start here
+            </h2>
+            <Link href="/learn" className="sos-home__more">
+              The whole library →
             </Link>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+          <ol className="sos-home__list">
+            {featured.map((a, i) => (
+              <li key={a.slug}>
+                <Link href={`/learn/${a.slug}`} className="sos-home__entry">
+                  <span className="sos-home__index">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="sos-home__entry-body">
+                    <span className="sos-home__tile-meta" style={{ marginBottom: "8px" }}>
+                      <span className="sos-kicker">{a.section}</span>
+                      <EvidenceBadge grade={a.grade} />
+                    </span>
+                    <span className="sos-home__entry-title">{a.title}</span>
+                    <span className="sos-home__tile-body">{a.deck}</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <MorseSOS dim style={{ margin: "56px auto 0", width: "fit-content" }} />
+
+        {/* Tools: the instruments */}
+        <section className="sos-home__section" aria-labelledby="home-tools" style={{ paddingTop: "40px" }}>
+          <div className="sos-home__section-head">
+            <div>
+              <h2 id="home-tools" className="sos-h2">
+                Tools
+              </h2>
+              <p>
+                Validated screens and calculators that run in your browser and
+                nowhere else. Each one ends in a number you can take to an
+                appointment.
+              </p>
+            </div>
+            <Link href="/tools" className="sos-home__more">
+              All tools →
+            </Link>
+          </div>
+          <div className="sos-home__grid sos-home__grid--3">
             {liveTools.map((t) => (
-              <Link
-                key={t.slug}
-                href={`/tools/${t.slug}`}
-                className="sos-card"
-                style={{ display: "block", textDecoration: "none" }}
-              >
+              <Link key={t.slug} href={`/tools/${t.slug}`} className="sos-home__tile">
                 <span className="sos-kicker">{t.kind}</span>
-                <h3 className="sos-h2" style={{ fontSize: "18px", textTransform: "none", margin: "8px 0 6px" }}>
-                  {t.title}
-                </h3>
-                <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-                  {t.blurb}
-                </p>
+                <h3 className="sos-home__tile-title">{t.title}</h3>
+                <p className="sos-home__tile-body">{t.blurb}</p>
+                <p className="sos-home__tile-foot">Open →</p>
               </Link>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Near me: the utility layer. A zip in, the nearest clinics out. */}
-      <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-              gap: "12px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
-            <h2 className="sos-h2">Near me · every US zip</h2>
-            <Link
-              href="/map"
-              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
-            >
+        {/* Find care: near me (the utility) and the directory (the trust standard) */}
+        <section className="sos-home__section" aria-labelledby="home-care">
+          <div className="sos-home__section-head">
+            <h2 id="home-care" className="sos-h2">
+              Find care
+            </h2>
+            <Link href="/map" className="sos-home__more">
               See the whole map →
             </Link>
           </div>
-          <p className="sos-prose" style={{ maxWidth: "62ch", marginBottom: "18px" }}>
-            Who treats this near you: testosterone clinics, GLP-1 prescribers,
-            licensed compounding pharmacies, and the gyms where people actually
-            lift, ranked by distance from your zip, with the prices members
-            report paying. Every state from public registries, twenty metros at
-            street scale. Businesses only.
-          </p>
-          <form action="/near-me" method="get" style={{ display: "flex", gap: "10px", alignItems: "flex-end", flexWrap: "wrap" }}>
-            <div style={{ flex: "1 1 160px", maxWidth: "220px" }}>
-              <label className="sos-label" htmlFor="home-zip">Zip code</label>
-              <input id="home-zip" name="zip" className="sos-field" inputMode="numeric" pattern="[0-9]{5}" maxLength={5} placeholder="75201" autoComplete="postal-code" />
-            </div>
-            <button type="submit" className="sos-btn sos-btn--primary" style={{ border: 0, cursor: "pointer" }}>
-              Find
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* The standard: how every claim is graded (claim, then proof) */}
-      <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
-          <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-            How every claim is graded
-          </h2>
-          <p className="sos-prose" style={{ maxWidth: "62ch" }}>
-            Every claim on this site carries one of three grades, and every
-            source is named. The grade tells you how much weight the evidence
-            can bear before you take it into an appointment. A member&apos;s
-            experience is welcome here, and it is always marked as one.
-          </p>
-          <p style={{ marginTop: "18px" }}>
-            <Link
-              href="/methodology"
-              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
-            >
-              Read the full standard →
-            </Link>
-          </p>
-
-          <div className="sos-card sos-card--deep" style={{ marginTop: "28px" }}>
-            {GRADE_EXAMPLES.map((ex, i) => (
-              <div
-                key={ex.grade}
-                style={{
-                  display: "flex",
-                  gap: "18px",
-                  alignItems: "flex-start",
-                  flexWrap: "wrap",
-                  padding: i === 0 ? "0 0 18px" : "18px 0",
-                  borderTop: i > 0 ? "1px solid var(--sos-line)" : "none",
-                }}
-              >
-                <div style={{ flex: "0 0 150px" }}>
-                  <EvidenceBadge grade={ex.grade} />
-                  <p className="sos-note" style={{ marginTop: "8px" }}>
-                    {ex.meaning}
-                  </p>
+          <div className="sos-home__care">
+            <div className="sos-home__tile sos-home__tile--deep" style={{ cursor: "default" }}>
+              <span className="sos-kicker">Near me · every US zip</span>
+              <h3 className="sos-home__tile-title">Who treats this near you</h3>
+              <p className="sos-home__tile-body">
+                Testosterone clinics, GLP-1 prescribers, licensed compounding
+                pharmacies, and the gyms where people actually lift, ranked by
+                distance from your zip, with the prices members report paying.
+                Businesses only.
+              </p>
+              <form action="/near-me" method="get" className="sos-home__care-form">
+                <div style={{ flex: "1 1 160px", maxWidth: "220px" }}>
+                  <label className="sos-label" htmlFor="home-zip">
+                    Zip code
+                  </label>
+                  <input
+                    id="home-zip"
+                    name="zip"
+                    className="sos-field"
+                    inputMode="numeric"
+                    pattern="[0-9]{5}"
+                    maxLength={5}
+                    placeholder="75201"
+                    autoComplete="postal-code"
+                  />
                 </div>
-                <p className="sos-prose" style={{ flex: "1 1 260px", fontSize: "16px", margin: 0 }}>
-                  {ex.claim}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Find a provider */}
-      <section>
-        <div className="sos-container" style={{ paddingTop: "36px", paddingBottom: "20px" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-              gap: "12px",
-              flexWrap: "wrap",
-              marginBottom: "20px",
-            }}
-          >
-            <h2 className="sos-h2">Find a provider</h2>
-            <Link
-              href="/directory"
-              style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
-            >
-              See the directory →
+                <button
+                  type="submit"
+                  className="sos-btn sos-btn--primary"
+                  style={{ border: 0, cursor: "pointer" }}
+                >
+                  Find
+                </button>
+              </form>
+            </div>
+            <Link href="/directory" className="sos-home__tile">
+              <span className="sos-kicker">Directory · licensed only</span>
+              <h3 className="sos-home__tile-title">Find a provider</h3>
+              <p className="sos-home__tile-body">
+                Labs, telemedicine, and compounding pharmacies, ranked on
+                published trust criteria. Where a listing pays a referral fee,
+                the disclosure sits on the link and the ranking does not move.
+              </p>
+              <p className="sos-home__tile-foot">See the directory →</p>
             </Link>
           </div>
-          <Link href="/directory" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
-            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-              Licensed labs, telemedicine, and compounding pharmacies, ranked on
-              published trust criteria. Where a listing pays a referral fee, the
-              disclosure sits on the link and the ranking does not move.
+        </section>
+
+        {/* The Log: phase one is live, browser-local */}
+        <section className="sos-home__log" aria-labelledby="home-log">
+          <div>
+            <p className="sos-kicker" style={{ marginBottom: "12px" }}>
+              New · <b>The Log</b>
             </p>
-          </Link>
-        </div>
-      </section>
+            <h2
+              id="home-log"
+              className="sos-home__tile-title"
+              style={{ fontSize: "clamp(24px, 3vw, 32px)", marginBottom: "14px" }}
+            >
+              One protocol, start to finish
+            </h2>
+            <p className="sos-prose" style={{ maxWidth: "54ch", fontSize: "17px" }}>
+              A private tracker for the work itself, from baseline through
+              intervention to outcome, exportable as one page for your
+              clinician. It runs in your browser and nowhere else. The library
+              stays free either way.
+            </p>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
+              <Link href="/log" className="sos-btn sos-btn--ghost">
+                Open the Log →
+              </Link>
+            </div>
+          </div>
+          <ol className="sos-home__log-phases" aria-label="The Log's four phases">
+            {LOG_PHASES.map((p, i) => (
+              <li key={p.name}>
+                <span className="sos-home__index">{String(i + 1).padStart(2, "0")}</span>
+                <span className="sos-home__log-name">{p.name}</span>
+                <span className="sos-home__log-note">{p.note}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-      {/* The Log: phase one is live, browser-local */}
-      <section style={{ borderTop: "1px solid var(--sos-line-soft)" }}>
-        <div className="sos-container" style={{ paddingTop: "40px", paddingBottom: "80px" }}>
-          <p className="sos-kicker" style={{ marginBottom: "12px" }}>
-            New · The Log
-          </p>
-          <p className="sos-prose" style={{ maxWidth: "62ch", marginBottom: "18px" }}>
-            A private tracker for the work itself, from baseline through
-            intervention to outcome, exportable as one page for your clinician.
-            It runs in your browser and nowhere else. The library stays free
-            either way.
-          </p>
-          <Link href="/log" className="sos-btn sos-btn--ghost" style={{ marginBottom: "8px" }}>
-            Open the Log →
-          </Link>
-          {process.env.BUTTONDOWN_API_KEY ? <NewsletterSignup /> : null}
-        </div>
-      </section>
-
+        {process.env.BUTTONDOWN_API_KEY ? (
+          <div style={{ marginTop: "40px" }}>
+            <NewsletterSignup />
+          </div>
+        ) : null}
+        <div style={{ height: "72px" }} />
+      </div>
     </div>
   );
 }
