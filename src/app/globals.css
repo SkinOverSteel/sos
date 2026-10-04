@@ -1244,7 +1244,9 @@ a.sos-card:hover {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: 14px;
-  align-items: stretch;
+  /* start, not stretch: the map keeps the SVG's own aspect ratio, so there
+     is no crop and no letterbox whatever the column width */
+  align-items: start;
 }
 .sos-home__care-side {
   display: grid;
@@ -1253,7 +1255,8 @@ a.sos-card:hover {
 }
 .sos-home__map {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--sos-line);
   border-radius: 10px;
@@ -1273,16 +1276,14 @@ a.sos-card:hover {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 900 / 468;
+  background: var(--sos-e0);
+  border-bottom: 1px solid var(--sos-line-soft);
 }
 .sos-home__map-cap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
   display: grid;
   gap: 5px;
-  padding: 40px 22px 20px;
-  background: linear-gradient(rgba(18, 22, 26, 0), rgba(18, 22, 26, 0.92) 55%);
+  padding: 16px 22px 18px;
 }
 .sos-home__map-title {
   font-family: var(--sos-sans);
@@ -1359,6 +1360,7 @@ a.sos-card:hover {
   .sos-home__rail > .sos-home__rail-note { grid-column: 1 / -1; }
   .sos-home__routes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sos-home__grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sos-home__grid--3 > :last-child:nth-child(odd) { grid-column: 1 / -1; }
   .sos-home__log-phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
