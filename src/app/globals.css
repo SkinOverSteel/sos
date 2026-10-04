@@ -940,6 +940,16 @@ a.sos-card:hover {
   color: var(--sos-text-hi);
   margin: 0;
 }
+.sos-page-head {
+  margin-bottom: 32px;
+}
+.sos-page-head .sos-home__title {
+  font-size: clamp(32px, 4.8vw, 48px);
+}
+.sos-page-head p:not(.sos-home__step) {
+  font-size: 18px;
+  max-width: 60ch;
+}
 .sos-home__sub-head {
   display: flex;
   align-items: baseline;

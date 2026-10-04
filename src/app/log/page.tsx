@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { StepHeader } from "@/components/StepHeader";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { LogTool } from "@/components/LogTool";
@@ -33,19 +34,12 @@ export default function LogPage() {
     <div className="sos-container">
       <JsonLd data={jsonLd} />
 
-      <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        The Log · <b>Private tracker</b>
-      </p>
-      <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        One protocol, start to finish
-      </h1>
-
-      <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "18px" }}>
+      <StepHeader as="h1" step="track" title="One protocol, start to finish" className="sos-page-head">
         Baseline, the intervention you and your prescriber chose, a short
         weekly check-in, and the outcome. Then one page you can hand to a
         clinician, with the evidence grade attached. It lives in this browser
         and nowhere else: no account, no sync, nothing sent to us.
-      </p>
+      </StepHeader>
 
       <p className="sos-note" style={{ maxWidth: "60ch", marginBottom: "18px" }}>
         That also means it&apos;s only as safe as this device. Download a backup

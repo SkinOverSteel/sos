@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { StepHeader } from "@/components/StepHeader";
 import {
   AFFILIATE_NETWORK_LABELS,
   CATEGORY_LABELS,
@@ -27,12 +28,10 @@ export default function DirectoryPage() {
   return (
     <div className="sos-container">
       <JsonLd data={directoryHubJsonLd()} />
-      <p className="sos-kicker" style={{ marginBottom: "14px" }}>
-        Directory · <b>How we rank</b>
-      </p>
-      <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        Find a provider
-      </h1>
+      <StepHeader as="h1" step="care" title="Find a provider" className="sos-page-head" more={{ href: "/near-me", label: "Who treats this near you →" }}>
+        Licensed labs, telemedicine, and compounding pharmacies, ranked only on
+        published trust criteria. Never on who pays.
+      </StepHeader>
 
       {!DIRECTORY_LIVE && (
         <div
