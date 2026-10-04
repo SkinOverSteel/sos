@@ -28,7 +28,12 @@ const GRADE_EXAMPLES: { grade: Grade; meaning: string; claim: string }[] = [
   },
 ];
 
-const LOG_PHASES = ["Baseline", "Intervention", "Weekly check-ins", "Outcome"];
+const LOG_PHASES: { name: string; note: string }[] = [
+  { name: "Baseline", note: "Your score and labs before anything changes." },
+  { name: "Intervention", note: "The prescribed protocol, as written." },
+  { name: "Weekly check-ins", note: "The same five questions, every week." },
+  { name: "Outcome", note: "What moved, on one page for your clinician." },
+];
 
 export default function Home() {
   const featuredArticles = articles.filter((a) => a.featured);
@@ -183,29 +188,29 @@ export default function Home() {
               The whole library →
             </Link>
           </div>
-          <div className="sos-home__grid sos-home__grid--2">
+          <ol className="sos-home__list">
             {featured.map((a, i) => (
-              <Link key={a.slug} href={`/learn/${a.slug}`} className="sos-home__tile">
-                <div className="sos-home__tile-meta">
-                  <span>
-                    <span className="sos-home__index">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="sos-kicker" style={{ marginLeft: "12px" }}>
-                      {a.section}
+              <li key={a.slug}>
+                <Link href={`/learn/${a.slug}`} className="sos-home__entry">
+                  <span className="sos-home__index">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="sos-home__entry-body">
+                    <span className="sos-home__tile-meta" style={{ marginBottom: "8px" }}>
+                      <span className="sos-kicker">{a.section}</span>
+                      <EvidenceBadge grade={a.grade} />
                     </span>
+                    <span className="sos-home__entry-title">{a.title}</span>
+                    <span className="sos-home__tile-body">{a.deck}</span>
                   </span>
-                  <EvidenceBadge grade={a.grade} />
-                </div>
-                <h3 className="sos-home__tile-title" style={{ fontSize: "21px" }}>
-                  {a.title}
-                </h3>
-                <p className="sos-home__tile-body">{a.deck}</p>
-              </Link>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
+        <MorseSOS dim style={{ margin: "56px auto 0", width: "fit-content" }} />
+
         {/* Tools: the instruments */}
-        <section className="sos-home__section" aria-labelledby="home-tools">
+        <section className="sos-home__section" aria-labelledby="home-tools" style={{ paddingTop: "40px" }}>
           <div className="sos-home__section-head">
             <div>
               <h2 id="home-tools" className="sos-h2">
@@ -316,20 +321,15 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <ul className="sos-home__log-phases" aria-label="The Log's four phases">
+          <ol className="sos-home__log-phases" aria-label="The Log's four phases">
             {LOG_PHASES.map((p, i) => (
-              <li key={p}>
-                <i aria-hidden />
-                <span>
-                  <b style={{ color: "var(--sos-text-hi)", fontWeight: 600 }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </b>
-                  {"  "}
-                  {p}
-                </span>
+              <li key={p.name}>
+                <span className="sos-home__index">{String(i + 1).padStart(2, "0")}</span>
+                <span className="sos-home__log-name">{p.name}</span>
+                <span className="sos-home__log-note">{p.note}</span>
               </li>
             ))}
-          </ul>
+          </ol>
         </section>
 
         {process.env.BUTTONDOWN_API_KEY ? (
