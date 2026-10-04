@@ -28,6 +28,7 @@ Open <http://localhost:3000>.
 | `npm run gsc`   | Google Search Console report (`scripts/gsc-report.mjs`) |
 | `npm run test:e2e` | Playwright browser tests against the production build (`e2e/`) |
 | `npm run data:upload` | Push the Near Me data shards to Vercel Blob (`scripts/upload-nearme-data.mjs`) |
+| `node scripts/build-geo.mjs` | Rebuild the static map geography in `public/geo/` (`scripts/build-geo.mjs`) |
 
 ## Repository structure
 
@@ -84,6 +85,13 @@ paths, so the repo does not carry them:
 publishes it. Unset, the app reads the local copies (after running the ETL);
 CI sets the variable to the public store URL, which needs no token. The small
 build-time summaries (`src/data/nearme/*.json`) stay in git.
+
+The map's geography layer is separate from those shards. Simplified US land,
+state, and county outlines live in `public/geo/` (committed, served
+same-origin so the CSP stays closed — no tile server) and sit under the hex
+grid as a coastline and state-line backdrop. They rarely change; regenerate
+them from us-atlas with `node scripts/build-geo.mjs` if the boundaries need a
+refresh.
 
 ## Notes
 
