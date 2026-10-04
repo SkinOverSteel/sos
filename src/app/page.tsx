@@ -113,16 +113,20 @@ export default function Home() {
           <div className="sos-home__rail">
             <MorseSOS />
             <span>
-              <b>{articles.length}</b> articles, <b>{gradedCount}</b> at guideline grade
+              <b>{articles.length}</b>{" "}
+              articles, every claim graded
             </span>
             <span>
-              <b>{liveTools.length}</b> private tools, nothing leaves your browser
+              <b>{gradedCount}</b>{" "}
+              at guideline-level evidence
             </span>
             <span>
-              <b>0</b> supplements sold
+              <b>{liveTools.length}</b>{" "}
+              private tools, nothing leaves your browser
             </span>
             <span>
-              Every source named · referral fees disclosed · rankings never for sale
+              <b>0</b>{" "}
+              supplements sold, ever
             </span>
           </div>
         </div>
@@ -166,16 +170,6 @@ export default function Home() {
                 </Link>
               );
             })}
-            <div className="sos-home__tile sos-home__tile--deep" style={{ justifyContent: "flex-end" }}>
-              <MorseSOS dim style={{ marginBottom: "6px" }} />
-              <p className="sos-home__tile-body" style={{ flex: "none" }}>
-                Education, not medical advice. Every article says who reviewed
-                it and when, and every grade can be traced to its source.
-              </p>
-              <Link href="/about" className="sos-home__tile-foot" style={{ textDecoration: "none" }}>
-                Why this exists →
-              </Link>
-            </div>
           </div>
         </section>
 
