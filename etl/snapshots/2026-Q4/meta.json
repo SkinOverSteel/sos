@@ -7,7 +7,7 @@
     "pharmacy": 3447,
     "gym": 2050
   },
-  "geocoded": 95425,
+  "geocoded": 96988,
   "sources": [
     "fda_503b",
     "npi",
@@ -27,8 +27,8 @@
     "glp1": 1602
   },
   "hexes": {
-    "us-r4": 4476,
-    "us-r5": 19198
+    "us-r4": 4475,
+    "us-r5": 19197
   },
   "priced_pois": 0
 }

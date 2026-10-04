@@ -19,6 +19,8 @@ python fetch_gyms.py [slug...]  # OSM gyms per metro (Overpass, else tiled Nomin
 python geocode.py [--census-only] [files...]   # Census batch geocoder; Nominatim fallback inside metros
 python aggregate_h3.py          # -> public/data/nearme/{us,states,metros,pois,zips}, src/data/nearme/*.json
 npm run data:upload             # (from the repo root) push public/data/nearme to Vercel Blob
+                                # run this on the SAME machine that ran aggregate_h3.py: the shards
+                                # are gitignored, so a fresh clone has nothing to upload
 python snapshot.py              # quarterly time series (snapshots/timeseries.csv)
 python moderate.py list|approve|reject|export   # submissions queue
 ```
