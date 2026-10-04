@@ -8,8 +8,6 @@ import { SignalRail } from "@/components/SignalRail";
 import { articles } from "@/lib/articles";
 import { ROUTES } from "@/lib/routes";
 import { liveTools } from "@/lib/tools";
-import { HexMap, type Bbox } from "@/components/nearme/HexMap";
-import { METROS } from "@/lib/nearme";
 
 // The site-wide WebSite + Organization graph is emitted once in the root
 // layout (see lib/jsonld.ts → siteJsonLd), so the homepage no longer repeats it.
@@ -26,20 +24,6 @@ const LOG_PHASES: { name: string; note: string }[] = [
   { name: "Weekly check-ins", note: "The same five questions, every week." },
   { name: "Outcome", note: "What moved, on one page for your clinician." },
 ];
-
-/** Metro labels for the homepage map preview, same derivation as /map. */
-const METRO_LABELS = METROS.map((m) => ({
-  name: m.name.split("–")[0].split(",")[0].replace(/ Bay Area$| Bay$/, ""),
-  lat: (m.bbox.south + m.bbox.north) / 2,
-  lon: (m.bbox.west + m.bbox.east) / 2,
-}));
-
-/**
- * The national view (HexMap's US_VIEW) with a little western margin so the
- * coast labels don't clip. A literal, not a spread of the import: values from
- * a "use client" module reach a server component as client references.
- */
-const PREVIEW_VIEW: Bbox = { south: 24.0, west: -128.5, north: 49.8, east: -66.5 };
 
 export default function Home() {
   const featuredArticles = articles.filter((a) => a.featured);
@@ -203,7 +187,17 @@ export default function Home() {
           </StepHeader>
           <div className="sos-home__care">
             <Link href="/map" className="sos-home__map" aria-label="Open the US map">
-              <HexMap region="us" resolutions={[4]} bbox={PREVIEW_VIEW} labels={METRO_LABELS} height={400} national preview />
+              {/* A static render of the national hex map (scripts/build-map-preview.mjs):
+                  no shard, no h3 library and no map JavaScript on the front door. */}
+              <img
+                className="sos-home__map-img"
+                src="/map/us-preview.svg"
+                width={900}
+                height={468}
+                loading="lazy"
+                decoding="async"
+                alt="Map of the United States, hex by hex, shaded by the density of testosterone clinics, GLP-1 prescribers, licensed compounding pharmacies and strength gyms"
+              />
               <span className="sos-home__map-cap">
                 <span className="sos-kicker">The map · every US zip</span>
                 <span className="sos-home__map-title">Where the infrastructure is</span>

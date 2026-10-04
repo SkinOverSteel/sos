@@ -49,13 +49,19 @@ test("support is reachable above the fold on a phone", async ({ page }) => {
   expect(box && box.y + box.height).toBeLessThan(780);
 });
 
-test("the map preview degrades to the outline when the index is unavailable", async ({ page }) => {
-  await page.route(/hex-r\d\.json/, (route) => route.fulfill({ status: 503, body: "" }));
+test("the Find care map is a static image that links to the full map", async ({ page }) => {
   await page.goto("/");
-  const map = page.locator("a.sos-home__map [data-map-state]");
-  await map.scrollIntoViewIfNeeded();
-  await expect(map).toHaveAttribute("data-map-state", "unavailable", { timeout: 15000 });
-  await expect(page.getByText(/outline only/i)).toBeVisible();
-  // The tile still links to the full map.
+  const img = page.locator("a.sos-home__map img");
+  await img.scrollIntoViewIfNeeded();
+  await expect(img).toHaveAttribute("src", "/map/us-preview.svg");
+  const loaded = await img.evaluate((el) => {
+    const i = el as HTMLImageElement;
+    return i.complete && i.naturalWidth > 0;
+  });
+  expect(loaded).toBe(true);
   await expect(page.locator("a.sos-home__map")).toHaveAttribute("href", "/map");
+  // No hex shard is fetched on the front door.
+  const shard = page.waitForRequest(/hex-r\d\.json/, { timeout: 1500 }).then(() => true, () => false);
+  await page.mouse.wheel(0, 2000);
+  expect(await shard).toBe(false);
 });

@@ -28,6 +28,7 @@ Open <http://localhost:3000>.
 | `npm run gsc`   | Google Search Console report (`scripts/gsc-report.mjs`) |
 | `npm run test:e2e` | Playwright browser tests against the production build (`e2e/`) |
 | `npm run data:upload` | Push the Near Me data shards to Vercel Blob (`scripts/upload-nearme-data.mjs`) |
+| `npm run map:preview` | Re-render the homepage's static national map, `public/map/us-preview.svg`, from the r4 shard (`scripts/build-map-preview.mjs`); commit the result after a data refresh |
 | `node scripts/build-geo.mjs` | Rebuild the static map geography in `public/geo/` (`scripts/build-geo.mjs`) |
 
 ## Repository structure

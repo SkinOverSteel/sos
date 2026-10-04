@@ -1269,6 +1269,11 @@ a.sos-card:hover {
   border-color: var(--sos-copper);
   box-shadow: 0 0 0 3px var(--sos-copper-glow);
 }
+.sos-home__map-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .sos-home__map-cap {
   position: absolute;
   left: 0;
