@@ -5,6 +5,8 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { articles } from "@/lib/articles";
 import { ROUTES } from "@/lib/routes";
 import { liveTools } from "@/lib/tools";
+import { HexMap, type Bbox } from "@/components/nearme/HexMap";
+import { METROS } from "@/lib/nearme";
 
 // The site-wide WebSite + Organization graph is emitted once in the root
 // layout (see lib/jsonld.ts → siteJsonLd), so the homepage no longer repeats it.
@@ -56,6 +58,20 @@ function SectionTitle({
     </div>
   );
 }
+
+/** Metro labels for the homepage map preview, same derivation as /map. */
+const METRO_LABELS = METROS.map((m) => ({
+  name: m.name.split("–")[0].split(",")[0].replace(/ Bay Area$| Bay$/, ""),
+  lat: (m.bbox.south + m.bbox.north) / 2,
+  lon: (m.bbox.west + m.bbox.east) / 2,
+}));
+
+/**
+ * The national view (HexMap's US_VIEW) with a little western margin so the
+ * coast labels don't clip. A literal, not a spread of the import: values from
+ * a "use client" module reach a server component as client references.
+ */
+const PREVIEW_VIEW: Bbox = { south: 24.0, west: -128.5, north: 49.8, east: -66.5 };
 
 export default function Home() {
   const featuredArticles = articles.filter((a) => a.featured);
@@ -297,28 +313,57 @@ export default function Home() {
             published trust criteria. Never by who pays.
           </SectionTitle>
           <div className="sos-home__care">
-            <Link href="/near-me" className="sos-home__tile sos-home__tile--deep">
-              <span className="sos-kicker">Near me · every US zip</span>
-              <h3 className="sos-home__tile-title">Who treats this near you</h3>
-              <p className="sos-home__tile-body">
-                Testosterone clinics, GLP-1 prescribers, licensed compounding
-                pharmacies, and the gyms where people actually lift, ranked by
-                distance from your zip, with the prices members report paying.
-                Every state from public registries, twenty metros at street
-                scale.
-              </p>
-              <p className="sos-home__tile-foot">Enter your zip →</p>
+            <Link href="/map" className="sos-home__map" aria-label="Open the US map">
+              <HexMap region="us" resolutions={[4]} bbox={PREVIEW_VIEW} labels={METRO_LABELS} height={400} national preview />
+              <span className="sos-home__map-cap">
+                <span className="sos-kicker">The map · every US zip</span>
+                <span className="sos-home__map-title">Where the infrastructure is</span>
+                <span className="sos-note">
+                  Hex by hex: testosterone clinics, GLP-1 prescribers, licensed
+                  compounding pharmacies, strength gyms. Businesses only.
+                </span>
+              </span>
             </Link>
-            <Link href="/directory" className="sos-home__tile">
-              <span className="sos-kicker">Directory · licensed only</span>
-              <h3 className="sos-home__tile-title">Find a provider</h3>
-              <p className="sos-home__tile-body">
-                Labs, telemedicine, and compounding pharmacies, ranked on
-                published trust criteria. Where a listing pays a referral fee,
-                the disclosure sits on the link and the ranking does not move.
-              </p>
-              <p className="sos-home__tile-foot">See the directory →</p>
-            </Link>
+            <div className="sos-home__care-side">
+              <form action="/near-me" method="get" className="sos-home__tile sos-home__tile--deep" style={{ cursor: "default" }}>
+                <span className="sos-kicker">Near me</span>
+                <h3 className="sos-home__tile-title">Who treats this near you</h3>
+                <p className="sos-home__tile-body" style={{ flex: "none" }}>
+                  Ranked by distance from your zip, with the prices members
+                  report paying.
+                </p>
+                <div className="sos-home__care-form" style={{ marginTop: "6px" }}>
+                  <div style={{ flex: "1 1 120px" }}>
+                    <label className="sos-label" htmlFor="home-zip-2">
+                      Zip code
+                    </label>
+                    <input
+                      id="home-zip-2"
+                      name="zip"
+                      className="sos-field"
+                      inputMode="numeric"
+                      pattern="[0-9]{5}"
+                      maxLength={5}
+                      placeholder="75201"
+                      autoComplete="postal-code"
+                    />
+                  </div>
+                  <button type="submit" className="sos-btn sos-btn--primary" style={{ border: 0, cursor: "pointer" }}>
+                    Find
+                  </button>
+                </div>
+              </form>
+              <Link href="/directory" className="sos-home__tile">
+                <span className="sos-kicker">Directory · licensed only</span>
+                <h3 className="sos-home__tile-title">Find a provider</h3>
+                <p className="sos-home__tile-body">
+                  Labs, telemedicine, and compounding pharmacies, ranked on
+                  published trust criteria. A referral fee is disclosed on the
+                  link and never moves the ranking.
+                </p>
+                <p className="sos-home__tile-foot">See the directory →</p>
+              </Link>
+            </div>
           </div>
         </section>
 

@@ -62,6 +62,12 @@ type Props = {
   showLegend?: boolean;
   /** Use the nationally normalised score instead of the region's own. */
   national?: boolean;
+  /**
+   * Static picture of the map: no zoom, pan, hover, controls or readout, and
+   * not focusable, so it can sit inside a link (the homepage's Find care
+   * tile) without nesting interactive content.
+   */
+  preview?: boolean;
 };
 
 const W = 900;
@@ -72,7 +78,7 @@ type View = { z: number; cx: number; cy: number };
 
 export function HexMap({
   region, resolutions, bbox, labels = [], focus,
-  height = 520, initialZoom = 1, showReadout = true, showLegend = false, national = false,
+  height = 520, initialZoom = 1, showReadout = true, showLegend = false, national = false, preview = false,
 }: Props) {
   // Height keeps hexes regular: a degree of longitude shrinks with latitude.
   const midLat = (bbox.north + bbox.south) / 2;
@@ -306,7 +312,7 @@ export function HexMap({
   };
 
   return (
-    <div style={{ position: "relative", background: "var(--sos-e1)", border: "1px solid var(--sos-line)", borderRadius: "10px", overflow: "hidden" }}>
+    <div style={{ position: "relative", background: "var(--sos-e1)", border: preview ? 0 : "1px solid var(--sos-line)", borderRadius: preview ? 0 : "10px", overflow: "hidden" }}>
       <style>{`
         .sos-focus-halo { animation: sosFocusPulse 2.4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
         @keyframes sosFocusPulse { 0% { opacity: .5; transform: scale(.6); } 70% { opacity: 0; } 100% { opacity: 0; transform: scale(2.4); } }
@@ -316,9 +322,9 @@ export function HexMap({
         ref={svgRef}
         role="img"
         aria-label="Hex map colored by Metabolic Infrastructure Index"
-        tabIndex={0}
+        tabIndex={preview ? -1 : 0}
         viewBox={`${vx} ${vy} ${vw} ${vh}`}
-        style={{ display: "block", width: "100%", height, cursor: dragging ? "grabbing" : "grab", outline: "none", touchAction: "none" }}
+        style={{ display: "block", width: "100%", height, cursor: preview ? "inherit" : dragging ? "grabbing" : "grab", outline: "none", touchAction: preview ? "auto" : "none", pointerEvents: preview ? "none" : "auto" }}
         onWheel={(e) => {
           e.preventDefault();
           const [fx, fy] = frac(e);
@@ -407,11 +413,13 @@ export function HexMap({
         )}
       </svg>
 
+      {!preview && (
       <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 4 }}>
         <button type="button" aria-label="Zoom in" onClick={() => zoomBy(1.3)} style={btn}>+</button>
         <button type="button" aria-label="Zoom out" onClick={() => zoomBy(1 / 1.3)} style={btn}>−</button>
         <button type="button" aria-label="Reset view" onClick={() => animateTo(home().z, home().cx, home().cy)} style={{ ...btn, fontSize: 13 }}>⟲</button>
       </div>
+      )}
 
       {showLegend && (
         <div
@@ -463,7 +471,7 @@ export function HexMap({
         </div>
       )}
 
-      {showReadout && (
+      {showReadout && !preview && (
         <div
           aria-live="polite"
           style={{ position: "absolute", left: 10, bottom: 10, fontFamily: "var(--sos-mono)", fontSize: 12, letterSpacing: "0.04em", color: "var(--sos-text-md)", background: "rgba(18,22,26,0.85)", border: "1px solid var(--sos-line)", borderRadius: 8, padding: "8px 10px", maxWidth: "calc(100% - 20px)" }}

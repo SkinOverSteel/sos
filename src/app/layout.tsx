@@ -165,23 +165,7 @@ export default function RootLayout({
               textAlign: "center",
             }}
           >
-            <p
-              style={{
-                fontFamily: "var(--sos-serif)",
-                fontSize: "15px",
-                lineHeight: 1.5,
-                color: "var(--sos-text-md)",
-                maxWidth: "44ch",
-                margin: 0,
-              }}
-            >
-              Enter a zip. See the nearest TRT clinics, GLP-1 prescribers,
-              licensed compounding pharmacies, and serious gyms.
-            </p>
-            <Link href="/near-me" className="sos-btn sos-btn--primary">
-              Near me &rarr;
-            </Link>
-            <MorseSOS dim label="Morse code S O S" style={{ marginTop: "22px" }} />
+            <MorseSOS dim label="Morse code S O S" />
             <Link href="/" aria-label="Skin Over Steel home" style={{ display: "inline-flex" }}>
               <WordmarkSvg height={16} />
             </Link>

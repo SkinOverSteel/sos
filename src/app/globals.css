@@ -1220,11 +1220,53 @@ a.sos-card:hover {
   letter-spacing: 0.1em;
   color: var(--sos-copper);
 }
-/* find care: the near-me instrument on a panel, the directory beside it */
+/* find care: the map is the picture, the zip finder and directory stack beside it */
 .sos-home__care {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: 14px;
+  align-items: stretch;
+}
+.sos-home__care-side {
+  display: grid;
+  gap: 14px;
+  align-content: stretch;
+}
+.sos-home__map {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--sos-line);
+  border-radius: 10px;
+  background: var(--sos-e1);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+.sos-home__map:hover {
+  border-color: var(--sos-copper);
+}
+.sos-home__map:focus-visible {
+  outline: none;
+  border-color: var(--sos-copper);
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+.sos-home__map-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  gap: 5px;
+  padding: 40px 22px 20px;
+  background: linear-gradient(rgba(18, 22, 26, 0), rgba(18, 22, 26, 0.92) 55%);
+}
+.sos-home__map-title {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 21px;
+  line-height: 1.15;
+  color: var(--sos-text-hi);
 }
 .sos-home__care-form {
   display: flex;
