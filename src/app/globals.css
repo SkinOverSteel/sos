@@ -658,6 +658,14 @@ a.sos-card:hover {
 }
 
 .sos-lib__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
 /* ---- homepage: the front door. A wider, asymmetric canvas than the reading
    column (the article pages stay at 760px). Every grid collapses to a single
    column under 760px; hover motion is the same copper line the cards already
@@ -771,7 +779,7 @@ a.sos-card:hover {
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 14px;
+  margin-bottom: 22px;
 }
 .sos-lib__skip {
   color: var(--sos-text-lo);
