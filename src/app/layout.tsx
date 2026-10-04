@@ -126,7 +126,6 @@ export default function RootLayout({
               { href: "/learn", label: "Learn" },
               { href: "/tools", label: "Tools" },
               { href: "/log", label: "The Log" },
-              { href: "/directory", label: "Find a provider" },
               { href: "/about", label: "About" },
               { href: "/support", label: "Support" },
             ].map((l) => (
@@ -174,15 +173,16 @@ export default function RootLayout({
           >
             <p
               style={{
-                fontFamily: "var(--sos-mono)",
-                fontSize: "11px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--sos-text-lo)",
+                fontFamily: "var(--sos-serif)",
+                fontSize: "15px",
+                lineHeight: 1.5,
+                color: "var(--sos-text-md)",
+                maxWidth: "44ch",
                 margin: 0,
               }}
             >
-              Find a provider
+              Enter a zip. See the nearest TRT clinics, GLP-1 prescribers,
+              licensed compounding pharmacies, and serious gyms.
             </p>
             <Link href="/near-me" className="sos-btn sos-btn--primary">
               Near me &rarr;
