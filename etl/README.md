@@ -13,7 +13,8 @@ python build_zips.py            # yearly; GeoNames + Census ZCTA -> data/us_zips
 # "Data Dissemination V.2", ~1.1 GB) to cache/nppes.zip
 python fetch_npi.py             # streams the zip: TRT / metabolic clinics, all states (~4 min)
 python fetch_open_payments.py   # CMS Open Payments, per state, resumable (~1 h; out/open_payments_parts/)
-python fetch_pharmacies.py      # FDA 503B (live) + data/state_boards/*.csv + OSM candidates in metros
+python join_names.py            # name Open Payments addresses from NPPES organizations (~4 min)
+python fetch_pharmacies.py      # NPPES compounding taxonomy (all states) + FDA 503B + data/state_boards/*.csv + OSM candidates in metros
 python fetch_gyms.py [slug...]  # OSM gyms per metro (Overpass, else tiled Nominatim; ~3 min/metro)
 python geocode.py [--census-only] [files...]   # Census batch geocoder; Nominatim fallback inside metros
 python aggregate_h3.py          # -> public/data/nearme/{us,states,metros,pois,zips}, src/data/nearme/*.json

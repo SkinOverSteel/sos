@@ -51,8 +51,8 @@ carries `coverage: registry`.
 | Layer | Source | What we keep | What we drop |
 | --- | --- | --- | --- |
 | TRT clinics | NPI registry, monthly NPPES Data Dissemination file (all states): taxonomy codes 207RE0101X endocrinology, 208U00000X urology, 2083X0100X preventive medicine; 207Q00000X family medicine and 207R00000X internal medicine only on a name-keyword hit (testosterone, hormone, low T, men's health, andropause, anti-aging, longevity). Deactivated NPIs skipped. | Practice-location address, organization name, taxonomy codes | Individual practitioners' names (a solo office is labelled by specialty only), mailing addresses, phone numbers |
-| GLP-1 prescribers | NPI 207RB0002X obesity medicine, name keywords (weight loss, metabolic, semaglutide, tirzepatide); CMS Open Payments general payments from Novo Nordisk and Eli Lilly tied to Ozempic, Wegovy, Mounjaro, Zepbound, Rybelsus, Saxenda, Victoza, grouped to distinct business addresses per state | Practice address | Recipient name, NPI, payment amounts, payment nature |
-| Compounding pharmacies | FDA registered outsourcing facilities (503B), all states; state boards of pharmacy license exports (503A, sterile and non-sterile flags), one CSV per state as operators add them; OpenStreetMap name search inside metros for candidates | Name, address, license class | Nothing: a pharmacy without a board or FDA listing is shown as an unverified candidate at low confidence, never as licensed |
+| GLP-1 prescribers | NPI 207RB0002X obesity medicine, name keywords (weight loss, metabolic, semaglutide, tirzepatide); CMS Open Payments general payments from Novo Nordisk and Eli Lilly tied to Ozempic, Wegovy, Mounjaro, Zepbound, Rybelsus, Saxenda, Victoza, grouped to distinct business addresses per state. Each address is then joined to the NPI registry's **organizations** (NPI-2) at the same normalised street line, suite and zip; a unique match supplies the business name | Practice address; the registered organization's legal business name when exactly one organization is registered at that suite | Recipient name, NPI, payment amounts, payment nature. Individual practitioners (NPI-1) are never used to name an address. A building with several organizations and no suite match stays "GLP-1 prescribing practice" and is tagged multi-tenant |
+| Compounding pharmacies | NPI registry organizations whose taxonomy includes 3336C0002X "Pharmacy, Compounding Pharmacy", all states (self-declared: a registry match, not a license); FDA registered outsourcing facilities (503B), all states; state boards of pharmacy license exports (503A, sterile and non-sterile flags), one CSV per state as operators add them, which verify a registry row by name and zip; OpenStreetMap name search inside metros for candidates | Name, address, license class | Nothing: a pharmacy without a board or FDA listing is shown as a registry match or an unverified candidate, never as licensed |
 | Gyms | OpenStreetMap (leisure=fitness_centre, sport=*) inside metro boxes, optional Google Places text search | Name, address, coordinates, tag words (CrossFit, powerlifting, barbell, strength, strongman; independent fitness centres at lower confidence) | Big-box chains (Planet Fitness, LA Fitness, 24 Hour, Anytime, Life Time, Equinox, Gold's, YMCA, Crunch, EoS), reviews, photos |
 
 Zip codes resolve to Census ZCTA internal-point centroids (2023 Gazetteer),
@@ -71,7 +71,7 @@ thing its layer names:
 | Confidence | Means |
 | --- | --- |
 | 0.85 and up | Licensed or verified: a board/FDA license, or a specialty registry match plus a name keyword |
-| 0.6 to 0.85 | Specialty match: the registry taxonomy alone (an endocrinologist may or may not run a TRT program) |
+| 0.6 to 0.85 | Specialty match: the registry taxonomy alone (an endocrinologist may or may not run a TRT program; a pharmacy that declares the compounding taxonomy has not been checked against its board) |
 | 0.3 to 0.6 | Keyword match: a generalist whose name says hormones or weight loss, an independent gym, or an unlicensed pharmacy candidate |
 
 Rows under 0.3 are not published. Confidence weights the index and breaks
@@ -142,10 +142,13 @@ is disclosed at the link and it never changes a rank, a score, or a grade.
 
 - Registries lag. A clinic can close months before NPPES notices.
 - "Keyword match" is exactly that. A wellness clinic's name is not a workup.
-- Open Payments is a prescribing proxy, not a prescribing record.
-- State board exports are manual, so 503A coverage grows state by state;
-  until a state's file exists, its licensed compounders appear only if they
-  are also FDA-registered 503B facilities or OpenStreetMap candidates.
+- Open Payments is a prescribing proxy, not a prescribing record. A business name attached to one of its addresses is the organization registered there with NPPES, which can be a group practice, a hospital, or a clinic whose specialty has nothing to do with GLP-1; the payment record is what put the address on the map. A registered legal business name can contain a practitioner's name (for example "J. Smith, M.D., PLLC"); that is the business's own registration, not a person-level record.
+- State board exports are manual, so "licensed" 503A rows grow state by
+  state. Until a state's file exists, its compounders appear as NPPES
+  registry matches (self-declared taxonomy, confidence 0.7), FDA 503B
+  facilities, or OpenStreetMap candidates. Public state license datasets
+  that do exist (Connecticut, Delaware) do not flag compounding, so they
+  cannot serve as the gate.
 - The gym layer is metro-only. A state hex's score outside a metro says
   nothing about gyms.
 - The national and state layers place about one row in ten at its zip

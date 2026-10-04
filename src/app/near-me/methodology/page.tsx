@@ -29,15 +29,15 @@ const SOURCES: { layer: string; source: string; keep: string; drop: string }[] =
   },
   {
     layer: "GLP-1 prescribers",
-    source: "NPI obesity medicine 207RB0002X and weight-loss name keywords; CMS Open Payments general payments from Novo Nordisk and Eli Lilly tied to Ozempic, Wegovy, Mounjaro, Zepbound, Rybelsus, Saxenda, Victoza, grouped to distinct business addresses per state.",
-    keep: "Practice address, specialty.",
-    drop: "Recipient name, NPI, payment amounts, payment nature.",
+    source: "NPI obesity medicine 207RB0002X and weight-loss name keywords; CMS Open Payments general payments from Novo Nordisk and Eli Lilly tied to Ozempic, Wegovy, Mounjaro, Zepbound, Rybelsus, Saxenda, Victoza, grouped to distinct business addresses per state, then joined to the NPI registry's organizations at the same street line, suite and zip.",
+    keep: "Practice address; the registered organization's legal business name when exactly one organization is registered at that suite.",
+    drop: "Recipient name, NPI, payment amounts, payment nature. Individuals are never used to name an address; a multi-tenant building with no suite match stays generic.",
   },
   {
     layer: "Compounding pharmacies",
-    source: "FDA registered outsourcing facilities (503B), all states; state boards of pharmacy license exports (503A), one CSV per state as operators add them; OpenStreetMap name search inside metros for candidates.",
+    source: "NPI registry organizations declaring the compounding-pharmacy taxonomy 3336C0002X, all states (a registry match, not a license); FDA registered outsourcing facilities (503B), all states; state boards of pharmacy license exports (503A), one CSV per state as operators add them, which verify a registry row by name and zip; OpenStreetMap name search inside metros for candidates.",
     keep: "Name, address, license class.",
-    drop: "Nothing hidden: an unlicensed candidate is shown at low confidence, never as licensed.",
+    drop: "Nothing hidden: a registry match or an unverified candidate is labelled as such, never as licensed.",
   },
   {
     layer: "Gyms",
@@ -199,8 +199,8 @@ MII    = 100 × Σ w_k·comp_k / Σ w_k                 w: ${KINDS.map((k) => `$
         <ul className="sos-note" style={{ ...ul, gap: 4 }}>
           <li>Registries lag; a clinic can close months before NPPES notices.</li>
           <li>Keyword match is exactly that. A wellness clinic&apos;s name is not a workup.</li>
-          <li>Open Payments is a prescribing proxy, not a prescribing record.</li>
-          <li>State board exports are manual, so 503A coverage grows state by state; until a state&apos;s file exists, its licensed compounders appear only as FDA 503B facilities or OpenStreetMap candidates.</li>
+          <li>Open Payments is a prescribing proxy, not a prescribing record. A name on one of its addresses is the organization registered there with NPPES, whatever its specialty; a registered legal business name can contain a practitioner&apos;s name, which is the business&apos;s own registration, not a person-level record.</li>
+          <li>State board exports are manual, so &quot;licensed&quot; 503A rows grow state by state; until a state&apos;s file exists, its compounders appear as NPPES registry matches, FDA 503B facilities, or OpenStreetMap candidates. Public state license datasets that exist (Connecticut, Delaware) do not flag compounding.</li>
           <li>The gym layer is metro-only. A state hex&apos;s score outside a metro says nothing about gyms.</li>
           <li>About one registry row in ten sits at its zip centroid rather than its street; those rows say so.</li>
         </ul>

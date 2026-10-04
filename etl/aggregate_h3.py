@@ -255,7 +255,7 @@ def main():
         compact_by_state[p["state"]].append({
             "id": p["id"], "k": p["kind"], "n": p["name"], "a": p["address"], "c": p["city"], "st": p["state"], "z": p["zip"],
             "lat": round(p["lat"], 5), "lon": round(p["lon"], 5), "s": p["source"], "cf": round(p["confidence"], 2),
-            "t": [t for t in p.get("tags", []) if t in ("geocoded", "zip-centroid", "city-level", "503a", "503b", "kw:trt", "kw:glp1", "candidate", "board-matched", "independent")][:4],
+            "t": [t for t in p.get("tags", []) if t in ("geocoded", "zip-centroid", "city-level", "503a", "503b", "kw:trt", "kw:glp1", "candidate", "board-matched", "independent", "npi-name", "multi-tenant", "npi-compounding")][:5],
             "h": h3.cell_to_parent(p["h3_9"], 7), "m": p["metro"],
             **({"pr": prices[p["id"]]} if p["id"] in prices else {}),
         })

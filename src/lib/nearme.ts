@@ -194,16 +194,20 @@ export function confidenceLabel(cf: number): string {
 }
 
 export function locationLabel(p: Poi): string {
-  if (p.t.includes("zip-centroid")) return "zip-level location";
-  if (p.t.includes("city-level")) return "city-level location";
-  return "";
+  const bits: string[] = [];
+  if (p.t.includes("npi-name")) bits.push("name from NPI registry");
+  if (p.t.includes("multi-tenant")) bits.push("multi-tenant building");
+  if (p.t.includes("zip-centroid")) bits.push("zip-level location");
+  if (p.t.includes("city-level")) bits.push("city-level location");
+  return bits.join(" · ");
 }
 
 /** Registry names arrive upper-case; render them as a human would write them. */
 export function titleCase(s: string): string {
   return s
     .toLowerCase()
-    .replace(/\b([a-z])/g, (c) => c.toUpperCase())
+    .replace(/(^|[^a-z'])([a-z])/g, (_, pre, c) => pre + c.toUpperCase())
+    .replace(/\b([A-Z])'([a-z])/g, (_, a, b) => `${a}'${b.toUpperCase()}`) // O'Brien, D'Angelo; not Women's
     .replace(/\b(Pllc|Llc|Pa|Md|Do|Pc|Inc|Ste|Nw|Ne|Sw|Se|Fm|Ii|Iii|Dba)\b/g, (m) => m.toUpperCase())
     .replace(/\bGlp-1\b/g, "GLP-1")
     .replace(/\bTrt\b/g, "TRT")
