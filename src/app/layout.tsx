@@ -4,6 +4,7 @@ import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { siteJsonLd } from "@/lib/jsonld";
 import { Wordmark } from "@/components/Wordmark";
+import { WordmarkSvg } from "@/components/WordmarkSvg";
 import { MorseSOS } from "@/components/MorseSOS";
 import "./globals.css";
 
@@ -126,7 +127,6 @@ export default function RootLayout({
               { href: "/tools", label: "Tools" },
               { href: "/log", label: "The Log" },
               { href: "/directory", label: "Find a provider" },
-              { href: "/near-me", label: "Near me" },
               { href: "/about", label: "About" },
               { href: "/support", label: "Support" },
             ].map((l) => (
@@ -163,6 +163,8 @@ export default function RootLayout({
           <div
             style={{
               marginTop: "36px",
+              paddingTop: "24px",
+              borderTop: "1px solid var(--sos-line-soft)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -170,8 +172,25 @@ export default function RootLayout({
               textAlign: "center",
             }}
           >
-            <MorseSOS dim label="Morse code S O S" />
-            <Wordmark size="13px" />
+            <p
+              style={{
+                fontFamily: "var(--sos-mono)",
+                fontSize: "11px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--sos-text-lo)",
+                margin: 0,
+              }}
+            >
+              Find a provider
+            </p>
+            <Link href="/near-me" className="sos-btn sos-btn--primary">
+              Near me &rarr;
+            </Link>
+            <MorseSOS dim label="Morse code S O S" style={{ marginTop: "22px" }} />
+            <Link href="/" aria-label="Skin Over Steel home" style={{ display: "inline-flex" }}>
+              <WordmarkSvg height={16} />
+            </Link>
             <p
               style={{
                 fontFamily: "var(--sos-serif)",
