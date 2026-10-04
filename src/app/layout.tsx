@@ -100,7 +100,7 @@ export default function RootLayout({
             Support
           </a>
         </header>
-        <div className="flex flex-1 flex-col">{children}</div>
+        <main id="main" className="flex flex-1 flex-col">{children}</main>
         <footer
           style={{
             borderTop: "1px solid var(--sos-line-soft)",

@@ -30,9 +30,10 @@ export function Faq({ slug }: { slug: string }) {
       }}
     >
       <JsonLd data={jsonLd} />
-      <p className="sos-kicker" style={{ marginBottom: "18px" }}>
+      {/* a real heading, so the h3 questions nest under it on tool pages too */}
+      <h2 className="sos-kicker" style={{ marginBottom: "18px" }}>
         Common questions
-      </p>
+      </h2>
       <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
         {items.map((f) => (
           <div key={f.q}>

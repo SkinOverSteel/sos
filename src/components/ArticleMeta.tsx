@@ -92,7 +92,7 @@ export function ArticleMeta({
         {" · "}
         <Link
           href="/methodology"
-          style={{ color: "var(--sos-copper)", textDecoration: "none" }}
+          style={{ color: "var(--sos-copper)", textDecoration: "underline", textDecorationColor: "var(--sos-copper-deep)", textUnderlineOffset: "0.16em" }}
         >
           How we review &rarr;
         </Link>

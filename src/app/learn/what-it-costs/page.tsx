@@ -254,7 +254,7 @@ function Step({
   return (
     <section style={{ marginTop: "36px" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: "12px", flexWrap: "wrap", marginBottom: "6px" }}>
-        <span style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper)", letterSpacing: "0.12em" }}>
+        <span style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper-hot)", letterSpacing: "0.12em" }}>
           STEP {n}
         </span>
         <h2 className="sos-h2" style={{ textTransform: "none", fontSize: "17px" }}>{title}</h2>
@@ -291,7 +291,7 @@ function StackRow({
       <span style={{ fontFamily: "var(--sos-sans)", fontWeight: 700, fontStretch: "90%", fontSize: "14px", color: "var(--sos-text-hi)" }}>
         {layer}
       </span>
-      <span style={{ fontFamily: "var(--sos-mono)", fontSize: "13.5px", color: "var(--sos-copper)", textAlign: "right" }}>
+      <span style={{ fontFamily: "var(--sos-mono)", fontSize: "13.5px", color: "var(--sos-copper-hot)", textAlign: "right" }}>
         {range}
       </span>
       <span style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-text-lo)", gridColumn: "1 / -1" }}>

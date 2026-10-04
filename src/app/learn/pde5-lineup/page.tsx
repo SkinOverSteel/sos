@@ -255,7 +255,7 @@ const th: React.CSSProperties = {
   textTransform: "uppercase",
   letterSpacing: "0.08em",
   fontSize: "11px",
-  color: "var(--sos-copper)",
+  color: "var(--sos-copper-hot)",
   padding: "0 14px 10px 0",
   borderBottom: "1px solid var(--sos-line)",
   whiteSpace: "nowrap",

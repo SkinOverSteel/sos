@@ -54,11 +54,10 @@ test("the Find care map is a static image that links to the full map", async ({ 
   const img = page.locator("a.sos-home__map img");
   await img.scrollIntoViewIfNeeded();
   await expect(img).toHaveAttribute("src", "/map/us-preview.svg");
-  const loaded = await img.evaluate((el) => {
-    const i = el as HTMLImageElement;
-    return i.complete && i.naturalWidth > 0;
-  });
-  expect(loaded).toBe(true);
+  // lazy-loaded: poll until the browser has decoded it
+  await expect
+    .poll(() => img.evaluate((el) => { const i = el as HTMLImageElement; return i.complete && i.naturalWidth > 0; }), { timeout: 10000 })
+    .toBe(true);
   await expect(page.locator("a.sos-home__map")).toHaveAttribute("href", "/map");
   // No hex shard is fetched on the front door.
   const shard = page.waitForRequest(/hex-r\d\.json/, { timeout: 1500 }).then(() => true, () => false);

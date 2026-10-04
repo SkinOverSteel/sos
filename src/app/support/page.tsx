@@ -38,7 +38,7 @@ export default function SupportPage() {
         }}
       >
         {/* Emergency banner: safety-critical, unmuted on purpose */}
-        <aside
+        <div
           role="alert"
           style={{
             border: "1.5px solid var(--sos-emergency)",
@@ -55,7 +55,7 @@ export default function SupportPage() {
               fontSize: "12px",
               fontWeight: 600,
               letterSpacing: "0.14em",
-              color: "var(--sos-emergency)",
+              color: "var(--sos-emergency-hot)",
               marginBottom: "10px",
             }}
           >
@@ -87,7 +87,7 @@ export default function SupportPage() {
             The longer it lasts, the higher the risk of permanent damage. Early
             treatment gives the best chance of keeping normal function.
           </p>
-        </aside>
+        </div>
 
         {/* Header */}
         <p
@@ -389,7 +389,7 @@ const strong: React.CSSProperties = {
   color: "var(--sos-text-hi)",
   fontWeight: 600,
 };
-const link: React.CSSProperties = { color: "var(--sos-copper)" };
+const link: React.CSSProperties = { color: "var(--sos-copper)", textDecoration: "underline", textDecorationColor: "var(--sos-copper-deep)", textUnderlineOffset: "0.16em" };
 
 function Section({
   title,

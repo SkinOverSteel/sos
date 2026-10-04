@@ -56,7 +56,7 @@ Fonts (all Google Fonts, free):
 
 Dark palette (elevation system):
 - E0 #12161A page · E1 #191E24 panel · E2 #21272E card · E3 #2A313A raised
-- lines #333B44 / #272E36 · text #E8EAEC / #AEB6BD / #78828B
+- lines #333B44 / #272E36 · text #E8EAEC / #AEB6BD / #8F99A3
 - Copper #C97438 (hover #E08A47) — the ONLY warm color, ~10% of any screen
 Light palette (marketing/education pages): bg #EFF1F2 (cool, not cream),
 ink #242A31, copper #B15C24, tint #F3E3D6.

@@ -147,6 +147,19 @@ body {
 .sos-prose a,
 .sos-note a {
   color: var(--sos-copper);
+  /* in running text a link must not rely on color alone (WCAG 1.4.1) */
+  text-decoration: underline;
+  text-decoration-color: var(--sos-copper-deep);
+  text-underline-offset: 0.16em;
+}
+.sos-prose a:hover,
+.sos-note a:hover {
+  text-decoration-color: currentColor;
+}
+/* Small copper text on a card (E2) or raised surface (E3) reads at 4.3:1;
+   the hot copper clears 4.5:1 there. Copper on E0/E1 is already fine. */
+.sos-card a:not(.sos-btn) {
+  color: var(--sos-copper-hot);
 }
 .sos-note {
   font-family: var(--sos-mono);
@@ -438,7 +451,7 @@ a.sos-card:hover {
 }
 .sos-seg button[aria-pressed="true"] {
   background: var(--sos-e3);
-  color: var(--sos-copper);
+  color: var(--sos-copper-hot);
 }
 
 /* ---- clinician-export letterhead (the one-page a member hands their doctor).
@@ -1093,7 +1106,7 @@ a.sos-card:hover {
   padding-top: 6px;
   font-family: var(--sos-mono);
   font-size: 13px;
-  color: var(--sos-copper);
+  color: var(--sos-copper-hot);
 }
 
 .sos-lib__controls {
@@ -1131,10 +1144,10 @@ a.sos-card:hover {
 .sos-chip[aria-pressed="true"] {
   border-color: var(--sos-copper);
   background: var(--sos-e3);
-  color: var(--sos-copper);
+  color: var(--sos-copper-hot);
 }
 .sos-chip[aria-pressed="true"] b {
-  color: var(--sos-copper);
+  color: var(--sos-copper-hot);
 }
 .sos-chip:focus-visible,
 .sos-seg button:focus-visible,
@@ -1222,7 +1235,7 @@ a.sos-card:hover {
 .sos-home__tile-foot {
   font-family: var(--sos-mono);
   font-size: 12.5px;
-  color: var(--sos-copper);
+  color: var(--sos-copper-hot);
   margin: 4px 0 0;
 }
 .sos-home__tile-meta {

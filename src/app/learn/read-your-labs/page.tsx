@@ -292,7 +292,7 @@ function MarkerGroup({ title, markers }: { title: string; markers: Marker[] }) {
                   style={{
                     fontFamily: "var(--sos-mono)",
                     fontSize: "12.5px",
-                    color: "var(--sos-copper)",
+                    color: "var(--sos-copper-hot)",
                   }}
                 >
                   {m.range}

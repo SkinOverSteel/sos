@@ -162,7 +162,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           {p.name}
         </span>
         <span
-          style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper)" }}
+          style={{ fontFamily: "var(--sos-mono)", fontSize: "13px", color: "var(--sos-copper-hot)" }}
           title="Trust score, from criteria only"
         >
           Trust {score}
@@ -208,7 +208,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           href={link.href}
           target="_blank"
           rel={link.rel}
-          style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper)" }}
+          style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper-hot)" }}
         >
           Visit →
         </a>
@@ -238,7 +238,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
             fontSize: "12px",
           }}
         >
-          <span style={{ color: "var(--sos-copper)" }}>Basis:</span> {p.sourceNote}
+          <span style={{ color: "var(--sos-copper-hot)" }}>Basis:</span> {p.sourceNote}
         </p>
       )}
       <SignalRail className="sos-rail--close" />
