@@ -106,6 +106,12 @@ export function HexMap({
 
   const [layers, setLayers] = useState<Record<number, Feature[]>>({});
   const [hover, setHover] = useState<Feature | null>(null);
+  // Cursor-following tooltip: position in container coords, plus edge flips.
+  const [tip, setTip] = useState<{ x: number; y: number; flipX: boolean; flipY: boolean } | null>(null);
+  const hoverRef = useRef<Feature | null>(null);
+  useEffect(() => {
+    hoverRef.current = hover;
+  }, [hover]);
   const [error, setError] = useState(false);
   const [dragging, setDragging] = useState(false);
   const drag = useRef<{ x: number; y: number; cx: number; cy: number } | null>(null);
@@ -325,12 +331,21 @@ export function HexMap({
         onPointerDown={(e) => {
           drag.current = { x: e.clientX, y: e.clientY, cx: viewRef.current.cx, cy: viewRef.current.cy };
           setDragging(true);
+          setTip(null);
           (e.target as Element).setPointerCapture?.(e.pointerId);
         }}
         onPointerMove={(e) => {
-          if (!drag.current || !svgRef.current) return;
-          const scale = W / viewRef.current.z / svgRef.current.clientWidth;
-          jump(viewRef.current.z, drag.current.cx - (e.clientX - drag.current.x) * scale, drag.current.cy - (e.clientY - drag.current.y) * scale);
+          if (!svgRef.current) return;
+          if (drag.current) {
+            const scale = W / viewRef.current.z / svgRef.current.clientWidth;
+            jump(viewRef.current.z, drag.current.cx - (e.clientX - drag.current.x) * scale, drag.current.cy - (e.clientY - drag.current.y) * scale);
+            return;
+          }
+          if (hoverRef.current) {
+            const r = svgRef.current.getBoundingClientRect();
+            const x = e.clientX - r.left, y = e.clientY - r.top;
+            setTip({ x, y, flipX: x > r.width - 190, flipY: y > r.height - 96 });
+          }
         }}
         onPointerUp={() => {
           drag.current = null;
@@ -339,6 +354,7 @@ export function HexMap({
         onPointerLeave={() => {
           drag.current = null;
           setDragging(false);
+          setHover(null);
         }}
         onKeyDown={(e) => {
           if (e.key === "+" || e.key === "=") zoomBy(1.25);
@@ -408,6 +424,42 @@ export function HexMap({
               {miiBand(v)}
             </div>
           ))}
+        </div>
+      )}
+
+      {hover && tip && !dragging && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: tip.x + (tip.flipX ? -14 : 14),
+            top: tip.y + (tip.flipY ? -14 : 14),
+            transform: `translate(${tip.flipX ? "-100%" : "0"}, ${tip.flipY ? "-100%" : "0"})`,
+            pointerEvents: "none",
+            fontFamily: "var(--sos-mono)",
+            fontSize: 11.5,
+            lineHeight: 1.5,
+            letterSpacing: "0.03em",
+            color: "var(--sos-text-md)",
+            background: "rgba(18,22,26,0.94)",
+            border: "1px solid var(--sos-line)",
+            borderRadius: 8,
+            padding: "7px 9px",
+            whiteSpace: "nowrap",
+            boxShadow: "0 4px 14px rgba(0,0,0,0.45)",
+            zIndex: 2,
+          }}
+        >
+          <div>
+            <b style={{ color: "var(--sos-text-hi)", fontSize: 13 }}>MII {val(hover)}</b>
+            <span style={{ color: "var(--sos-copper-hot)" }}> · {miiBand(val(hover))}</span>
+          </div>
+          <div style={{ color: "var(--sos-text-lo)" }}>
+            TRT {hover.properties.trt} · GLP-1 {hover.properties.glp1} · Rx {hover.properties.pharmacy} · gym {hover.properties.gym}
+          </div>
+          <div style={{ color: "var(--sos-text-lo)" }}>
+            {hover.properties.n} listings{hover.properties.coverage === "registry" ? " · registry only" : ""}
+          </div>
         </div>
       )}
 
