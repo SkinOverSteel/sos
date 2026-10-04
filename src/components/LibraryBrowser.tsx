@@ -194,7 +194,7 @@ export function LibraryBrowser({ articles }: { articles: Article[] }) {
             <ul className="sos-lib__list">
               {list.map((a) => (
                 <li key={a.slug}>
-                  <Link href={`/learn/${a.slug}`} className="sos-lib__item">
+                  <Link href={`/learn/${a.slug}`} className="sos-lib__item" prefetch={false}>
                     <div className="sos-lib__meta">
                       <EvidenceBadge grade={a.grade} />
                       <span className="sos-note">Reviewed {monthYear(a.reviewed)}</span>

@@ -5,12 +5,12 @@
  * buildings only, never residents). The app never calls the upstream APIs; a
  * deploy depends only on the committed dataset. See docs/near-me/methodology.md.
  *
- * Small summaries (meta, cities, metros, states) are bundled. The big tables
+ * Small summaries (meta, metros, states) are bundled; the cities table lives in
+ * nearme-cities.ts so client components importing this module never ship it. The big tables
  * (POIs per state, zip centroids) live under /public/data/nearme locally and
  * in Vercel Blob in production (see nearme-data.ts), fetched on demand: by
  * the browser on /near-me, by the build on the city pages (nearme-server.ts).
  */
-import cities from "@/data/nearme/cities.json";
 import metros from "@/data/nearme/metros.json";
 import states from "@/data/nearme/states.json";
 import meta from "@/data/nearme/meta.json";
@@ -91,7 +91,6 @@ export type StateSummary = {
   metros: string[];
 };
 
-export const CITIES = cities as City[];
 export const METROS = metros as Metro[];
 export const STATES = states as StateSummary[];
 export const META = meta as {
@@ -160,17 +159,6 @@ export function nearest(pool: Poi[], lat: number, lon: number, kind: Kind, limit
     .filter((p) => p.miles <= maxMiles)
     .sort((a, b) => Math.round(a.miles) - Math.round(b.miles) || b.cf - a.cf || a.miles - b.miles)
     .slice(0, limit);
-}
-
-export function cityBySlug(state: string, slug: string): City | undefined {
-  const st = state.toUpperCase();
-  return CITIES.find((c) => c.state === st && c.slug === slug);
-}
-
-/** Cities with enough signal to earn a programmatic page (thin pages hurt). */
-export function citiesWithPages(kind: "trt" | "glp1", state?: string): City[] {
-  const st = state?.toUpperCase();
-  return CITIES.filter((c) => c.pages.includes(kind) && (!st || c.state === st));
 }
 
 export function priceLabel(p: Poi): { text: string; member: boolean } {
