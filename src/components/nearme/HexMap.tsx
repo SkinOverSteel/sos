@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { miiBand } from "@/lib/nearme";
 import { dataUrl } from "@/lib/nearme-data";
+import { GeoLayer } from "./GeoLayer";
 
 /**
  * Hex map rendered as SVG from the exported GeoJSON (no tile server, no
@@ -62,10 +63,14 @@ export function HexMap({ region, resolutions, bbox, labels = [], focus, height =
   // Height keeps hexes regular: a degree of longitude shrinks with latitude.
   const midLat = (bbox.north + bbox.south) / 2;
   const H = Math.round((W * (bbox.north - bbox.south)) / ((bbox.east - bbox.west) * Math.cos((midLat * Math.PI) / 180)));
-  const project = (lon: number, lat: number): [number, number] => [
-    ((lon - bbox.west) / (bbox.east - bbox.west)) * W,
-    ((bbox.north - lat) / (bbox.north - bbox.south)) * H,
-  ];
+  // Stable across renders so the geography layer's path memoisation holds.
+  const project = useCallback(
+    (lon: number, lat: number): [number, number] => [
+      ((lon - bbox.west) / (bbox.east - bbox.west)) * W,
+      ((bbox.north - lat) / (bbox.north - bbox.south)) * H,
+    ],
+    [bbox.west, bbox.east, bbox.north, bbox.south, H],
+  );
 
   const [zoom, setZoom] = useState(initialZoom);
   const [center, setCenter] = useState<[number, number]>(() => (focus ? project(focus.lon, focus.lat) : [W / 2, H / 2]));
@@ -180,6 +185,7 @@ export function HexMap({ region, resolutions, bbox, labels = [], focus, height =
         }}
       >
         <rect x={-W} y={-H} width={W * 3} height={H * 3} fill="var(--sos-e0)" />
+        <GeoLayer project={project} region={region} zoom={zoom} labelPx={labelPx} />
         {paths.map(({ f, d }) => {
           const m = val(f);
           return (
