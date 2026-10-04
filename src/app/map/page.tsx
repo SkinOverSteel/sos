@@ -3,7 +3,7 @@ import Link from "next/link";
 import { HexMap, US_VIEW } from "@/components/nearme/HexMap";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { KINDS, KIND_SHORT, META, METROS, STATES, miiBand } from "@/lib/nearme";
+import { KINDS, KIND_SHORT, META, METROS, STATES, miiBand, miiOpacity } from "@/lib/nearme";
 import { dataDownloadUrl, dataUrl } from "@/lib/nearme-data";
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default function MapPage() {
         are. It says nothing about who lives there.
       </p>
 
-      <HexMap region="us" resolutions={[4, 5]} bbox={US_VIEW} labels={metroLabels} height={560} initialZoom={1} national />
+      <HexMap region="us" resolutions={[4, 5]} bbox={US_VIEW} labels={metroLabels} height={620} initialZoom={1} showLegend national />
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 14, marginTop: 22 }}>
         <div className="sos-card sos-card--deep">
@@ -57,7 +57,7 @@ export default function MapPage() {
           <ul className="sos-note" style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 4 }}>
             {[75, 50, 25, 5].map((v) => (
               <li key={v} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span aria-hidden="true" style={{ width: 16, height: 16, borderRadius: 4, background: "var(--sos-copper)", opacity: 0.08 + (v / 100) * 0.82, border: "1px solid var(--sos-line)" }} />
+                <span aria-hidden="true" style={{ width: 16, height: 16, borderRadius: 4, background: "var(--sos-copper)", opacity: miiOpacity(v), border: "1px solid var(--sos-line)" }} />
                 {v}+ · {miiBand(v)}
               </li>
             ))}
