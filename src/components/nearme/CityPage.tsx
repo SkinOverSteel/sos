@@ -8,8 +8,6 @@ import {
   KIND_LABELS,
   META,
   PUBLISHED_PRICE,
-  cityBySlug,
-  citiesWithPages,
   confidenceLabel,
   locationLabel,
   metroBySlug,
@@ -21,6 +19,7 @@ import {
   titleCase,
   type Kind,
 } from "@/lib/nearme";
+import { cityBySlug, citiesWithPages } from "@/lib/nearme-cities";
 import { poisInCity } from "@/lib/nearme-server";
 
 /**

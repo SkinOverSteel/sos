@@ -2,7 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { articles } from "@/lib/articles";
 import { liveTools } from "@/lib/tools";
-import { citiesWithPages, METROS, STATES } from "@/lib/nearme";
+import { METROS, STATES } from "@/lib/nearme";
+import { citiesWithPages } from "@/lib/nearme-cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths: { path: string; priority: number }[] = [

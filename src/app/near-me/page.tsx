@@ -66,7 +66,7 @@ export default function NearMePage() {
         <h2 className="sos-h2" style={{ marginBottom: 12 }}>Metros at street scale</h2>
         <p className="sos-note" style={{ display: "flex", flexWrap: "wrap", gap: "6px 14px" }}>
           {METROS.map((m) => (
-            <Link key={m.slug} href={`/map/${m.slug}`}>{m.name}</Link>
+            <Link key={m.slug} href={`/map/${m.slug}`} prefetch={false}>{m.name}</Link>
           ))}
         </p>
       </section>
