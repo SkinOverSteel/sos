@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
-import { HexMap } from "@/components/nearme/HexMap";
+import { HexMap } from "@/components/nearme/HexMapLazy";
 import { SITE } from "@/lib/site";
 import {
   KIND_LABELS,

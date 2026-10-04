@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { HexMap } from "@/components/nearme/HexMap";
+import { HexMap } from "@/components/nearme/HexMapLazy";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 import { CITIES, KINDS, KIND_LABELS, META, METROS, STATES, citiesWithPages, metroBySlug, miiBand, stateByCode } from "@/lib/nearme";

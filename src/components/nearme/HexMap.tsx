@@ -20,7 +20,8 @@ import { GeoLayer } from "./GeoLayer";
  * prefers-reduced-motion.
  */
 
-export type Bbox = { south: number; west: number; north: number; east: number };
+import { type Bbox, US_VIEW } from "./view";
+export { US_VIEW, type Bbox };
 
 type Feature = {
   properties: { h3: string; mii: number; mii_us: number; trt: number; glp1: number; pharmacy: number; gym: number; n: number; coverage: string };
@@ -503,4 +504,3 @@ const btn: React.CSSProperties = {
 };
 
 /** Continental US box for the national overview; Alaska and Hawaii sit off-canvas and can be panned to. */
-export const US_VIEW: Bbox = { south: 24.0, west: -125.5, north: 49.8, east: -66.5 };

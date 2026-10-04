@@ -71,6 +71,9 @@ export default function RootLayout({
       className={`${archivo.variable} ${sourceSerif.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a href="#main" className="sos-skip">
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           // Site-wide Organization + WebSite entity graph. Content is all

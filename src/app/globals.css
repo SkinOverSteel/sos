@@ -34,6 +34,28 @@ body {
   color: #fff;
 }
 
+/* ---- skip link: the first tab stop, visible only while focused ---- */
+.sos-skip {
+  position: absolute;
+  left: 16px;
+  top: -200px;
+  z-index: 50;
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sos-e0);
+  background: var(--sos-copper);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.sos-skip:focus-visible {
+  top: 12px;
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+}
+
 /* ---- site header: wordmark, primary nav, and the permanent support link.
    On phones the nav drops to its own row under the wordmark. ---- */
 .sos-header {

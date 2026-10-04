@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { HexMap, US_VIEW, type Bbox } from "@/components/nearme/HexMap";
+import { HexMap } from "@/components/nearme/HexMapLazy";
+import { US_VIEW, type Bbox } from "@/components/nearme/view";
 import { SubmitReport } from "@/components/nearme/SubmitReport";
 import {
   KINDS,
