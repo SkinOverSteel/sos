@@ -51,6 +51,32 @@ detail page lists sterile or non-sterile compounding, and save them as
 `data/state_boards/<ST>.csv` with the columns above. The FDA 503B registry
 is scraped live and covers every state.
 
+### Quarterly refresh runbook
+
+One machine does the whole thing; the shards never pass through git.
+
+```
+cd etl
+python fetch_npi.py && python fetch_open_payments.py && python join_names.py
+python fetch_pharmacies.py && python fetch_gyms.py
+python geocode.py
+python aggregate_h3.py && python snapshot.py
+cd .. && npm run build && npm run test:e2e        # sanity: 2k+ pages, 4/4 green
+npm run data:upload                               # needs BLOB_READ_WRITE_TOKEN; triggers VERCEL_DEPLOY_HOOK if set
+git add src/data/nearme etl/snapshots && git commit -m "Near Me: <quarter> refresh" && git push
+```
+
+Order matters at the end: upload first, then merge the summaries, so the
+prerendered city pages never reference rows the store does not have yet.
+
+Secrets the refresh needs, never in the repo:
+
+| variable | where it lives |
+| --- | --- |
+| `BLOB_READ_WRITE_TOKEN` | Vercel → Storage → the store → `.env.local` tab. On a laptop: `vercel env pull .env.local`. In the Claude cloud environment: the environment's settings (API credentials), picked up by new sessions. |
+| `VERCEL_DEPLOY_HOOK` | Vercel → project → Settings → Git → Deploy Hooks → create one for `main`. Optional; without it, redeploy by hand after the upload. |
+| `DATABASE_URL` / `POSTGRES_URL` | only for `moderate.py`; Vercel → Storage → Neon. |
+
 ### Rate limits and manners
 
 - Nominatim: one request per second, identified user agent, metros only.

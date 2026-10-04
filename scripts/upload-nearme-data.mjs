@@ -8,6 +8,11 @@
 // (compared by size + sha256 recorded in a manifest next to the data).
 // --prune deletes store files that no longer exist locally (a stale state or
 // metro after a region change). Prints the base URL to put in Vercel's env.
+//
+// The city pages are prerendered from the shards at build time, so a refresh
+// is only live after a redeploy. Set VERCEL_DEPLOY_HOOK (Vercel → project →
+// Settings → Git → Deploy Hooks) and the script triggers one after a
+// successful upload that changed anything.
 
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync, statSync } from "node:fs";
@@ -115,5 +120,14 @@ if (prune && !dry) {
 console.log(`${uploaded} uploaded, ${skipped} unchanged, ${pruned} pruned, ${files.length} files total`);
 if (base) {
   console.log(`\nNEXT_PUBLIC_NEARME_DATA_BASE=${base}`);
-  console.log("Set that in Vercel (Production + Preview) and redeploy; then the shards can leave the repo.");
+}
+
+const hook = process.env.VERCEL_DEPLOY_HOOK;
+if (!dry && (uploaded > 0 || pruned > 0)) {
+  if (hook) {
+    const r = await fetch(hook, { method: "POST" });
+    console.log(r.ok ? "Production redeploy triggered (city pages rebuild from the new shards)." : `Deploy hook failed: HTTP ${r.status}`);
+  } else {
+    console.log("Shards changed: redeploy production so the prerendered city pages pick them up (or set VERCEL_DEPLOY_HOOK to automate).");
+  }
 }
