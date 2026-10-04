@@ -366,9 +366,9 @@ export default function PegymDecadePage() {
           threads. And the men doing all of it were, by the clinical count,
           almost entirely normal to begin with. If you want the graded map of
           every method,{" "}
-          <Link href="/learn/enhancement">it&apos;s here</Link>. If you already
+          <Link href="/learn/enhancement">read the enhancement map</Link>. If you already
           have a bend or a plaque,{" "}
-          <Link href="/learn/peyronies-disease">start here</Link>. And if you
+          <Link href="/learn/peyronies-disease">start with Peyronie&apos;s disease</Link>. And if you
           want to know where you actually stand, ask a clinician to measure you
           once. It takes thirty seconds and it&apos;s the only measurement in
           this whole story that was ever worth taking.

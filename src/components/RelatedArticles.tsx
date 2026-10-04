@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { articles } from "@/lib/articles";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { UtilityPanel, utilitiesForSection } from "@/components/UtilityPanel";
 
 /**
  * Internal-link cluster at the foot of an article: same-section pieces first,
@@ -18,10 +19,14 @@ export function RelatedArticles({ slug, max = 3 }: { slug: string; max?: number 
   if (!picks.length) return null;
 
   return (
+    <>
+      <div style={{ marginTop: "48px" }}>
+        <UtilityPanel rows={utilitiesForSection(current.section)} idPrefix={`article-${slug}`} />
+      </div>
     <nav
       aria-label="Related reading"
       style={{
-        marginTop: "48px",
+        marginTop: "32px",
         paddingTop: "28px",
         borderTop: "1px solid var(--sos-line-soft)",
       }}
@@ -59,5 +64,6 @@ export function RelatedArticles({ slug, max = 3 }: { slug: string; max?: number 
         ))}
       </div>
     </nav>
+    </>
   );
 }

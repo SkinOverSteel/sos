@@ -3,6 +3,8 @@ import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { MorseSOS } from "@/components/MorseSOS";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { StepHeader } from "@/components/StepHeader";
+import { UtilityPanel } from "@/components/UtilityPanel";
+import { SignalRail } from "@/components/SignalRail";
 import { articles } from "@/lib/articles";
 import { ROUTES } from "@/lib/routes";
 import { liveTools } from "@/lib/tools";
@@ -42,7 +44,6 @@ const PREVIEW_VIEW: Bbox = { south: 24.0, west: -128.5, north: 49.8, east: -66.5
 export default function Home() {
   const featuredArticles = articles.filter((a) => a.featured);
   const featured = (featuredArticles.length ? featuredArticles : articles).slice(0, 4);
-  const selfCheck = liveTools.find((t) => t.slug === "erectile-function-score") ?? liveTools[0];
 
   return (
     <div>
@@ -95,86 +96,12 @@ export default function Home() {
             </div>
 
             {/* The instrument panel: zip finder, self-check, the Log */}
-            <aside className="sos-home__panel" aria-labelledby="home-panel">
-              <div className="sos-home__panel-head">
-                <h2 id="home-panel" className="sos-h2">
-                  Do something now
-                </h2>
-                <span className="sos-note" style={{ lineHeight: 1 }}>
-                  private · in your browser
-                </span>
-              </div>
-
-              <form action="/near-me" method="get" className="sos-home__panel-row">
-                <label className="sos-label" htmlFor="home-zip" style={{ marginBottom: "6px" }}>
-                  Who treats this near me
-                </label>
-                <div className="sos-home__care-form" style={{ marginTop: 0 }}>
-                  <input
-                    id="home-zip"
-                    name="zip"
-                    className="sos-field"
-                    style={{ flex: "1 1 120px" }}
-                    inputMode="numeric"
-                    pattern="[0-9]{5}"
-                    title="A five-digit US zip code"
-                    required
-                    maxLength={5}
-                    placeholder="Zip code"
-                    autoComplete="postal-code"
-                    aria-describedby="home-zip-note"
-                  />
-                  <button
-                    type="submit"
-                    className="sos-btn sos-btn--primary"
-                    style={{ border: 0, cursor: "pointer" }}
-                  >
-                    Find
-                  </button>
-                </div>
-                <p id="home-zip-note" className="sos-note" style={{ marginTop: "8px", lineHeight: 1.5 }}>
-                  Clinics, licensed pharmacies, prescribers. Every US zip.
-                </p>
-              </form>
-
-              <Link href={`/tools/${selfCheck.slug}`} className="sos-home__panel-row sos-home__panel-link">
-                <span className="sos-home__panel-title">Score your erectile function</span>
-                <span className="sos-note" style={{ lineHeight: 1.5 }}>
-                  Five questions, the validated IIEF-5 screen. Two minutes.
-                </span>
-                <span className="sos-home__tile-foot">Start the self-check →</span>
-              </Link>
-
-              <Link href="/log" className="sos-home__panel-row sos-home__panel-link">
-                <span className="sos-home__panel-title">Track a protocol in the Log</span>
-                <span className="sos-note" style={{ lineHeight: 1.5 }}>
-                  Baseline to outcome, printable for your clinician.
-                </span>
-                <span className="sos-home__tile-foot">Open the Log →</span>
-              </Link>
-            </aside>
+            <UtilityPanel idPrefix="home" />
           </div>
 
           {/* The signal rail: what this is, in instrument voice. The editorial
               standard lives here as one link, not as a section. */}
-          <div className="sos-home__rail">
-            <MorseSOS />
-            <span>
-              <b>{articles.length}</b>{" "}
-              articles, every claim graded
-            </span>
-            <span>
-              <b>{liveTools.length}</b>{" "}
-              private tools, nothing leaves your browser
-            </span>
-            <span className="sos-home__rail-note">
-              Nothing sold, no supplements, ever. Every source named, every
-              referral fee disclosed.{" "}
-              <Link href="/methodology" className="sos-home__more">
-                The standard →
-              </Link>
-            </span>
-          </div>
+          <SignalRail />
         </div>
       </section>
 

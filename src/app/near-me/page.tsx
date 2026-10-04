@@ -3,6 +3,7 @@ import { StepHeader } from "@/components/StepHeader";
 import Link from "next/link";
 import { NearMeTool } from "@/components/nearme/NearMeTool";
 import { JsonLd } from "@/components/JsonLd";
+import { SignalRail } from "@/components/SignalRail";
 import { SITE } from "@/lib/site";
 import { KINDS, KIND_LABELS, META, METROS } from "@/lib/nearme";
 
@@ -76,6 +77,7 @@ export default function NearMePage() {
         <Link href="/directory">provider directory</Link>, where the trust criteria are published.
         Not for use in housing, lending, or insurance decisions.
       </p>
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

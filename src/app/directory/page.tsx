@@ -14,6 +14,7 @@ import {
 } from "@/lib/providers";
 import { JsonLd } from "@/components/JsonLd";
 import { directoryHubJsonLd } from "@/lib/jsonld";
+import { SignalRail } from "@/components/SignalRail";
 
 // Indexed only once live; kept out of nav + sitemap while in draft.
 export const metadata: Metadata = {
@@ -240,6 +241,7 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           <span style={{ color: "var(--sos-copper)" }}>Basis:</span> {p.sourceNote}
         </p>
       )}
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

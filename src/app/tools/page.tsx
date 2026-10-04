@@ -4,6 +4,7 @@ import Link from "next/link";
 import { tools } from "@/lib/tools";
 import { JsonLd } from "@/components/JsonLd";
 import { toolsHubJsonLd } from "@/lib/jsonld";
+import { SignalRail } from "@/components/SignalRail";
 
 export const metadata: Metadata = {
   title: "Tools",
@@ -72,6 +73,7 @@ export default function ToolsHub() {
           );
         })}
       </div>
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { LogTool } from "@/components/LogTool";
 import { MorseSOS } from "@/components/MorseSOS";
 import { SITE } from "@/lib/site";
+import { SignalRail } from "@/components/SignalRail";
 
 const URL = `${SITE.url}/log`;
 
@@ -71,6 +72,7 @@ export default function LogPage() {
           during a protocol, <Link href="/support">get support now</Link>.
         </p>
       </div>
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

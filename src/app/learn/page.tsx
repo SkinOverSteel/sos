@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { learnHubJsonLd } from "@/lib/jsonld";
 import { LibraryBrowser } from "@/components/LibraryBrowser";
 import { ROUTES } from "@/lib/routes";
+import { SignalRail } from "@/components/SignalRail";
 
 export const metadata: Metadata = {
   title: "Learn",
@@ -91,6 +92,7 @@ export default function LearnHub() {
         </p>
         <LibraryBrowser articles={articles} />
       </section>
+      <SignalRail className="sos-rail--close" />
     </div>
   );
 }

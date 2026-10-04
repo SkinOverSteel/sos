@@ -940,6 +940,15 @@ a.sos-card:hover {
   color: var(--sos-text-hi);
   margin: 0;
 }
+.sos-rail--close {
+  margin-top: 56px;
+  border-bottom: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.sos-rail--close > .sos-morse,
+.sos-rail--close > .sos-home__rail-note {
+  grid-column: 1 / -1;
+}
 .sos-page-head {
   margin-bottom: 32px;
 }
