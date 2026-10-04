@@ -62,12 +62,6 @@ type Props = {
   showLegend?: boolean;
   /** Use the nationally normalised score instead of the region's own. */
   national?: boolean;
-  /**
-   * Static picture of the map: no zoom, pan, hover, controls or readout, and
-   * not focusable, so it can sit inside a link (the homepage's Find care
-   * tile) without nesting interactive content.
-   */
-  preview?: boolean;
 };
 
 const W = 900;
@@ -78,7 +72,7 @@ type View = { z: number; cx: number; cy: number };
 
 export function HexMap({
   region, resolutions, bbox, labels = [], focus,
-  height = 520, initialZoom = 1, showReadout = true, showLegend = false, national = false, preview = false,
+  height = 520, initialZoom = 1, showReadout = true, showLegend = false, national = false,
 }: Props) {
   // Height keeps hexes regular: a degree of longitude shrinks with latitude.
   const midLat = (bbox.north + bbox.south) / 2;
@@ -122,25 +116,6 @@ export function HexMap({
   const [dragging, setDragging] = useState(false);
   const drag = useRef<{ x: number; y: number; cx: number; cy: number } | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
-  const wrapRef = useRef<HTMLDivElement>(null);
-  // A preview fetches its hex layer only once it is near the viewport, so the
-  // homepage never pays for the shard a reader never scrolls to.
-  const [near, setNear] = useState(() => !preview || typeof IntersectionObserver === "undefined");
-  useEffect(() => {
-    if (near || !wrapRef.current) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setNear(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "600px 0px" },
-    );
-    io.observe(wrapRef.current);
-    return () => io.disconnect();
-  }, [near]);
-
   const maxZoom = 2 ** (resolutions.length + 1);
   const clampZoom = useCallback((z: number) => Math.min(maxZoom, Math.max(0.8, z)), [maxZoom]);
 
@@ -222,7 +197,7 @@ export function HexMap({
   const res = resolutions[step];
 
   useEffect(() => {
-    if (layers[res] || !near) return;
+    if (layers[res]) return;
     let live = true;
     fetch(dataUrl(`${region}/hex-r${res}.json`))
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
@@ -236,7 +211,7 @@ export function HexMap({
     return () => {
       live = false;
     };
-  }, [region, res, layers, near]);
+  }, [region, res, layers]);
 
   const features = useMemo(() => {
     for (const r of [res, ...resolutions]) if (layers[r]) return layers[r];
@@ -330,7 +305,7 @@ export function HexMap({
   };
 
   return (
-    <div ref={wrapRef} data-map-state={error ? "unavailable" : paths.length ? "ready" : "loading"} style={{ position: "relative", background: "var(--sos-e1)", border: preview ? 0 : "1px solid var(--sos-line)", borderRadius: preview ? 0 : "10px", overflow: "hidden" }}>
+    <div style={{ position: "relative", background: "var(--sos-e1)", border: "1px solid var(--sos-line)", borderRadius: "10px", overflow: "hidden" }}>
       <style>{`
         .sos-focus-halo { animation: sosFocusPulse 2.4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
         @keyframes sosFocusPulse { 0% { opacity: .5; transform: scale(.6); } 70% { opacity: 0; } 100% { opacity: 0; transform: scale(2.4); } }
@@ -340,9 +315,9 @@ export function HexMap({
         ref={svgRef}
         role="img"
         aria-label="Hex map colored by Metabolic Infrastructure Index"
-        tabIndex={preview ? -1 : 0}
+        tabIndex={0}
         viewBox={`${vx} ${vy} ${vw} ${vh}`}
-        style={{ display: "block", width: "100%", height, cursor: preview ? "inherit" : dragging ? "grabbing" : "grab", outline: "none", touchAction: preview ? "auto" : "none", pointerEvents: preview ? "none" : "auto" }}
+        style={{ display: "block", width: "100%", height, cursor: dragging ? "grabbing" : "grab", outline: "none", touchAction: "none" }}
         onWheel={(e) => {
           e.preventDefault();
           const [fx, fy] = frac(e);
@@ -431,13 +406,11 @@ export function HexMap({
         )}
       </svg>
 
-      {!preview && (
       <div style={{ position: "absolute", top: 10, right: 10, display: "flex", gap: 4 }}>
         <button type="button" aria-label="Zoom in" onClick={() => zoomBy(1.3)} style={btn}>+</button>
         <button type="button" aria-label="Zoom out" onClick={() => zoomBy(1 / 1.3)} style={btn}>−</button>
         <button type="button" aria-label="Reset view" onClick={() => animateTo(home().z, home().cx, home().cy)} style={{ ...btn, fontSize: 13 }}>⟲</button>
       </div>
-      )}
 
       {showLegend && (
         <div
@@ -489,16 +462,7 @@ export function HexMap({
         </div>
       )}
 
-      {preview && error && (
-        <p
-          role="status"
-          style={{ position: "absolute", top: 10, left: 12, margin: 0, fontFamily: "var(--sos-mono)", fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--sos-text-lo)" }}
-        >
-          Live index unavailable · outline only
-        </p>
-      )}
-
-      {showReadout && !preview && (
+      {showReadout && (
         <div
           aria-live="polite"
           style={{ position: "absolute", left: 10, bottom: 10, fontFamily: "var(--sos-mono)", fontSize: 12, letterSpacing: "0.04em", color: "var(--sos-text-md)", background: "rgba(18,22,26,0.85)", border: "1px solid var(--sos-line)", borderRadius: 8, padding: "8px 10px", maxWidth: "calc(100% - 20px)" }}

@@ -10,7 +10,8 @@
     "lint": "eslint",
     "gsc": "node scripts/gsc-report.mjs sc-domain:skinoversteel.com",
     "test:e2e": "playwright test",
-    "data:upload": "node scripts/upload-nearme-data.mjs"
+    "data:upload": "node scripts/upload-nearme-data.mjs",
+    "map:preview": "node scripts/build-map-preview.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
