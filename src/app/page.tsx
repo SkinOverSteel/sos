@@ -90,11 +90,10 @@ export default function Home() {
                 className="sos-prose"
                 style={{ maxWidth: "50ch", margin: "26px 0 0", fontSize: "18px" }}
               >
-                Plain explanations of erectile function, testosterone, and the
-                treatments, each claim graded by its evidence. Private tools to
-                score yourself. Licensed providers, ranked on trust. All of it
-                built to get you to a clinician better informed, never around
-                one.
+                Erectile function, testosterone, and the treatments, explained
+                plainly, every claim graded by its evidence. Private tools,
+                licensed providers, and a protocol tracker, all built to get you
+                to a clinician better informed, never around one.
               </p>
               <div
                 style={{
@@ -189,8 +188,7 @@ export default function Home() {
               supplements sold, ever
             </span>
             <span className="sos-home__rail-note">
-              Every source named, every referral fee disclosed, no ranking for
-              sale.{" "}
+              Every source named, every fee disclosed.{" "}
               <Link href="/methodology" className="sos-home__more">
                 The standard →
               </Link>
@@ -235,7 +233,7 @@ export default function Home() {
           </div>
 
           <div className="sos-home__sub-head">
-            <h3 className="sos-h2">Most read</h3>
+            <h3 className="sos-h2">Start here</h3>
             <Link href="/learn" className="sos-home__more">
               The whole library →
             </Link>
@@ -280,7 +278,7 @@ export default function Home() {
                 <span className="sos-kicker">{t.kind}</span>
                 <h3 className="sos-home__tile-title">{t.title}</h3>
                 <p className="sos-home__tile-body">{t.blurb}</p>
-                <p className="sos-home__tile-foot">Open →</p>
+                <p className="sos-home__tile-foot">Open the {t.kind.toLowerCase()} →</p>
               </Link>
             ))}
           </div>
