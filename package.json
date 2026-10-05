@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "gsc": "node scripts/gsc-report.mjs sc-domain:skinoversteel.com",
+    "gsc:index": "node scripts/gsc-request-indexing.mjs",
     "test:e2e": "playwright test",
     "data:upload": "node scripts/upload-nearme-data.mjs",
     "map:preview": "node scripts/build-map-preview.mjs"
