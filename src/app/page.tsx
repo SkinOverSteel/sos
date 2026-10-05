@@ -80,7 +80,7 @@ export default function Home() {
             </div>
 
             {/* The instrument panel: zip finder, self-check, the Log */}
-            <UtilityPanel idPrefix="home" />
+            <UtilityPanel idPrefix="home" headingHidden />
           </div>
 
           {/* The signal rail: what this is, in instrument voice. The editorial
@@ -95,7 +95,7 @@ export default function Home() {
           <StepHeader
             id="home-routes"
             step="understand"
-            title="Start where you are"
+            title="Where are you stuck?"
             more={{ href: "/learn", label: `Browse all ${articles.length} in the library →` }}
           >
             Where you begin depends on where you&apos;re stuck, not on how the
