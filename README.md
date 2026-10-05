@@ -38,7 +38,7 @@ Open <http://localhost:3000>.
 | `src/`      | Application code (App Router pages, components, `lib/`) |
 | `public/`   | Static assets                                       |
 | `brand/`    | Brand assets and design references                  |
-| `scripts/`  | Operational scripts (GSC reporting)                 |
+| `scripts/`  | Operational scripts (GSC reporting, indexing requests) |
 | `e2e/`      | Playwright browser tests (the Log flow, brand-voice copy lint) |
 | `.github/`  | CI: lint, typecheck, build, browser tests on every PR |
 | `.claude/`  | Claude Code configuration                           |

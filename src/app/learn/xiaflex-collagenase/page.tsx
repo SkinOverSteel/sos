@@ -23,13 +23,12 @@ const jsonLd = {
   url: `${SITE.url}/learn/xiaflex-collagenase`,
   description:
     "Intralesional collagenase clostridium histolyticum (Xiaflex) for Peyronie's disease: mechanism, IMPRESS trial results, the approved treatment course and penile modeling, candidacy criteria, adverse events including corporal rupture, and its use in Dupuytren's contracture.",
+  // MedicalTherapy, not Drug: schema.org Drug is also a Product, and Google
+  // then demands offers/ratings on an education page.
   about: {
-    "@type": "Drug",
+    "@type": "MedicalTherapy",
     name: "Collagenase clostridium histolyticum",
     alternateName: "Xiaflex",
-    nonProprietaryName: "collagenase clostridium histolyticum",
-    administrationRoute: "Intralesional injection",
-    prescriptionStatus: "PrescriptionOnly",
   },
   mentions: [
     { "@type": "MedicalCondition", name: "Peyronie's disease" },

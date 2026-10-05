@@ -23,7 +23,7 @@ const jsonLd = {
   url: `${SITE.url}/learn/wolverine-blend`,
   description:
     "The internet history and evidence status of the BPC-157 + TB-500 \"Wolverine\" peptide stack: rodent-heavy research base, near-absent human trials, WADA and USADA prohibition, and the FDA compounding saga.",
-  about: { "@type": "Drug", name: "BPC-157" },
+  about: { "@type": "MedicalTherapy", name: "BPC-157" },
   audience: { "@type": "Patient" },
 };
 
