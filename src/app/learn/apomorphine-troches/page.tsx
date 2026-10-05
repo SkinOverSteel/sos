@@ -23,7 +23,7 @@ const jsonLd = {
   url: `${SITE.url}/learn/apomorphine-troches`,
   description:
     "Apomorphine for erectile dysfunction: the Uprima history, the compounded sildenafil-tadalafil-apomorphine troche trend, and what the evidence and user feedback actually show.",
-  about: { "@type": "Drug", name: "Apomorphine" },
+  about: { "@type": "MedicalTherapy", name: "Apomorphine" },
   audience: { "@type": "Patient" },
 };
 

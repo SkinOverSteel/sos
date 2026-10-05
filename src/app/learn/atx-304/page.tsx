@@ -41,7 +41,7 @@ const jsonLd = {
   name: title,
   url: `${SITE.url}/learn/${slug}`,
   description,
-  about: { "@type": "Drug", name: "ATX-304", alternateName: ["ATX304", "O304"] },
+  about: { "@type": "MedicalTherapy", name: "ATX-304", alternateName: ["ATX304", "O304"] },
   audience: { "@type": "Patient" },
 };
 

@@ -23,7 +23,7 @@ const jsonLd = {
   url: `${SITE.url}/learn/proviron-underground`,
   description:
     "Mesterolone (Proviron) and erectile function: approved-era history, pharmacology, the forum folklore around libido and erection quality, the actual trial evidence, DHT gel trials as the closest real comparator, the risks, and US legal status.",
-  about: { "@type": "Drug", name: "Mesterolone" },
+  about: { "@type": "MedicalTherapy", name: "Mesterolone" },
   audience: { "@type": "Patient" },
 };
 
