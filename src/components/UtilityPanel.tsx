@@ -1,11 +1,14 @@
 import Link from "next/link";
 
 /**
- * "Do something now": the three highest-demand utilities as one instrument
- * panel. The homepage shows it beside the headline; every article shows it
- * in its end matter with the rows chosen by the article's section (an ED
- * article offers the self-check, a testosterone article the free-T
- * calculator, a treatment article the zip finder and the Log).
+ * The three highest-demand utilities as one instrument panel. Every article
+ * shows it in its end matter with the rows chosen by the article's section (an
+ * ED article offers the self-check, a testosterone article the free-T
+ * calculator, a treatment article the zip finder and the Log) under a visible
+ * "The tools" header. The homepage shows it beside the headline with
+ * `headingHidden`: there the h1 already owns the voice, so the panel keeps its
+ * accessible name but drops the competing visible title, leaving only the quiet
+ * "private · in your browser" instrument tag.
  */
 export type UtilityKey = "zip" | "selfcheck" | "freet" | "cost" | "log" | "directory";
 
@@ -61,23 +64,32 @@ export function utilitiesForSection(section: string): UtilityKey[] {
 export function UtilityPanel({
   rows = ["zip", "selfcheck", "log"],
   idPrefix = "panel",
-  heading = "Do something now",
+  heading = "The tools",
+  headingHidden = false,
   as: Tag = "h2",
 }: {
   rows?: UtilityKey[];
   /** Keeps the zip input's id unique when a page shows more than one form. */
   idPrefix?: string;
   heading?: string;
+  /** Homepage: suppress the visible title (the h1 already carries the voice)
+   *  while keeping the panel's accessible name. */
+  headingHidden?: boolean;
   as?: "h2" | "h3";
 }) {
   const zipId = `${idPrefix}-zip`;
   const headId = `${idPrefix}-head`;
   return (
-    <aside className="sos-home__panel" aria-labelledby={headId}>
+    <aside
+      className="sos-home__panel"
+      {...(headingHidden ? { "aria-label": heading } : { "aria-labelledby": headId })}
+    >
       <div className="sos-home__panel-head">
-        <Tag id={headId} className="sos-h2">
-          {heading}
-        </Tag>
+        {headingHidden ? null : (
+          <Tag id={headId} className="sos-h2">
+            {heading}
+          </Tag>
+        )}
         <span className="sos-note" style={{ lineHeight: 1 }}>
           private · in your browser
         </span>
