@@ -4,13 +4,13 @@ import { HexMap } from "@/components/nearme/HexMapLazy";
 import { US_VIEW } from "@/components/nearme/view";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { KINDS, KIND_SHORT, META, METROS, STATES, miiBand, miiOpacity } from "@/lib/nearme";
+import { CARE_KINDS, KIND_SHORT, META, METROS, SCORED_KINDS, STATES, kindCount, miiBand, miiOpacity } from "@/lib/nearme";
 import { dataDownloadUrl, dataUrl } from "@/lib/nearme-data";
 
 export const metadata: Metadata = {
   title: "US metabolic infrastructure map",
   description:
-    "The United States on a hex grid, each cell scored 0–100 by its density of testosterone clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms. Businesses only; public sources; published methodology. 20 metros at street scale, every state at county scale.",
+    "The United States on a hex grid, each cell scored 0–100 by its density of testosterone clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms, with urologists, endocrinologists, implant practices, shockwave clinics, device suppliers, sleep labs, draw sites, and sex therapists counted alongside. Businesses only; public sources; published methodology.",
   alternates: { canonical: "/map" },
 };
 
@@ -20,7 +20,7 @@ const jsonLd = {
   name: "Metabolic Infrastructure Index, United States",
   url: `${SITE.url}/map`,
   description:
-    "H3 hexagon scores of men's-health and metabolic business density: TRT clinics, GLP-1 prescribers, 503A/503B compounding pharmacies, strength gyms. Business locations only, no person-level data. National (r4–r5), per state (r6–r7), and per metro (r7–r9) layers.",
+    "H3 hexagon scores of men's-health and metabolic business density: TRT clinics, GLP-1 prescribers, 503A/503B compounding pharmacies, strength gyms (scored), plus per-cell counts of urologists, endocrinologists, penile implant practices, shockwave/PRP clinics, vacuum device suppliers, sleep medicine, clinical labs, and sexual medicine / sex therapy practices (counted, not scored). Business locations only, no person-level data. National (r4–r5), per state (r6–r7), and per metro (r7–r9) layers.",
   license: "https://creativecommons.org/licenses/by-nc/4.0/",
   creator: { "@id": `${SITE.url}/#org` },
   temporalCoverage: META.built,
@@ -64,7 +64,10 @@ export default function MapPage() {
             ))}
           </ul>
           <p className="sos-note" style={{ marginTop: 10 }}>
-            Weights: {KINDS.map((k) => `${KIND_SHORT[k]} ${Math.round(META.weights[k] * 100)}%`).join(" · ")}. Outside the mapped metros the gym layer is absent and the other three are reweighted.
+            Weights: {SCORED_KINDS.map((k) => `${KIND_SHORT[k]} ${Math.round(META.weights[k] * 100)}%`).join(" · ")}. Outside the mapped metros the gym layer is absent and the other three are reweighted.
+          </p>
+          <p className="sos-note" style={{ marginTop: 10 }}>
+            Counted alongside, never scored: {CARE_KINDS.filter((k) => kindCount(k) > 0).map((k) => KIND_SHORT[k].toLowerCase()).join(", ") || "the care layers (next data refresh)"}.
           </p>
         </div>
         <div className="sos-card sos-card--deep">

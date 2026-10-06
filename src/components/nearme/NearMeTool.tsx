@@ -6,12 +6,16 @@ import { HexMap } from "@/components/nearme/HexMapLazy";
 import { US_VIEW, type Bbox } from "@/components/nearme/view";
 import { SubmitReport } from "@/components/nearme/SubmitReport";
 import {
-  KINDS,
+  KIND_ABBR,
+  KIND_GROUPS,
   KIND_LABELS,
+  KIND_NOTE,
   PUBLISHED_PRICE,
   confidenceLabel,
+  emptyNote,
   fetchPoolFor,
   fetchZip,
+  kindCount,
   locationLabel,
   metroFor,
   nearest,
@@ -25,15 +29,18 @@ import {
 } from "@/lib/nearme";
 
 /**
- * /near-me: any US zip -> the four listing types nearest to it, ranked by
+ * /near-me: any US zip -> the twelve listing types nearest to it, ranked by
  * distance, with a price range per listing (member reports once there are
  * three, the published range until then). The zip resolves against a sharded
  * public table and the candidate pool is the zip's state (plus a metro's other
  * states at a border); nothing about the member is sent anywhere. The URL
  * hash keeps the zip so a result can be shared.
+ *
+ * Sections come in the groups of KIND_GROUPS: the four metabolic layers that
+ * score the map first, then the care layers (specialists, procedures and
+ * devices, workup and talk). A group with nothing in range collapses to a
+ * single line per layer so the page stays scannable.
  */
-
-const SHORT: Record<Kind, string> = { trt: "TRT", glp1: "GLP-1", pharmacy: "Rx", gym: "Gym" };
 
 export function NearMeTool() {
   const [zip, setZip] = useState("");
@@ -132,14 +139,26 @@ export function NearMeTool() {
           <p className="sos-kicker" style={{ marginBottom: 18 }}>
             Near {hit.zip} · <b>{hit.city}, {hit.state}</b>{metro ? ` · ${metro.name}` : ""} · within 25 mi
           </p>
-          {KINDS.map((k) => (
-            <KindList key={k} kind={k} pool={pool} lat={hit.lat} lon={hit.lon} inMetro={!!metro} onReport={setReport} />
+          <nav aria-label="Layers" className="sos-note" style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px", marginBottom: 22 }}>
+            {KIND_GROUPS.map((g) => (
+              <a key={g.id} href={`#nm-${g.id}`} style={{ color: "var(--sos-text-md)" }}>{g.label}</a>
+            ))}
+          </nav>
+          {KIND_GROUPS.map((g) => (
+            <section key={g.id} id={`nm-${g.id}`} style={{ marginBottom: 34, scrollMarginTop: 80 }}>
+              <p className="sos-kicker" style={{ marginBottom: 2 }}>{g.label}</p>
+              <p className="sos-note" style={{ marginBottom: 16 }}>{g.note}</p>
+              {g.kinds.map((k) => (
+                <KindList key={k} kind={k} pool={pool} lat={hit.lat} lon={hit.lon} inMetro={!!metro} onReport={setReport} />
+              ))}
+            </section>
           ))}
           <p className="sos-note" style={{ marginTop: 24 }}>
             Listings are businesses from public registries (NPI, CMS Open Payments, FDA and state
-            pharmacy licensing, OpenStreetMap), matched by specialty or name. A listing here is not an
-            endorsement, and a prescriber appearing here is not a recommendation to use one. See{" "}
-            <Link href="/near-me/methodology">how the map is built</Link>.
+            pharmacy licensing, OpenStreetMap), matched by specialty, device record, or name. A listing
+            here is not an endorsement, and a prescriber or surgeon appearing here is not a
+            recommendation to use one. The care layers are listed and counted, never scored into the
+            map. See <Link href="/near-me/methodology">how the map is built</Link>.
           </p>
         </div>
       )}
@@ -157,18 +176,21 @@ function stateBox(h: ZipHit): Bbox {
 function KindList({ kind, pool, lat, lon, inMetro, onReport }: { kind: Kind; pool: Poi[]; lat: number; lon: number; inMetro: boolean; onReport: (p: Ranked) => void }) {
   const list = nearest(pool, lat, lon, kind);
   const pub = PUBLISHED_PRICE[kind];
+  const note = KIND_NOTE[kind];
+  const inBuild = kindCount(kind) > 0;
   return (
-    <section style={{ marginBottom: 30 }}>
+    <section style={{ marginBottom: list.length ? 30 : 18 }}>
       <h2 className="sos-h2" style={{ marginBottom: 4 }}>{KIND_LABELS[kind]}</h2>
-      <p className="sos-note" style={{ marginBottom: 12 }}>
-        Published range ${pub.low}–${pub.high}{pub.unit} · <Link href={pub.href}>{pub.source}</Link>
+      <p className="sos-note" style={{ marginBottom: list.length || inBuild ? 6 : 4, maxWidth: "70ch" }}>
+        {note.text}{note.read && <>{" "}<Link href={note.read.href}>{note.read.label}</Link>.</>}
       </p>
-      {list.length === 0 ? (
-        <p className="sos-note">
-          {kind === "gym" && !inMetro
-            ? "The gym layer covers the 20 mapped metros only, so far."
-            : "Nothing within 25 miles in the current dataset."}
+      {pub && (list.length > 0 || inBuild) && (
+        <p className="sos-note" style={{ marginBottom: 12 }}>
+          Published range ${pub.low}–${pub.high}{pub.unit} · <Link href={pub.href}>{pub.source}</Link>
         </p>
+      )}
+      {list.length === 0 ? (
+        <p className="sos-note" style={{ color: "var(--sos-text-lo)" }}>{emptyNote(kind, inMetro)}</p>
       ) : (
         <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 8 }}>
           {list.map((p, i) => {
@@ -192,7 +214,7 @@ function KindList({ kind, pool, lat, lon, inMetro, onReport }: { kind: Kind; poo
                 <div style={{ textAlign: "right", fontFamily: "var(--sos-mono)", fontSize: 12, color: "var(--sos-text-md)", whiteSpace: "nowrap" }}>
                   <div style={{ color: "var(--sos-text-hi)", fontSize: 14 }}>{p.miles < 10 ? p.miles.toFixed(1) : Math.round(p.miles)} mi</div>
                   <div style={{ color: "var(--sos-text-lo)", fontSize: 11, letterSpacing: "0.04em" }} title={`${sourceLabel(p.s)} · confidence ${p.cf}`}>
-                    {SHORT[kind]} · {confidenceLabel(p.cf)}
+                    {KIND_ABBR[kind]} · {confidenceLabel(p.cf)}
                   </div>
                 </div>
               </li>
