@@ -1,9 +1,15 @@
 import postgres from "postgres";
+import { KINDS as ALL_KINDS } from "@/lib/nearme";
 
 /**
  * Near Me member reports -> moderation queue (table nearme_submissions,
  * schema in etl/schema.sql). Every row is created with status "pending" and
  * is published only after moderate.py approve + export + a rebuild.
+ *
+ * `kind` is any layer in lib/nearme KINDS (the database CHECK in etl/schema.sql
+ * lists the same twelve; etl/migrations/002_care_kinds.sql widens an older table).
+ * `monthly_usd` holds the price in the layer's unit (PRICE_UNIT): per month for
+ * the metabolic layers, per visit / study / course / panel / session for the rest.
  *
  * Privacy, by construction: the row stores an account id and the form fields
  * only. The request's IP and user agent are never read, let alone stored, and
@@ -12,7 +18,7 @@ import postgres from "postgres";
  */
 export const dynamic = "force-dynamic";
 
-const KINDS = new Set(["trt", "glp1", "pharmacy", "gym"]);
+const KINDS = new Set<string>(ALL_KINDS);
 const TYPES = new Set(["price", "new", "closed", "correction"]);
 const PII = /\b[\w.+-]+@[\w-]+\.[\w.]+\b|\b\d{3}[-.\s]\d{3}[-.\s]\d{4}\b/; // emails, phone numbers
 

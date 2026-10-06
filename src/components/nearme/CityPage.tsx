@@ -5,8 +5,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { HexMap } from "@/components/nearme/HexMapLazy";
 import { SITE } from "@/lib/site";
 import {
+  CARE_KINDS,
   KIND_LABELS,
   META,
+  SCORED_KINDS,
   PUBLISHED_PRICE,
   confidenceLabel,
   locationLabel,
@@ -84,7 +86,8 @@ export async function CityPage({ kind, state, slug }: { kind: PageKind; state: s
   const pub = PUBLISHED_PRICE[kind];
   const anchor = all.find((p) => p.t.includes("geocoded")) ?? all[0];
   const metro = anchor ? metroFor(anchor.lat, anchor.lon) ?? (anchor.m ? metroBySlug(anchor.m) : undefined) : undefined;
-  const other: Kind[] = kind === "trt" ? ["glp1", "pharmacy", "gym"] : ["trt", "pharmacy", "gym"];
+  const other: Kind[] = SCORED_KINDS.filter((k) => k !== kind);
+  const care = CARE_KINDS.filter((k) => (c.counts[k] ?? 0) > 0);
   const href = `/${kind}/${st.toLowerCase()}/${slug}`;
 
   const jsonLd = [
@@ -155,7 +158,8 @@ export async function CityPage({ kind, state, slug }: { kind: PageKind; state: s
       )}
 
       <p className="sos-note" style={{ margin: "22px 0 12px" }}>
-        {all.length} listed ({list.length} named{generic.length ? `, ${generic.length} specialty-only` : ""}) · published price range ${pub.low}–${pub.high}{pub.unit} (<Link href={pub.href}>source</Link>). Member ranges replace it at three reports.
+        {all.length} listed ({list.length} named{generic.length ? `, ${generic.length} specialty-only` : ""})
+        {pub ? <> · published price range ${pub.low}–${pub.high}{pub.unit} (<Link href={pub.href}>source</Link>). Member ranges replace it at three reports.</> : <>. No published price range for this layer yet; member ranges appear at three reports.</>}
       </p>
 
       <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 8 }}>
@@ -196,6 +200,12 @@ export async function CityPage({ kind, state, slug }: { kind: PageKind; state: s
           {other.map((k) => `${KIND_LABELS[k]}: ${c.counts[k] ?? 0}`).join(" · ")}.{" "}
           <Link href={metro ? `/map/${metro.slug}` : `/map/${st.toLowerCase()}`}>See the {metro ? metro.name : stateName} map</Link>.
         </p>
+        {care.length > 0 && (
+          <p className="sos-note" style={{ marginTop: 6 }}>
+            Care layers (listed, not scored): {care.map((k) => `${KIND_LABELS[k]}: ${c.counts[k]}`).join(" · ")}.{" "}
+            <Link href={`/near-me#zip=${anchor?.z ?? ""}`}>Rank them by distance</Link>.
+          </p>
+        )}
       </section>
 
       <section style={{ marginTop: 36 }}>

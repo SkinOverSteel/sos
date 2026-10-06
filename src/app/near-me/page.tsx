@@ -5,12 +5,12 @@ import { NearMeTool } from "@/components/nearme/NearMeTool";
 import { JsonLd } from "@/components/JsonLd";
 import { SignalRail } from "@/components/SignalRail";
 import { SITE } from "@/lib/site";
-import { KINDS, KIND_LABELS, META, METROS } from "@/lib/nearme";
+import { KIND_GROUPS, KIND_LABELS, META, METROS, METRO_SEARCH_KINDS, kindCount } from "@/lib/nearme";
 
 export const metadata: Metadata = {
-  title: "Near me: TRT clinics, GLP-1 prescribers, compounding pharmacies, gyms",
+  title: "Near me: urologists, TRT clinics, labs, pharmacies, sleep medicine, and more",
   description:
-    "Enter a US zip and see the nearest testosterone clinics, GLP-1 prescribers, licensed compounding pharmacies, and serious gyms, with distance and member-reported price ranges. Built from public registries; businesses only; every state.",
+    "Enter a US zip and see the nearest testosterone clinics, GLP-1 prescribers, licensed compounding pharmacies, serious gyms, urologists, endocrinologists, penile implant practices, shockwave clinics, vacuum device suppliers, sleep labs, lab draw sites, and sex therapists, with distance and member-reported price ranges. Built from public registries; businesses only; every state.",
   alternates: { canonical: "/near-me" },
 };
 
@@ -23,7 +23,7 @@ const jsonLd = {
   operatingSystem: "Web",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description:
-    "Zip-code lookup of the nearest testosterone therapy clinics, GLP-1 prescribers, compounding pharmacies, and strength gyms across the United States, with crowdsourced price ranges.",
+    "Zip-code lookup of the nearest testosterone therapy clinics, GLP-1 prescribers, compounding pharmacies, strength gyms, urologists, endocrinologists, penile implant practices, shockwave/PRP clinics, vacuum erection device suppliers, sleep medicine, clinical labs, and sexual medicine / sex therapy practices across the United States, with crowdsourced price ranges.",
   publisher: { "@id": `${SITE.url}/#org` },
 };
 
@@ -32,10 +32,12 @@ export default function NearMePage() {
     <div className="sos-container" style={{ maxWidth: 880 }}>
       <JsonLd data={jsonLd} />
       <StepHeader as="h1" step="care" title="Who treats this near you" className="sos-page-head" more={{ href: "/map", label: "See the whole map →" }}>
-        A zip in, the nearest clinics and pharmacies out: testosterone therapy, GLP-1 prescribing,
-        licensed compounding, and the gyms where people actually lift. Distances are from your
-        zip&apos;s center. Prices are what members report paying, and until three members have
-        reported, the published range. The map is the same data, scored per hex.
+        A zip in, the nearest care out: testosterone therapy, GLP-1 prescribing, licensed
+        compounding, the gyms where people actually lift, and the care layers around them:
+        urologists, endocrinologists, implant practices, shockwave clinics, device suppliers, sleep
+        labs, draw sites, sex therapists. Distances are from your zip&apos;s center. Prices are what
+        members report paying, and until three members have reported, the published range. The map
+        is the same data, scored per hex on the four metabolic layers.
       </StepHeader>
       <p className="sos-kicker" style={{ margin: "-10px 0 24px" }}>
         <b>{META.states} states</b> · {META.metros} metros at street scale · dataset {META.built}
@@ -46,10 +48,20 @@ export default function NearMePage() {
       <div className="sos-card sos-card--deep" style={{ marginTop: 40 }}>
         <h2 className="sos-h2" style={{ marginBottom: 12 }}>What is in the dataset</h2>
         <ul className="sos-note" style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 6 }}>
-          {KINDS.map((k) => (
-            <li key={k} style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
-              <span>{KIND_LABELS[k]}{k === "gym" ? " (mapped metros only)" : ""}</span>
-              <span style={{ color: "var(--sos-text-hi)" }}>{META.counts[k].toLocaleString("en-US")}</span>
+          {KIND_GROUPS.map((g) => (
+            <li key={g.id} style={{ display: "grid", gap: 6 }}>
+              <span style={{ color: "var(--sos-text-lo)", textTransform: "uppercase", letterSpacing: "0.04em", fontSize: 11, marginTop: g.id === "metabolic" ? 0 : 6 }}>
+                {g.label}{g.id === "metabolic" ? " · scored" : " · counted, not scored"}
+              </span>
+              {g.kinds.map((k) => (
+                <span key={k} style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
+                  <span>
+                    {KIND_LABELS[k]}
+                    {k === "gym" ? " (mapped metros only)" : METRO_SEARCH_KINDS.includes(k) ? " (street search in mapped metros)" : ""}
+                  </span>
+                  <span style={{ color: "var(--sos-text-hi)" }}>{kindCount(k) ? kindCount(k).toLocaleString("en-US") : "next refresh"}</span>
+                </span>
+              ))}
             </li>
           ))}
         </ul>
