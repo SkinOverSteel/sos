@@ -1,27 +1,13 @@
 {
-  "built": "2026-10-06",
+  "built": "2026-10-04",
   "region": "United States",
   "counts": {
-    "trt": 23459,
-    "glp1": 88945,
-    "pharmacy": 6562,
-    "gym": 2111,
-    "urology": 12620,
-    "endo": 10131,
-    "implant": 3295,
-    "shockwave": 2,
-    "ved": 153,
-    "sleep": 9610,
-    "lab": 4835,
-    "sextherapy": 107
+    "trt": 11725,
+    "glp1": 88943,
+    "pharmacy": 3447,
+    "gym": 2050
   },
-  "scored": [
-    "trt",
-    "glp1",
-    "pharmacy",
-    "gym"
-  ],
-  "geocoded": 145757,
+  "geocoded": 96988,
   "sources": [
     "fda_503b",
     "npi",
@@ -37,12 +23,12 @@
   "states": 51,
   "metros": 20,
   "cities_with_pages": {
-    "trt": 588,
-    "glp1": 1601
+    "trt": 259,
+    "glp1": 1602
   },
   "hexes": {
-    "us-r4": 4460,
-    "us-r5": 19457
+    "us-r4": 4475,
+    "us-r5": 19197
   },
   "priced_pois": 0
 }
