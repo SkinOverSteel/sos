@@ -2,9 +2,7 @@
 Attach business names to the Open Payments GLP-1 addresses.
 
 Open Payments gives a practice ADDRESS but no business name (the recipient's
-personal name is dropped on purpose). This applies to every Open Payments
-layer: the GLP-1 rows ("GLP-1 prescribing practice") and the penile implant
-rows ("Penile implant practice"). The NPPES file lists every organization
+personal name is dropped on purpose). The NPPES file lists every organization
 (NPI-2) with its practice-location address. Joining the two on a normalized
 street line + zip turns "GLP-1 prescribing practice · 123 Main St" into the
 organization that actually operates there.
@@ -23,7 +21,7 @@ Rules, so the join cannot leak or mislead:
 - A matched row is tagged "npi-name" and its confidence rises by 0.1 (an
   address with a registered organization is a better signal than a bare one).
 
-Re-run safe: only rows still carrying a generic "<layer> practice" name are touched.
+Re-run safe: only rows still named "GLP-1 prescribing practice" are touched.
 """
 from __future__ import annotations
 
@@ -38,10 +36,8 @@ from collections import defaultdict
 
 from common import OUT_DIR, POI
 from fetch_npi import BULK
-from fetch_open_payments import PROGRAMS
 
 OP = f"{OUT_DIR}/pois.open_payments.jsonl"
-GENERIC_NAMES = {p["name"] for p in PROGRAMS.values()}
 
 SUFFIX = {
     "STREET": "ST", "AVENUE": "AVE", "BOULEVARD": "BLVD", "ROAD": "RD", "DRIVE": "DR", "LANE": "LN", "COURT": "CT",
@@ -51,7 +47,7 @@ SUFFIX = {
     "FIRST": "1ST", "SECOND": "2ND", "THIRD": "3RD", "FOURTH": "4TH", "FIFTH": "5TH",
 }
 UNIT_WORDS = {"STE", "BLDG", "FL", "RM", "DEPT", "APT", "#"}
-MEDICAL = re.compile(r"\b(clinic|medical|health|physicians?|practice|associates|group|care|md|do|pllc|pc|pa|family|internal|endocrin|weight|obesity|wellness|primary|urgent|surgery|surgical|center|centre|institute|hospital|specialists?|urolog\w*|men'?s)\b", re.I)
+MEDICAL = re.compile(r"\b(clinic|medical|health|physicians?|practice|associates|group|care|md|do|pllc|pc|pa|family|internal|endocrin|weight|obesity|wellness|primary|urgent|surgery|surgical|center|centre|institute|hospital|specialists?)\b", re.I)
 
 
 def norm(addr: str) -> tuple[str, str]:
@@ -109,7 +105,7 @@ def pick(names: set[str]) -> str | None:
 
 def main():
     rows = [json.loads(l) for l in open(OP) if l.strip()]
-    todo = [r for r in rows if r["name"] in GENERIC_NAMES]
+    todo = [r for r in rows if r["name"] == "GLP-1 prescribing practice"]
     keys = {}
     for r in todo:
         keys[r["id"]] = (*norm(r["address"]), r["zip"])

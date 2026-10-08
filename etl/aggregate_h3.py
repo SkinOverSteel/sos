@@ -6,21 +6,15 @@ reads. Nationwide, three tiers of layer:
   public/data/nearme/us/hex-r{4,5}.json                national overview
   public/data/nearme/states/<st>/hex-r{6,7}.json       one state
   public/data/nearme/metros/<slug>/hex-r{7,8,9}.json   one metro, street scale
-  (compact rows, named by the file's "cols": h3, mii, mii_us, one Σ-confidence
-   column per layer in common.KINDS, n (all listings in the cell), care
-   (listings from the care layers), full (1 inside a metro); the browser
-   derives each hexagon's outline with h3-js, which keeps the files ~6x
-   smaller than GeoJSON. aggregate_h3.py --geojson also writes GeoJSON next
-   to them for download.)
+  (compact rows [h3, mii, mii_us, trt, glp1, pharmacy, gym, n, coverage];
+   the browser derives each hexagon's outline with h3-js, which keeps the
+   files ~6x smaller than GeoJSON. aggregate_h3.py --geojson also writes
+   GeoJSON next to them for download.)
   public/data/nearme/pois/<ST>.json                    compact POIs per state
   public/data/nearme/zips/<zip3>.json                  zip -> centroid shards
   src/data/nearme/{meta,cities,metros,states}.json     build-time summaries
 
-Scoring (see docs/near-me/methodology.md), over the four METABOLIC layers
-(common.SCORED). The care layers (urology, endocrinology, implant, shockwave,
-VED, sleep, lab, sex therapy) are listed in the lookup and counted per hex
-and per region, but never weighted into the index: the MII keeps meaning
-what it has meant since v1.
+Scoring (see docs/near-me/methodology.md):
   raw_k   = Σ confidence of POIs of kind k in the hex
           + 0.5 × Σ confidence in the 6 neighbours
   comp_k  = min(1, ln(1 + raw_k) / ln(1 + P95_k))
@@ -51,7 +45,7 @@ import sys
 from collections import defaultdict
 
 import h3
-from common import CARE, KINDS, OUT_DIR, SCORED, in_bbox, read_jsonl, read_seed_csv, zip_city
+from common import KINDS, OUT_DIR, in_bbox, read_jsonl, read_seed_csv, zip_city
 from regions import METROS, STATES, city_slug, metro_for
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -68,12 +62,6 @@ METRO_RES = (7, 8, 9)
 # the kind (nameless registry rows don't count; a page of identical labels is
 # noise for readers and search engines alike).
 PAGE_MIN = {"trt": 5, "glp1": 5}
-# Tags the compact POI shards carry (the app reads these for labels and location notes).
-KEPT_TAGS = {
-    "geocoded", "zip-centroid", "city-level", "503a", "503b", "kw:trt", "kw:glp1", "candidate", "board-matched",
-    "independent", "npi-name", "multi-tenant", "npi-compounding",
-    "kw:implant", "kw:shockwave", "kw:ved", "kw:lab", "kw:sex-therapy", "kw:sexual-medicine", "kw:sexual-health", "draw-site",
-}
 
 
 def load_pois() -> list[dict]:
@@ -133,7 +121,7 @@ def p95(values: list[float]) -> float:
 
 
 def score(kinds: dict, p95s: dict, full: bool) -> int:
-    layers = SCORED if full else REGISTRY
+    layers = KINDS if full else REGISTRY
     tot = sum(WEIGHTS[k] for k in layers)
     comps = {k: min(1.0, math.log1p(kinds[k]) / math.log1p(p95s[k])) if p95s[k] > 0 else 0.0 for k in layers}
     return round(100 * sum(WEIGHTS[k] * comps[k] for k in layers) / tot)
@@ -143,11 +131,10 @@ def write_geojson(path: str, features: list[dict], extra: dict):
     """Compact hex rows (always) + GeoJSON (with --geojson). `path` names the GeoJSON."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     features.sort(key=lambda f: -f["properties"]["mii"])
-    cols = ["h3", "mii", "mii_us", *KINDS, "n", "care", "full"]
-    rows = [[p["h3"], p["mii"], p["mii_us"], *[p[k] for k in KINDS], p["n"], p["care"], 1 if p["coverage"] == "full" else 0]
+    rows = [[p["h3"], p["mii"], p["mii_us"], p["trt"], p["glp1"], p["pharmacy"], p["gym"], p["n"], 1 if p["coverage"] == "full" else 0]
             for p in (f["properties"] for f in features)]
     with open(path[:-len(".geojson")] + ".json", "w") as f:
-        json.dump({"cols": cols, "rows": rows, **extra}, f, separators=(",", ":"))
+        json.dump({"cols": ["h3", "mii", "mii_us", "trt", "glp1", "pharmacy", "gym", "n", "full"], "rows": rows, **extra}, f, separators=(",", ":"))
     if "--geojson" in sys.argv:
         with open(path, "w") as f:
             json.dump({"type": "FeatureCollection", "features": features, **extra}, f, separators=(",", ":"))
@@ -173,12 +160,8 @@ def build_layer(pois: list[dict], res: int, region_filter, national_p95: dict | 
     nat = national_p95 or local
     features = []
     counts = defaultdict(int)
-    care_counts = defaultdict(int)
-    kind_of = {p["id"]: p["kind"] for p in pois if p["id"] in cells_of}
     for pid, cell in cells_of.items():
         counts[cell] += 1
-        if kind_of[pid] in CARE:
-            care_counts[cell] += 1
     for cell, kinds in smoothed.items():
         lat, lng = h3.cell_to_latlng(cell)
         full = metro_for(lat, lng) is not None
@@ -193,7 +176,7 @@ def build_layer(pois: list[dict], res: int, region_filter, national_p95: dict | 
             "properties": {
                 "h3": cell, "mii": mii, "mii_us": score(kinds, nat, full),
                 **{k: round(own[cell][k], 2) for k in KINDS},
-                "n": counts.get(cell, 0), "care": care_counts.get(cell, 0), "coverage": "full" if full else "registry",
+                "n": counts.get(cell, 0), "coverage": "full" if full else "registry",
             },
             "geometry": {"type": "Polygon", "coordinates": [ring]},
         })
@@ -272,7 +255,7 @@ def main():
         compact_by_state[p["state"]].append({
             "id": p["id"], "k": p["kind"], "n": p["name"], "a": p["address"], "c": p["city"], "st": p["state"], "z": p["zip"],
             "lat": round(p["lat"], 5), "lon": round(p["lon"], 5), "s": p["source"], "cf": round(p["confidence"], 2),
-            "t": [t for t in p.get("tags", []) if t in KEPT_TAGS][:5],
+            "t": [t for t in p.get("tags", []) if t in ("geocoded", "zip-centroid", "city-level", "503a", "503b", "kw:trt", "kw:glp1", "candidate", "board-matched", "independent", "npi-name", "multi-tenant", "npi-compounding")][:5],
             "h": h3.cell_to_parent(p["h3_9"], 7), "m": p["metro"],
             **({"pr": prices[p["id"]]} if p["id"] in prices else {}),
         })
@@ -340,7 +323,6 @@ def main():
         "built": datetime.date.today().isoformat(),
         "region": "United States",
         "counts": {k: sum(1 for p in pois if p["kind"] == k) for k in KINDS},
-        "scored": list(SCORED),
         "geocoded": sum(1 for p in pois if "geocoded" in p.get("tags", [])),
         "sources": sorted({p["source"] for p in pois}),
         "weights": WEIGHTS,

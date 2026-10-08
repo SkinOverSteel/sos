@@ -43,27 +43,12 @@ DFW_CITIES = [
     "Farmers Branch", "Colleyville", "Waxahachie", "Haltom City",
 ]
 
-# Every layer the dataset carries. The first four are the METABOLIC layers
-# that score the index (aggregate_h3.SCORED); the rest are CARE layers:
-# listed, counted per hex and per region, never weighted into the MII.
-KINDS = (
-    "trt", "glp1", "pharmacy", "gym",
-    "urology",      # urologists (NPI 208800000X; pediatric urology excluded)
-    "endo",         # endocrinologists (NPI 207RE0101X; pediatric excluded)
-    "implant",      # penile implant surgeons (Open Payments device records + urology name keywords)
-    "shockwave",    # shockwave / PRP ("P-shot") clinics (name keywords only; EMERGING evidence)
-    "ved",          # vacuum erection device suppliers (DME suppliers on a name keyword; metro search)
-    "sleep",        # sleep medicine physicians and sleep-disorder diagnostic centers
-    "lab",          # clinical laboratories, draw sites flagged by national brand
-    "sextherapy",   # sexual medicine and sex therapy practices (organization name keywords)
-)
-SCORED = ("trt", "glp1", "pharmacy", "gym")
-CARE = tuple(k for k in KINDS if k not in SCORED)
+KINDS = ("trt", "glp1", "pharmacy", "gym")
 
 
 @dataclass
 class POI:
-    kind: str                 # one of KINDS
+    kind: str                 # trt | glp1 | pharmacy | gym
     name: str                 # business / facility name only
     address: str
     city: str

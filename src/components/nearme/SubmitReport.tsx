@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PRICE_UNIT, type Poi } from "@/lib/nearme";
+import type { Poi } from "@/lib/nearme";
 
 /**
  * Member report: a price paid, a correction, a closure, or a clinic we are
@@ -123,7 +123,7 @@ export function SubmitReport({ poi, kind, onClose }: Props) {
           {type === "price" && (
             <div style={{ display: "grid", gap: 10, gridTemplateColumns: "1fr 2fr" }}>
               <div>
-                <label className="sos-label" htmlFor="nm-price">{PRICE_UNIT[poi?.k ?? kind ?? "trt"].label}</label>
+                <label className="sos-label" htmlFor="nm-price">Monthly, USD</label>
                 <input id="nm-price" className="sos-field" required type="number" min={0} max={9999} step={1} inputMode="numeric" value={price} onChange={(e) => setPrice(e.target.value)} />
               </div>
               <div>

@@ -11,14 +11,11 @@ pip install -r requirements.txt
 python build_zips.py            # yearly; GeoNames + Census ZCTA -> data/us_zips.csv
 # download the NPPES monthly file (https://download.cms.gov/nppes/NPI_Files.html,
 # "Data Dissemination V.2", ~1.1 GB) to cache/nppes.zip
-python fetch_npi.py             # streams the zip: TRT / metabolic clinics + the registry care layers
-                                # (urology, endocrinology, sleep, labs, DME/VED, sexual-medicine names), all states (~5 min)
-python fetch_open_payments.py   # CMS Open Payments, per state, resumable (~1 h; out/open_payments_parts/):
-                                # GLP-1 maker payments -> glp1, penile-implant device payments -> implant
-python join_names.py            # name Open Payments addresses (GLP-1 and implant) from NPPES organizations (~4 min)
-python fetch_pharmacies.py      # NPPES compounding taxonomy 3336C0004X (all states) + FDA 503B + data/state_boards/*.csv + OSM candidates in metros
+python fetch_npi.py             # streams the zip: TRT / metabolic clinics, all states (~4 min)
+python fetch_open_payments.py   # CMS Open Payments, per state, resumable (~1 h; out/open_payments_parts/)
+python join_names.py            # name Open Payments addresses from NPPES organizations (~4 min)
+python fetch_pharmacies.py      # NPPES compounding taxonomy (all states) + FDA 503B + data/state_boards/*.csv + OSM candidates in metros
 python fetch_gyms.py [slug...]  # OSM gyms per metro (Overpass, else tiled Nominatim; ~3 min/metro)
-python fetch_care.py [slug...]  # OSM / Nominatim / Places per metro: shockwave & PRP, VED suppliers, sex therapy, lab draw sites (~6 min/metro)
 python geocode.py [--census-only] [files...]   # Census batch geocoder; Nominatim fallback inside metros
 python aggregate_h3.py          # -> public/data/nearme/{us,states,metros,pois,zips}, src/data/nearme/*.json
 npm run data:upload             # (from the repo root) push public/data/nearme to Vercel Blob
@@ -61,7 +58,7 @@ One machine does the whole thing; the shards never pass through git.
 ```
 cd etl
 python fetch_npi.py && python fetch_open_payments.py && python join_names.py
-python fetch_pharmacies.py && python fetch_gyms.py && python fetch_care.py
+python fetch_pharmacies.py && python fetch_gyms.py
 python geocode.py
 python aggregate_h3.py && python snapshot.py
 cd .. && npm run build && npm run test:e2e        # sanity: 2k+ pages, 4/4 green
@@ -79,24 +76,6 @@ Secrets the refresh needs, never in the repo:
 | `BLOB_READ_WRITE_TOKEN` | Vercel → Storage → the store → `.env.local` tab. On a laptop: `vercel env pull .env.local`. In the Claude cloud environment: the environment's settings (API credentials), picked up by new sessions. |
 | `VERCEL_DEPLOY_HOOK` | Vercel → project → Settings → Git → Deploy Hooks → create one for `main`. Optional; without it, redeploy by hand after the upload. |
 | `DATABASE_URL` / `POSTGRES_URL` | only for `moderate.py`; Vercel → Storage → Neon. |
-
-### Layers and taxonomy codes
-
-`common.KINDS` is the one list of layers; `common.SCORED` names the four that
-score the index and `common.CARE` the eight that are counted and listed only.
-`aggregate_h3.py` writes one Σ-confidence column per layer plus a `care`
-count into every hex row, named in the file's `cols`; the app reads them by
-name, so an old shard still decodes. Taxonomy codes live in `fetch_npi.py`
-(docstring + `TAXONOMIES` / `CARE_TAXONOMIES`) and were checked against the
-NUCC taxonomy CSV, v26.1: urology `208800000X`, compounding pharmacy
-`3336C0004X`, general preventive medicine `2083P0901X`; v2 had the wrong
-code for each (`208U00000X` clinical pharmacology, `3336C0002X` clinic
-pharmacy, `2083X0100X` occupational medicine), so the first v3 refresh
-re-draws the TRT and pharmacy layers.
-
-The submissions table's `kind` CHECK lists the same twelve layers
-(`schema.sql`); run `migrations/002_care_kinds.sql` once against an existing
-Postgres database.
 
 ### Rate limits and manners
 
