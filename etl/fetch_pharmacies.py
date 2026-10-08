@@ -3,7 +3,8 @@ Compounding pharmacies (503A / 503B), nationwide.
 
 Sources, in order of authority:
 0. NPI registry (NPPES monthly file): organizations whose taxonomy includes
-   3336C0002X "Pharmacy, Compounding Pharmacy". Nationwide, business-level,
+   3336C0004X "Pharmacy, Compounding Pharmacy" (NUCC v26.1; earlier versions
+   read 3336C0002X, which is "Clinic Pharmacy"). Nationwide, business-level,
    self-declared, so it is a registry match (confidence 0.7), not a license.
    A board row (below) matching it by name + zip raises it to 0.9.
 1. FDA registered outsourcing facilities (503B), scraped live from
@@ -37,7 +38,7 @@ from common import DATA_DIR, POI, in_bbox, nominatim_geocode, read_seed_csv, wri
 from fetch_npi import BULK
 from regions import METROS, STATES
 
-COMPOUNDING_TAXONOMY = "3336C0002X"
+COMPOUNDING_TAXONOMY = "3336C0004X"
 
 
 def npi_compounders():

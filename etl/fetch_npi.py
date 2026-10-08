@@ -17,8 +17,12 @@ skipped. Non-US practice addresses are skipped.
 Taxonomy codes (see docs/near-me/methodology.md):
   207RE0101X Endocrinology, Diabetes & Metabolism
   207RB0002X Obesity Medicine
-  2083X0100X Preventive Medicine (anti-aging / regenerative route)
-  208U00000X Urology
+  2083P0901X Preventive Medicine, Public Health & General Preventive (anti-aging / regenerative route)
+  208800000X Urology
+
+Codes verified against the NUCC taxonomy CSV (v26.1). Earlier versions used
+208U00000X (Clinical Pharmacology) and 2083X0100X (Occupational Medicine);
+the first refresh after this fix re-draws the TRT layer.
   207Q00000X Family Medicine   -> kept only on a keyword hit
   207R00000X Internal Medicine -> kept only on a keyword hit
 """
@@ -43,14 +47,14 @@ BULK = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache", "nppes.
 TAXONOMIES = {
     "207RE0101X": ("trt", 0.6, "Endocrinology, Diabetes & Metabolism"),
     "207RB0002X": ("glp1", 0.6, "Obesity Medicine"),
-    "2083X0100X": ("trt", 0.45, "Preventive Medicine"),
-    "208U00000X": ("trt", 0.5, "Urology"),
+    "2083P0901X": ("trt", 0.45, "Public Health & General Preventive Medicine"),
+    "208800000X": ("trt", 0.5, "Urology"),
     "207Q00000X": ("trt", 0.2, "Family Medicine"),
     "207R00000X": ("trt", 0.2, "Internal Medicine"),
 }
 GENERALIST = {"207Q00000X", "207R00000X"}
-DESC = {"207RE0101X": "Endocrinology", "207RB0002X": "Obesity medicine", "2083X0100X": "Preventive medicine",
-        "208U00000X": "Urology", "207Q00000X": "Family medicine", "207R00000X": "Internal medicine"}
+DESC = {"207RE0101X": "Endocrinology", "207RB0002X": "Obesity medicine", "2083P0901X": "Preventive medicine",
+        "208800000X": "Urology", "207Q00000X": "Family medicine", "207R00000X": "Internal medicine"}
 KW_TRT = re.compile(r"\b(trt|testosterone|hormones?|low ?t|men'?s? health|andropause|regenerative|anti[- ]?aging|longevity|optimi[sz]ation)\b", re.I)
 KW_GLP = re.compile(r"\b(weight ?loss|obesity|bariatric|medical weight|metabolic|semaglutide|tirzepatide|glp)\b", re.I)
 
@@ -61,7 +65,7 @@ def classify(codes: list[str], org: str, is_org: bool = True) -> tuple[str, floa
         return None
     # Preventive medicine also covers occupational and public-health doctors.
     # A solo individual with only that code and no keyword is not a TRT signal.
-    if not is_org and set(hits) <= {"2083X0100X"} | GENERALIST and not (KW_TRT.search(org) or KW_GLP.search(org)):
+    if not is_org and set(hits) <= {"2083P0901X"} | GENERALIST and not (KW_TRT.search(org) or KW_GLP.search(org)):
         return None
     kind, conf = None, 0.0
     for c in hits:

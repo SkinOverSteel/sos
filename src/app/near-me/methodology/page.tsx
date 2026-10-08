@@ -23,7 +23,7 @@ const jsonLd = {
 const SOURCES: { layer: string; source: string; keep: string; drop: string }[] = [
   {
     layer: "TRT clinics",
-    source: "NPI registry, monthly NPPES file, all states: endocrinology 207RE0101X, urology 208U00000X, preventive medicine 2083X0100X; family and internal medicine only on a name-keyword hit (testosterone, hormone, low T, men's health, andropause, anti-aging, longevity). Deactivated NPIs skipped.",
+    source: "NPI registry, monthly NPPES file, all states: endocrinology 207RE0101X, urology 208800000X, general preventive medicine 2083P0901X; family and internal medicine only on a name-keyword hit (testosterone, hormone, low T, men's health, andropause, anti-aging, longevity). Deactivated NPIs skipped.",
     keep: "Practice-location address, organization name, taxonomy codes.",
     drop: "Individual practitioners' names (a solo office is labelled by specialty only), mailing addresses, phone numbers.",
   },
@@ -35,7 +35,7 @@ const SOURCES: { layer: string; source: string; keep: string; drop: string }[] =
   },
   {
     layer: "Compounding pharmacies",
-    source: "NPI registry organizations declaring the compounding-pharmacy taxonomy 3336C0002X, all states (a registry match, not a license); FDA registered outsourcing facilities (503B), all states; state boards of pharmacy license exports (503A), one CSV per state as operators add them, which verify a registry row by name and zip; OpenStreetMap name search inside metros for candidates.",
+    source: "NPI registry organizations declaring the compounding-pharmacy taxonomy 3336C0004X, all states (a registry match, not a license); FDA registered outsourcing facilities (503B), all states; state boards of pharmacy license exports (503A), one CSV per state as operators add them, which verify a registry row by name and zip; OpenStreetMap name search inside metros for candidates.",
     keep: "Name, address, license class.",
     drop: "Nothing hidden: a registry match or an unverified candidate is labelled as such, never as licensed.",
   },
