@@ -24,31 +24,22 @@ import { type Bbox, US_VIEW } from "./view";
 export { US_VIEW, type Bbox };
 
 type Feature = {
-  /** The four scored layers (Σ confidence in the cell), all listings, care-layer listings, coverage. */
-  properties: { h3: string; mii: number; mii_us: number; trt: number; glp1: number; pharmacy: number; gym: number; n: number; care: number; coverage: string };
+  properties: { h3: string; mii: number; mii_us: number; trt: number; glp1: number; pharmacy: number; gym: number; n: number; coverage: string };
   geometry: { coordinates: [number, number][][] };
 };
 
 type CompactLayer = { cols: string[]; rows: (string | number)[][] };
 type HexPath = { f: Feature; d: string };
 
-/**
- * Compact rows -> features, deriving each outline from its H3 index. Columns
- * are read by name from the file's `cols`, so a shard built before the care
- * layers (no `care` column) and one built after decode the same way.
- */
+/** Compact rows -> features, deriving each outline from its H3 index. */
 async function decode(layer: CompactLayer): Promise<Feature[]> {
   const { cellToBoundary } = await import("h3-js");
-  const col = (name: string) => layer.cols.indexOf(name);
-  const i = { h3: col("h3"), mii: col("mii"), mii_us: col("mii_us"), trt: col("trt"), glp1: col("glp1"), pharmacy: col("pharmacy"), gym: col("gym"), n: col("n"), care: col("care"), full: col("full") };
-  const num = (r: (string | number)[], idx: number) => (idx >= 0 ? (r[idx] as number) ?? 0 : 0);
   return layer.rows.map((r) => {
-    const h3 = r[i.h3] as string;
-    const ring = cellToBoundary(h3, true) as [number, number][]; // [lng, lat]
+    const ring = cellToBoundary(r[0] as string, true) as [number, number][]; // [lng, lat]
     return {
       properties: {
-        h3, mii: num(r, i.mii), mii_us: num(r, i.mii_us), trt: num(r, i.trt), glp1: num(r, i.glp1),
-        pharmacy: num(r, i.pharmacy), gym: num(r, i.gym), n: num(r, i.n), care: num(r, i.care), coverage: num(r, i.full) ? "full" : "registry",
+        h3: r[0] as string, mii: r[1] as number, mii_us: r[2] as number, trt: r[3] as number, glp1: r[4] as number,
+        pharmacy: r[5] as number, gym: r[6] as number, n: r[7] as number, coverage: r[8] ? "full" : "registry",
       },
       geometry: { coordinates: [ring] },
     };
@@ -467,7 +458,7 @@ export function HexMap({
             TRT {hover.properties.trt} · GLP-1 {hover.properties.glp1} · Rx {hover.properties.pharmacy} · gym {hover.properties.gym}
           </div>
           <div style={{ color: "var(--sos-text-lo)" }}>
-            {hover.properties.n} listings{hover.properties.care ? ` · ${hover.properties.care} care` : ""}{hover.properties.coverage === "registry" ? " · registry only" : ""}
+            {hover.properties.n} listings{hover.properties.coverage === "registry" ? " · registry only" : ""}
           </div>
         </div>
       )}
@@ -485,7 +476,6 @@ export function HexMap({
               {hover.properties.coverage === "registry" ? " · registry layers only" : ""}
               <br />
               TRT {hover.properties.trt} · GLP-1 {hover.properties.glp1} · Rx {hover.properties.pharmacy} · gym {hover.properties.gym}
-              {hover.properties.care ? ` · care ${hover.properties.care} (not scored)` : ""}
             </>
           ) : (
             <>

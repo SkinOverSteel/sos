@@ -33,7 +33,7 @@ const CORE_PAGES: { path: string; label: string; note: string }[] = [
   {
     path: "/near-me",
     label: "Near me",
-    note: "Zip lookup of the nearest TRT clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms (the four scored layers), plus urologists, endocrinologists, penile implant practices, shockwave/PRP clinics, vacuum erection device suppliers, sleep medicine and sleep labs, clinical lab draw sites, and sexual medicine / sex therapy practices (listed and counted, not scored), anywhere in the US, with member-reported price ranges. Businesses only, from public registries (NPI, CMS Open Payments, FDA 503B, state pharmacy boards, OpenStreetMap); methodology at /near-me/methodology; hex maps at /map, /map/{metro-or-state}; city pages at /trt/{state}/{city} and /glp1/{state}/{city}.",
+    note: "Zip lookup of the nearest TRT clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms anywhere in the US, with member-reported price ranges. Businesses only, from public registries (NPI, CMS Open Payments, FDA 503B, state pharmacy boards, OpenStreetMap); methodology at /near-me/methodology; hex maps at /map, /map/{metro-or-state}; city pages at /trt/{state}/{city} and /glp1/{state}/{city}.",
   },
   {
     path: "/log",

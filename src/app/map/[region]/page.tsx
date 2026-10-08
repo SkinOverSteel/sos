@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { HexMap } from "@/components/nearme/HexMapLazy";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
-import { CARE_KINDS, KIND_LABELS, META, METROS, SCORED_KINDS, STATES, metroBySlug, miiBand, stateByCode } from "@/lib/nearme";
+import { KINDS, KIND_LABELS, META, METROS, STATES, metroBySlug, miiBand, stateByCode } from "@/lib/nearme";
 import { CITIES, citiesWithPages } from "@/lib/nearme-cities";
 import { dataDownloadUrl } from "@/lib/nearme-data";
 import cityCenters from "@/data/nearme/city-centers.json";
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const total = r.metro ? r.metro.total : r.state!.total;
   return {
     title: `${name} metabolic infrastructure map`,
-    description: `${name} on a hex grid: ${total} listed businesses from public registries (testosterone clinics, GLP-1 prescribers, compounding pharmacies, gyms, and the specialist, procedure, and workup layers), scored 0–100 per hex. Businesses only.`,
+    description: `${name} on a hex grid: ${total} testosterone clinics, GLP-1 prescribers, compounding pharmacies, and gyms from public registries, scored 0–100 per hex. Businesses only.`,
     alternates: { canonical: `/map/${region}` },
   };
 }
@@ -116,16 +116,7 @@ export default async function RegionMapPage({ params }: { params: Params }) {
         <div className="sos-card sos-card--deep">
           <h2 className="sos-h2" style={{ marginBottom: 10 }}>In the dataset</h2>
           <ul className="sos-note" style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 4 }}>
-            {SCORED_KINDS.map((k) => (
-              <li key={k} style={{ display: "flex", justifyContent: "space-between" }}>
-                <span>{KIND_LABELS[k]}</span>
-                <span style={{ color: "var(--sos-text-hi)" }}>{counts[k] ?? 0}</span>
-              </li>
-            ))}
-            {CARE_KINDS.some((k) => (counts[k] ?? 0) > 0) && (
-              <li style={{ color: "var(--sos-text-lo)", marginTop: 6, textTransform: "uppercase", letterSpacing: "0.04em", fontSize: 11 }}>Care layers · counted, not scored</li>
-            )}
-            {CARE_KINDS.filter((k) => (counts[k] ?? 0) > 0).map((k) => (
+            {KINDS.map((k) => (
               <li key={k} style={{ display: "flex", justifyContent: "space-between" }}>
                 <span>{KIND_LABELS[k]}</span>
                 <span style={{ color: "var(--sos-text-hi)" }}>{counts[k] ?? 0}</span>

@@ -3,9 +3,8 @@ Compounding pharmacies (503A / 503B), nationwide.
 
 Sources, in order of authority:
 0. NPI registry (NPPES monthly file): organizations whose taxonomy includes
-   3336C0004X "Pharmacy, Compounding Pharmacy" (NUCC v26.1; an earlier
-   version of this script used 3336C0002X, which is "Clinic Pharmacy", so
-   the first refresh after the fix re-draws this layer). Nationwide, business-level,
+   3336C0004X "Pharmacy, Compounding Pharmacy" (NUCC v26.1; earlier versions
+   read 3336C0002X, which is "Clinic Pharmacy"). Nationwide, business-level,
    self-declared, so it is a registry match (confidence 0.7), not a license.
    A board row (below) matching it by name + zip raises it to 0.9.
 1. FDA registered outsourcing facilities (503B), scraped live from
