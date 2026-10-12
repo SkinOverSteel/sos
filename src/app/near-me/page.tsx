@@ -31,7 +31,7 @@ export default function NearMePage() {
   return (
     <div className="sos-container" style={{ maxWidth: 880 }}>
       <JsonLd data={jsonLd} />
-      <StepHeader as="h1" step="care" title="Who treats this near you" className="sos-page-head" more={{ href: "/map", label: "See the whole map →" }}>
+      <StepHeader as="h1" step="care" title="Who treats this near you" className="sos-page-head" more={{ href: "/map/rankings", label: "Metros ranked →" }}>
         A zip in, the nearest clinics and pharmacies out: testosterone therapy, GLP-1 prescribing,
         licensed compounding, and the gyms where people actually lift. Distances are from your
         zip&apos;s center. Prices are what members report paying, and until three members have

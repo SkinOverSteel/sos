@@ -68,7 +68,10 @@ export default function MapPage() {
           </p>
         </div>
         <div className="sos-card sos-card--deep">
-          <h2 className="sos-h2" style={{ marginBottom: 10 }}>Metros at street scale</h2>
+          <h2 className="sos-h2" style={{ marginBottom: 4 }}>Metros at street scale</h2>
+          <p className="sos-note" style={{ marginBottom: 10 }}>
+            <Link href="/map/rankings">Ranked by index →</Link>
+          </p>
           <ol className="sos-note" style={{ margin: 0, paddingLeft: 18, display: "grid", gap: 3 }}>
             {topMetros.map((m) => (
               <li key={m.slug}>
