@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import type { Grade } from "@/components/EvidenceBadge";
 import { articles } from "@/lib/articles";
 import { tools } from "@/lib/tools";
+import { METROS, miiOpacity } from "@/lib/nearme";
 
 /**
  * Shared Open Graph card generator for article + tool routes. Each
@@ -132,4 +133,76 @@ export function toolOg(slug: string) {
 export function toolAlt(slug: string) {
   const t = tools.find((x) => x.slug === slug);
   return t ? `${t.title} · Skin Over Steel` : "Skin Over Steel";
+}
+
+/**
+ * Leaderboard card for /map/rankings: the top metros by Metabolic
+ * Infrastructure Index, so a shared link unfurls as the ranking itself. Each
+ * row uses the same copper band opacity the map legend paints, so the card is
+ * recognisably the map. Infrastructure, never people — matches the page copy.
+ */
+export function rankingsOg() {
+  const top = [...METROS].sort((a, b) => b.mii_us - a.mii_us || b.total - a.total).slice(0, 6);
+  const max = top[0]?.mii_us || 100;
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          padding: 64,
+          backgroundColor: E0,
+          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(201,116,56,0.18), rgba(18,22,26,0) 60%)`,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "baseline", fontSize: 30, fontWeight: 800 }}>
+            <span style={{ color: COPPER, fontStyle: "italic" }}>Skin</span>
+            <span style={{ color: BONE, marginLeft: 12, letterSpacing: 1 }}>OVER STEEL</span>
+          </div>
+          {pill("Metros ranked", COPPER)}
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ fontSize: 20, letterSpacing: 6, textTransform: "uppercase", color: LOW, marginBottom: 14 }}>
+            Metabolic Infrastructure Index
+          </div>
+          <div style={{ fontSize: 48, fontWeight: 800, lineHeight: 1.05, color: BONE, marginBottom: 26 }}>
+            Where the access actually is
+          </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {top.map((m, i) => (
+              <div key={m.slug} style={{ display: "flex", alignItems: "center", marginBottom: 12 }}>
+                <span style={{ width: 44, fontSize: 24, fontWeight: 700, color: i === 0 ? COPPER : LOW }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span style={{ width: 360, fontSize: 28, color: BONE }}>{m.name}</span>
+                <div style={{ display: "flex", alignItems: "center", width: 320 }}>
+                  <div style={{ display: "flex", width: Math.round((m.mii_us / max) * 260), height: 18, borderRadius: 4, backgroundColor: COPPER, opacity: Math.max(miiOpacity(m.mii_us), 0.35) }} />
+                  <span style={{ marginLeft: 14, fontSize: 24, fontWeight: 600, color: BONE }}>{m.mii_us}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: 20, letterSpacing: 2, color: LOW }}>skinoversteel.com/map · infrastructure, not people</span>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            {[10, 10, 10, 44, 44, 44, 10, 10, 10].map((w, i) => (
+              <div key={i} style={{ width: w, height: 10, borderRadius: 5, backgroundColor: COPPER, marginLeft: 12 }} />
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
+    { ...size },
+  );
+}
+
+export function rankingsAlt() {
+  return "US metros ranked by the Metabolic Infrastructure Index · Skin Over Steel";
 }
