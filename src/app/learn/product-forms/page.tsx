@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function ProductFormsPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "product-forms")} />
       <Breadcrumbs slug="product-forms" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -172,7 +173,7 @@ export default function ProductFormsPage() {
       </div>
       <Faq slug="product-forms" />
       <RelatedArticles slug="product-forms" />
-    </article>
+    </ArticleShell>
   );
 }
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function WithdrawnErectionDrugsPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "withdrawn-erection-drugs")} />
       <Breadcrumbs slug="withdrawn-erection-drugs" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -300,7 +301,7 @@ export default function WithdrawnErectionDrugsPage() {
       </div>
       <Faq slug="withdrawn-erection-drugs" />
       <RelatedArticles slug="withdrawn-erection-drugs" />
-    </article>
+    </ArticleShell>
   );
 }
 

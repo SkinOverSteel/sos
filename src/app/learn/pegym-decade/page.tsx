@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function PegymDecadePage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "pegym-decade")} />
       <Breadcrumbs slug="pegym-decade" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -408,7 +409,7 @@ export default function PegymDecadePage() {
       </div>
       <Faq slug="pegym-decade" />
       <RelatedArticles slug="pegym-decade" />
-    </article>
+    </ArticleShell>
   );
 }
 

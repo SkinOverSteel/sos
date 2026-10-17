@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -55,7 +56,7 @@ const QUESTIONS = [
 
 export default function TelemedicineVisitPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "telemedicine-visit")} />
       <Breadcrumbs slug="telemedicine-visit" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -155,7 +156,7 @@ export default function TelemedicineVisitPage() {
       </div>
       <Faq slug="telemedicine-visit" />
       <RelatedArticles slug="telemedicine-visit" />
-    </article>
+    </ArticleShell>
   );
 }
 

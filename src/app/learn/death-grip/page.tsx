@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function DeathGripPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "death-grip")} />
       <Breadcrumbs slug="death-grip" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -221,7 +222,7 @@ export default function DeathGripPage() {
 
       <Faq slug="death-grip" />
       <RelatedArticles slug="death-grip" />
-    </article>
+    </ArticleShell>
   );
 }
 

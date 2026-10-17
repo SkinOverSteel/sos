@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -31,7 +32,7 @@ const jsonLd = {
 
 export default function PenileInjectionsPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "penile-injections")} />
       <Breadcrumbs slug="penile-injections" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -316,6 +317,6 @@ export default function PenileInjectionsPage() {
 
       <Faq slug="penile-injections" />
       <RelatedArticles slug="penile-injections" />
-    </article>
+    </ArticleShell>
   );
 }

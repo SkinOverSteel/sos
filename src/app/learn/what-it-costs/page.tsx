@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -28,7 +29,7 @@ const jsonLd = {
 
 export default function WhatItCostsPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "what-it-costs")} />
       <Breadcrumbs slug="what-it-costs" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -219,7 +220,7 @@ export default function WhatItCostsPage() {
       </div>
       <Faq slug="what-it-costs" />
       <RelatedArticles slug="what-it-costs" />
-    </article>
+    </ArticleShell>
   );
 }
 

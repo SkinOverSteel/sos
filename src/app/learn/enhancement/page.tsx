@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -91,7 +92,7 @@ const METHODS: { grade: Grade; name: string; what: string; verdict: string }[] =
 
 export default function EnhancementPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "enhancement")} />
       <Breadcrumbs slug="enhancement" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -237,6 +238,6 @@ export default function EnhancementPage() {
 
       <Faq slug="enhancement" />
       <RelatedArticles slug="enhancement" />
-    </article>
+    </ArticleShell>
   );
 }

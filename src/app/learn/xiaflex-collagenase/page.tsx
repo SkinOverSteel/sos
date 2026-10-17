@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -39,7 +40,7 @@ const jsonLd = {
 
 export default function XiaflexCollagenasePage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "xiaflex-collagenase")} />
       <Breadcrumbs slug="xiaflex-collagenase" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -384,7 +385,7 @@ export default function XiaflexCollagenasePage() {
 
       <Faq slug="xiaflex-collagenase" />
       <RelatedArticles slug="xiaflex-collagenase" />
-    </article>
+    </ArticleShell>
   );
 }
 

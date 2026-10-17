@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
@@ -60,7 +61,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 
 export default function Atx304Page() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, slug)} />
       <Breadcrumbs slug={slug} />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}><b>Treatment &amp; pharmacology</b></p>
@@ -199,6 +200,6 @@ export default function Atx304Page() {
       </div>
       <Faq slug={slug} />
       <RelatedArticles slug={slug} />
-    </article>
+    </ArticleShell>
   );
 }

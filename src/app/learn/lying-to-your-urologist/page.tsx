@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function LyingToYourUrologistPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "lying-to-your-urologist")} />
       <Breadcrumbs slug="lying-to-your-urologist" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -458,7 +459,7 @@ export default function LyingToYourUrologistPage() {
       </div>
       <Faq slug="lying-to-your-urologist" />
       <RelatedArticles slug="lying-to-your-urologist" />
-    </article>
+    </ArticleShell>
   );
 }
 

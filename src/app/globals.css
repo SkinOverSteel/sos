@@ -1549,7 +1549,12 @@ a.sos-card:hover {
    semantic markup an article author writes (<h2 id>, <blockquote>) and never
    reach into classed headings that nested components (Faq, RelatedArticles)
    render inside the same article. */
-.sos-article h2:not([class]) {
+/* Section heads get the big condensed display treatment, whether an article
+   author writes a bare <h2 id> (the ed-workup pattern) or the library's
+   existing <h2 className="sos-h2"> section heads. The mono kicker heads that
+   nested components render (<h2 class="sos-kicker">) are deliberately untouched. */
+.sos-article h2:not([class]),
+.sos-article h2.sos-h2 {
   font-family: var(--sos-sans);
   font-weight: 800;
   font-stretch: 84%;
@@ -1558,11 +1563,15 @@ a.sos-card:hover {
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--sos-text-hi);
-  margin: var(--sos-space-10) 0 var(--sos-space-4);
   scroll-margin-top: var(--sos-space-6);
 }
+/* Bare heads own their vertical rhythm; .sos-h2 section heads already sit in a
+   <section> that carries top spacing, so they take a tighter top margin. */
+.sos-article h2:not([class]) { margin: var(--sos-space-10) 0 var(--sos-space-4); }
+.sos-article h2.sos-h2 { margin: var(--sos-space-4) 0 var(--sos-space-4); }
 /* a short copper tick above each section head — the instrument marking the start */
-.sos-article h2:not([class])::before {
+.sos-article h2:not([class])::before,
+.sos-article h2.sos-h2::before {
   content: "";
   display: block;
   width: 32px;

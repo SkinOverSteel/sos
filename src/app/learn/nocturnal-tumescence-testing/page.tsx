@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -28,7 +29,7 @@ const jsonLd = {
 
 export default function NptTestingPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "nocturnal-tumescence-testing")} />
       <Breadcrumbs slug="nocturnal-tumescence-testing" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -200,6 +201,6 @@ export default function NptTestingPage() {
 
       <Faq slug="nocturnal-tumescence-testing" />
       <RelatedArticles slug="nocturnal-tumescence-testing" />
-    </article>
+    </ArticleShell>
   );
 }

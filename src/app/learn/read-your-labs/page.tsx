@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -153,7 +154,7 @@ const SAFETY: Marker[] = [
 
 export default function ReadYourLabsPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "read-your-labs")} />
       <Breadcrumbs slug="read-your-labs" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -246,7 +247,7 @@ export default function ReadYourLabsPage() {
       </div>
       <Faq slug="read-your-labs" />
       <RelatedArticles slug="read-your-labs" />
-    </article>
+    </ArticleShell>
   );
 }
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function ApomorphineTrochesPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "apomorphine-troches")} />
       <Breadcrumbs slug="apomorphine-troches" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -290,7 +291,7 @@ export default function ApomorphineTrochesPage() {
       </div>
       <Faq slug="apomorphine-troches" />
       <RelatedArticles slug="apomorphine-troches" />
-    </article>
+    </ArticleShell>
   );
 }
 

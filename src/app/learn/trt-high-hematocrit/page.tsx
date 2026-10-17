@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -63,7 +64,7 @@ const myths: { claim: string; record: string; tone?: "emergency" }[] = [
 
 export default function TrtHighHematocritPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "trt-high-hematocrit")} />
       <Breadcrumbs slug="trt-high-hematocrit" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -370,7 +371,7 @@ export default function TrtHighHematocritPage() {
 
       <Faq slug="trt-high-hematocrit" />
       <RelatedArticles slug="trt-high-hematocrit" />
-    </article>
+    </ArticleShell>
   );
 }
 

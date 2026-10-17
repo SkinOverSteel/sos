@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function ProvironUndergroundPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "proviron-underground")} />
       <Breadcrumbs slug="proviron-underground" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -433,7 +434,7 @@ export default function ProvironUndergroundPage() {
       </div>
       <Faq slug="proviron-underground" />
       <RelatedArticles slug="proviron-underground" />
-    </article>
+    </ArticleShell>
   );
 }
 

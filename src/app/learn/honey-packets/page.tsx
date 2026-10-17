@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function HoneyPacketsPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "honey-packets")} />
       <Breadcrumbs slug="honey-packets" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -234,7 +235,7 @@ export default function HoneyPacketsPage() {
 
       <Faq slug="honey-packets" />
       <RelatedArticles slug="honey-packets" />
-    </article>
+    </ArticleShell>
   );
 }
 

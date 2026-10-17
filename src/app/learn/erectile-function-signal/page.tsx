@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -31,7 +32,7 @@ const jsonLd = {
 
 export default function SignalPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "erectile-function-signal")} />
       <Breadcrumbs slug="erectile-function-signal" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -181,7 +182,7 @@ export default function SignalPage() {
       </div>
       <Faq slug="erectile-function-signal" />
       <RelatedArticles slug="erectile-function-signal" />
-    </article>
+    </ArticleShell>
   );
 }
 

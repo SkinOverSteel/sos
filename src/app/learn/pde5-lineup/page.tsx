@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -45,7 +46,7 @@ const ROWS = [
 
 export default function Pde5LineupPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "pde5-lineup")} />
       <Breadcrumbs slug="pde5-lineup" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -246,7 +247,7 @@ export default function Pde5LineupPage() {
 
       <Faq slug="pde5-lineup" />
       <RelatedArticles slug="pde5-lineup" />
-    </article>
+    </ArticleShell>
   );
 }
 

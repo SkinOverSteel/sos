@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -29,7 +30,7 @@ const jsonLd = {
 
 export default function WolverineBlendPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "wolverine-blend")} />
       <Breadcrumbs slug="wolverine-blend" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -372,7 +373,7 @@ export default function WolverineBlendPage() {
       </div>
       <Faq slug="wolverine-blend" />
       <RelatedArticles slug="wolverine-blend" />
-    </article>
+    </ArticleShell>
   );
 }
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -52,7 +53,7 @@ const grades: { grade: string; what: string }[] = [
 
 export default function StuckCockRingPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "stuck-cock-ring")} />
       <Breadcrumbs slug="stuck-cock-ring" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -273,7 +274,7 @@ export default function StuckCockRingPage() {
 
       <Faq slug="stuck-cock-ring" />
       <RelatedArticles slug="stuck-cock-ring" />
-    </article>
+    </ArticleShell>
   );
 }
 

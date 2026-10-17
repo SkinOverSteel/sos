@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -75,7 +76,7 @@ const clockRows: {
 
 export default function PriapismClockPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "priapism-clock")} />
       <Breadcrumbs slug="priapism-clock" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -244,6 +245,6 @@ export default function PriapismClockPage() {
 
       <Faq slug="priapism-clock" />
       <RelatedArticles slug="priapism-clock" />
-    </article>
+    </ArticleShell>
   );
 }

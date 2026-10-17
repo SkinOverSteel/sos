@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleShell } from "@/components/ArticleShell";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
@@ -30,7 +31,7 @@ const jsonLd = {
 
 export default function Pde5Page() {
   return (
-    <article className="sos-container">
+    <ArticleShell>
       <JsonLd data={withReview(jsonLd, "pde5-long-term")} />
       <Breadcrumbs slug="pde5-long-term" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -230,7 +231,7 @@ export default function Pde5Page() {
       </div>
       <Faq slug="pde5-long-term" />
       <RelatedArticles slug="pde5-long-term" />
-    </article>
+    </ArticleShell>
   );
 }
 
