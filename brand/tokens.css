@@ -13,6 +13,45 @@
   --sos-heading-weight: 750;
   --sos-heading-width: 88%;
 
+  /* ---- spacing scale (theme-independent) ----
+     One rhythm for the whole app. Every margin/gap/pad snaps to a step so the
+     vertical rhythm reads as a system, not a set of hand-tuned numbers. 4px base
+     to --sos-6, then a looser cadence for section-scale gaps. */
+  --sos-space-1: 4px;
+  --sos-space-2: 8px;
+  --sos-space-3: 12px;
+  --sos-space-4: 16px;
+  --sos-space-5: 20px;
+  --sos-space-6: 24px;
+  --sos-space-7: 32px;
+  --sos-space-8: 40px;
+  --sos-space-9: 56px;
+  --sos-space-10: 72px;
+  --sos-space-11: 96px;
+
+  /* ---- radius scale ---- */
+  --sos-radius-sm: 6px;
+  --sos-radius: 8px;
+  --sos-radius-md: 10px;
+  --sos-radius-lg: 12px;
+  --sos-radius-pill: 999px;
+
+  /* ---- type scale ---- the body/prose sizes that were set inline per page.
+     Display/heading sizes keep living on their named classes (.sos-h1 etc). */
+  --sos-text-xs: 12px;     /* mono labels, metadata */
+  --sos-text-sm: 13.5px;   /* dense mono UI */
+  --sos-text-base: 16px;   /* nested prose, card body */
+  --sos-text-md: 17px;     /* in-article prose */
+  --sos-text-lg: 18px;     /* lede / standfirst prose */
+  --sos-text-xl: 21px;
+
+  /* ---- motion ---- one easing + two durations, so transitions feel authored
+     rather than defaulted. The global prefers-reduced-motion rule still wins. */
+  --sos-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --sos-ease-out: cubic-bezier(0.3, 0.6, 0.2, 1);
+  --sos-dur: 0.15s;
+  --sos-dur-slow: 0.4s;
+
   /* evidence grades — outline badges only, never filled */
   --sos-grade-established: #5FA983;
   --sos-grade-emerging: #CFA145;
@@ -38,6 +77,16 @@
   --sos-emergency: #E0563D;   /* semantic: medical emergency / HIGH RISK. Safety-critical use only, never decorative. Fills the v2.1 red-family slot. */
   --sos-emergency-glow: rgba(224, 86, 61, 0.12);
   --sos-emergency-hot: #F0705A;  /* small emergency text on a card (E2/E3), 5:1; the base red reads 4.0 there */
+
+  /* ---- material depth (dark) ----
+     "Skin over steel" is a light model, not just borders. On the dark canvas
+     depth is mostly shadow + a 1px lighter top edge where light would catch a
+     raised surface. Kept subtle: instrumentation, not drama. */
+  --sos-edge-hi: inset 0 1px 0 rgba(255, 255, 255, 0.045);  /* light on the top edge of a raised plane */
+  --sos-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --sos-shadow-2: 0 2px 4px rgba(0, 0, 0, 0.3), 0 10px 28px -14px rgba(0, 0, 0, 0.55);
+  --sos-shadow-3: 0 4px 10px rgba(0, 0, 0, 0.35), 0 20px 48px -20px rgba(0, 0, 0, 0.6);
+  --sos-grain: 0.03;  /* film-grain overlay opacity; kills gradient banding on wide OLED */
 }
 
 /* ---- light (marketing / education) ---- */
@@ -61,6 +110,14 @@
   --sos-emergency: #B23A22;   /* semantic: medical emergency / HIGH RISK (light) */
   --sos-emergency-glow: rgba(178, 58, 34, 0.10);
   --sos-emergency-hot: #9E3220;  /* light: darker, same role */
+
+  /* ---- material depth (light) ---- shadows do the lifting here; the top-edge
+     highlight that reads on dark would only muddy white cards, so it's off. */
+  --sos-edge-hi: inset 0 0 0 transparent;
+  --sos-shadow-1: 0 1px 2px rgba(27, 32, 38, 0.06);
+  --sos-shadow-2: 0 1px 2px rgba(27, 32, 38, 0.05), 0 8px 24px -14px rgba(27, 32, 38, 0.18);
+  --sos-shadow-3: 0 2px 6px rgba(27, 32, 38, 0.07), 0 18px 44px -20px rgba(27, 32, 38, 0.22);
+  --sos-grain: 0.02;
 }
 
 /* ---- signature: morse SOS divider (··· ––– ···) ---- */

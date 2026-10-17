@@ -2,14 +2,23 @@ import type { Metadata } from "next";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
+import { ArticleShell } from "@/components/ArticleShell";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { Figure } from "@/components/Figure";
+import { KeyTakeaways } from "@/components/KeyTakeaways";
+import { Callout } from "@/components/Callout";
 import { WorkupFunnel } from "@/components/figures/WorkupFunnel";
 import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
+
+const TOC = [
+  { id: "the-path", label: "The five-step path" },
+  { id: "specialized", label: "When the basics aren't enough" },
+  { id: "bottom-line", label: "The bottom line" },
+];
 
 export const metadata: Metadata = {
   title: "The ED workup, start to finish",
@@ -31,7 +40,7 @@ const jsonLd = {
 
 export default function EdWorkupPage() {
   return (
-    <article className="sos-container">
+    <ArticleShell toc={TOC}>
       <JsonLd data={withReview(jsonLd, "ed-workup")} />
       <Breadcrumbs slug="ed-workup" />
       <p className="sos-kicker" style={{ marginBottom: "14px" }}>
@@ -44,7 +53,7 @@ export default function EdWorkupPage() {
 
       <MorseSOS style={{ margin: "34px 0" }} />
 
-      <p className="sos-prose" style={{ marginBottom: "40px" }}>
+      <p className="sos-lead" style={{ marginBottom: "32px" }}>
         Erectile dysfunction is a <strong>symptom, not a diagnosis</strong>. The
         whole point of a workup is to answer one question: <em>why</em>. The
         answer changes everything that comes after it, and occasionally it
@@ -53,14 +62,25 @@ export default function EdWorkupPage() {
         walk in already holding the map.
       </p>
 
-      <div className="sos-card" style={{ marginBottom: "40px" }}>
-        <p className="sos-prose" style={{ fontSize: "16px", margin: 0 }}>
+      <KeyTakeaways
+        items={[
+          <>ED is a <strong>symptom</strong>, not a diagnosis; the workup exists to find <strong>why</strong>.</>,
+          <>Most men need only a <strong>history, exam, and blood work</strong>&mdash;the tier that also screens for diabetes and heart risk.</>,
+          <>Specialized testing (overnight monitoring, duplex ultrasound, an injection test) is reserved for specific situations.</>,
+          <>Treatment <strong>follows the cause</strong>&mdash;matched to what&apos;s wrong, never picked off a menu.</>,
+        ]}
+      />
+
+      <Callout label="Start with a number">
+        <p className="sos-prose sos-prose--sm" style={{ margin: 0 }}>
           <strong>Not sure where you land?</strong>{" "}The{" "}
           <Link href="/tools/erectile-function-score">two-minute self-check</Link>{" "}
           scores the same five-question screen clinicians use: a number to bring
           into the workup below.
         </p>
-      </div>
+      </Callout>
+
+      <h2 id="the-path">The five-step path</h2>
 
       <div className="sos-steps">
         <div className="sos-steps__rail" aria-hidden="true" />
@@ -145,11 +165,9 @@ export default function EdWorkupPage() {
         </div>
       </div>
 
-      <section style={{ marginTop: "48px" }}>
-        <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-          When the basics aren&apos;t enough
-        </h2>
-        <p className="sos-prose" style={{ fontSize: "16px" }}>
+      <section>
+        <h2 id="specialized">When the basics aren&apos;t enough</h2>
+        <p className="sos-prose sos-prose--sm">
           Most men never need more than a history, an exam, and blood work. And
           it&apos;s worth knowing that up front. A minority need more.{" "}
           <strong>Specialized testing</strong>. Overnight erection monitoring
@@ -178,10 +196,8 @@ export default function EdWorkupPage() {
         </Figure>
       </section>
 
-      <section style={{ marginTop: "44px" }}>
-        <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
-          The bottom line
-        </h2>
+      <section>
+        <h2 id="bottom-line">The bottom line</h2>
         <p className="sos-prose">
           The workup is the part actually worth paying for. Skipping it to buy
           pills from a checkout screen doesn&apos;t just risk treating the wrong
@@ -211,6 +227,6 @@ export default function EdWorkupPage() {
 
       <Faq slug="ed-workup" />
       <RelatedArticles slug="ed-workup" />
-    </article>
+    </ArticleShell>
   );
 }
