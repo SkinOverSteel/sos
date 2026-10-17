@@ -29,6 +29,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ---- film grain: a near-invisible fractal-noise overlay over the whole
+   viewport. It gives the dark ground the "forge floor" texture the brand
+   language promises and, more practically, breaks up the banding the large
+   hero gradient shows on wide OLED panels. pointer-events:none keeps it
+   inert; it's hidden for print and carries no motion. ---- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--sos-grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media print {
+  body::after { display: none; }
+}
+
 ::selection {
   background: var(--sos-copper-deep);
   color: #fff;
@@ -192,8 +210,9 @@ body {
 .sos-card {
   background: var(--sos-e2);
   border: 1px solid var(--sos-line);
-  border-radius: 10px;
-  padding: 24px;
+  border-radius: var(--sos-radius-md);
+  padding: var(--sos-space-6);
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-1);
 }
 .sos-card--deep {
   background: var(--sos-e1);
@@ -216,9 +235,12 @@ body {
   background: var(--sos-copper);
   color: var(--sos-e0);
   font-weight: 600;
+  /* copper read as light, not just fill: a faint glow seats the CTA on the page */
+  box-shadow: var(--sos-edge-hi), 0 2px 10px -2px var(--sos-copper-glow);
 }
 .sos-btn--primary:hover {
   background: var(--sos-copper-hot);
+  box-shadow: var(--sos-edge-hi), 0 4px 18px -2px var(--sos-copper-glow);
 }
 .sos-btn--ghost {
   border: 1px solid var(--sos-line);
@@ -810,8 +832,9 @@ a.sos-card:hover {
 .sos-home__panel {
   background: var(--sos-e1);
   border: 1px solid var(--sos-line);
-  border-radius: 12px;
+  border-radius: var(--sos-radius-lg);
   padding: 22px 22px 18px;
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-2);
 }
 .sos-home__panel-head {
   display: flex;
@@ -1030,15 +1053,18 @@ a.sos-card:hover {
   gap: 10px;
   background: var(--sos-e2);
   border: 1px solid var(--sos-line);
-  border-radius: 10px;
+  border-radius: var(--sos-radius-md);
   padding: 22px 22px 20px;
   text-decoration: none;
-  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-1);
+  transition: border-color var(--sos-dur), background var(--sos-dur),
+    transform var(--sos-dur) var(--sos-ease), box-shadow var(--sos-dur);
 }
 .sos-home__tile:hover {
   border-color: var(--sos-copper);
   background: var(--sos-e3);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-2);
 }
 /* editorial list: open entries on hairlines, not boxes, so the library reads
    as reading and the tools read as instruments */
@@ -1339,10 +1365,11 @@ a.sos-card:hover {
 .sos-home__log {
   margin-top: 56px;
   padding: 36px 32px 32px;
-  border-radius: 12px;
+  border-radius: var(--sos-radius-lg);
   background: var(--sos-e1);
   border: 1px solid var(--sos-line);
   border-left: 3px solid var(--sos-copper);
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-2);
 }
 .sos-home__log-head {
   margin-bottom: 14px;
@@ -1408,4 +1435,316 @@ a.sos-card:hover {
   .sos-home__tile--alert { grid-column: auto; }
   .sos-home__section { padding-top: 44px; }
   .sos-home__log { padding: 28px 22px; margin-top: 44px; }
+}
+
+/* ======================================================================
+   THE READING SURFACE — long-form editorial (the Open Floor article page).
+   A sticky table-of-contents rail in the left gutter, a reading-progress
+   line at the top, and a set of long-form primitives (lede, section marks,
+   callouts, tables, pull-quotes, margin notes) that give the articles the
+   craft a YMYL trust product has to carry. All motion degrades under the
+   global prefers-reduced-motion rule.
+   ====================================================================== */
+
+/* prose size modifiers on the scale — these replace per-page inline fontSize */
+.sos-prose--sm { font-size: var(--sos-text-base); }
+.sos-prose--lg { font-size: var(--sos-text-lg); }
+
+/* the standfirst: the opening paragraph, set larger and in bone */
+.sos-lead {
+  font-family: var(--sos-serif);
+  font-size: clamp(19px, 2.3vw, 22px);
+  line-height: 1.55;
+  color: var(--sos-text-hi);
+}
+
+/* ---- reading progress: a thin copper line tracking scroll depth ---- */
+.sos-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform-origin: left center;
+  transform: scaleX(var(--p, 0));
+  background: linear-gradient(90deg, var(--sos-copper), var(--sos-copper-hot));
+  z-index: 60;
+  transition: transform 0.1s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sos-progress { transition: none; }
+}
+
+/* ---- reading layout: TOC rail + reading column, centered ---- */
+.sos-reading {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--sos-space-8) var(--sos-space-6) var(--sos-space-11);
+}
+.sos-reading__body {
+  min-width: 0;
+  max-width: 760px;
+  margin: 0 auto;
+}
+@media (min-width: 1080px) {
+  .sos-reading:not(.sos-reading--solo) {
+    display: grid;
+    grid-template-columns: minmax(0, 210px) minmax(0, 740px);
+    gap: 56px;
+    justify-content: center;
+    align-items: start;
+  }
+  .sos-reading:not(.sos-reading--solo) .sos-reading__body { max-width: none; margin: 0; }
+}
+
+/* ---- table of contents: sticky rail, scrollspy active state ---- */
+.sos-toc { display: none; }
+@media (min-width: 1080px) {
+  .sos-toc {
+    display: block;
+    position: sticky;
+    top: var(--sos-space-6);
+    align-self: start;
+    max-height: calc(100vh - 2 * var(--sos-space-6));
+    overflow-y: auto;
+  }
+}
+.sos-toc__label {
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+  margin: 0 0 var(--sos-space-3);
+  padding-bottom: var(--sos-space-3);
+  border-bottom: 1px solid var(--sos-line-soft);
+}
+.sos-toc__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.sos-toc__link {
+  display: block;
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--sos-text-lo);
+  text-decoration: none;
+  padding: 7px 10px 7px 13px;
+  border-left: 2px solid var(--sos-line-soft);
+  transition: color var(--sos-dur), border-color var(--sos-dur), background var(--sos-dur);
+}
+.sos-toc__link:hover { color: var(--sos-text-hi); background: var(--sos-e1); }
+.sos-toc__link[aria-current="true"] {
+  color: var(--sos-copper-hot);
+  border-left-color: var(--sos-copper);
+}
+.sos-toc__link--sub { padding-left: 25px; }
+.sos-toc__link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+  border-radius: 0 6px 6px 0;
+}
+
+/* ---- long-form primitives (opt-in under .sos-article) ----
+   The bare-element rules are guarded with :not([class]) so they only style the
+   semantic markup an article author writes (<h2 id>, <blockquote>) and never
+   reach into classed headings that nested components (Faq, RelatedArticles)
+   render inside the same article. */
+.sos-article h2:not([class]) {
+  font-family: var(--sos-sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+  margin: var(--sos-space-10) 0 var(--sos-space-4);
+  scroll-margin-top: var(--sos-space-6);
+}
+/* a short copper tick above each section head — the instrument marking the start */
+.sos-article h2:not([class])::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--sos-copper);
+  margin-bottom: var(--sos-space-4);
+}
+.sos-article h3:not([class]) {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 90%;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--sos-text-hi);
+  margin: var(--sos-space-8) 0 var(--sos-space-3);
+  scroll-margin-top: var(--sos-space-6);
+}
+
+/* ---- editorial blockquote + pull-quote ---- */
+.sos-article blockquote:not([class]) {
+  margin: var(--sos-space-7) 0;
+  padding: 2px 0 2px var(--sos-space-6);
+  border-left: 3px solid var(--sos-copper);
+  font-family: var(--sos-serif);
+  font-style: italic;
+  font-size: var(--sos-text-lg);
+  line-height: 1.55;
+  color: var(--sos-text-hi);
+}
+.sos-pullquote {
+  margin: var(--sos-space-9) 0;
+  padding: var(--sos-space-6) 0;
+  border-top: 1px solid var(--sos-line);
+  border-bottom: 1px solid var(--sos-line);
+}
+/* :not([class]) keeps parity with the generic editorial-blockquote rule above,
+   so this (later in source) wins for the pull-quote's own inner blockquote. */
+.sos-pullquote blockquote:not([class]) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--sos-serif);
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 28px);
+  line-height: 1.35;
+  color: var(--sos-text-hi);
+}
+.sos-pullquote figcaption {
+  margin-top: var(--sos-space-3);
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+}
+.sos-pullquote figcaption cite { font-style: normal; }
+
+/* ---- comparison / data table ---- */
+.sos-table-wrap {
+  margin: var(--sos-space-7) 0;
+  overflow-x: auto;
+  border: 1px solid var(--sos-line);
+  border-radius: var(--sos-radius-md);
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-1);
+}
+.sos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-sm);
+}
+.sos-table th {
+  text-align: left;
+  font-weight: 600;
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+  background: var(--sos-e1);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--sos-line);
+}
+.sos-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--sos-line-soft);
+  color: var(--sos-text-md);
+  vertical-align: top;
+}
+.sos-table tbody tr:last-child td { border-bottom: 0; }
+.sos-table tbody tr { transition: background var(--sos-dur); }
+.sos-table tbody tr:hover { background: var(--sos-e1); }
+
+/* ---- callout: a boxed aside in instrument voice (default copper, alert red) ---- */
+.sos-callout {
+  margin: var(--sos-space-7) 0;
+  padding: var(--sos-space-5) var(--sos-space-6);
+  background: var(--sos-e1);
+  border: 1px solid var(--sos-line);
+  border-left: 3px solid var(--sos-copper);
+  border-radius: var(--sos-radius-md);
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-1);
+}
+.sos-callout--alert { border-left-color: var(--sos-emergency); }
+.sos-callout__label {
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sos-copper-hot);
+  margin: 0 0 var(--sos-space-3);
+}
+.sos-callout--alert .sos-callout__label { color: var(--sos-emergency-hot); }
+.sos-callout > :last-child { margin-bottom: 0; }
+
+/* ---- key takeaways: the short version, up top or at the close ---- */
+.sos-takeaways {
+  margin: var(--sos-space-7) 0;
+  padding: var(--sos-space-6);
+  background: var(--sos-e1);
+  border: 1px solid var(--sos-line);
+  border-radius: var(--sos-radius-lg);
+  box-shadow: var(--sos-edge-hi), var(--sos-shadow-1);
+}
+.sos-takeaways__label {
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+  margin: 0 0 var(--sos-space-4);
+}
+.sos-takeaways ul { list-style: none; margin: 0; padding: 0; }
+.sos-takeaways li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: var(--sos-space-3);
+  font-family: var(--sos-serif);
+  font-size: var(--sos-text-base);
+  line-height: 1.55;
+  color: var(--sos-text-md);
+}
+.sos-takeaways li:last-child { margin-bottom: 0; }
+.sos-takeaways li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--sos-copper);
+}
+.sos-takeaways li strong { color: var(--sos-text-hi); font-weight: 600; }
+
+/* ---- margin note: a quiet aside that floats into the column edge on wide
+   screens (text wraps around it) and drops inline on narrow ones ---- */
+.sos-aside {
+  margin: var(--sos-space-6) 0;
+  padding-left: var(--sos-space-4);
+  border-left: 2px solid var(--sos-line);
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-sm);
+  line-height: 1.6;
+  color: var(--sos-text-lo);
+}
+.sos-aside__label {
+  display: block;
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sos-copper-hot);
+  margin-bottom: 6px;
+}
+@media (min-width: 900px) {
+  .sos-article .sos-aside {
+    float: right;
+    width: 250px;
+    margin: 6px 0 var(--sos-space-4) var(--sos-space-6);
+    border-left: 0;
+    border-top: 2px solid var(--sos-copper);
+    padding: var(--sos-space-3) 0 0;
+  }
 }
