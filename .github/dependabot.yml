@@ -1,0 +1,27 @@
+# Dependabot configuration
+# Scoped to runtime (production) npm dependencies only. Dev-only tooling
+# (eslint-config-next and its transitive chain, types, test deps) is
+# intentionally excluded: its audit noise historically resolves only to
+# version downgrades incompatible with this Next 16 app, and it never ships
+# to users. Security alerts for all deps remain on via the repo's
+# Dependabot alerts setting (GitHub Settings -> Code security).
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Only open PRs for runtime dependencies.
+    allow:
+      - dependency-type: "production"
+    # Collapse related bumps into a single PR to keep review load low.
+    groups:
+      production:
+        applies-to: version-updates
+        patterns:
+          - "*"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "dependencies"
