@@ -119,6 +119,18 @@ export const articles: Article[] = [
     reviewed: "2026-09-01",
   },
   {
+    slug: "erection-hardness-score",
+    title: "The Erection Hardness Score (EHS), explained",
+    deck:
+      "The 0-to-4 scale clinicians and drug trials use to put a plain number on how rigid an erection is.",
+    summary:
+      "A single-item, patient-reported scale from 0 (no change) to 4 (fully rigid), validated in 2007 and used across ED drug trials and clinics. What each grade means, why Grade 3 is the usual threshold for penetration, how it differs from the longer IIEF-5 screen, and how to use it to make a vague worry specific for your clinician.",
+    grade: "established",
+    section: "The workup",
+    published: "2026-10-27",
+    reviewed: "2026-10-27",
+  },
+  {
     slug: "nocturnal-tumescence-testing",
     title: "Overnight erection testing (NPT), explained",
     deck:
