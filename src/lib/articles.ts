@@ -45,6 +45,19 @@ export const articles: Article[] = [
     reviewer: null,
   },
   {
+    slug: "retatrutide",
+    title: "Retatrutide: the strongest weight-loss data yet, and no lawful way to buy it",
+    deck:
+      "What the Phase 3 TRIUMPH-1 obesity trial showed, why retatrutide is still investigational, and why there is no legitimate pharmacy channel for it.",
+    summary:
+      "The investigational GIP/GLP-1/glucagon triple agonist (LY3437943) posted bariatric-range weight loss in Phase 3 TRIUMPH-1, but it is not FDA-approved, cannot be lawfully prescribed or compounded, and the gray-market testosterone-and-erection pitch outruns the evidence. Education only: no sourcing or self-treatment protocol.",
+    grade: "emerging",
+    section: "Treatment & pharmacology",
+    published: "2026-11-10",
+    reviewed: "2026-11-10",
+    reviewer: null,
+  },
+  {
     slug: "erectile-function-signal",
     featured: true,
     title: "Erectile function is a signal",

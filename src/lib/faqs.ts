@@ -35,6 +35,32 @@ export const faqs: Record<string, Faq[]> = {
       a: "The developer describes ATX-304 as investigational, not an approved medicine available outside trials. Early study reports describe generally mild adverse events and no increase in monitored core temperature or heart rate, but small, short studies cannot establish long-term safety, uncommon harms, or drug interactions. Research-vendor products are not validated by those trials.",
     },
   ],
+  retatrutide: [
+    {
+      q: "Is retatrutide FDA-approved?",
+      a: "No. As of November 2026 retatrutide (LY3437943) is investigational and not FDA-approved. Eli Lilly has reported positive Phase 3 obesity results and said it intends to file for approval, with public summaries describing a planned early-2027 submission. A filing is not an approval, and no FDA decision date has been set. Approval status can change, so verify the current status before acting on it.",
+    },
+    {
+      q: "Can I get retatrutide from a pharmacy or a compounding pharmacy?",
+      a: "No. Because retatrutide is not an approved drug, there is no lawful pharmacy channel for it. It cannot be prescribed as an approved medicine and it cannot be legally compounded, because compounding works from approved or recognized pharmaceutical ingredients. The only lawful routes are enrolling in a clinical trial or waiting for a regulatory decision.",
+    },
+    {
+      q: "Is retatrutide sold online the real thing?",
+      a: "Anything currently marketed as 'retatrutide' for sale, whether labeled a peptide, a 'research chemical,' or a weight-loss blend, is gray-market product by definition, because no licensed source exists. You cannot verify that the vial contains what the label claims, at the stated strength, free of contaminants. Lilly warns the public against compounded or counterfeit products sold under its drug names.",
+    },
+    {
+      q: "How much weight did retatrutide cause in trials?",
+      a: "In the pivotal Phase 3 TRIUMPH-1 obesity trial, participants on the highest dose lost roughly 28% of their body weight on average over 80 weeks versus about 2% on placebo, with a per-protocol analysis near 30%. Those are supervised trial results with dose escalation and monitoring, not a prediction for an unsupervised vial.",
+    },
+    {
+      q: "Does retatrutide raise testosterone or fix erections?",
+      a: "Those are not established retatrutide outcomes. Significant weight loss can improve erectile function and can raise testosterone in men whose levels were suppressed by obesity, but that is an effect of the weight loss and metabolic improvement, shown with lifestyle change and approved drugs, not a proven direct property of this specific molecule. If erections are the concern, start with an ED workup rather than an unapproved vial.",
+    },
+    {
+      q: "What are retatrutide's main side effects?",
+      a: "Mostly gastrointestinal: nausea, vomiting, diarrhea, and constipation, as with the GLP-1 class. In TRIUMPH-1, discontinuation for adverse events rose with dose to about 11% at the top dose. Low blood pressure was more common on the highest dose than placebo, which matters if you take blood-pressure medicine, and a small rise in resting heart rate is seen across the class. A dedicated cardiovascular-outcomes trial has not reported.",
+    },
+  ],
   "free-testosterone": [
     {
       q: "What is free testosterone?",
