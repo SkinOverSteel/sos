@@ -119,6 +119,19 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "venous-leak",
+    title: "Venous leak: when the problem is holding, not getting",
+    deck:
+      "Why some men get hard and lose it in minutes, why pills often disappoint them, and how the condition is actually diagnosed.",
+    summary:
+      "Corporal veno-occlusive dysfunction, the plumbing problem behind an erection that arrives and then drains: how the trapping mechanism is supposed to work, why it fails, why PDE5 pills underperform when it's the cause, and how a duplex Doppler and cavernosometry pin it down. The condition and its diagnosis are well established; the surgical and embolization fixes are not, and this says so plainly.",
+    grade: "established",
+    section: "Conditions",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
     slug: "ed-workup",
     featured: true,
     title: "The ED workup, start to finish",

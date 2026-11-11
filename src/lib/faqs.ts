@@ -485,6 +485,28 @@ export const faqs: Record<string, Faq[]> = {
       a: "A new curve, pain with erections, or a lump you can feel is worth a urologist, especially since Peyronie's often travels with erectile dysfunction.",
     },
   ],
+  "venous-leak": [
+    {
+      q: "What is a venous leak?",
+      a: "Venous leak, or corporal veno-occlusive dysfunction, means the penis can fill with blood but cannot trap it. A normal erection works by compressing the small veins against the tunica albuginea so blood stays in; when that seal fails, blood drains back out and the erection fades. It is one recognized vascular cause of erectile dysfunction, and it is diagnosed, not self-diagnosed.",
+    },
+    {
+      q: "Why don't ED pills work well for a venous leak?",
+      a: "PDE5 pills like sildenafil and tadalafil mostly help blood get in; they do far less to help the penis hold it. So a man whose problem is outflow, not inflow, often reports that pills give a partial or short-lived result. That pattern is a reason to ask about a vascular workup, not a reason to keep raising the dose on your own.",
+    },
+    {
+      q: "What does it feel like to have a venous leak?",
+      a: "The common story is getting an erection that arrives fine and then is lost quickly, often within a minute or two, or one that will not stay firm lying down or without constant stimulation. This is a pattern worth describing to a clinician precisely; it is not something an article can confirm about you.",
+    },
+    {
+      q: "How is a venous leak diagnosed?",
+      a: "After the standard ED workup, the vascular question is answered with a dynamic penile duplex Doppler ultrasound, and when that is unclear, dynamic infusion cavernosometry and cavernosography, which measure the flow and pressure needed to keep an erection and map where blood escapes. These are specialized tests, reserved for specific situations.",
+    },
+    {
+      q: "Can a venous leak be fixed?",
+      a: "This is where the honesty matters. The condition is well established; durable fixes are not. Surgical ligation and venous embolization have a long history of early success that often fades, and the published evidence is limited and low-grade. For most men, managing erectile function (including a vacuum device, a constriction ring used safely, or penile injections) is more reliable than chasing the leak surgically. What fits you is a conversation with a urologist who has examined you.",
+    },
+  ],
   "pde5-lineup": [
     {
       q: "What is the difference between Viagra and Cialis?",
