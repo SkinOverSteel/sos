@@ -507,6 +507,60 @@ export const faqs: Record<string, Faq[]> = {
       a: "This is where the honesty matters. The condition is well established; durable fixes are not. Surgical ligation and venous embolization have a long history of early success that often fades, and the published evidence is limited and low-grade. For most men, managing erectile function (including a vacuum device, a constriction ring used safely, or penile injections) is more reliable than chasing the leak surgically. What fits you is a conversation with a urologist who has examined you.",
     },
   ],
+  "low-desire-vs-ed": [
+    {
+      q: "What's the difference between low libido and erectile dysfunction?",
+      a: "They are different problems. Low sexual desire means the wanting is gone: you have little interest in sex in the first place. Erectile dysfunction means the wanting is there but the erection isn't reliable. One is about drive, the other about mechanics, and they can occur together or entirely apart. The distinction matters because it points the workup in different directions.",
+    },
+    {
+      q: "Does low testosterone cause low sex drive?",
+      a: "Low testosterone is one established cause of low desire, which is why guidelines recommend checking a morning testosterone level when desire is low, especially alongside other symptoms of deficiency. But desire does not track neatly with the testosterone number, particularly in older men, so a low libido is not proof of low testosterone, and a normal level does not rule desire problems out. It is a reason to test, not to assume.",
+    },
+    {
+      q: "Will testosterone therapy fix low libido?",
+      a: "Only when the cause is genuinely a deficiency. In men with confirmed low testosterone, treatment can improve desire; in men whose levels are normal, testosterone is not a reliable fix for low libido and carries its own risks. That is why it is a supervised, prescriber-led decision based on your labs and symptoms, never a self-started experiment.",
+    },
+    {
+      q: "What else lowers sex drive besides testosterone?",
+      a: "Plenty: depression and anxiety, relationship distress, chronic stress and poor sleep, alcohol, and a long list of medications (notably SSRIs, some blood-pressure drugs, opioids, and finasteride). Thyroid problems and high prolactin matter too. Because the list is long and overlapping, the workup is a conversation and some blood work, not a single test.",
+    },
+  ],
+  "delayed-ejaculation": [
+    {
+      q: "What is delayed ejaculation?",
+      a: "Delayed ejaculation is a consistent, bothersome difficulty reaching ejaculation, or a markedly longer time to get there, despite adequate stimulation and the desire to finish. In its fuller form, anejaculation, it doesn't happen at all. It is the mirror image of premature ejaculation, and it is recognized as a disorder of ejaculation in the AUA/SMSNA guideline.",
+    },
+    {
+      q: "Can SSRIs and other medications cause delayed ejaculation?",
+      a: "Yes, and medications are the first thing to review. SSRIs are the most common identifiable cause; antipsychotics, opioids and some blood-pressure drugs also contribute. The guideline advises discussing a dose adjustment, a switch, or a staged change with the prescriber. The key word is prescriber: these are not changes to make on your own, especially stopping an antidepressant.",
+    },
+    {
+      q: "Is there a cure or an approved drug for delayed ejaculation?",
+      a: "No drug is FDA-approved for it. The medicines sometimes tried (bupropion, cabergoline, bethanechol, oxytocin, and others) are all off-label and backed by limited evidence, which is why this topic carries the Emerging grade. The most reliable first step is often addressing a reversible cause, such as a medication or a hormonal issue, rather than adding a drug.",
+    },
+    {
+      q: "When should I see a doctor about not being able to finish?",
+      a: "When it is consistent, bothersome, or new, especially if it started after a medication change or alongside other symptoms. It is worth raising even though men tend to mention it last, because the cause is often fixable once it's named. Be candid about the full medication and supplement list, which is exactly the kind of detail that changes the answer.",
+    },
+  ],
+  "hard-flaccid": [
+    {
+      q: "What is hard flaccid syndrome?",
+      a: "Hard flaccid syndrome is a reported pattern in which the flaccid penis feels firm, shrunken, or semi-rigid, often with reduced sensation, weaker erections, and pelvic or penile discomfort, frequently dating to a specific injury. It is important to be honest that it is poorly defined and barely studied: there is no validated diagnostic standard, and the published evidence is a handful of small case series and reports.",
+    },
+    {
+      q: "What causes hard flaccid syndrome?",
+      a: "No one knows with certainty. The leading theories involve pelvic-floor muscle overactivity and a vascular or nerve component, often triggered by trauma during sex or aggressive manual techniques. These are hypotheses from small studies and forum analyses, not a settled mechanism, which is why a real evaluation matters more than any single online explanation.",
+    },
+    {
+      q: "How is hard flaccid syndrome treated?",
+      a: "There is no proven, standardized treatment. The approaches with the most (still limited) support are multimodal: assessment and therapy with a pelvic-floor physical therapist, pain management, and addressing the anxiety that understandably comes with it. Because the evidence is thin, be skeptical of anyone promising a cure, and especially of aggressive self-applied routines, which can be part of how symptoms started.",
+    },
+    {
+      q: "Should I try reverse kegels or massage for hard flaccid at home?",
+      a: "This article won't give a self-treatment routine, and that's deliberate. The pelvic floor is involved in the leading theory, so unsupervised exercises or manual techniques can make things worse as easily as better. The safer path is an evaluation with a urologist and a pelvic-floor physical therapist who can examine you and tailor a plan. If pain is significant or worsening, that's a reason to be seen, not to push harder.",
+    },
+  ],
   "pde5-lineup": [
     {
       q: "What is the difference between Viagra and Cialis?",

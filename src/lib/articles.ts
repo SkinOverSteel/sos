@@ -132,6 +132,45 @@ export const articles: Article[] = [
     reviewer: null,
   },
   {
+    slug: "low-desire-vs-ed",
+    title: "Low desire vs. ED: wanting to, and being able to",
+    deck:
+      "Not wanting sex and not being able to perform are two different systems with two different workups, and testosterone is not the automatic answer to either.",
+    summary:
+      "The most common confusion in the inbox: desire and mechanics are separate problems. How to tell low libido apart from erectile dysfunction, why that distinction changes the workup, what testosterone does and doesn't explain, and why guidelines say to screen for low testosterone but not to reach for it by reflex.",
+    grade: "established",
+    section: "Conditions",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "delayed-ejaculation",
+    title: "Delayed ejaculation: when the finish line keeps moving",
+    deck:
+      "The opposite of premature ejaculation, the one men mention last: the common causes (the medication list first), and why no treatment is FDA-approved.",
+    summary:
+      "Delayed ejaculation and anejaculation, the under-served mirror of premature ejaculation. The recognized definition, the most common causes (SSRIs lead the list, then neurologic, hormonal and psychogenic), what a workup looks for, and the honest state of treatment: recognized as a condition, but every drug option is off-label with limited evidence.",
+    grade: "emerging",
+    section: "Conditions",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "hard-flaccid",
+    title: "Hard flaccid syndrome: what's known, what isn't",
+    deck:
+      "The condition the forums named before medicine did: the reported symptom pattern, the little real evidence there is, and when it's a reason to see someone.",
+    summary:
+      "Hard flaccid syndrome is poorly defined and barely studied: the published evidence is a handful of small case series and case reports, so it carries the Emerging grade honestly. What men describe, the leading pelvic-floor and vascular theories, why it's worth a real evaluation, and why there is no validated protocol to self-apply. No DIY technique here, by design.",
+    grade: "emerging",
+    section: "Conditions",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
     slug: "ed-workup",
     featured: true,
     title: "The ED workup, start to finish",
