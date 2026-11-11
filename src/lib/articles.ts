@@ -83,6 +83,58 @@ export const articles: Article[] = [
     reviewed: "2026-09-16",
   },
   {
+    slug: "how-an-erection-works",
+    title: "How an erection actually works",
+    deck:
+      "The plumbing and the wiring, in plain terms: nerves, nitric oxide, smooth muscle, and the two jobs that turn arousal into rigidity you can keep.",
+    summary:
+      "The foundational primer the rest of the library builds on. The reflex from arousal to rigidity: the nerve signal, the nitric-oxide relaxation of smooth muscle, the arterial inflow, and the veno-occlusive trapping that holds it. Why it's a vascular event first, where testosterone and the brain fit, and how each step maps to where things go wrong.",
+    grade: "established",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "morning-erections",
+    title: "Morning erections: the signal you wake up with",
+    deck:
+      "What nighttime and morning erections are, why they happen, and what it means when they quietly stop.",
+    summary:
+      "Nocturnal and morning erections are a built-in, no-effort readout of the erectile machinery: REM-linked, largely independent of desire, and sensitive to blood flow, nerves, and testosterone. What they indicate, why losing them is worth noticing (and what it doesn't prove on its own), and how this everyday signal differs from the formal overnight test.",
+    grade: "established",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "pelvic-floor-and-erections",
+    title: "The pelvic floor and erections",
+    deck:
+      "What the muscles under the base of the penis actually do for rigidity and ejaculation, and what the exercise evidence really shows.",
+    summary:
+      "The pelvic-floor muscles help trap blood and support rigidity, and a randomized trial found pelvic-floor exercises improved erectile function in some men. The honest version: real but limited evidence, why it's a reasonable supervised first step, where it overlaps with ejaculation control, and why aggressive do-it-yourself routines can backfire.",
+    grade: "emerging",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "sleep-and-erections",
+    title: "Sleep and erections: the overnight connection",
+    deck:
+      "How sleep loss and sleep apnea drag down testosterone and erectile function, and why the airway is worth checking.",
+    summary:
+      "Sleep is where a lot of erectile machinery is maintained. Short sleep measurably lowers testosterone, and obstructive sleep apnea is strongly associated with erectile dysfunction through endothelial strain. What the evidence does and doesn't show about treating the sleep problem, and why a snoring, unrefreshing night is a medical lead, not a lifestyle footnote.",
+    grade: "established",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
     slug: "premature-ejaculation",
     title: "Premature ejaculation, honestly",
     deck:
@@ -126,6 +178,45 @@ export const articles: Article[] = [
     summary:
       "Corporal veno-occlusive dysfunction, the plumbing problem behind an erection that arrives and then drains: how the trapping mechanism is supposed to work, why it fails, why PDE5 pills underperform when it's the cause, and how a duplex Doppler and cavernosometry pin it down. The condition and its diagnosis are well established; the surgical and embolization fixes are not, and this says so plainly.",
     grade: "established",
+    section: "Conditions",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "low-desire-vs-ed",
+    title: "Low desire vs. ED: wanting to, and being able to",
+    deck:
+      "Not wanting sex and not being able to perform are two different systems with two different workups, and testosterone is not the automatic answer to either.",
+    summary:
+      "The most common confusion in the inbox: desire and mechanics are separate problems. How to tell low libido apart from erectile dysfunction, why that distinction changes the workup, what testosterone does and doesn't explain, and why guidelines say to screen for low testosterone but not to reach for it by reflex.",
+    grade: "established",
+    section: "Conditions",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "delayed-ejaculation",
+    title: "Delayed ejaculation: when the finish line keeps moving",
+    deck:
+      "The opposite of premature ejaculation, the one men mention last: the common causes (the medication list first), and why no treatment is FDA-approved.",
+    summary:
+      "Delayed ejaculation and anejaculation, the under-served mirror of premature ejaculation. The recognized definition, the most common causes (SSRIs lead the list, then neurologic, hormonal and psychogenic), what a workup looks for, and the honest state of treatment: recognized as a condition, but every drug option is off-label with limited evidence.",
+    grade: "emerging",
+    section: "Conditions",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "hard-flaccid",
+    title: "Hard flaccid syndrome: what's known, what isn't",
+    deck:
+      "The condition the forums named before medicine did: the reported symptom pattern, the little real evidence there is, and when it's a reason to see someone.",
+    summary:
+      "Hard flaccid syndrome is poorly defined and barely studied: the published evidence is a handful of small case series and case reports, so it carries the Emerging grade honestly. What men describe, the leading pelvic-floor and vascular theories, why it's worth a real evaluation, and why there is no validated protocol to self-apply. No DIY technique here, by design.",
+    grade: "emerging",
     section: "Conditions",
     published: "2026-11-11",
     reviewed: "2026-11-11",

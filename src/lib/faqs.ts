@@ -507,6 +507,60 @@ export const faqs: Record<string, Faq[]> = {
       a: "This is where the honesty matters. The condition is well established; durable fixes are not. Surgical ligation and venous embolization have a long history of early success that often fades, and the published evidence is limited and low-grade. For most men, managing erectile function (including a vacuum device, a constriction ring used safely, or penile injections) is more reliable than chasing the leak surgically. What fits you is a conversation with a urologist who has examined you.",
     },
   ],
+  "low-desire-vs-ed": [
+    {
+      q: "What's the difference between low libido and erectile dysfunction?",
+      a: "They are different problems. Low sexual desire means the wanting is gone: you have little interest in sex in the first place. Erectile dysfunction means the wanting is there but the erection isn't reliable. One is about drive, the other about mechanics, and they can occur together or entirely apart. The distinction matters because it points the workup in different directions.",
+    },
+    {
+      q: "Does low testosterone cause low sex drive?",
+      a: "Low testosterone is one established cause of low desire, which is why guidelines recommend checking a morning testosterone level when desire is low, especially alongside other symptoms of deficiency. But desire does not track neatly with the testosterone number, particularly in older men, so a low libido is not proof of low testosterone, and a normal level does not rule desire problems out. It is a reason to test, not to assume.",
+    },
+    {
+      q: "Will testosterone therapy fix low libido?",
+      a: "Only when the cause is genuinely a deficiency. In men with confirmed low testosterone, treatment can improve desire; in men whose levels are normal, testosterone is not a reliable fix for low libido and carries its own risks. That is why it is a supervised, prescriber-led decision based on your labs and symptoms, never a self-started experiment.",
+    },
+    {
+      q: "What else lowers sex drive besides testosterone?",
+      a: "Plenty: depression and anxiety, relationship distress, chronic stress and poor sleep, alcohol, and a long list of medications (notably SSRIs, some blood-pressure drugs, opioids, and finasteride). Thyroid problems and high prolactin matter too. Because the list is long and overlapping, the workup is a conversation and some blood work, not a single test.",
+    },
+  ],
+  "delayed-ejaculation": [
+    {
+      q: "What is delayed ejaculation?",
+      a: "Delayed ejaculation is a consistent, bothersome difficulty reaching ejaculation, or a markedly longer time to get there, despite adequate stimulation and the desire to finish. In its fuller form, anejaculation, it doesn't happen at all. It is the mirror image of premature ejaculation, and it is recognized as a disorder of ejaculation in the AUA/SMSNA guideline.",
+    },
+    {
+      q: "Can SSRIs and other medications cause delayed ejaculation?",
+      a: "Yes, and medications are the first thing to review. SSRIs are the most common identifiable cause; antipsychotics, opioids and some blood-pressure drugs also contribute. The guideline advises discussing a dose adjustment, a switch, or a staged change with the prescriber. The key word is prescriber: these are not changes to make on your own, especially stopping an antidepressant.",
+    },
+    {
+      q: "Is there a cure or an approved drug for delayed ejaculation?",
+      a: "No drug is FDA-approved for it. The medicines sometimes tried (bupropion, cabergoline, bethanechol, oxytocin, and others) are all off-label and backed by limited evidence, which is why this topic carries the Emerging grade. The most reliable first step is often addressing a reversible cause, such as a medication or a hormonal issue, rather than adding a drug.",
+    },
+    {
+      q: "When should I see a doctor about not being able to finish?",
+      a: "When it is consistent, bothersome, or new, especially if it started after a medication change or alongside other symptoms. It is worth raising even though men tend to mention it last, because the cause is often fixable once it's named. Be candid about the full medication and supplement list, which is exactly the kind of detail that changes the answer.",
+    },
+  ],
+  "hard-flaccid": [
+    {
+      q: "What is hard flaccid syndrome?",
+      a: "Hard flaccid syndrome is a reported pattern in which the flaccid penis feels firm, shrunken, or semi-rigid, often with reduced sensation, weaker erections, and pelvic or penile discomfort, frequently dating to a specific injury. It is important to be honest that it is poorly defined and barely studied: there is no validated diagnostic standard, and the published evidence is a handful of small case series and reports.",
+    },
+    {
+      q: "What causes hard flaccid syndrome?",
+      a: "No one knows with certainty. The leading theories involve pelvic-floor muscle overactivity and a vascular or nerve component, often triggered by trauma during sex or aggressive manual techniques. These are hypotheses from small studies and forum analyses, not a settled mechanism, which is why a real evaluation matters more than any single online explanation.",
+    },
+    {
+      q: "How is hard flaccid syndrome treated?",
+      a: "There is no proven, standardized treatment. The approaches with the most (still limited) support are multimodal: assessment and therapy with a pelvic-floor physical therapist, pain management, and addressing the anxiety that understandably comes with it. Because the evidence is thin, be skeptical of anyone promising a cure, and especially of aggressive self-applied routines, which can be part of how symptoms started.",
+    },
+    {
+      q: "Should I try reverse kegels or massage for hard flaccid at home?",
+      a: "This article won't give a self-treatment routine, and that's deliberate. The pelvic floor is involved in the leading theory, so unsupervised exercises or manual techniques can make things worse as easily as better. The safer path is an evaluation with a urologist and a pelvic-floor physical therapist who can examine you and tailor a plan. If pain is significant or worsening, that's a reason to be seen, not to push harder.",
+    },
+  ],
   "pde5-lineup": [
     {
       q: "What is the difference between Viagra and Cialis?",
@@ -533,6 +587,74 @@ export const faqs: Record<string, Faq[]> = {
     {
       q: "How does exercise actually help erections?",
       a: "Hard training raises nitric-oxide availability and improves how arteries dilate on demand, the same pathway ED pills amplify, except built rather than borrowed for a night.",
+    },
+  ],
+  "how-an-erection-works": [
+    {
+      q: "How does an erection actually work?",
+      a: "Arousal signals travel down nerves to the penis and trigger the release of nitric oxide, which relaxes the smooth muscle inside the two spongy chambers (the corpora cavernosa). The relaxed chambers let arteries flood them with blood, and as they swell they press the draining veins shut against the firm outer wall, trapping the blood in. Inflow plus trapping is what turns arousal into a firm, lasting erection.",
+    },
+    {
+      q: "Is an erection about blood flow or testosterone?",
+      a: "Mostly blood flow. An erection is fundamentally a vascular event: it needs healthy arteries, nerves, and smooth muscle. Testosterone matters more for desire and for keeping the tissue healthy than for the mechanics of a single erection, which is why many men with normal testosterone still have erectile dysfunction, and why testosterone alone often doesn't fix it.",
+    },
+    {
+      q: "What role does nitric oxide play in an erection?",
+      a: "It's the on-switch. Nitric oxide is the signaling molecule that relaxes the penile smooth muscle so blood can rush in. PDE5 inhibitors like sildenafil and tadalafil work by protecting that same nitric-oxide pathway so its effect lasts longer, which is also why they need some arousal to work rather than creating an erection from nothing.",
+    },
+    {
+      q: "Why can't I get an erection even when I'm aroused?",
+      a: "Because arousal is only the first step; the plumbing has to follow through. If the arteries are narrowed, the nerves aren't signaling, the smooth muscle can't relax, or the veins won't seal, you can feel fully aroused and still not get or keep an erection. Which step is failing is exactly what an erectile-dysfunction workup is designed to find.",
+    },
+  ],
+  "morning-erections": [
+    {
+      q: "Why do men get morning erections?",
+      a: "They're the tail end of the erections that happen naturally during REM sleep through the night; you simply notice the last one on waking. They happen largely independent of sexual thoughts, driven by the nervous system's overnight activity, which is why they're a fairly clean readout of whether the erectile machinery is working.",
+    },
+    {
+      q: "What does it mean if I stop getting morning erections?",
+      a: "It can be an early clue that something physical, such as blood flow, nerves, or testosterone, has changed, since these erections don't depend on desire or circumstance. But it isn't proof on its own: poor sleep, stress, and simply not waking during a REM cycle all affect whether you notice one. A consistent loss over weeks is worth raising with a clinician, not a single morning.",
+    },
+    {
+      q: "Do morning erections mean my ED is psychological?",
+      a: "They're a hint, not a verdict. Regularly waking with firm erections suggests the hardware can work, which points attention toward anxiety, context, or the relationship. But the pattern is unreliable enough that clinicians use a formal overnight test, not your own observation, when the physical-versus-psychological question really needs answering.",
+    },
+    {
+      q: "How many morning or nighttime erections are normal?",
+      a: "Most healthy men have several erections per night during REM sleep, often three to five, each lasting a number of minutes; you just don't witness most of them. The exact count matters less than the trend: a steady presence is reassuring, and a clear, sustained decline is the part worth paying attention to.",
+    },
+  ],
+  "pelvic-floor-and-erections": [
+    {
+      q: "What does the pelvic floor have to do with erections?",
+      a: "The pelvic-floor muscles sit at the base of the penis and help press on the veins that drain it, which assists in trapping blood and maintaining rigidity, especially a rigid, upward-pointing erection. They also play a role in ejaculation control. When they're too weak, or paradoxically too tense, erectile and ejaculatory function can suffer.",
+    },
+    {
+      q: "Do pelvic floor exercises (Kegels) help erectile dysfunction?",
+      a: "There's real but limited evidence. A randomized trial found that pelvic-floor muscle exercises with biofeedback improved erectile function in a meaningful share of men, with some regaining normal function. It's a reasonable, low-risk thing to try, best taught properly, but it's not a guaranteed fix and works better for some causes of ED than others.",
+    },
+    {
+      q: "Can I do pelvic floor exercises on my own?",
+      a: "You can, but learning them correctly matters, and getting assessed first is wise, because the muscles can be either too weak or too tense, and those need opposite approaches. A pelvic-floor physical therapist can tell which you are and coach the technique. Aggressive, self-invented routines can make things worse rather than better.",
+    },
+  ],
+  "sleep-and-erections": [
+    {
+      q: "Can poor sleep cause erectile dysfunction or low testosterone?",
+      a: "Yes. In a small, tightly controlled study, cutting healthy young men to about 5 hours of sleep for one week lowered their daytime testosterone by roughly 10 to 15 percent. Chronically short or disrupted sleep works against the hormonal and vascular systems erections depend on, so it's a genuine, and fixable, contributor.",
+    },
+    {
+      q: "How does sleep apnea affect erections?",
+      a: "Obstructive sleep apnea is strongly associated with erectile dysfunction. The repeated drops in oxygen overnight strain the lining of the blood vessels (the endothelium) that erections rely on, and apnea also fragments the sleep that supports testosterone. If you snore heavily, wake unrefreshed, or stop breathing in your sleep, that's a medical lead worth following.",
+    },
+    {
+      q: "Will treating sleep apnea fix my ED?",
+      a: "It may help, but the evidence is mixed and modest, so it's not a guaranteed cure. Reviews suggest treating apnea can improve erectile-function scores for some men, though ED medications tend to work better for the ED itself, and the two are sometimes combined. The stronger reason to treat apnea is your overall heart and metabolic health; better erections can be a welcome bonus.",
+    },
+    {
+      q: "Is it worth getting checked for sleep apnea if I have ED?",
+      a: "Often, yes, especially if you have the classic signs: loud snoring, witnessed pauses in breathing, daytime sleepiness, or high blood pressure. Because ED, apnea, and cardiovascular risk travel together, a clinician may reasonably look at your sleep as part of the bigger picture rather than treating the erection in isolation.",
     },
   ],
   "trt-fertility": [
