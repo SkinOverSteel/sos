@@ -589,6 +589,74 @@ export const faqs: Record<string, Faq[]> = {
       a: "Hard training raises nitric-oxide availability and improves how arteries dilate on demand, the same pathway ED pills amplify, except built rather than borrowed for a night.",
     },
   ],
+  "how-an-erection-works": [
+    {
+      q: "How does an erection actually work?",
+      a: "Arousal signals travel down nerves to the penis and trigger the release of nitric oxide, which relaxes the smooth muscle inside the two spongy chambers (the corpora cavernosa). The relaxed chambers let arteries flood them with blood, and as they swell they press the draining veins shut against the firm outer wall, trapping the blood in. Inflow plus trapping is what turns arousal into a firm, lasting erection.",
+    },
+    {
+      q: "Is an erection about blood flow or testosterone?",
+      a: "Mostly blood flow. An erection is fundamentally a vascular event: it needs healthy arteries, nerves, and smooth muscle. Testosterone matters more for desire and for keeping the tissue healthy than for the mechanics of a single erection, which is why many men with normal testosterone still have erectile dysfunction, and why testosterone alone often doesn't fix it.",
+    },
+    {
+      q: "What role does nitric oxide play in an erection?",
+      a: "It's the on-switch. Nitric oxide is the signaling molecule that relaxes the penile smooth muscle so blood can rush in. PDE5 inhibitors like sildenafil and tadalafil work by protecting that same nitric-oxide pathway so its effect lasts longer, which is also why they need some arousal to work rather than creating an erection from nothing.",
+    },
+    {
+      q: "Why can't I get an erection even when I'm aroused?",
+      a: "Because arousal is only the first step; the plumbing has to follow through. If the arteries are narrowed, the nerves aren't signaling, the smooth muscle can't relax, or the veins won't seal, you can feel fully aroused and still not get or keep an erection. Which step is failing is exactly what an erectile-dysfunction workup is designed to find.",
+    },
+  ],
+  "morning-erections": [
+    {
+      q: "Why do men get morning erections?",
+      a: "They're the tail end of the erections that happen naturally during REM sleep through the night; you simply notice the last one on waking. They happen largely independent of sexual thoughts, driven by the nervous system's overnight activity, which is why they're a fairly clean readout of whether the erectile machinery is working.",
+    },
+    {
+      q: "What does it mean if I stop getting morning erections?",
+      a: "It can be an early clue that something physical, such as blood flow, nerves, or testosterone, has changed, since these erections don't depend on desire or circumstance. But it isn't proof on its own: poor sleep, stress, and simply not waking during a REM cycle all affect whether you notice one. A consistent loss over weeks is worth raising with a clinician, not a single morning.",
+    },
+    {
+      q: "Do morning erections mean my ED is psychological?",
+      a: "They're a hint, not a verdict. Regularly waking with firm erections suggests the hardware can work, which points attention toward anxiety, context, or the relationship. But the pattern is unreliable enough that clinicians use a formal overnight test, not your own observation, when the physical-versus-psychological question really needs answering.",
+    },
+    {
+      q: "How many morning or nighttime erections are normal?",
+      a: "Most healthy men have several erections per night during REM sleep, often three to five, each lasting a number of minutes; you just don't witness most of them. The exact count matters less than the trend: a steady presence is reassuring, and a clear, sustained decline is the part worth paying attention to.",
+    },
+  ],
+  "pelvic-floor-and-erections": [
+    {
+      q: "What does the pelvic floor have to do with erections?",
+      a: "The pelvic-floor muscles sit at the base of the penis and help press on the veins that drain it, which assists in trapping blood and maintaining rigidity, especially a rigid, upward-pointing erection. They also play a role in ejaculation control. When they're too weak, or paradoxically too tense, erectile and ejaculatory function can suffer.",
+    },
+    {
+      q: "Do pelvic floor exercises (Kegels) help erectile dysfunction?",
+      a: "There's real but limited evidence. A randomized trial found that pelvic-floor muscle exercises with biofeedback improved erectile function in a meaningful share of men, with some regaining normal function. It's a reasonable, low-risk thing to try, best taught properly, but it's not a guaranteed fix and works better for some causes of ED than others.",
+    },
+    {
+      q: "Can I do pelvic floor exercises on my own?",
+      a: "You can, but learning them correctly matters, and getting assessed first is wise, because the muscles can be either too weak or too tense, and those need opposite approaches. A pelvic-floor physical therapist can tell which you are and coach the technique. Aggressive, self-invented routines can make things worse rather than better.",
+    },
+  ],
+  "sleep-and-erections": [
+    {
+      q: "Can poor sleep cause erectile dysfunction or low testosterone?",
+      a: "Yes. In a small, tightly controlled study, cutting healthy young men to about 5 hours of sleep for one week lowered their daytime testosterone by roughly 10 to 15 percent. Chronically short or disrupted sleep works against the hormonal and vascular systems erections depend on, so it's a genuine, and fixable, contributor.",
+    },
+    {
+      q: "How does sleep apnea affect erections?",
+      a: "Obstructive sleep apnea is strongly associated with erectile dysfunction. The repeated drops in oxygen overnight strain the lining of the blood vessels (the endothelium) that erections rely on, and apnea also fragments the sleep that supports testosterone. If you snore heavily, wake unrefreshed, or stop breathing in your sleep, that's a medical lead worth following.",
+    },
+    {
+      q: "Will treating sleep apnea fix my ED?",
+      a: "It may help, but the evidence is mixed and modest, so it's not a guaranteed cure. Reviews suggest treating apnea can improve erectile-function scores for some men, though ED medications tend to work better for the ED itself, and the two are sometimes combined. The stronger reason to treat apnea is your overall heart and metabolic health; better erections can be a welcome bonus.",
+    },
+    {
+      q: "Is it worth getting checked for sleep apnea if I have ED?",
+      a: "Often, yes, especially if you have the classic signs: loud snoring, witnessed pauses in breathing, daytime sleepiness, or high blood pressure. Because ED, apnea, and cardiovascular risk travel together, a clinician may reasonably look at your sleep as part of the bigger picture rather than treating the erection in isolation.",
+    },
+  ],
   "trt-fertility": [
     {
       q: "Does TRT cause infertility?",

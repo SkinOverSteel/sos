@@ -83,6 +83,58 @@ export const articles: Article[] = [
     reviewed: "2026-09-16",
   },
   {
+    slug: "how-an-erection-works",
+    title: "How an erection actually works",
+    deck:
+      "The plumbing and the wiring, in plain terms: nerves, nitric oxide, smooth muscle, and the two jobs that turn arousal into rigidity you can keep.",
+    summary:
+      "The foundational primer the rest of the library builds on. The reflex from arousal to rigidity: the nerve signal, the nitric-oxide relaxation of smooth muscle, the arterial inflow, and the veno-occlusive trapping that holds it. Why it's a vascular event first, where testosterone and the brain fit, and how each step maps to where things go wrong.",
+    grade: "established",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "morning-erections",
+    title: "Morning erections: the signal you wake up with",
+    deck:
+      "What nighttime and morning erections are, why they happen, and what it means when they quietly stop.",
+    summary:
+      "Nocturnal and morning erections are a built-in, no-effort readout of the erectile machinery: REM-linked, largely independent of desire, and sensitive to blood flow, nerves, and testosterone. What they indicate, why losing them is worth noticing (and what it doesn't prove on its own), and how this everyday signal differs from the formal overnight test.",
+    grade: "established",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "pelvic-floor-and-erections",
+    title: "The pelvic floor and erections",
+    deck:
+      "What the muscles under the base of the penis actually do for rigidity and ejaculation, and what the exercise evidence really shows.",
+    summary:
+      "The pelvic-floor muscles help trap blood and support rigidity, and a randomized trial found pelvic-floor exercises improved erectile function in some men. The honest version: real but limited evidence, why it's a reasonable supervised first step, where it overlaps with ejaculation control, and why aggressive do-it-yourself routines can backfire.",
+    grade: "emerging",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
+    slug: "sleep-and-erections",
+    title: "Sleep and erections: the overnight connection",
+    deck:
+      "How sleep loss and sleep apnea drag down testosterone and erectile function, and why the airway is worth checking.",
+    summary:
+      "Sleep is where a lot of erectile machinery is maintained. Short sleep measurably lowers testosterone, and obstructive sleep apnea is strongly associated with erectile dysfunction through endothelial strain. What the evidence does and doesn't show about treating the sleep problem, and why a snoring, unrefreshing night is a medical lead, not a lifestyle footnote.",
+    grade: "established",
+    section: "Foundations",
+    published: "2026-11-11",
+    reviewed: "2026-11-11",
+    reviewer: null,
+  },
+  {
     slug: "premature-ejaculation",
     title: "Premature ejaculation, honestly",
     deck:
