@@ -63,8 +63,8 @@ export const faqs: Record<string, Faq[]> = {
   ],
   "free-testosterone": [
     {
-      q: "What is free testosterone?",
-      a: "Most testosterone in your blood is bound (tightly to SHBG and loosely to albumin) and unavailable to tissues. Free testosterone is the small fraction (usually around 1.5–2.5% of total) circulating unbound. Bioavailable testosterone is that free fraction plus the loosely albumin-bound portion your body can still use.",
+      q: "What is free vs bioavailable testosterone?",
+      a: "Most testosterone in your blood is bound (tightly to SHBG and loosely to albumin) and unavailable to tissues. Free testosterone is the small fraction (usually around 1.5–2.5% of total) circulating unbound. Bioavailable testosterone is that free fraction plus the loosely albumin-bound portion your body can still use. This calculator estimates both.",
     },
     {
       q: "Why calculate free testosterone instead of using total testosterone?",
@@ -115,8 +115,8 @@ export const faqs: Record<string, Faq[]> = {
       a: "A score of 22 to 25 out of 25 falls in the range that does not indicate erectile dysfunction. 17–21 suggests mild difficulty, 12–16 mild-to-moderate, 8–11 moderate, and 5–7 severe. The score is a starting point for a conversation with a clinician, not a diagnosis.",
     },
     {
-      q: "Is this the same as the SHIM or IIEF-5?",
-      a: "Yes. This is the five-item International Index of Erectile Function (IIEF-5), also called the Sexual Health Inventory for Men (SHIM): a validated screening questionnaire developed by Rosen and colleagues in 1999 and used widely in clinical practice.",
+      q: "What is a SHIM score?",
+      a: "A SHIM score is the five-item International Index of Erectile Function (IIEF-5), also called the Sexual Health Inventory for Men: a validated screening questionnaire developed by Rosen and colleagues in 1999 and used widely in clinical practice. This page is that instrument.",
     },
     {
       q: "Does a low score mean something is wrong with my heart?",
