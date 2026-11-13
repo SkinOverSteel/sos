@@ -357,7 +357,7 @@ export function ShimTool() {
           </div>
 
           <div className="sos-clinician-print">
-            <ClinicianLetterhead title="Erectile-function self-check (IIEF-5 / SHIM)" date={stamp}>
+            <ClinicianLetterhead title="SHIM score (IIEF-5)" date={stamp}>
               <p style={{ marginTop: 0 }}>
                 The validated IIEF-5 / SHIM screen (Rosen et al., 1999),
                 self-scored for the past six months: a screen to inform a

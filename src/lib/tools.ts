@@ -15,15 +15,15 @@ export type Tool = {
 export const tools: Tool[] = [
   {
     slug: "erectile-function-score",
-    title: "Erectile-function self-check",
+    title: "SHIM score (IIEF-5)",
     blurb:
-      "The validated IIEF-5 / SHIM screen, scored privately in your browser. It turns a vague worry into a number you can take to a clinician.",
+      "The SHIM score: the validated IIEF-5 screen, scored privately in your browser. It turns a vague worry into a number you can take to a clinician.",
     kind: "Self-assessment",
     status: "live",
   },
   {
     slug: "free-testosterone",
-    title: "Free-testosterone calculator",
+    title: "Bioavailable testosterone calculator",
     blurb:
       "Estimate free and bioavailable testosterone from total T, SHBG, and albumin (Vermeulen method): the number your total-T result doesn't show.",
     kind: "Calculator",

@@ -9,16 +9,16 @@ import { SITE } from "@/lib/site";
 const URL = `${SITE.url}/tools/erectile-function-score`;
 
 export const metadata: Metadata = {
-  title: "Erectile function self-check (SHIM / IIEF-5)",
+  title: "SHIM score (IIEF-5): erectile function self-check",
   description:
-    "A free, private erectile-function self-check using the validated 5-item IIEF-5 (SHIM) questionnaire. Score it in two minutes (your answers never leave your device) then see what to do next.",
+    "SHIM score (IIEF-5): the validated 5-item International Index of Erectile Function, scored privately in two minutes. Your answers never leave your device.",
   alternates: { canonical: "/tools/erectile-function-score" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "Erectile function self-check (SHIM / IIEF-5)",
+  name: "SHIM score (IIEF-5): erectile function self-check",
   url: URL,
   description:
     "An interactive, private self-check for erectile function based on the validated 5-item International Index of Erectile Function (IIEF-5 / SHIM).",
@@ -36,7 +36,7 @@ const breadcrumbLd = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
     { "@type": "ListItem", position: 2, name: "Tools", item: `${SITE.url}/tools` },
-    { "@type": "ListItem", position: 3, name: "Erectile function self-check" },
+    { "@type": "ListItem", position: 3, name: "SHIM score (IIEF-5)" },
   ],
 };
 
@@ -79,7 +79,7 @@ export default function ErectileFunctionScorePage() {
         Tools · <b>Self-assessment</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        The erectile-function self-check
+        SHIM score (IIEF-5)
       </h1>
 
       <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "18px" }}>

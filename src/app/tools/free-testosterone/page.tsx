@@ -9,16 +9,16 @@ import { SITE } from "@/lib/site";
 const URL = `${SITE.url}/tools/free-testosterone`;
 
 export const metadata: Metadata = {
-  title: "Free testosterone calculator (Vermeulen)",
+  title: "Bioavailable testosterone calculator (Vermeulen)",
   description:
-    "Estimate free and bioavailable testosterone from total T, SHBG, and albumin using the Vermeulen equation: the usable fraction your total-T result doesn't show. Private, in-browser, and built to take to your clinician.",
+    "Bioavailable testosterone calculator: estimate free and bioavailable T from total T, SHBG, and albumin using the Vermeulen equation. Private, in-browser, built to take to your clinician.",
   alternates: { canonical: "/tools/free-testosterone" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "Free testosterone calculator (Vermeulen)",
+  name: "Bioavailable testosterone calculator (Vermeulen)",
   url: URL,
   description:
     "An interactive, private calculator for free and bioavailable testosterone from total testosterone, SHBG, and albumin, using the Vermeulen method.",
@@ -36,7 +36,7 @@ const breadcrumbLd = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
     { "@type": "ListItem", position: 2, name: "Tools", item: `${SITE.url}/tools` },
-    { "@type": "ListItem", position: 3, name: "Free testosterone calculator" },
+    { "@type": "ListItem", position: 3, name: "Bioavailable testosterone calculator" },
   ],
 };
 
@@ -79,7 +79,7 @@ export default function FreeTestosteronePage() {
         Tools · <b>Calculator</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        The free-testosterone calculator
+        Bioavailable testosterone calculator
       </h1>
 
       <p className="sos-prose" style={{ maxWidth: "60ch", marginBottom: "18px" }}>
