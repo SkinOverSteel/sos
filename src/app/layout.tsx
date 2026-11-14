@@ -100,7 +100,7 @@ export default function RootLayout({
           </nav>
           {/* Hard line 4: the support path is a permanent nav item, never buried. */}
           <a href="/support" className="sos-header__support">
-            Support
+            Get support now
           </a>
         </header>
         <main id="main" className="flex flex-1 flex-col">{children}</main>
@@ -122,13 +122,19 @@ export default function RootLayout({
             {[
               { href: "/learn", label: "Learn" },
               { href: "/tools", label: "Tools" },
+              { href: "/near-me", label: "Near me" },
+              { href: "/directory", label: "Directory" },
               { href: "/log", label: "The Log" },
+              { href: "/methodology", label: "How we grade" },
               { href: "/about", label: "About" },
-              { href: "/support", label: "Support" },
+              { href: "/support", label: "Get support now" },
             ].map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
+                // Footer links are low-intent: don't prefetch a tool page's
+                // client chunk just because the reader reached the bottom.
+                prefetch={false}
                 style={{
                   fontFamily: "var(--sos-mono)",
                   fontSize: "12px",
@@ -150,11 +156,11 @@ export default function RootLayout({
               maxWidth: "68ch",
             }}
           >
-            © Skin Over Steel. Education, not medical advice. It bridges toward
-            your clinician, never around them. Not a pharmacy and not a seller.
-            Where we list licensed providers, we may earn a referral fee, always
-            disclosed at the link; a paid relationship never changes an evidence
-            grade or a ranking.
+            © Skin Over Steel. Education, not medical advice, written to get
+            you to a clinician and never around one. We are not a pharmacy and
+            we sell nothing. Where we list licensed providers we may earn a
+            referral fee, disclosed at the link. A paid relationship never
+            changes an evidence grade or a ranking.
           </p>
           <div
             style={{

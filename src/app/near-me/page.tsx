@@ -32,10 +32,10 @@ export default function NearMePage() {
     <div className="sos-container" style={{ maxWidth: 880 }}>
       <JsonLd data={jsonLd} />
       <StepHeader as="h1" step="care" title="Who treats this near you" className="sos-page-head" more={{ href: "/map/rankings", label: "Metros ranked →" }}>
-        A zip in, the nearest clinics and pharmacies out: testosterone therapy, GLP-1 prescribing,
-        licensed compounding, and the gyms where people actually lift. Distances are from your
-        zip&apos;s center. Prices are what members report paying, and until three members have
-        reported, the published range. The map is the same data, scored per hex.
+        Enter a zip and get the nearest testosterone clinics, GLP-1 prescribers, licensed
+        compounding pharmacies, and serious strength gyms. Distances are measured from the
+        center of your zip. Prices are what members report paying; until three members have
+        reported, you see the published range instead.
       </StepHeader>
       <p className="sos-kicker" style={{ margin: "-10px 0 24px" }}>
         <b>{META.states} states</b> · {META.metros} metros at street scale · dataset {META.built}
