@@ -1723,6 +1723,90 @@ a.sos-card:hover {
   margin: 0;
 }
 .sos-labs__foot .sos-note { font-size: var(--sos-text-xs); line-height: 1.6; }
+.sos-labs__links { display: flex; flex-wrap: wrap; gap: var(--sos-space-2) var(--sos-space-5); }
+
+/* ---- /labs: checklists. Each line is a test, its reason and its source,
+   with an empty outline box so the printed page works as a tick list ---- */
+.sos-labs__nav { display: flex; flex-wrap: wrap; gap: var(--sos-space-2); margin-top: var(--sos-space-6); }
+.sos-labs__nav .sos-chip { text-decoration: none; }
+.sos-labs__panel { margin-top: var(--sos-space-9); scroll-margin-top: var(--sos-space-6); }
+.sos-labs__title { font-size: clamp(22px, 3vw, 28px); }
+.sos-labs__lede { font-size: var(--sos-text-base); margin: var(--sos-space-3) 0 var(--sos-space-5); max-width: 60ch; }
+.sos-labs__list { list-style: none; margin: 0 0 var(--sos-space-4); padding: 0; border-top: 1px solid var(--sos-line); }
+.sos-labs__item {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: var(--sos-space-4);
+  padding: var(--sos-space-4) 0;
+  border-bottom: 1px solid var(--sos-line-soft);
+}
+.sos-labs__box {
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  border: 1.5px solid var(--sos-text-lo);
+  border-radius: 3px;
+}
+.sos-labs__name {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 17px;
+  line-height: 1.25;
+  color: var(--sos-text-hi);
+  margin: 0;
+}
+.sos-labs__when {
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sos-copper-hot);
+  margin: 6px 0 0;
+}
+.sos-labs__why {
+  font-family: var(--sos-serif);
+  font-size: var(--sos-text-base);
+  line-height: 1.55;
+  color: var(--sos-text-md);
+  margin: 6px 0 0;
+}
+.sos-labs__src {
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  color: var(--sos-text-lo);
+  margin: 6px 0 0;
+}
+.sos-labs__src a { color: var(--sos-text-md); text-underline-offset: 0.16em; }
+.sos-labs__src a:hover { color: var(--sos-copper-hot); }
+
+/* the Log's testosterone checkpoints: one dated window per row */
+.sos-checkpoints { list-style: none; margin: 0 0 var(--sos-space-3); padding: 0; }
+.sos-checkpoints li {
+  display: grid;
+  gap: 2px;
+  padding: var(--sos-space-3) 0 var(--sos-space-3) var(--sos-space-4);
+  border-left: 2px solid var(--sos-line);
+}
+.sos-checkpoints li[data-state="open"] { border-left-color: var(--sos-copper); }
+.sos-checkpoints li[data-state="past"] { opacity: 0.7; }
+.sos-checkpoints__dates {
+  font-family: var(--sos-mono);
+  font-size: var(--sos-text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+}
+.sos-checkpoints li[data-state="open"] .sos-checkpoints__dates { color: var(--sos-copper-hot); }
+.sos-checkpoints__what {
+  font-family: var(--sos-serif);
+  font-size: var(--sos-text-base);
+  line-height: 1.5;
+  color: var(--sos-text-hi);
+}
+@media print {
+  .sos-labs__nav, .sos-checkpoints-card { display: none; }
+}
 
 /* ---- key takeaways: the short version, up top or at the close ---- */
 .sos-takeaways {

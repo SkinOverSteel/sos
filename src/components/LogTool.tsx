@@ -25,6 +25,7 @@ import {
   type Log,
   type OutcomeResult,
 } from "@/lib/log";
+import { trtCheckpoints } from "@/lib/labs";
 
 /**
  * The Log, phase one. Everything here is local: React state mirrored to
@@ -268,6 +269,7 @@ export function LogTool() {
 
   const iv = log.intervention;
   const info = iv ? INTERVENTIONS[iv.category] : null;
+  const checkpoints = iv?.category === "trt" ? trtCheckpoints(iv.started, todayIso()) : [];
   const stage = log.outcome ? "Closed" : iv ? "Active" : "Baseline";
   const sorted = [...log.checkins].sort((a, b) => a.date.localeCompare(b.date));
   const trend = (pick: (c: CheckIn) => number): TrendPoint[] =>
@@ -556,6 +558,35 @@ export function LogTool() {
               />
             </Field>
           </>
+        )}
+
+        {iv?.category === "trt" && checkpoints.length > 0 && (
+          <div className="sos-card sos-card--deep sos-checkpoints-card" style={{ marginTop: "6px" }}>
+            <p className="sos-kicker" style={{ marginBottom: "6px" }}>
+              Monitoring checkpoints
+            </p>
+            <p className="sos-note" style={{ marginBottom: "12px" }}>
+              Dated from the day you started. Your prescriber&apos;s schedule
+              comes first; if theirs differs, follow theirs.
+            </p>
+            <ol className="sos-checkpoints">
+              {checkpoints.map((c) => (
+                <li key={c.what} data-state={c.state}>
+                  <span className="sos-checkpoints__dates">
+                    {formatDate(c.from)} to {formatDate(c.to)}
+                    {c.state === "open" ? " · window open now" : c.state === "past" ? " · passed" : ""}
+                  </span>
+                  <span className="sos-checkpoints__what">{c.what}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="sos-note">
+              Intervals from the Endocrine Society guideline (2018).{" "}
+              <Link href="/labs#on-therapy">What each draw is for</Link>.
+              The Log doesn&apos;t send reminders: check back, or put the dates
+              in your own calendar.
+            </p>
+          </div>
         )}
       </Section>
 

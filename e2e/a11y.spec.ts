@@ -18,6 +18,7 @@ const PAGES = [
   "/near-me",
   "/directory",
   "/log",
+  "/labs",
   "/support",
   "/methodology",
   "/map",

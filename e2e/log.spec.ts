@@ -93,6 +93,22 @@ test.describe("The Log", () => {
     await expect(card.getByRole("link", { name: "get support now" })).toHaveAttribute("href", "/support");
   });
 
+  test("testosterone therapy shows dated monitoring checkpoints", async ({ page }) => {
+    await page.goto("/log");
+    await page.getByRole("button", { name: "Start a log" }).click();
+    await page.getByLabel("Category").selectOption("trt");
+    await page.getByLabel("Started").fill("2026-01-31");
+    const rows = page.locator(".sos-checkpoints li");
+    await expect(rows).toHaveCount(3);
+    // Month arithmetic clamps to the month's last day (Jan 31 + 3 months).
+    await expect(rows.nth(0)).toContainText("Apr 30, 2026 to Jul 31, 2026");
+    await expect(rows.nth(0)).toContainText("Testosterone level and hematocrit");
+    await expect(page.getByRole("link", { name: "What each draw is for" })).toHaveAttribute("href", "/labs#on-therapy");
+    // Other categories get no schedule.
+    await page.getByLabel("Category").selectOption("pde5");
+    await expect(page.locator(".sos-checkpoints")).toHaveCount(0);
+  });
+
   test("never sends anything over the network", async ({ page }) => {
     const requests: string[] = [];
     page.on("request", (r) => {
