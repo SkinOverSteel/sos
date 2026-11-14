@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { StepHeader } from "@/components/StepHeader";
 import {
@@ -7,6 +8,7 @@ import {
   TRUST_CRITERIA,
   DIRECTORY_LIVE,
   type Provider,
+  type ProviderCategory,
   hasReferralListings,
   providerLink,
   rankedByCategory,
@@ -79,23 +81,23 @@ export default function DirectoryPage() {
         Every provider here clears two hard gates and is then ranked only on the
         trust criteria below. A paid or referral relationship{" "}
         <strong>never</strong>{" "}changes a rank or a score. It only adds a
-        disclosure at the link. That is the whole point: the ranking is
-        trustworthy because money can&apos;t buy it.
+        disclosure at the link. The ranking is worth trusting only because it
+        can&apos;t be bought.
       </p>
 
       <div className="sos-card sos-card--deep" style={{ marginBottom: "44px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "12px" }}>
-          The gates (required to be listed)
+          Required to be listed
         </h2>
         <ul className="sos-prose" style={listStyle}>
-          <li>Licensed / accredited in the jurisdictions it serves</li>
+          <li>Licensed or accredited in every jurisdiction it serves</li>
           <li>
             A legitimate channel: prescription-based care (telemedicine,
             pharmacy) or an accredited lab
           </li>
         </ul>
         <h2 className="sos-h2" style={{ margin: "22px 0 12px" }}>
-          The scored criteria (drive the rank)
+          Scored, and the only thing that sets the rank
         </h2>
         <ul className="sos-prose" style={listStyle}>
           {TRUST_CRITERIA.map((c) => (
@@ -113,10 +115,13 @@ export default function DirectoryPage() {
         const list = rankedByCategory(cat);
         if (list.length === 0) return null;
         return (
-          <section key={cat} style={{ marginBottom: "40px" }}>
-            <h2 className="sos-h2" style={{ marginBottom: "16px" }}>
+          <section key={cat} id={cat} style={{ marginBottom: "40px", scrollMarginTop: "24px" }}>
+            <h2 className="sos-h2" style={{ marginBottom: "8px" }}>
               {CATEGORY_LABELS[cat]}
             </h2>
+            <p className="sos-note" style={{ marginBottom: "16px", maxWidth: "64ch" }}>
+              {CATEGORY_INTROS[cat]}
+            </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               {list.map((p) => (
                 <ProviderCard key={p.slug} provider={p} />
@@ -127,13 +132,39 @@ export default function DirectoryPage() {
       })}
 
       <p className="sos-note" style={{ marginTop: "40px" }}>
-        Not a pharmacy and not a seller. Where a listing is a paid or referral
-        relationship, it is disclosed at the link; a paid relationship never
-        changes an evidence grade or a ranking.
+        Skin Over Steel is not a pharmacy and sells nothing. Where a listing
+        is a paid or referral relationship, it is disclosed at the link. A paid
+        relationship never changes an evidence grade or a ranking.
       </p>
     </div>
   );
 }
+
+/** One line under each category heading: what the category is for. */
+const CATEGORY_INTROS: Record<ProviderCategory, React.ReactNode> = {
+  lab: (
+    <>
+      Androgen and metabolic panels you order online and have drawn at an
+      accredited lab. Useful for a baseline before an appointment and for
+      monitoring between them; the results still belong in front of a
+      clinician. <Link href="/learn/read-your-labs">Read your labs</Link>{" "}
+      explains each marker.
+    </>
+  ),
+  telemedicine: (
+    <>
+      Prescription-based care from licensed clinicians, by video. Coverage
+      varies by state, so check yours before you book.
+    </>
+  ),
+  pharmacy: (
+    <>
+      Licensed pharmacies for filling a prescription your clinician writes.{" "}
+      <Link href="/learn/product-forms">What you&apos;re actually buying</Link>{" "}
+      shows how to tell a pharmacy product from a gray-market one.
+    </>
+  ),
+};
 
 const listStyle: React.CSSProperties = {
   listStyle: "none",

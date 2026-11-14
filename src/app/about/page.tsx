@@ -61,16 +61,44 @@ export default function AboutPage() {
         </ul>
       </Section>
 
-      <Section title="The two halves">
+      <Section title="What's here">
         <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
           <Link href="/learn" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
             <h3 className="sos-h2" style={{ fontSize: "16px", textTransform: "none", marginBottom: "6px" }}>
               The library →
             </h3>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-              Evidence-graded articles: why sexual function is a signal worth
-              answering, how to read your labs, treatment pharmacology, real
-              value, and how to spot legitimate care.
+              Evidence-graded articles: why erectile function is a signal
+              worth answering, how to read your labs, how the treatments work,
+              what they should cost, and how to spot legitimate care.
+            </p>
+          </Link>
+          <Link href="/tools" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
+            <h3 className="sos-h2" style={{ fontSize: "16px", textTransform: "none", marginBottom: "6px" }}>
+              The tools →
+            </h3>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              A validated erectile-function score, a bioavailable testosterone
+              calculator, and a treatment cost estimator. They run in your
+              browser and keep nothing.
+            </p>
+          </Link>
+          <Link href="/near-me" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
+            <h3 className="sos-h2" style={{ fontSize: "16px", textTransform: "none", marginBottom: "6px" }}>
+              Near me →
+            </h3>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              The nearest clinics, prescribers, and licensed compounding
+              pharmacies for any US zip, built from public registries.
+            </p>
+          </Link>
+          <Link href="/log" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
+            <h3 className="sos-h2" style={{ fontSize: "16px", textTransform: "none", marginBottom: "6px" }}>
+              The Log →
+            </h3>
+            <p className="sos-prose" style={{ fontSize: "15.5px" }}>
+              A private tracker for one prescribed protocol, from baseline to
+              outcome, with a one-page summary for your clinician.
             </p>
           </Link>
           <Link href="/directory" className="sos-card" style={{ display: "block", textDecoration: "none" }}>
@@ -79,7 +107,7 @@ export default function AboutPage() {
             </h3>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
               Licensed labs, telemedicine, and compounding pharmacies, ranked
-              only on transparent trust criteria, never on who pays.
+              only on published trust criteria, never on who pays.
             </p>
           </Link>
         </div>
