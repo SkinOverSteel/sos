@@ -1714,6 +1714,15 @@ a.sos-card:hover {
 }
 .sos-callout--alert .sos-callout__label { color: var(--sos-emergency-hot); }
 .sos-callout > :last-child { margin-bottom: 0; }
+/* the labs hand-off: body, then the directory link with its disclosure */
+.sos-labs__body { font-size: var(--sos-text-base); margin: 0 0 var(--sos-space-3); }
+.sos-labs__foot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sos-space-2);
+  margin: 0;
+}
+.sos-labs__foot .sos-note { font-size: var(--sos-text-xs); line-height: 1.6; }
 
 /* ---- key takeaways: the short version, up top or at the close ---- */
 .sos-takeaways {

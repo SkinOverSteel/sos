@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LabsCallout } from "@/components/LabsCallout";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -179,6 +180,8 @@ export default function TestosteroneTherapyPage() {
           riskier game. Keep it replacement.
         </p>
       </Section>
+
+      <LabsCallout variant="monitoring" />
 
       <div className="sos-card sos-card--deep" style={{ marginTop: "44px" }}>
         <p className="sos-kicker" style={{ marginBottom: "10px" }}>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LabsCallout } from "@/components/LabsCallout";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -227,6 +228,8 @@ export default function ReadYourLabsPage() {
           clinician instead of around them.
         </p>
       </Section>
+
+      <LabsCallout variant="baseline" />
 
       <div className="sos-card sos-card--deep" style={{ marginTop: "44px" }}>
         <p className="sos-kicker" style={{ marginBottom: "10px" }}>

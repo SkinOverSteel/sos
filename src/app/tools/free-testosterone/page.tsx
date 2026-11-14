@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LabsCallout } from "@/components/LabsCallout";
 import { MorseSOS } from "@/components/MorseSOS";
 import Link from "next/link";
 import { Faq } from "@/components/Faq";
@@ -94,6 +95,8 @@ export default function FreeTestosteronePage() {
       <MorseSOS style={{ margin: "28px 0 34px" }} />
 
       <FreeTestosteroneCalc />
+
+      <LabsCallout variant="inputs" />
 
       <div className="sos-card sos-card--deep" style={{ marginTop: "44px" }}>
         <p className="sos-kicker" style={{ marginBottom: "10px" }}>

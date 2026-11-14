@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LabsCallout } from "@/components/LabsCallout";
 import Link from "next/link";
 import { MorseSOS } from "@/components/MorseSOS";
 import { ArticleMeta } from "@/components/ArticleMeta";
@@ -335,6 +336,8 @@ export default function TrtHighHematocritPage() {
           <Link href="/directory">clinic directory</Link> is for.
         </p>
       </section>
+
+      <LabsCallout variant="monitoring" />
 
       <div className="sos-card sos-card--deep" style={{ marginTop: "44px" }}>
         <p className="sos-kicker" style={{ marginBottom: "10px" }}>
