@@ -132,6 +132,9 @@ export default function RootLayout({
               <Link
                 key={l.href}
                 href={l.href}
+                // Footer links are low-intent: don't prefetch a tool page's
+                // client chunk just because the reader reached the bottom.
+                prefetch={false}
                 style={{
                   fontFamily: "var(--sos-mono)",
                   fontSize: "12px",
