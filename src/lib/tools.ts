@@ -7,6 +7,8 @@ export type Tool = {
   slug: string;
   title: string;
   blurb: string;
+  /** One-line version for the homepage tile; the hub keeps the full blurb. */
+  brief?: string;
   /** Short label for the hub card kicker. */
   kind: string;
   status: "live" | "soon";
@@ -18,6 +20,7 @@ export const tools: Tool[] = [
     title: "SHIM score (IIEF-5)",
     blurb:
       "The SHIM score: the validated IIEF-5 screen, scored privately in your browser. It turns a vague worry into a number you can take to a clinician.",
+    brief: "Five questions, two minutes. The validated IIEF-5 screen, scored on your device.",
     kind: "Self-assessment",
     status: "live",
   },
@@ -26,6 +29,8 @@ export const tools: Tool[] = [
     title: "Bioavailable testosterone calculator",
     blurb:
       "Estimate free and bioavailable testosterone from total T, SHBG, and albumin (Vermeulen method): the number your total-T result doesn't show.",
+    brief:
+      "Free and bioavailable testosterone from total T, SHBG, and albumin: the number a total-T result doesn't show.",
     kind: "Calculator",
     status: "live",
   },
@@ -34,6 +39,8 @@ export const tools: Tool[] = [
     title: "ED-treatment cost estimator",
     blurb:
       "Add up the real stack of ED medication or testosterone therapy (labs, consult, medication, ancillaries) and see where the markup hides across pharmacy cash, discount card, prescriber-routed compounding, and clinic bundles.",
+    brief:
+      "Labs, consult, medication, ancillaries: the whole bill, compared across the ways to buy it.",
     kind: "Calculator",
     status: "live",
   },
