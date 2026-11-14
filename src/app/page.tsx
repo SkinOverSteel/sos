@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
-import { MorseSOS } from "@/components/MorseSOS";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { StepHeader } from "@/components/StepHeader";
 import { UtilityPanel } from "@/components/UtilityPanel";
@@ -19,10 +18,10 @@ import { liveTools } from "@/lib/tools";
  * link in the rail; it earns trust on the article page, not on the front door.
  */
 const LOG_PHASES: { name: string; note: string }[] = [
-  { name: "Baseline", note: "Your score and labs before anything changes." },
-  { name: "Intervention", note: "The prescribed protocol, as written." },
+  { name: "Baseline", note: "Your score and labs, before anything changes." },
+  { name: "Intervention", note: "The protocol exactly as prescribed." },
   { name: "Weekly check-ins", note: "The same five questions, every week." },
-  { name: "Outcome", note: "What moved, on one page for your clinician." },
+  { name: "Outcome", note: "What changed, on one page for your clinician." },
 ];
 
 export default function Home() {
@@ -57,19 +56,12 @@ export default function Home() {
                 className="sos-prose"
                 style={{ maxWidth: "50ch", margin: "26px 0 0", fontSize: "18px" }}
               >
-                Erectile function, testosterone, and the treatments, explained
-                plainly, every claim graded by its evidence. Private tools,
-                licensed providers, and a protocol tracker, all built to get you
-                to a clinician better informed, never around one.
+                Erectile function, testosterone, and the treatments for both,
+                explained plainly, with every claim graded by its evidence.
+                Built to get you to a clinician better informed, never around
+                one.
               </p>
-              <div
-                style={{
-                  display: "flex",
-                  gap: "12px",
-                  flexWrap: "wrap",
-                  marginTop: "32px",
-                }}
-              >
+              <div className="sos-home__cta">
                 <Link href="/learn" className="sos-btn sos-btn--primary">
                   Start where you are
                 </Link>
@@ -98,8 +90,8 @@ export default function Home() {
             title="Where are you stuck?"
             more={{ href: "/learn", label: `Browse all ${articles.length} in the library →` }}
           >
-            Where you begin depends on where you&apos;re stuck, not on how the
-            library is filed. Pick the situation; we hand you the first page.
+            Pick the situation closest to yours. Each one opens on the page
+            to read first.
           </StepHeader>
           <div className="sos-home__routes">
             {ROUTES.map((r) => {
@@ -124,10 +116,7 @@ export default function Home() {
           </div>
 
           <div className="sos-home__sub-head">
-            <h3 className="sos-h2">Start here</h3>
-            <Link href="/learn" className="sos-home__more">
-              The whole library →
-            </Link>
+            <h3 className="sos-h2">Read these first</h3>
           </div>
           <ol className="sos-home__list">
             {featured.map((a, i) => (
@@ -148,10 +137,8 @@ export default function Home() {
           </ol>
         </section>
 
-        <MorseSOS dim style={{ margin: "56px auto 0", width: "fit-content" }} />
-
         {/* 02 Measure: the instruments */}
-        <section className="sos-home__section" aria-labelledby="home-tools" style={{ paddingTop: "40px" }}>
+        <section className="sos-home__section" aria-labelledby="home-tools">
           <StepHeader
             id="home-tools"
             step="measure"
@@ -159,7 +146,7 @@ export default function Home() {
             more={{ href: "/tools", label: "All tools →" }}
           >
             Validated screens and calculators that run in your browser and
-            nowhere else. Each one ends in a figure you can take to an
+            nowhere else. Each ends in a figure you can take to an
             appointment.
           </StepHeader>
           <div className="sos-home__grid sos-home__grid--3">
@@ -167,7 +154,7 @@ export default function Home() {
               <Link key={t.slug} href={`/tools/${t.slug}`} className="sos-home__tile">
                 <span className="sos-kicker">{t.kind}</span>
                 <h3 className="sos-home__tile-title">{t.title}</h3>
-                <p className="sos-home__tile-body">{t.blurb}</p>
+                <p className="sos-home__tile-body">{t.brief ?? t.blurb}</p>
                 <p className="sos-home__tile-foot">Open the {t.kind.toLowerCase()} →</p>
               </Link>
             ))}
@@ -182,8 +169,9 @@ export default function Home() {
             title="Someone licensed, near you"
             more={{ href: "/map", label: "See the whole map →" }}
           >
-            Businesses only, from public registries, ranked by distance and by
-            published trust criteria. Never by who pays.
+            Clinics, prescribers, and licensed pharmacies from public
+            registries, ranked by distance and by published trust criteria.
+            Never by who pays.
           </StepHeader>
           <div className="sos-home__care">
             <Link href="/map" className="sos-home__map" aria-label="Open the US map">
@@ -200,10 +188,10 @@ export default function Home() {
               />
               <span className="sos-home__map-cap">
                 <span className="sos-kicker">The map · every US zip</span>
-                <span className="sos-home__map-title">Where the infrastructure is</span>
+                <span className="sos-home__map-title">Where care is, and where it&apos;s thin</span>
                 <span className="sos-note">
                   Hex by hex: testosterone clinics, GLP-1 prescribers, licensed
-                  compounding pharmacies, strength gyms. Businesses only.
+                  compounding pharmacies, strength gyms.
                 </span>
               </span>
             </Link>
@@ -212,7 +200,7 @@ export default function Home() {
                 <span className="sos-kicker">Near me</span>
                 <h3 className="sos-home__tile-title">Who treats this near you</h3>
                 <p className="sos-home__tile-body" style={{ flex: "none" }}>
-                  Ranked by distance from your zip, with the prices members
+                  Sorted by distance from your zip, with the prices members
                   report paying.
                 </p>
                 <div className="sos-home__care-form" style={{ marginTop: "6px" }}>
@@ -243,8 +231,8 @@ export default function Home() {
                 <h3 className="sos-home__tile-title">Find a provider</h3>
                 <p className="sos-home__tile-body">
                   Labs, telemedicine, and compounding pharmacies, ranked on
-                  published trust criteria. A referral fee is disclosed on the
-                  link and never moves the ranking.
+                  published trust criteria. Any referral fee is disclosed on
+                  the link and never moves a ranking.
                 </p>
                 <p className="sos-home__tile-foot">See the directory →</p>
               </Link>
@@ -254,17 +242,19 @@ export default function Home() {
 
         {/* 04 Track: the Log, phase one live and browser-local */}
         <section className="sos-home__log" aria-labelledby="home-log">
-          <StepHeader id="home-log" step="track" title="One protocol, start to finish" className="sos-home__log-head" />
-          <p className="sos-prose" style={{ maxWidth: "54ch", fontSize: "17px" }}>
-            A private tracker for the work itself, from baseline through
-            intervention to outcome, exportable as one page for your clinician.
-            It runs in your browser and nowhere else. The library stays free
-            either way.
-          </p>
-          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "22px" }}>
-            <Link href="/log" className="sos-btn sos-btn--ghost">
-              Open the Log →
-            </Link>
+          <div>
+            <StepHeader id="home-log" step="track" title="One protocol, start to finish" className="sos-home__log-head" />
+            <p className="sos-prose" style={{ maxWidth: "50ch", fontSize: "17px" }}>
+              Record a baseline, follow the protocol as prescribed, and answer
+              the same five questions each week. At the end you have one page
+              that shows your clinician what changed. It stays on this device
+              unless you export it.
+            </p>
+            <div className="sos-home__cta" style={{ marginTop: "24px" }}>
+              <Link href="/log" className="sos-btn sos-btn--primary">
+                Open the Log
+              </Link>
+            </div>
           </div>
           <ol className="sos-home__log-phases" aria-label="The Log's four phases">
             {LOG_PHASES.map((p, i) => (
@@ -282,7 +272,7 @@ export default function Home() {
             <NewsletterSignup />
           </div>
         ) : null}
-        <div style={{ height: "72px" }} />
+        <div style={{ height: "32px" }} />
       </div>
     </div>
   );
