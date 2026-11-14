@@ -36,6 +36,11 @@ const CORE_PAGES: { path: string; label: string; note: string }[] = [
     note: "Zip lookup of the nearest TRT clinics, GLP-1 prescribers, licensed compounding pharmacies, and strength gyms anywhere in the US, with member-reported price ranges. Businesses only, from public registries (NPI, CMS Open Payments, FDA 503B, state pharmacy boards, OpenStreetMap); methodology at /near-me/methodology; hex maps at /map, /map/{metro-or-state}; city pages at /trt/{state}/{city} and /glp1/{state}/{city}.",
   },
   {
+    path: "/labs",
+    label: "Lab checklists",
+    note: "Which blood tests belong to a testosterone baseline, to on-therapy monitoring (with guideline intervals), and to an ED workup, each with a one-line reason and its source. No dose targets.",
+  },
+  {
     path: "/log",
     label: "The Log",
     note: "A browser-local n=1 protocol tracker (baseline, prescribed intervention, weekly IIEF-5 items, outcome) with a printable clinician summary. Records a prescriber's regimen; never suggests one.",

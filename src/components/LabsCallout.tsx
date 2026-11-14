@@ -40,9 +40,14 @@ export function LabsCallout({ variant = "baseline" }: { variant?: Variant }) {
     <Callout label={label}>
       <p className="sos-prose sos-labs__body">{body}</p>
       <p className="sos-labs__foot">
-        <Link href="/directory#lab" className="sos-home__more">
-          Blood testing in the directory →
-        </Link>
+        <span className="sos-labs__links">
+          <Link href="/directory#lab" className="sos-home__more">
+            Blood testing in the directory →
+          </Link>
+          <Link href="/labs" className="sos-home__more">
+            The lab checklists →
+          </Link>
+        </span>
         {anyReferral ? (
           <span className="sos-note">
             Some listings there are referral links, marked at the link. A

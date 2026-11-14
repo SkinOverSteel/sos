@@ -148,7 +148,9 @@ const CATEGORY_INTROS: Record<ProviderCategory, React.ReactNode> = {
       accredited lab. Useful for a baseline before an appointment and for
       monitoring between them; the results still belong in front of a
       clinician. <Link href="/learn/read-your-labs">Read your labs</Link>{" "}
-      explains each marker.
+      explains each marker, and{" "}
+      <Link href="/labs">the lab checklists</Link> list what belongs on a
+      panel.
     </>
   ),
   telemedicine: (
