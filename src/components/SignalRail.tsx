@@ -22,8 +22,8 @@ export function SignalRail({ className }: { className?: string }) {
         private tools, nothing leaves your browser
       </span>
       <span className="sos-home__rail-note">
-        Nothing sold, no supplements, ever. Every source named, every
-        referral fee disclosed.{" "}
+        We sell nothing: no supplements, no products. Every source is named
+        and every referral fee disclosed.{" "}
         <Link href="/methodology" className="sos-home__more">
           The standard →
         </Link>

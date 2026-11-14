@@ -27,7 +27,7 @@ export const ROUTES: Route[] = [
   {
     title: "Labs in hand, no context",
     bestFor:
-      "A PDF full of numbers and reference ranges, and nobody has told you what any of it means.",
+      "A PDF full of numbers and reference ranges, and nobody has told you what any of them mean.",
     leavesWith:
       "Enough fluency in testosterone, SHBG, insulin, and inflammation markers to hold a real conversation with your clinician.",
     href: "/learn/read-your-labs",
@@ -36,7 +36,7 @@ export const ROUTES: Route[] = [
   {
     title: "Weighing treatment",
     bestFor:
-      "Choosing between the pills, daily versus on-demand, testosterone, or what comes next when pills stop working.",
+      "Which pill, daily or on-demand, whether testosterone belongs in the picture, and what comes next when pills stop working.",
     leavesWith:
       "The honest comparisons, the safety rules, and the dosing literacy to follow a prescription with your eyes open.",
     href: "/learn/pde5-lineup",

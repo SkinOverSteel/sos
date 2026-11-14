@@ -20,7 +20,7 @@ import { liveTools } from "@/lib/tools";
 const LOG_PHASES: { name: string; note: string }[] = [
   { name: "Baseline", note: "Your score and labs, before anything changes." },
   { name: "Intervention", note: "The protocol exactly as prescribed." },
-  { name: "Weekly check-ins", note: "The same five questions, every week." },
+  { name: "Weekly check-ins", note: "Two SHIM items and a line on side effects." },
   { name: "Outcome", note: "What changed, on one page for your clinician." },
 ];
 
@@ -245,10 +245,10 @@ export default function Home() {
           <div>
             <StepHeader id="home-log" step="track" title="One protocol, start to finish" className="sos-home__log-head" />
             <p className="sos-prose" style={{ maxWidth: "50ch", fontSize: "17px" }}>
-              Record a baseline, follow the protocol as prescribed, and answer
-              the same five questions each week. At the end you have one page
-              that shows your clinician what changed. It stays on this device
-              unless you export it.
+              Record a baseline, follow the protocol as prescribed, and check
+              in once a week with the same two ratings. At the end you have
+              one page that shows your clinician what changed. It stays on
+              this device unless you export it.
             </p>
             <div className="sos-home__cta" style={{ marginTop: "24px" }}>
               <Link href="/log" className="sos-btn sos-btn--primary">

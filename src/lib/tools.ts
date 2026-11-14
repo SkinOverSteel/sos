@@ -19,7 +19,7 @@ export const tools: Tool[] = [
     slug: "erectile-function-score",
     title: "SHIM score (IIEF-5)",
     blurb:
-      "The SHIM score: the validated IIEF-5 screen, scored privately in your browser. It turns a vague worry into a number you can take to a clinician.",
+      "The SHIM score: the validated IIEF-5 screen, scored privately in your browser. Five questions, two minutes, and a score a clinician will recognize.",
     brief: "Five questions, two minutes. The validated IIEF-5 screen, scored on your device.",
     kind: "Self-assessment",
     status: "live",

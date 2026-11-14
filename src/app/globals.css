@@ -104,6 +104,10 @@ body::after {
   border-radius: 6px;
   transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
+.sos-header__link,
+.sos-header__support {
+  white-space: nowrap;
+}
 .sos-header__link {
   color: var(--sos-text-md);
 }
@@ -136,6 +140,11 @@ body::after {
     margin-left: -10px;
     overflow-x: auto;
   }
+}
+/* the smallest phones: keep the wordmark and the support link on one row */
+@media (max-width: 380px) {
+  .sos-header { padding-left: 16px; padding-right: 16px; column-gap: 8px; }
+  .sos-header__support { margin-left: 0; padding: 7px 8px; letter-spacing: 0.04em; font-size: 11.5px; }
 }
 
 /* ---- SOS brand type/layout utilities (education "Open Floor" surface) ---- */

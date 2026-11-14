@@ -48,8 +48,8 @@ export default function NotFound() {
           margin: "22px auto 0",
         }}
       >
-        This page couldn&apos;t be found, but you&apos;re not stuck. Pick up the
-        thread again below.
+        We couldn&apos;t find that page. Everything else is where you left
+        it; pick up from one of these.
       </p>
 
       {/* Dimmed Morse SOS: the signal, gone quiet */}
@@ -71,7 +71,7 @@ export default function NotFound() {
           The library
         </Link>
         <Link href="/support" className="sos-btn sos-btn--ghost">
-          Get support
+          Get support now
         </Link>
       </div>
     </div>

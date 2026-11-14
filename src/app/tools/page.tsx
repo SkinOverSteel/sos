@@ -9,7 +9,7 @@ import { SignalRail } from "@/components/SignalRail";
 export const metadata: Metadata = {
   title: "Tools",
   description:
-    "Free, private men's-health instruments, starting with the IIEF-5 / SHIM erectile-function self-check. They run in your browser, keep nothing, and bridge toward a clinician.",
+    "Free, private men's-health instruments: the SHIM (IIEF-5) erectile-function score, a bioavailable testosterone calculator, and a treatment cost estimator. They run in your browser and keep nothing.",
   alternates: { canonical: "/tools" },
 };
 
