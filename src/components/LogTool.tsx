@@ -25,7 +25,7 @@ import {
   type Log,
   type OutcomeResult,
 } from "@/lib/log";
-import { trtCheckpoints } from "@/lib/labs";
+import { checkpointsIcs, trtCheckpoints } from "@/lib/labs";
 
 /**
  * The Log, phase one. Everything here is local: React state mirrored to
@@ -355,6 +355,18 @@ export function LogTool() {
     URL.revokeObjectURL(url);
   }
 
+  function downloadCalendar() {
+    if (!iv?.started) return;
+    const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+    const ics = checkpointsIcs(iv.started, stamp, newId());
+    const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "lab-checks.ics";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <div>
       {/* status strip */}
@@ -580,11 +592,18 @@ export function LogTool() {
                 </li>
               ))}
             </ol>
-            <p className="sos-note">
+            <p className="sos-note" style={{ marginBottom: "14px" }}>
               Intervals from the Endocrine Society guideline (2018).{" "}
               <Link href="/labs#on-therapy">What each draw is for</Link>.
-              The Log doesn&apos;t send reminders: check back, or put the dates
-              in your own calendar.
+            </p>
+            <button type="button" className="sos-btn sos-btn--ghost" style={ghostBtn} onClick={downloadCalendar}>
+              Save these dates
+            </button>
+            <p className="sos-note" style={{ marginTop: "10px", fontSize: "13px" }}>
+              The Log doesn&apos;t send reminders. This makes a calendar file
+              on this device for you to open in your own calendar. Each entry
+              is titled &quot;Lab check&quot; or &quot;Follow-up visit&quot;
+              only; the detail is in its notes.
             </p>
           </div>
         )}

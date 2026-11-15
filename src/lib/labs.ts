@@ -163,6 +163,8 @@ export const LAB_PANELS: LabPanel[] = [
 export type Checkpoint = {
   /** What happens in this window. */
   what: string;
+  /** Neutral calendar title: names the kind of appointment, not the therapy. */
+  title: string;
   /** ISO dates (YYYY-MM-DD), inclusive window. */
   from: string;
   to: string;
@@ -178,6 +180,64 @@ export function addMonths(iso: string, months: number): string {
   return first.toISOString().slice(0, 10);
 }
 
+/* ---- calendar export: the checkpoints as an .ics file, built on the device ---- */
+
+function icsDate(iso: string): string {
+  return iso.replaceAll("-", "");
+}
+
+/** All-day events end on the following day (DTEND is exclusive). */
+function nextDay(iso: string): string {
+  const d = new Date(`${iso}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+function icsText(s: string): string {
+  return s.replace(/\\/g, "\\\\").replace(/([,;])/g, "\\$1").replace(/\n/g, "\\n");
+}
+
+/** RFC 5545 line folding: 75 octets, continuation lines start with a space. */
+function icsFold(line: string): string {
+  const out: string[] = [];
+  let rest = line;
+  while (rest.length > 73) {
+    out.push(rest.slice(0, 73));
+    rest = " " + rest.slice(73);
+  }
+  out.push(rest);
+  return out.join("\r\n");
+}
+
+/**
+ * One all-day event on the day each window opens. Titles are deliberately
+ * neutral ("Lab check", "Follow-up visit"): a calendar is often shared or shown on a lock
+ * screen, and the title should not disclose the therapy. The detail lives in
+ * the event's notes. `stampUtc` is YYYYMMDDTHHMMSSZ and `uid` any unique
+ * string; both are passed in so this stays a pure function.
+ */
+export function checkpointsIcs(startedIso: string, stampUtc: string, uid: string): string {
+  const points = trtCheckpoints(startedIso, "0000-00-00");
+  const fmt = (iso: string) =>
+    new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Skin Over Steel//The Log//EN", "CALSCALE:GREGORIAN"];
+  points.forEach((c, i) => {
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:${uid}-${i}@skinoversteel.com`,
+      `DTSTAMP:${stampUtc}`,
+      `DTSTART;VALUE=DATE:${icsDate(c.from)}`,
+      `DTEND;VALUE=DATE:${icsDate(nextDay(c.from))}`,
+      `SUMMARY:${icsText(`${c.title}: window opens (through ${fmt(c.to)})`)}`,
+      `DESCRIPTION:${icsText(`${c.what}. Your prescriber's schedule comes first; if theirs differs, follow theirs.`)}`,
+      "TRANSP:TRANSPARENT",
+      "END:VEVENT",
+    );
+  });
+  lines.push("END:VCALENDAR");
+  return lines.map(icsFold).join("\r\n") + "\r\n";
+}
+
 /**
  * First-year monitoring windows from the Endocrine Society 2018 guideline
  * (Table 9), dated from the day therapy started. Returns [] for a missing or
@@ -185,15 +245,15 @@ export function addMonths(iso: string, months: number): string {
  */
 export function trtCheckpoints(startedIso: string, todayIso: string): Checkpoint[] {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(startedIso)) return [];
-  const windows: { what: string; from: number; to: number }[] = [
-    { what: "Testosterone level and hematocrit", from: 3, to: 6 },
-    { what: "Follow-up visit; PSA if you chose prostate monitoring", from: 3, to: 12 },
-    { what: "Yearly from here: hematocrit and a follow-up visit", from: 15, to: 18 },
+  const windows: { what: string; title: string; from: number; to: number }[] = [
+    { what: "Testosterone level and hematocrit", title: "Lab check", from: 3, to: 6 },
+    { what: "Follow-up visit; PSA if you chose prostate monitoring", title: "Follow-up visit", from: 3, to: 12 },
+    { what: "Yearly from here: hematocrit and a follow-up visit", title: "Lab check and follow-up visit", from: 15, to: 18 },
   ];
   return windows.map((w) => {
     const from = addMonths(startedIso, w.from);
     const to = addMonths(startedIso, w.to);
     const state = todayIso > to ? "past" : todayIso >= from ? "open" : "ahead";
-    return { what: w.what, from, to, state };
+    return { what: w.what, title: w.title, from, to, state };
   });
 }
