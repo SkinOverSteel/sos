@@ -37,3 +37,21 @@ test("fills the sheet, builds the printout, and keeps nothing", async ({ page })
   await expect(page.getByLabel("In your words")).toHaveValue("");
   expect(external).toEqual([]);
 });
+
+/**
+ * Print leaves only the clinician summary in the flow. Hiding the tool UI
+ * with visibility alone kept its height and printed blank trailing pages.
+ */
+test("print media drops the tool UI and keeps the summary", async ({ page }) => {
+  await page.goto("/tools/appointment-sheet");
+  await page.getByLabel("In your words").fill("x");
+  await page.emulateMedia({ media: "print" });
+  await expect(page.locator(".sos-clinician-print")).toBeVisible();
+  await expect(page.getByLabel("In your words")).toBeHidden();
+  const { doc, summary } = await page.evaluate(() => ({
+    doc: document.querySelector("main")!.getBoundingClientRect().height,
+    summary: document.querySelector(".sos-clinician-print")!.getBoundingClientRect().height,
+  }));
+  // Nothing else contributes height.
+  expect(doc - summary).toBeLessThan(40);
+});

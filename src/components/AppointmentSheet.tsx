@@ -63,8 +63,7 @@ export function AppointmentSheet() {
     !situation && !started && !onset && !morning && !shimValid && !taking && labs.length === 0 && allQuestions.length === 0;
 
   return (
-    <div className="sos-print-keep">
-      <div className="sos-print-drop">
+    <div>
       <section className="sos-card" style={{ marginBottom: "18px" }}>
         <h2 className="sos-h2" style={{ marginBottom: "16px" }}>1 · What is happening</h2>
         <label className="sos-label" htmlFor={`${uid}-sit`}>In your words</label>
@@ -207,7 +206,6 @@ export function AppointmentSheet() {
         <span className="sos-note">
           {empty ? "Fill in at least one section first." : "Nothing is saved. Print it before you close this tab."}
         </span>
-      </div>
       </div>
 
       <div className="sos-clinician-print">
