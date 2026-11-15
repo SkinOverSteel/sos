@@ -255,6 +255,20 @@ export const faqs: Record<string, Faq[]> = {
       a: "No real evaluation, no labs, no monitoring, and a prescription in ninety seconds. A good visit bridges you toward care; a pill mill just sells.",
     },
   ],
+  "testosterone-test-cost": [
+    {
+      q: "How much is a testosterone test without insurance?",
+      a: "At three accredited US labs checked in November 2026, a self-pay total-testosterone test listed at $63 to $75, and a panel adding SHBG and free testosterone listed at about $158. Prices change, so check the lab's page before ordering.",
+    },
+    {
+      q: "Do I need a doctor's order for a testosterone test?",
+      a: "Consumer lab services build the clinician's order into the purchase: you order online and have blood drawn at a local collection site. The result is a baseline to take to a clinician, not a diagnosis.",
+    },
+    {
+      q: "Is one testosterone test enough?",
+      a: "No. A diagnosis needs a consistently low level measured early in the morning on two separate days, together with symptoms. One low result is a reason to repeat the test.",
+    },
+  ],
   "what-it-costs": [
     {
       q: "Why is ED treatment so expensive?",

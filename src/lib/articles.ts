@@ -433,6 +433,19 @@ export const articles: Article[] = [
     reviewed: "2026-08-04",
   },
   {
+    slug: "testosterone-test-cost",
+    title: "What a testosterone blood test costs without insurance",
+    deck:
+      "Self-pay list prices at three accredited labs, what each test measures, and which one you need.",
+    summary:
+      "A total-testosterone test listed at $63 to $75 self-pay, and a panel with SHBG and free testosterone at about $158, at the three accredited labs in our directory in November 2026. Why a diagnosis takes two morning draws, when SHBG is worth adding, and what moves the price.",
+    grade: "established",
+    section: "Money & value",
+    published: "2026-11-15",
+    reviewed: "2026-11-15",
+    reviewer: null,
+  },
+  {
     slug: "what-it-costs",
     title: "What it costs, and how to get real value",
     deck:

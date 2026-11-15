@@ -62,6 +62,18 @@ export default function NearMePage() {
         </p>
       </div>
 
+      <div className="sos-card sos-card--deep" style={{ marginTop: 18 }}>
+        <h2 className="sos-h2" style={{ marginBottom: 12 }}>Looking for a blood draw?</h2>
+        <p className="sos-note">
+          Draw sites are not in this dataset. The public registries list clinical laboratories
+          of every kind, most of which never see a patient, so a &quot;nearest lab&quot; built from
+          them would send you to the wrong building. The labs in the{" "}
+          <Link href="/directory#lab">provider directory</Link> draw at Quest and Labcorp
+          locations nationwide, and each lab&apos;s own site finder shows the nearest one.{" "}
+          <Link href="/labs">The lab checklists</Link> say what to ask for.
+        </p>
+      </div>
+
       <section style={{ marginTop: 36 }}>
         <h2 className="sos-h2" style={{ marginBottom: 12 }}>Metros at street scale</h2>
         <p className="sos-note" style={{ display: "flex", flexWrap: "wrap", gap: "6px 14px" }}>
