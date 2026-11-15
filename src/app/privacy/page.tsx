@@ -72,8 +72,14 @@ export default function PrivacyPage() {
       <Section title="Analytics and server logs">
         <p className="sos-prose">
           We use privacy-friendly, aggregate analytics (Vercel Analytics) to see
-          which pages get read. It is cookieless, it does not follow you across
-          other sites, and it does not build a profile of you. Like any website,
+          which pages get read. It also counts clicks on a small set of links:
+          the ones that lead to the lab checklists and the provider directory,
+          and the links out to a lab or provider from the directory and the
+          test-cost article. Those counts record
+          which link was used and on which page, never anything you typed, and
+          nothing inside the Log or the appointment sheet is counted. It is
+          cookieless, it does not follow you across other sites, and it does
+          not build a profile of you. Like any website,
           our host also keeps standard server logs, including IP addresses, to run
           and protect the site; those are kept briefly and are not used to
           identify you.

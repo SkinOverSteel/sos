@@ -159,6 +159,13 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <p className="sos-note" style={{ marginTop: "18px" }}>
+            Not sure what to have drawn first?{" "}
+            <Link href="/labs" data-track="labs_entry" data-track-from="home">
+              The lab checklists
+            </Link>{" "}
+            list which blood tests belong to which conversation.
+          </p>
         </section>
 
         {/* 03 Find care: near me (the utility) and the directory (the trust standard) */}

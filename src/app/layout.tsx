@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Archivo, Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { TrackClicks } from "@/components/TrackClicks";
 import { siteJsonLd } from "@/lib/jsonld";
 import { Wordmark } from "@/components/Wordmark";
 import { WordmarkSvg } from "@/components/WordmarkSvg";
@@ -125,6 +126,7 @@ export default function RootLayout({
               { href: "/near-me", label: "Near me" },
               { href: "/directory", label: "Directory" },
               { href: "/log", label: "The Log" },
+              { href: "/labs", label: "Lab checklists" },
               { href: "/methodology", label: "How we grade" },
               { href: "/about", label: "About" },
               { href: "/support", label: "Get support now" },
@@ -135,6 +137,7 @@ export default function RootLayout({
                 // Footer links are low-intent: don't prefetch a tool page's
                 // client chunk just because the reader reached the bottom.
                 prefetch={false}
+                {...(l.href === "/labs" ? { "data-track": "labs_entry", "data-track-from": "footer" } : {})}
                 style={{
                   fontFamily: "var(--sos-mono)",
                   fontSize: "12px",
@@ -193,6 +196,7 @@ export default function RootLayout({
           </div>
         </footer>
         <Analytics />
+        <TrackClicks />
       </body>
     </html>
   );
