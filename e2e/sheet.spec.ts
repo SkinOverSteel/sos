@@ -45,6 +45,8 @@ test("fills the sheet, builds the printout, and keeps nothing", async ({ page })
 test("print media drops the tool UI and keeps the summary", async ({ page }) => {
   await page.goto("/tools/appointment-sheet");
   await page.getByLabel("In your words").fill("x");
+  // A short viewport, so <main> is sized by its content, not stretched to fill.
+  await page.setViewportSize({ width: 1000, height: 200 });
   await page.emulateMedia({ media: "print" });
   await expect(page.locator(".sos-clinician-print")).toBeVisible();
   await expect(page.getByLabel("In your words")).toBeHidden();
