@@ -610,20 +610,25 @@ a.sos-card:hover {
     padding: 0;
     max-width: none;
   }
-  /* On a tool page, print only the clinician summary — not the calculator UI.
-     Scoped with :has() so pages without a summary still print normally. */
-  body:has(.sos-clinician-print) * {
-    visibility: hidden;
+  /* On a tool page, print only the clinician summary, not the tool UI.
+     Scoped with :has() so pages without a summary still print normally.
+     Everything that is not the summary, inside it, or an ancestor of it is
+     removed from the flow (display: none, not visibility: hidden: hidden
+     boxes keep their height and print as blank trailing pages). The
+     ancestors stay, stripped of their own box, so a long summary can still
+     break across pages. */
+  body:has(.sos-clinician-print) *:not(.sos-clinician-print):not(.sos-clinician-print *):not(:has(.sos-clinician-print)) {
+    display: none !important;
   }
-  body:has(.sos-clinician-print) .sos-clinician-print,
-  body:has(.sos-clinician-print) .sos-clinician-print * {
-    visibility: visible;
-  }
-  body:has(.sos-clinician-print) .sos-clinician-print {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+  body:has(.sos-clinician-print) :has(.sos-clinician-print) {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    min-height: 0 !important;
+    max-width: none !important;
   }
 }
 
@@ -1824,12 +1829,6 @@ a.sos-card:hover {
 .sos-sheet__out ol { margin: 0; padding-left: 18px; white-space: normal; list-style: decimal; }
 @media (max-width: 560px) {
   .sos-sheet__out > div { grid-template-columns: 1fr; gap: 4px; }
-}
-/* A long form above a short printout: take the form out of the print flow
-   entirely, or its hidden height prints as blank trailing pages. */
-@media print {
-  .sos-print-solo > :not(.sos-print-keep),
-  .sos-print-drop { display: none; }
 }
 
 /* the Log's testosterone checkpoints: one dated window per row */

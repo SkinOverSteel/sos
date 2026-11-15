@@ -43,7 +43,7 @@ const crumb: React.CSSProperties = { color: "var(--sos-text-md)", textDecoration
 
 export default function AppointmentSheetPage() {
   return (
-    <div className="sos-container sos-print-solo">
+    <div className="sos-container">
       <JsonLd data={jsonLd} />
       <JsonLd data={breadcrumbLd} />
 
