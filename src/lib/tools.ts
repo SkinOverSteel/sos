@@ -44,6 +44,15 @@ export const tools: Tool[] = [
     kind: "Calculator",
     status: "live",
   },
+  {
+    slug: "appointment-sheet",
+    title: "Appointment sheet",
+    blurb:
+      "Put what changed, your SHIM score, everything you take, the labs you have and your questions on one printed page before a urology or men's-health visit. Nothing is saved or sent.",
+    brief: "What changed, what you take, your labs and your questions, on one page to hand over.",
+    kind: "Worksheet",
+    status: "live",
+  },
 ];
 
 export const liveTools = tools.filter((t) => t.status === "live");

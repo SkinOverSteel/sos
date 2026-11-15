@@ -1780,6 +1780,58 @@ a.sos-card:hover {
 .sos-labs__src a { color: var(--sos-text-md); text-underline-offset: 0.16em; }
 .sos-labs__src a:hover { color: var(--sos-copper-hot); }
 
+/* ---- appointment sheet: tick lists on screen, a definition list on paper ---- */
+.sos-sheet__checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--sos-space-2) var(--sos-space-5);
+}
+.sos-sheet__checks--wide { grid-template-columns: 1fr; gap: var(--sos-space-3); }
+.sos-sheet__check {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: var(--sos-space-3);
+  align-items: start;
+  font-family: var(--sos-serif);
+  font-size: var(--sos-text-base);
+  line-height: 1.45;
+  color: var(--sos-text-md);
+  cursor: pointer;
+}
+.sos-sheet__check input {
+  width: 16px;
+  height: 16px;
+  margin: 4px 0 0;
+  accent-color: var(--sos-copper);
+}
+.sos-sheet__check input:focus-visible { outline: 2px solid var(--sos-copper); outline-offset: 2px; }
+.sos-sheet__out { margin: 18px 0 0; }
+.sos-sheet__out > div {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--sos-line);
+}
+.sos-sheet__out dt {
+  font-family: var(--sos-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sos-text-lo);
+}
+.sos-sheet__out dd { margin: 0; white-space: pre-wrap; color: var(--sos-text-hi); }
+.sos-sheet__out ol { margin: 0; padding-left: 18px; white-space: normal; list-style: decimal; }
+@media (max-width: 560px) {
+  .sos-sheet__out > div { grid-template-columns: 1fr; gap: 4px; }
+}
+/* A long form above a short printout: take the form out of the print flow
+   entirely, or its hidden height prints as blank trailing pages. */
+@media print {
+  .sos-print-solo > :not(.sos-print-keep),
+  .sos-print-drop { display: none; }
+}
+
 /* the Log's testosterone checkpoints: one dated window per row */
 .sos-checkpoints { list-style: none; margin: 0 0 var(--sos-space-3); padding: 0; }
 .sos-checkpoints li {

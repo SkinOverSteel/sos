@@ -26,6 +26,7 @@ const PAGES = [
   "/learn/read-your-labs",
   "/learn/what-it-costs",
   "/tools/erectile-function-score",
+  "/tools/appointment-sheet",
 ];
 
 type AxeResult = { violations: { id: string; impact: string; help: string; nodes: { target: string[]; failureSummary?: string }[] }[] };

@@ -121,7 +121,9 @@ export default function UrologistVisitPage() {
           supplement you take, and any labs you already have (our{" "}
           <Link href="/learn/read-your-labs">read your labs</Link>{" "}primer
           covers which ones matter). Five minutes of notes beats an hour of
-          trying to remember under fluorescent lights.
+          trying to remember under fluorescent lights, and{" "}
+          <Link href="/tools/appointment-sheet">the appointment sheet</Link>{" "}
+          puts those notes on one page you can hand over.
         </p>
       </section>
 

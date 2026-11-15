@@ -9,7 +9,7 @@ import { SignalRail } from "@/components/SignalRail";
 export const metadata: Metadata = {
   title: "Tools",
   description:
-    "Free, private men's-health instruments: the SHIM (IIEF-5) erectile-function score, a bioavailable testosterone calculator, and a treatment cost estimator. They run in your browser and keep nothing.",
+    "Free, private men's-health instruments: the SHIM (IIEF-5) erectile-function score, a bioavailable testosterone calculator, a treatment cost estimator, and a printable appointment sheet. They run in your browser and keep nothing.",
   alternates: { canonical: "/tools" },
 };
 
@@ -19,7 +19,7 @@ export default function ToolsHub() {
       <JsonLd data={toolsHubJsonLd()} />
       <StepHeader as="h1" step="measure" title="Turn the worry into a number" className="sos-page-head">
         Small, private instruments: a validated screen, a calculator, an
-        estimate. They run entirely in your browser, keep nothing, and point you
+        estimate, a worksheet. They run entirely in your browser, keep nothing, and point you
         toward a clinician rather than around one.
       </StepHeader>
 
