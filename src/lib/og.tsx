@@ -124,6 +124,11 @@ export function articleAlt(slug: string) {
   return a ? `${a.title} · Skin Over Steel` : "Skin Over Steel";
 }
 
+/** A standalone page that is neither an article nor a tool (e.g. /labs). */
+export function pageOg(kicker: string, title: string, label: string, grade?: Grade) {
+  return card(kicker, title, label, grade ? GRADE[grade].color : COPPER);
+}
+
 export function toolOg(slug: string) {
   const t = tools.find((x) => x.slug === slug);
   if (!t) return card("Skin Over Steel", "Men's health, evidence-graded", "Tool", COPPER);

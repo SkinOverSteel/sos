@@ -104,6 +104,22 @@ test.describe("The Log", () => {
     await expect(rows.nth(0)).toContainText("Apr 30, 2026 to Jul 31, 2026");
     await expect(rows.nth(0)).toContainText("Testosterone level and hematocrit");
     await expect(page.getByRole("link", { name: "What each draw is for" })).toHaveAttribute("href", "/labs#on-therapy");
+    // The calendar file is built on the device and keeps its titles neutral.
+    const [file] = await Promise.all([
+      page.waitForEvent("download"),
+      page.getByRole("button", { name: "Save these dates" }).click(),
+    ]);
+    expect(file.suggestedFilename()).toBe("lab-checks.ics");
+    const ics = (await (await import("node:fs/promises")).readFile(await file.path())).toString();
+    expect(ics.startsWith("BEGIN:VCALENDAR\r\n")).toBe(true);
+    expect(ics.match(/BEGIN:VEVENT/g)).toHaveLength(3);
+    expect(ics).toContain("DTSTART;VALUE=DATE:20260430\r\nDTEND;VALUE=DATE:20260501");
+    const unfolded = ics.replace(/\r\n /g, "");
+    for (const line of unfolded.split("\r\n").filter((l) => l.startsWith("SUMMARY:"))) {
+      expect(line).toMatch(/^SUMMARY:(Lab check|Follow-up visit)/);
+      expect(line).not.toMatch(/testosterone|PSA|hematocrit/i);
+    }
+    for (const line of ics.split("\r\n")) expect(line.length).toBeLessThanOrEqual(75);
     // Other categories get no schedule.
     await page.getByLabel("Category").selectOption("pde5");
     await expect(page.locator(".sos-checkpoints")).toHaveCount(0);
