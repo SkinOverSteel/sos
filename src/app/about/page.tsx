@@ -79,8 +79,8 @@ export default function AboutPage() {
             </h3>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
               A validated erectile-function score, a bioavailable testosterone
-              calculator, and a treatment cost estimator. They run in your
-              browser and keep nothing.
+              calculator, a treatment cost estimator, and a printable
+              appointment sheet. They run in your browser and keep nothing.
             </p>
           </Link>
           <Link href="/near-me" className="sos-card" style={{ display: "block", textDecoration: "none" }}>

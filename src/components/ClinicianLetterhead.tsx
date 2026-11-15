@@ -18,6 +18,8 @@ type ClinicianLetterheadProps = {
   handle?: string;
   /** The clinical content: result tables, graded findings, log summary. */
   children: ReactNode;
+  /** Set false for a sheet that carries no evidence grades. */
+  legend?: boolean;
 };
 
 /**
@@ -33,6 +35,7 @@ export function ClinicianLetterhead({
   date,
   handle,
   children,
+  legend = true,
 }: ClinicianLetterheadProps) {
   const meta = [
     "Prepared by the patient via skinoversteel.com",
@@ -54,6 +57,7 @@ export function ClinicianLetterhead({
 
       <div className="sos-letterhead__body">{children}</div>
 
+      {legend ? (
       <section className="sos-letterhead__legend" aria-label="Evidence grade key">
         <p className="sos-letterhead__legend-title">
           Evidence grades used in this summary
@@ -67,11 +71,12 @@ export function ClinicianLetterhead({
           ))}
         </ul>
       </section>
+      ) : null}
 
       <footer className="sos-letterhead__foot">
         Education, not medical advice. This summary is a conversation aid and
-        does not replace clinical judgment. How the grades are assigned:
-        skinoversteel.com/methodology
+        does not replace clinical judgment.
+        {legend ? " How the grades are assigned: skinoversteel.com/methodology" : ""}
       </footer>
     </div>
   );

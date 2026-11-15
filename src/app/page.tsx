@@ -145,11 +145,11 @@ export default function Home() {
             title="Turn the worry into a number"
             more={{ href: "/tools", label: "All tools →" }}
           >
-            Validated screens and calculators that run in your browser and
-            nowhere else. Each ends in a figure you can take to an
-            appointment.
+            A validated screen, two calculators and a worksheet that run in
+            your browser and nowhere else. Each ends in something you can take
+            to an appointment.
           </StepHeader>
-          <div className="sos-home__grid sos-home__grid--3">
+          <div className={`sos-home__grid sos-home__grid--${liveTools.length % 3 === 0 ? 3 : 2}`}>
             {liveTools.map((t) => (
               <Link key={t.slug} href={`/tools/${t.slug}`} className="sos-home__tile">
                 <span className="sos-kicker">{t.kind}</span>
