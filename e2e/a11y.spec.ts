@@ -25,6 +25,7 @@ const PAGES = [
   "/learn/erectile-function-signal",
   "/learn/read-your-labs",
   "/learn/what-it-costs",
+  "/learn/testosterone-test-cost",
   "/tools/erectile-function-score",
   "/tools/appointment-sheet",
 ];

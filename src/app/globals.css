@@ -1666,6 +1666,11 @@ a.sos-card:hover {
 /* ---- comparison / data table ---- */
 .sos-table-wrap {
   margin: var(--sos-space-7) 0;
+  /* width 0 + min-width 100%: the wrap takes its container's width but
+     contributes none of the table's, so a wide table scrolls inside it
+     instead of stretching the page on a phone */
+  width: 0;
+  min-width: 100%;
   overflow-x: auto;
   border: 1px solid var(--sos-line);
   border-radius: var(--sos-radius-md);
@@ -1695,6 +1700,13 @@ a.sos-card:hover {
   vertical-align: top;
 }
 .sos-table tbody tr:last-child td { border-bottom: 0; }
+.sos-table a {
+  color: var(--sos-text-hi);
+  text-decoration: underline;
+  text-decoration-color: var(--sos-copper);
+  text-underline-offset: 0.16em;
+}
+.sos-table a:hover { color: var(--sos-copper-hot); }
 .sos-table tbody tr { transition: background var(--sos-dur); }
 .sos-table tbody tr:hover { background: var(--sos-e1); }
 
