@@ -74,7 +74,8 @@ export default function PrivacyPage() {
           We use privacy-friendly, aggregate analytics (Vercel Analytics) to see
           which pages get read. It also counts clicks on a small set of links:
           the ones that lead to the lab checklists and the provider directory,
-          and the directory&apos;s links out to a provider. Those counts record
+          and the links out to a lab or provider from the directory and the
+          test-cost article. Those counts record
           which link was used and on which page, never anything you typed, and
           nothing inside the Log or the appointment sheet is counted. It is
           cookieless, it does not follow you across other sites, and it does
