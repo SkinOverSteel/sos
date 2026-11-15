@@ -149,7 +149,7 @@ const CATEGORY_INTROS: Record<ProviderCategory, React.ReactNode> = {
       monitoring between them; the results still belong in front of a
       clinician. <Link href="/learn/read-your-labs">Read your labs</Link>{" "}
       explains each marker, and{" "}
-      <Link href="/labs">the lab checklists</Link> list what belongs on a
+      <Link href="/labs" data-track="labs_entry" data-track-from="directory">the lab checklists</Link> list what belongs on a
       panel.
     </>
   ),
@@ -241,6 +241,10 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           href={link.href}
           target="_blank"
           rel={link.rel}
+          data-track="directory_outbound"
+          data-track-provider={p.slug}
+          data-track-category={p.category}
+          data-track-referral={link.isReferral ? "yes" : "no"}
           style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper-hot)" }}
         >
           Visit →

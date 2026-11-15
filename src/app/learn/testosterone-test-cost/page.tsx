@@ -140,7 +140,13 @@ export default function TestosteroneTestCostPage() {
               <tr key={r.test}>
                 <td>{r.lab}</td>
                 <td>
-                  <a href={r.href} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={r.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="cost_table_outbound"
+                    data-track-lab={r.lab}
+                  >
                     {r.test}
                   </a>
                 </td>

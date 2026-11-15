@@ -41,10 +41,22 @@ export function LabsCallout({ variant = "baseline" }: { variant?: Variant }) {
       <p className="sos-prose sos-labs__body">{body}</p>
       <p className="sos-labs__foot">
         <span className="sos-labs__links">
-          <Link href="/directory#lab" className="sos-home__more">
+          <Link
+            href="/directory#lab"
+            className="sos-home__more"
+            data-track="labs_callout"
+            data-track-variant={variant}
+            data-track-target="directory"
+          >
             Blood testing in the directory →
           </Link>
-          <Link href="/labs" className="sos-home__more">
+          <Link
+            href="/labs"
+            className="sos-home__more"
+            data-track="labs_callout"
+            data-track-variant={variant}
+            data-track-target="checklists"
+          >
             The lab checklists →
           </Link>
         </span>

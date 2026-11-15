@@ -73,6 +73,13 @@ export default function ToolsHub() {
           );
         })}
       </div>
+      <p className="sos-note" style={{ marginTop: "22px" }}>
+        Need the numbers before a tool is any use?{" "}
+        <Link href="/labs" data-track="labs_entry" data-track-from="tools">
+          The lab checklists
+        </Link>{" "}
+        list which blood tests belong to which conversation, and why.
+      </p>
       <SignalRail className="sos-rail--close" />
     </div>
   );
