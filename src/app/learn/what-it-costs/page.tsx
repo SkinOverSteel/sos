@@ -69,9 +69,11 @@ export default function WhatItCostsPage() {
         </p>
         <ul className="sos-prose" style={list}>
           <li>
-            A single total-testosterone test runs as little as ~$15–$20 direct;
-            a fuller men&apos;s hormone panel is ~$150–$350; a metabolic panel is
-            ~$25–$80.
+            A single total-testosterone test listed at about $63–$75 at the
+            labs in our directory in November 2026 (
+            <Link href="/learn/testosterone-test-cost">the prices we checked</Link>
+            ); a fuller men&apos;s hormone panel is ~$150–$350; a metabolic
+            panel is ~$25–$80.
           </li>
           <li>
             <strong>Value lever:</strong>{" "}ordering direct-to-consumer (you book
