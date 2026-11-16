@@ -1707,6 +1707,35 @@ a.sos-card:hover {
   text-underline-offset: 0.16em;
 }
 .sos-table a:hover { color: var(--sos-copper-hot); }
+.sos-table__note { display: block; }
+/* A table whose rows stack on a phone: each row becomes a block, each cell a
+   labelled line, so no column is ever off-screen. */
+@media (max-width: 640px) {
+  .sos-table--stack,
+  .sos-table--stack tbody,
+  .sos-table--stack tr,
+  .sos-table--stack td { display: block; }
+  .sos-table--stack thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .sos-table--stack tr { padding: 14px 16px; border-bottom: 1px solid var(--sos-line-soft); }
+  .sos-table--stack tbody tr:last-child { border-bottom: 0; }
+  .sos-table--stack td { padding: 3px 0; border: 0; }
+  .sos-table--stack td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sos-text-lo);
+    margin-top: 6px;
+  }
+  .sos-table--stack td:first-child::before { margin-top: 0; }
+}
 .sos-table tbody tr { transition: background var(--sos-dur); }
 .sos-table tbody tr:hover { background: var(--sos-e1); }
 

@@ -1,0 +1,44 @@
+{
+  "checked": "2026-11-15",
+  "rows": [
+    {
+      "lab": "Discounted Labs",
+      "test": "Testosterone, Free (Equilibrium Dialysis) and Total, MS",
+      "measures": "Total and free testosterone",
+      "price": "$63",
+      "note": "List price; shown discounted to $50 on the day checked",
+      "href": "https://www.discountedlabs.com/testosterone-total-lc-ms-no-upper-limit",
+      "present": "Equilibrium Dialysis\\) and Total, MS",
+      "expect": ["Equilibrium Dialysis\\) and Total, MS.{0,600}?List price \\$63\\b"]
+    },
+    {
+      "lab": "Quest",
+      "test": "Testosterone Test",
+      "measures": "Total testosterone",
+      "price": "$75",
+      "note": "$69 plus a $6 physician service fee",
+      "href": "https://www.questhealth.com/product/testosterone-test-total-and-free/15983M.html",
+      "present": "qd-pdp-price",
+      "expect": ["qd-pdp-price[^$]{0,200}\\$69\\.00", "\\$6\\.00 Physician Service Fee"]
+    },
+    {
+      "lab": "Quest",
+      "test": "Men's Hormone Test Panel, Basic",
+      "measures": "Total, free and bioavailable testosterone, SHBG, albumin",
+      "price": "$158",
+      "note": "$152 plus a $6 physician service fee",
+      "href": "https://www.questhealth.com/product/mens-hormone-test-panel-basic/13073M.html",
+      "present": "qd-pdp-price",
+      "expect": ["qd-pdp-price[^$]{0,200}\\$152\\.00", "\\$6\\.00 Physician Service Fee"]
+    },
+    {
+      "lab": "Labcorp OnDemand",
+      "test": "Comprehensive Testosterone Test",
+      "measures": "Total testosterone, SHBG, albumin, calculated free testosterone",
+      "price": "$159",
+      "href": "https://www.ondemand.labcorp.com/lab-tests/comprehensive-testosterone-test",
+      "present": "Comprehensive Testosterone Test",
+      "expect": ["\\$159(\\.00)?(?![0-9])"]
+    }
+  ]
+}
