@@ -10,6 +10,7 @@ import { RelatedArticles } from "@/components/RelatedArticles";
 import { withReview } from "@/lib/jsonld";
 import { providerLink, rankedByCategory } from "@/lib/providers";
 import { SITE } from "@/lib/site";
+import labPrices from "@/data/lab-prices.json";
 
 const SLUG = "testosterone-test-cost";
 const TITLE = "What a testosterone blood test costs without insurance";
@@ -31,55 +32,19 @@ const jsonLd = {
   audience: { "@type": "Patient" },
 };
 
-/** The day every price below was read off the lab's own product page. */
-const CHECKED = "Nov 15, 2026";
-
-type Row = {
-  lab: string;
-  test: string;
-  measures: string;
-  price: string;
-  note?: string;
-  href: string;
-};
-
 /**
- * List prices as published by each lab on CHECKED. These are citations, so
- * every link is the lab's plain product page, never a referral link.
+ * Prices and the date they were read live in src/data/lab-prices.json, so
+ * `npm run prices:check` can re-read the same pages. Each row's link is the
+ * lab's plain product page (a citation), never a referral link.
  */
-const ROWS: Row[] = [
-  {
-    lab: "Discounted Labs",
-    test: "Testosterone, Free (Equilibrium Dialysis) and Total, MS",
-    measures: "Total and free testosterone",
-    price: "$63",
-    note: "List price; shown discounted to $50 on the day checked",
-    href: "https://www.discountedlabs.com/testosterone-total-lc-ms-no-upper-limit",
-  },
-  {
-    lab: "Quest",
-    test: "Testosterone Test",
-    measures: "Total testosterone",
-    price: "$75",
-    note: "$69 plus a $6 physician service fee",
-    href: "https://www.questhealth.com/product/testosterone-test-total-and-free/15983M.html",
-  },
-  {
-    lab: "Quest",
-    test: "Men's Hormone Test Panel, Basic",
-    measures: "Total, free and bioavailable testosterone, SHBG, albumin",
-    price: "$158",
-    note: "$152 plus a $6 physician service fee",
-    href: "https://www.questhealth.com/product/mens-hormone-test-panel-basic/13073M.html",
-  },
-  {
-    lab: "Labcorp OnDemand",
-    test: "Comprehensive Testosterone Test",
-    measures: "Total testosterone, SHBG, albumin, calculated free testosterone",
-    price: "$159",
-    href: "https://www.ondemand.labcorp.com/lab-tests/comprehensive-testosterone-test",
-  },
-];
+type Row = { lab: string; test: string; measures: string; price: string; note?: string; href: string };
+const ROWS: Row[] = labPrices.rows;
+const CHECKED = new Date(`${labPrices.checked}T00:00:00Z`).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
 
 const list: React.CSSProperties = {
   listStyle: "none",
@@ -123,23 +88,25 @@ export default function TestosteroneTestCostPage() {
       </p>
 
       <div className="sos-table-wrap">
-        <table className="sos-table">
+        {/* Explicit roles: on a phone the rows are restyled as stacked
+            blocks, and display:block would otherwise drop table semantics. */}
+        <table className="sos-table sos-table--stack" role="table">
           <caption className="sr-only">
             Self-pay list prices for testosterone blood tests, checked {CHECKED}
           </caption>
-          <thead>
-            <tr>
-              <th scope="col">Lab</th>
-              <th scope="col">Test</th>
-              <th scope="col">Measures</th>
-              <th scope="col">Price</th>
+          <thead role="rowgroup">
+            <tr role="row">
+              <th scope="col" role="columnheader">Lab</th>
+              <th scope="col" role="columnheader">Test</th>
+              <th scope="col" role="columnheader">Measures</th>
+              <th scope="col" role="columnheader">Price</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody role="rowgroup">
             {ROWS.map((r) => (
-              <tr key={r.test}>
-                <td>{r.lab}</td>
-                <td>
+              <tr key={r.test} role="row">
+                <td role="cell" data-label="Lab">{r.lab}</td>
+                <td role="cell" data-label="Test">
                   <a
                     href={r.href}
                     target="_blank"
@@ -150,15 +117,10 @@ export default function TestosteroneTestCostPage() {
                     {r.test}
                   </a>
                 </td>
-                <td>{r.measures}</td>
-                <td>
+                <td role="cell" data-label="Measures">{r.measures}</td>
+                <td role="cell" data-label="Price">
                   <strong style={{ color: "var(--sos-text-hi)" }}>{r.price}</strong>
-                  {r.note ? (
-                    <>
-                      <br />
-                      {r.note}
-                    </>
-                  ) : null}
+                  {r.note ? <span className="sos-table__note">{r.note}</span> : null}
                 </td>
               </tr>
             ))}
