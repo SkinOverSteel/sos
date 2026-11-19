@@ -183,7 +183,10 @@ export default function Home() {
           <div className="sos-home__care">
             <Link href="/map" className="sos-home__map" aria-label="Open the US map">
               {/* A static render of the national hex map (scripts/build-map-preview.mjs):
-                  no shard, no h3 library and no map JavaScript on the front door. */}
+                  no shard, no h3 library and no map JavaScript on the front door.
+                  A plain <img> for a hand-built SVG keeps the front door JS-free;
+                  next/image would add a loader and buy nothing for a vector. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="sos-home__map-img"
                 src="/map/us-preview.svg"
