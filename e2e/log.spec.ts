@@ -125,6 +125,46 @@ test.describe("The Log", () => {
     await expect(page.locator(".sos-checkpoints")).toHaveCount(0);
   });
 
+  test("restores a valid backup and rejects a corrupted one", async ({ page }) => {
+    const errors: string[] = [];
+    page.on("pageerror", (e) => errors.push(e.message));
+    await page.goto("/log");
+    await expect(page.getByRole("button", { name: "Start a log" })).toBeVisible();
+
+    const restore = async (name: string, body: string) =>
+      page.locator('input[type="file"]').setInputFiles({
+        name,
+        mimeType: "application/json",
+        buffer: Buffer.from(body),
+      });
+
+    // A corrupted-but-shallow-valid file (baseline is an array, a malformed
+    // check-in) must be rejected whole, not loaded.
+    await restore("bad.json", '{"version":1,"baseline":[],"checkins":[{"firmness":"x"}]}');
+    await expect(page.getByText("isn't a Skin Over Steel log backup")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Start a log" })).toBeVisible();
+
+    // Not JSON at all.
+    await restore("notjson.json", "this is not json");
+    await expect(page.getByText("isn't a Skin Over Steel log backup")).toBeVisible();
+
+    // A real backup loads: the start screen gives way to the tracker.
+    const valid = JSON.stringify({
+      version: 1,
+      createdAt: "2026-01-01T00:00:00.000Z",
+      updatedAt: "2026-01-01T00:00:00.000Z",
+      baseline: { date: "2026-01-01", shim: 14, notes: "restored" },
+      intervention: null,
+      checkins: [],
+      outcome: null,
+    });
+    await restore("good.json", valid);
+    await expect(page.getByRole("button", { name: "Start a log" })).toHaveCount(0);
+    await expect(page.getByLabel("SHIM score (5–25)")).toHaveValue("14");
+
+    expect(errors, errors.join("\n")).toEqual([]);
+  });
+
   test("never sends anything over the network", async ({ page }) => {
     const requests: string[] = [];
     page.on("request", (r) => {
