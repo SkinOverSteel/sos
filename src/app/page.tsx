@@ -29,17 +29,21 @@ export default function Home() {
   const featured = (featuredArticles.length ? featuredArticles : articles).slice(0, 4);
 
   return (
-    <div>
-      {/* Hero — "skin over steel" lighting on the dark ground: a warm copper
-          glow upper-left, a faint cool steel counter-light lower-right. The
-          headline sits left; the three highest-demand utilities sit beside it
-          as one instrument panel, so the first screen is already useful. */}
+    // Warm theme, scoped to the homepage: the whole page renders on the cream,
+    // welcoming palette while the rest of the app stays on the dark canonical
+    // theme. This is the homepage-first prototype of the re-theme.
+    <div data-theme="warm" style={{ background: "var(--sos-e0)", color: "var(--sos-text-md)" }}>
+      {/* Hero — warm, invitational light on the cream ground: a soft copper
+          sunrise upper-left and a faint warm wash lower-right, so the first
+          screen feels open rather than engineered. The headline sits left; the
+          three highest-demand utilities sit beside it as one panel, so the
+          first screen is already useful. */}
       <section
         style={{
           backgroundColor: "var(--sos-e0)",
           backgroundImage:
-            "radial-gradient(1100px 600px at 8% -10%, rgba(201,116,56,0.16), rgba(18,22,26,0) 60%)," +
-            "radial-gradient(800px 460px at 104% 110%, rgba(140,161,180,0.07), rgba(18,22,26,0) 58%)",
+            "radial-gradient(1100px 620px at 6% -12%, rgba(201,116,56,0.14), rgba(250,245,238,0) 60%)," +
+            "radial-gradient(820px 480px at 104% 112%, rgba(62,122,90,0.08), rgba(250,245,238,0) 58%)",
         }}
       >
         <div className="sos-home">

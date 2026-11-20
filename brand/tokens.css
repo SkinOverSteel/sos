@@ -120,6 +120,49 @@
   --sos-grain: 0.02;
 }
 
+/* ---- warm (welcoming surface) ----
+   A re-theme toward approachable men's health: the cool steel canvas becomes a
+   warm cream ground, ink goes warm-brown, copper stays the one accent (reusing
+   the contrast-validated light-theme copper/grade/emergency inks on the new
+   cream surfaces). Shadows are soft and warm, geometry is rounder, and the
+   forge grain is off — the mood is a calm clinic waiting room, not a workshop.
+   Currently scoped to the homepage; the spine (evidence grades, copper accent,
+   safety red) is preserved so nothing in the brand's meaning drifts. */
+[data-theme="warm"] {
+  --sos-e0: #FAF5EE;   /* warm page — cream, invitational */
+  --sos-e1: #F4ECE1;   /* panel */
+  --sos-e2: #FFFFFF;   /* card */
+  --sos-e3: #EFE4D5;   /* raised / hover */
+  --sos-line: #E4D7C6;
+  --sos-line-soft: #EFE6D9;
+  --sos-text-hi: #2A2320;   /* warm near-black, ~13:1 on cream */
+  --sos-text-md: #4C433B;   /* body ≥8:1 on E0 */
+  --sos-text-lo: #6B5F53;
+  --sos-copper: #B15C24;      /* same validated copper as the light theme */
+  --sos-copper-hot: #8A4519;
+  --sos-copper-deep: #8A4519;
+  --sos-copper-glow: rgba(177, 92, 36, 0.12);
+  --sos-grade-established: #3E7A5A;
+  --sos-grade-emerging: #A87B1E;
+  --sos-grade-anecdote: #5C6873;
+  --sos-emergency: #B23A22;
+  --sos-emergency-glow: rgba(178, 58, 34, 0.09);
+  --sos-emergency-hot: #9E3220;
+
+  /* material depth: warm, low shadows do the lifting on cream; no top highlight */
+  --sos-edge-hi: inset 0 0 0 transparent;
+  --sos-shadow-1: 0 1px 2px rgba(74, 56, 38, 0.06);
+  --sos-shadow-2: 0 2px 6px rgba(74, 56, 38, 0.06), 0 10px 30px -16px rgba(74, 56, 38, 0.22);
+  --sos-shadow-3: 0 4px 12px rgba(74, 56, 38, 0.08), 0 22px 50px -24px rgba(74, 56, 38, 0.26);
+  --sos-grain: 0;
+
+  /* friendlier geometry — softer corners than the engineered dark theme */
+  --sos-radius-sm: 8px;
+  --sos-radius: 10px;
+  --sos-radius-md: 14px;
+  --sos-radius-lg: 18px;
+}
+
 /* ---- signature: morse SOS divider (··· ––– ···) ---- */
 .sos-morse { display: flex; align-items: center; gap: 9px; }
 .sos-morse i { display: block; height: 5px; border-radius: 3px; background: var(--sos-copper); }
