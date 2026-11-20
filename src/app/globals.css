@@ -2080,3 +2080,26 @@ a.sos-card:hover {
   font-stretch: 100%;
   letter-spacing: -0.01em;
 }
+
+/* ---- warm theme, site-wide rollout: relax the inner-page display type too ----
+   The homepage block above de-capitalizes the home display classes; these are
+   the same relaxation applied to the reading surface, library, tools and route
+   cards so every page shares the warm, human heading voice. Mono labels,
+   kickers and evidence badges keep the instrument voice on purpose. The
+   clinician letterhead is excluded — it sets its own light print theme. */
+[data-theme="warm"] .sos-article h2:not([class]),
+[data-theme="warm"] .sos-article h3:not([class]),
+[data-theme="warm"] .sos-lib__title,
+[data-theme="warm"] .sos-route__title,
+[data-theme="warm"] .sos-step__title {
+  text-transform: none;
+  font-stretch: 100%;
+  letter-spacing: -0.012em;
+}
+/* the article section rule and library titles carry a touch less weight warm */
+[data-theme="warm"] .sos-article h2:not([class]) {
+  font-weight: 760;
+}
+[data-theme="warm"] .sos-lib__title {
+  font-weight: 700;
+}

@@ -29,10 +29,7 @@ export default function Home() {
   const featured = (featuredArticles.length ? featuredArticles : articles).slice(0, 4);
 
   return (
-    // Warm theme, scoped to the homepage: the whole page renders on the cream,
-    // welcoming palette while the rest of the app stays on the dark canonical
-    // theme. This is the homepage-first prototype of the re-theme.
-    <div data-theme="warm" style={{ background: "var(--sos-e0)", color: "var(--sos-text-md)" }}>
+    <div>
       {/* Hero — warm, invitational light on the cream ground: a soft copper
           sunrise upper-left and a faint warm wash lower-right, so the first
           screen feels open rather than engineered. The headline sits left; the

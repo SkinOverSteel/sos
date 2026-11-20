@@ -27,10 +27,11 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
 });
 
-// Steel page token: colors the mobile browser chrome (address bar) before the
-// manifest loads. Matches manifest theme_color/background_color.
+// Warm page token: colors the mobile browser chrome (address bar) before the
+// manifest loads. Matches manifest theme_color/background_color (the warm
+// theme's E0 cream ground).
 export const viewport: Viewport = {
-  themeColor: "#12161A",
+  themeColor: "#FAF5EE",
 };
 
 export const metadata: Metadata = {
@@ -68,7 +69,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="warm"
       className={`${archivo.variable} ${sourceSerif.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
