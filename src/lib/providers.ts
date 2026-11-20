@@ -32,6 +32,7 @@ export type TrustCriterion = { key: string; label: string; weight: number };
 
 export const TRUST_CRITERIA: TrustCriterion[] = [
   { key: "thirdPartyVerified", label: "Third-party verified / accredited", weight: 3 },
+  { key: "credentialVerified", label: "Licensed, credentialed clinicians verified", weight: 3 },
   { key: "priceTransparent", label: "Publishes pricing up front", weight: 2 },
   { key: "privacyRespecting", label: "Strong data privacy", weight: 2 },
   { key: "noDarkPatterns", label: "No lock-in; easy to cancel", weight: 2 },
@@ -137,6 +138,7 @@ const DISCOUNTED_LABS_REFERRAL =
 
 const ALL = {
   thirdPartyVerified: true,
+  credentialVerified: true,
   priceTransparent: true,
   privacyRespecting: true,
   noDarkPatterns: true,
@@ -204,13 +206,14 @@ export const providers: Provider[] = [
     legitimateChannel: true,
     criteria: {
       thirdPartyVerified: false,
+      credentialVerified: true,
       priceTransparent: true,
       privacyRespecting: true,
       noDarkPatterns: true,
       fastAccess: true,
     },
     affiliate: false,
-    sourceNote: "Established 2012, physician/NP/pharmacist team; strong TRT-community reputation for depth of care; fee-for-service pricing.",
+    sourceNote: "Established 2012, physician/NP/pharmacist team; strong TRT-community reputation for depth of care; fee-for-service pricing. Care delivered by licensed, credentialed clinicians.",
   },
   {
     slug: "marek-health",
@@ -223,13 +226,14 @@ export const providers: Provider[] = [
     legitimateChannel: true,
     criteria: {
       thirdPartyVerified: false,
+      credentialVerified: true,
       priceTransparent: true,
       privacyRespecting: true,
       noDarkPatterns: true,
       fastAccess: true,
     },
     affiliate: false,
-    sourceNote: "Comprehensive multi-system panels; physician + coach interpretation; requires an independently obtained annual physical.",
+    sourceNote: "Comprehensive multi-system panels; physician + coach interpretation; requires an independently obtained annual physical. Prescribing clinicians are licensed and credentialed.",
   },
 
   // ---- Compounding pharmacy ----
@@ -244,6 +248,7 @@ export const providers: Provider[] = [
     legitimateChannel: true,
     criteria: {
       thirdPartyVerified: true,
+      credentialVerified: true,
       priceTransparent: false,
       privacyRespecting: true,
       noDarkPatterns: true,
@@ -263,6 +268,7 @@ export const providers: Provider[] = [
     legitimateChannel: true,
     criteria: {
       thirdPartyVerified: false,
+      credentialVerified: true,
       priceTransparent: true,
       privacyRespecting: true,
       noDarkPatterns: true,
