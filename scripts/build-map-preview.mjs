@@ -5,7 +5,7 @@
 //
 // Reads the r4 US hex layer (NEXT_PUBLIC_NEARME_DATA_BASE when it is a URL,
 // else the local public/data/nearme copy), the geography in public/geo, the
-// metro list in src/data/nearme, and the dark palette from brand/tokens.css,
+// metro list in src/data/nearme, and the warm palette from brand/tokens.css,
 // then writes public/map/us-preview.svg. Commit the result; it changes only
 // when the data does. Projection and bands match components/nearme/HexMap.
 
@@ -22,11 +22,12 @@ const project = (lon, lat) => [
   ((BBOX.north - lat) / (BBOX.north - BBOX.south)) * H,
 ];
 
-// --- palette: the dark block of the single source of truth
+// --- palette: the warm block of the single source of truth (the warm theme is
+// the canonical app theme, so the static map ships on the cream ground too).
 const tokens = readFileSync("brand/tokens.css", "utf8");
-const dark = tokens.split('[data-theme="dark"]')[1].split('[data-theme="light"]')[0];
+const warm = tokens.split('[data-theme="warm"]')[1].split("/* ---- signature")[0];
 const token = (name) => {
-  const m = dark.match(new RegExp(`--sos-${name}:\\s*(#[0-9A-Fa-f]{6}|rgba?\\([^)]*\\))`));
+  const m = warm.match(new RegExp(`--sos-${name}:\\s*(#[0-9A-Fa-f]{6}|rgba?\\([^)]*\\))`));
   if (!m) throw new Error(`token --sos-${name} not found in brand/tokens.css`);
   return m[1];
 };
