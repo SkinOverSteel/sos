@@ -63,6 +63,9 @@
 
 /* ---- dark (app canonical) ---- */
 :root, [data-theme="dark"] {
+  /* Render native controls, scrollbars, and autofill to match the theme, not
+     the visitor's OS setting — a cream page must not draw a dark scrollbar. */
+  color-scheme: dark;
   --sos-e0: #12161A;   /* page / forge floor */
   --sos-e1: #191E24;   /* panel */
   --sos-e2: #21272E;   /* card */
@@ -93,6 +96,7 @@
 
 /* ---- light (marketing / education) ---- */
 [data-theme="light"] {
+  color-scheme: light;
   --sos-e0: #EFF1F2;   /* cold sheet — cool gray, never cream */
   --sos-e1: #E6E9EB;
   --sos-e2: #FFFFFF;
@@ -132,6 +136,7 @@
    The spine (evidence grades, copper accent, safety red) is preserved so
    nothing in the brand's meaning drifts. */
 [data-theme="warm"] {
+  color-scheme: light;
   --sos-e0: #FAF5EE;   /* warm page — cream, invitational */
   --sos-e1: #F4ECE1;   /* panel */
   --sos-e2: #FFFFFF;   /* card */
