@@ -52,6 +52,16 @@ body::after {
   color: #fff;
 }
 
+/* ---- focus baseline (accessibility floor: "visible focus states") ----
+   One on-brand copper ring for every keyboard-focused element, so links in
+   running prose, the footer, and breadcrumbs don't fall back to the thin UA
+   default. Components with their own focus treatment (header, tiles, chips,
+   fields — all higher-specificity :focus-visible rules below) override this. */
+:focus-visible {
+  outline: 2px solid var(--sos-copper);
+  outline-offset: 2px;
+}
+
 /* ---- skip link: the first tab stop, visible only while focused ---- */
 .sos-skip {
   position: absolute;
