@@ -50,6 +50,14 @@ export function Breadcrumbs({ slug }: { slug: string }) {
               Learn
             </Link>
           </li>
+          {title ? (
+            <>
+              <li aria-hidden="true">›</li>
+              <li aria-current="page" style={{ color: "var(--sos-text-lo)" }}>
+                {title}
+              </li>
+            </>
+          ) : null}
         </ol>
       </nav>
     </>

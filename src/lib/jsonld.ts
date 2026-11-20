@@ -1,5 +1,6 @@
 import { SITE } from "@/lib/site";
 import { articles, type Reviewer } from "@/lib/articles";
+import { SOURCES } from "@/lib/sources";
 import { liveTools } from "@/lib/tools";
 import { CATEGORY_LABELS, CATEGORY_ORDER, rankedByCategory } from "@/lib/providers";
 
@@ -109,6 +110,15 @@ export function withReview<T extends Record<string, unknown>>(base: T, slug: str
     .filter((x) => x.slug !== a.slug && x.section === a.section)
     .slice(0, 4)
     .map((x) => `${SITE.url}/learn/${x.slug}`);
+  // The article's own Sources section, mirrored into schema.org `citation` so
+  // the evidence base is machine-readable for search and AI agents (YMYL
+  // E-E-A-T). Sourced from src/lib/sources.ts; e2e/citations.spec.ts asserts
+  // these match the visible links, so the two can't drift.
+  const citation = (SOURCES[slug] ?? []).map((c) => ({
+    "@type": "CreativeWork",
+    name: c.title,
+    url: c.url,
+  }));
   return {
     ...base,
     inLanguage: "en-US",
@@ -120,6 +130,7 @@ export function withReview<T extends Record<string, unknown>>(base: T, slug: str
     publisher: ORG_REF,
     isPartOf: { "@type": "CollectionPage", name: "Learn", url: `${SITE.url}/learn` },
     ...(related.length ? { relatedLink: related } : {}),
+    ...(citation.length ? { citation } : {}),
   };
 }
 
