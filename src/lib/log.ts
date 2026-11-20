@@ -201,10 +201,74 @@ export function formatDate(iso: string): string {
 
 /* ---- storage: the browser, and only the browser ---- */
 
+/**
+ * Shape validation for a log coming from localStorage or an imported backup.
+ * The file is user-editable and survives across app versions, so a corrupted
+ * or hand-edited one must be rejected whole rather than reach the UI and
+ * render NaN charts or crash on a missing field. Kept in lockstep with the
+ * objects newLog()/the LogTool form actually write: every field those set is
+ * required here, so no real log is ever rejected.
+ */
+function isObject(v: unknown): v is Record<string, unknown> {
+  return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+function isBaseline(v: unknown): v is Baseline {
+  if (!isObject(v)) return false;
+  return (
+    typeof v.date === "string" &&
+    (v.shim === null || typeof v.shim === "number") &&
+    typeof v.notes === "string"
+  );
+}
+
+function isCheckIn(v: unknown): v is CheckIn {
+  if (!isObject(v)) return false;
+  return (
+    typeof v.id === "string" &&
+    typeof v.date === "string" &&
+    typeof v.firmness === "number" &&
+    typeof v.confidence === "number" &&
+    typeof v.sideEffects === "string" &&
+    typeof v.notes === "string"
+  );
+}
+
+function isIntervention(v: unknown): v is Intervention {
+  if (!isObject(v)) return false;
+  return (
+    typeof v.category === "string" &&
+    v.category in INTERVENTIONS &&
+    typeof v.name === "string" &&
+    typeof v.regimen === "string" &&
+    typeof v.prescriber === "string" &&
+    typeof v.started === "string"
+  );
+}
+
+function isOutcome(v: unknown): v is Outcome {
+  if (!isObject(v)) return false;
+  return (
+    typeof v.date === "string" &&
+    typeof v.result === "string" &&
+    v.result in OUTCOME_LABELS &&
+    (v.shim === null || typeof v.shim === "number") &&
+    typeof v.summary === "string"
+  );
+}
+
 function isLog(v: unknown): v is Log {
-  if (!v || typeof v !== "object") return false;
-  const o = v as Record<string, unknown>;
-  return o.version === 1 && typeof o.baseline === "object" && Array.isArray(o.checkins);
+  if (!isObject(v)) return false;
+  return (
+    v.version === 1 &&
+    typeof v.createdAt === "string" &&
+    typeof v.updatedAt === "string" &&
+    isBaseline(v.baseline) &&
+    Array.isArray(v.checkins) &&
+    v.checkins.every(isCheckIn) &&
+    (v.intervention === null || isIntervention(v.intervention)) &&
+    (v.outcome === null || isOutcome(v.outcome))
+  );
 }
 
 export function loadLog(): Log | null {
