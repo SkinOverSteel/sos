@@ -138,12 +138,15 @@
   --sos-text-hi: #2A2320;   /* warm near-black, ~13:1 on cream */
   --sos-text-md: #4C433B;   /* body ≥8:1 on E0 */
   --sos-text-lo: #6B5F53;
-  --sos-copper: #B15C24;      /* same validated copper as the light theme */
+  /* accent inks darkened for the warm surfaces: the lighter cream ground
+     needs deeper copper/grades than the cool light theme to clear WCAG AA
+     4.5:1 — each verified ≥4.5:1 on the darkest surface it sits on (E1). */
+  --sos-copper: #A4511E;      /* 5.1:1 on E0, 4.75:1 on E1 */
   --sos-copper-hot: #8A4519;
   --sos-copper-deep: #8A4519;
-  --sos-copper-glow: rgba(177, 92, 36, 0.12);
-  --sos-grade-established: #3E7A5A;
-  --sos-grade-emerging: #A87B1E;
+  --sos-copper-glow: rgba(164, 81, 30, 0.12);
+  --sos-grade-established: #37704F;  /* 4.99:1 on E1 */
+  --sos-grade-emerging: #83600F;     /* 4.91:1 on E1 */
   --sos-grade-anecdote: #5C6873;
   --sos-emergency: #B23A22;
   --sos-emergency-glow: rgba(178, 58, 34, 0.09);
