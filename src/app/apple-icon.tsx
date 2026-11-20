@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 /**
- * Apple touch icon (180×180). Padded, opaque steel plate with the copper
+ * Apple touch icon (180×180). Padded, opaque warm copper plate with a cream
  * italic "S" mark + Morse SOS dots, mirrors src/app/icon.svg, sized for the
  * iOS home-screen tile (no transparency, generous padding per Apple guidance).
  *
@@ -18,9 +18,10 @@ export const dynamic = "force-static";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-// Brand tokens (inlined; ImageResponse can't read external CSS).
-const E0 = "#12161A";
-const COPPER = "#C97438";
+// Warm-theme tokens (inlined; ImageResponse can't read external CSS).
+// The tile is a saturated copper plate with a cream mark, to pop at icon size.
+const PLATE = "#AE5A24";
+const MARK = "#FAF5EE";
 
 export default async function AppleIcon() {
   const serif = await readFile(
@@ -37,9 +38,9 @@ export default async function AppleIcon() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: E0,
+          backgroundColor: PLATE,
           backgroundImage:
-            "radial-gradient(200px 150px at 20% 0%, rgba(201,116,56,0.28), rgba(18,22,26,0) 62%)",
+            "radial-gradient(200px 150px at 20% 0%, rgba(230,163,104,0.42), rgba(174,90,36,0) 62%)",
         }}
       >
         <div
@@ -48,7 +49,7 @@ export default async function AppleIcon() {
             fontWeight: 700,
             fontStyle: "italic",
             fontFamily: "Source Serif 4",
-            color: COPPER,
+            color: MARK,
             lineHeight: 1,
             marginTop: 8,
           }}
@@ -64,7 +65,7 @@ export default async function AppleIcon() {
                 width: 12,
                 height: 12,
                 borderRadius: 6,
-                backgroundColor: COPPER,
+                backgroundColor: MARK,
                 marginRight: i < 2 ? 14 : 0,
               }}
             />

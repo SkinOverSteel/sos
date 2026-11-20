@@ -18,17 +18,19 @@ import { METROS, miiOpacity } from "@/lib/nearme";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const E0 = "#12161A";
-const COPPER = "#C97438";
-const BONE = "#E8EAEC";
-const LOW = "#78828B";
+// Warm-theme tokens (inlined; ImageResponse can't read external CSS). The card
+// sits on the cream ground so a shared link unfurls to match the site it opens.
+const E0 = "#FAF5EE";
+const COPPER = "#A4511E";
+const INK = "#2A2320";
+const LOW = "#6B5F53";
 
-// Dark-theme grade colors (from brand/tokens.css; the card sits on the E0 plate).
+// Warm-theme grade colors (from brand/tokens.css; darkened to read on cream).
 const GRADE: Record<Grade, { label: string; color: string }> = {
-  established: { label: "Established", color: "#5FA983" },
-  emerging: { label: "Emerging", color: "#CFA145" },
-  anecdote: { label: "Anecdote", color: "#8B95A0" },
-  "high-risk": { label: "High risk", color: "#E0563D" },
+  established: { label: "Established", color: "#37704F" },
+  emerging: { label: "Emerging", color: "#83600F" },
+  anecdote: { label: "Anecdote", color: "#5C6873" },
+  "high-risk": { label: "High risk", color: "#B23A22" },
 };
 
 // Scale the hero down as the title grows so long titles still fit two lines.
@@ -75,14 +77,14 @@ function card(kicker: string, title: string, label: string, color: string) {
           justifyContent: "space-between",
           padding: 76,
           backgroundColor: E0,
-          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(201,116,56,0.18), rgba(18,22,26,0) 60%)`,
+          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(164,81,30,0.16), rgba(250,245,238,0) 60%)`,
         }}
       >
         {/* header: wordmark + grade/tool pill */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "baseline", fontSize: 30, fontWeight: 800 }}>
             <span style={{ color: COPPER, fontStyle: "italic" }}>Skin</span>
-            <span style={{ color: BONE, marginLeft: 12, letterSpacing: 1 }}>OVER STEEL</span>
+            <span style={{ color: INK, marginLeft: 12, letterSpacing: 1 }}>OVER STEEL</span>
           </div>
           {pill(label, color)}
         </div>
@@ -92,7 +94,7 @@ function card(kicker: string, title: string, label: string, color: string) {
           <div style={{ fontSize: 22, letterSpacing: 6, textTransform: "uppercase", color: LOW, marginBottom: 22 }}>
             {kicker}
           </div>
-          <div style={{ fontSize: titleSize(title), fontWeight: 800, lineHeight: 1.05, color: BONE, maxWidth: 1010 }}>
+          <div style={{ fontSize: titleSize(title), fontWeight: 800, lineHeight: 1.05, color: INK, maxWidth: 1010 }}>
             {title}
           </div>
         </div>
@@ -160,13 +162,13 @@ export function rankingsOg() {
           justifyContent: "space-between",
           padding: 64,
           backgroundColor: E0,
-          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(201,116,56,0.18), rgba(18,22,26,0) 60%)`,
+          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(164,81,30,0.16), rgba(250,245,238,0) 60%)`,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "baseline", fontSize: 30, fontWeight: 800 }}>
             <span style={{ color: COPPER, fontStyle: "italic" }}>Skin</span>
-            <span style={{ color: BONE, marginLeft: 12, letterSpacing: 1 }}>OVER STEEL</span>
+            <span style={{ color: INK, marginLeft: 12, letterSpacing: 1 }}>OVER STEEL</span>
           </div>
           {pill("Metros ranked", COPPER)}
         </div>
@@ -175,7 +177,7 @@ export function rankingsOg() {
           <div style={{ fontSize: 20, letterSpacing: 6, textTransform: "uppercase", color: LOW, marginBottom: 14 }}>
             Metabolic Infrastructure Index
           </div>
-          <div style={{ fontSize: 48, fontWeight: 800, lineHeight: 1.05, color: BONE, marginBottom: 26 }}>
+          <div style={{ fontSize: 48, fontWeight: 800, lineHeight: 1.05, color: INK, marginBottom: 26 }}>
             Where the access actually is
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -184,10 +186,10 @@ export function rankingsOg() {
                 <span style={{ width: 44, fontSize: 24, fontWeight: 700, color: i === 0 ? COPPER : LOW }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span style={{ width: 360, fontSize: 28, color: BONE }}>{m.name}</span>
+                <span style={{ width: 360, fontSize: 28, color: INK }}>{m.name}</span>
                 <div style={{ display: "flex", alignItems: "center", width: 320 }}>
                   <div style={{ display: "flex", width: Math.round((m.mii_us / max) * 260), height: 18, borderRadius: 4, backgroundColor: COPPER, opacity: Math.max(miiOpacity(m.mii_us), 0.35) }} />
-                  <span style={{ marginLeft: 14, fontSize: 24, fontWeight: 600, color: BONE }}>{m.mii_us}</span>
+                  <span style={{ marginLeft: 14, fontSize: 24, fontWeight: 600, color: INK }}>{m.mii_us}</span>
                 </div>
               </div>
             ))}

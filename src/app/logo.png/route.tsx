@@ -10,10 +10,10 @@ export const dynamic = "force-static";
 
 const SIZE = 512;
 
-// Brand tokens (inlined; ImageResponse can't read external CSS).
-const E0 = "#12161A";
-const COPPER = "#C97438";
-const BONE = "#E8EAEC";
+// Warm-theme tokens (inlined; ImageResponse can't read external CSS).
+const E0 = "#FAF5EE";
+const COPPER = "#A4511E";
+const BONE = "#2A2320";
 
 export function GET() {
   return new ImageResponse(
@@ -27,7 +27,7 @@ export function GET() {
           justifyContent: "center",
           padding: "56px",
           backgroundColor: E0,
-          backgroundImage: `radial-gradient(520px 360px at 12% -10%, rgba(201,116,56,0.20), rgba(18,22,26,0) 62%)`,
+          backgroundImage: `radial-gradient(520px 360px at 12% -10%, rgba(164,81,30,0.18), rgba(250,245,238,0) 62%)`,
         }}
       >
         <div
