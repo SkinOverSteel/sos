@@ -42,24 +42,33 @@ cost-effective web application. Live at skinoversteel.com.
   --sos-emergency token, defined + rendered live on /methodology.
 Badges are outline-only on dark (instrumentation, not mood). Never fill.
 
-## Brand system (see /brand/*.html — v2 dark is canonical for the app)
+## Brand system (see /brand/*.html — v3 warm is canonical for the app)
 
 Concept: "skin over steel" — warm/organic always layered OVER rigid/engineered.
 SOS = Morse distress signal, claimed deliberately: "The signal, answered."
 Signature device: Morse SOS pattern (··· ––– ···) as divider/loading state.
 
 Fonts (all Google Fonts, free):
-- Display/headings: Archivo variable — weight 700–850, width 78–90%, uppercase
-  display. Width axis may animate for "measured progression" moments only.
-- Body: Source Serif 4 — the warm human voice; italic + copper = vulnerable copy.
+- Display/headings: Archivo variable — weight 700–850. On the canonical warm
+  theme the display relaxes to sentence case at natural width (the human,
+  welcoming voice); the dark theme keeps the condensed uppercase instrument cut.
+- Body: Source Serif 4 — the warm human voice; italic + accent = vulnerable copy.
 - Utility/data: IBM Plex Mono — logs, metadata, badges, UI instrument voice.
 
-Dark palette (elevation system):
+Warm palette (CANONICAL — the app's live theme, `[data-theme="warm"]`):
+- E0 #FAF5EE cream page · E1 #F4ECE1 panel · E2 #FFFFFF card · E3 #EFE4D5 raised
+- lines #E4D7C6 / #EFE6D9 · ink #2A2320 / #4C433B / #6B5F53
+- Accent terracotta #B0462A (hover #8E3620) — the ONLY warm color, ~10% of any
+  screen; a vital "blood-flow / warm-oil" read, deepened to clear AA on cream.
+- Grades deepened for cream: established #37704F, emerging #83600F, anecdote
+  #5C6873. Medical-emergency red #B81E12 — a deeper true-crimson, kept
+  deliberately distinct from the accent so a safety signal never reads as a CTA.
+Dark palette (alternate, `[data-theme="dark"]`):
 - E0 #12161A page · E1 #191E24 panel · E2 #21272E card · E3 #2A313A raised
 - lines #333B44 / #272E36 · text #E8EAEC / #AEB6BD / #8F99A3
-- Copper #C97438 (hover #E08A47) — the ONLY warm color, ~10% of any screen
-Light palette (marketing/education pages): bg #EFF1F2 (cool, not cream),
-ink #242A31, copper #B15C24, tint #F3E3D6.
+- Copper #C97438 (hover #E08A47) — the one warm color on dark
+Light palette (alternate, `[data-theme="light"]`; backs the clinician print
+export): bg #EFF1F2 (cool, not cream), ink #242A31, copper #B15C24, tint #F3E3D6.
 
 Voice:
 - UI = instrument voice: terse mono, factual, no confetti, no guilt.

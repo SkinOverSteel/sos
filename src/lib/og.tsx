@@ -21,7 +21,7 @@ export const contentType = "image/png";
 // Warm-theme tokens (inlined; ImageResponse can't read external CSS). The card
 // sits on the cream ground so a shared link unfurls to match the site it opens.
 const E0 = "#FAF5EE";
-const COPPER = "#A4511E";
+const COPPER = "#B0462A";
 const INK = "#2A2320";
 const LOW = "#6B5F53";
 
@@ -30,7 +30,7 @@ const GRADE: Record<Grade, { label: string; color: string }> = {
   established: { label: "Established", color: "#37704F" },
   emerging: { label: "Emerging", color: "#83600F" },
   anecdote: { label: "Anecdote", color: "#5C6873" },
-  "high-risk": { label: "High risk", color: "#B23A22" },
+  "high-risk": { label: "High risk", color: "#B81E12" },
 };
 
 // Scale the hero down as the title grows so long titles still fit two lines.
@@ -77,7 +77,7 @@ function card(kicker: string, title: string, label: string, color: string) {
           justifyContent: "space-between",
           padding: 76,
           backgroundColor: E0,
-          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(164,81,30,0.16), rgba(250,245,238,0) 60%)`,
+          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(176,70,42,0.15), rgba(250,245,238,0) 60%)`,
         }}
       >
         {/* header: wordmark + grade/tool pill */}
@@ -162,7 +162,7 @@ export function rankingsOg() {
           justifyContent: "space-between",
           padding: 64,
           backgroundColor: E0,
-          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(164,81,30,0.16), rgba(250,245,238,0) 60%)`,
+          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(176,70,42,0.15), rgba(250,245,238,0) 60%)`,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>

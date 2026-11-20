@@ -1,6 +1,8 @@
-/* Skin Over Steel — design tokens v2.0
-   Single source of truth. Both brand guides render these values.
-   Dark theme is canonical for the app; light theme for marketing/education. */
+/* Skin Over Steel — design tokens
+   Single source of truth; the brand guides in /brand/ render these values.
+   WARM is the canonical app theme (set on <html data-theme="warm"> in the app;
+   see brand-guide-v3-warm.html). The dark and light scales are retained as
+   alternates — light still backs the clinician print export. */
 
 :root {
   /* type */
@@ -122,12 +124,13 @@
 
 /* ---- warm (welcoming surface) ----
    A re-theme toward approachable men's health: the cool steel canvas becomes a
-   warm cream ground, ink goes warm-brown, copper stays the one accent (reusing
-   the contrast-validated light-theme copper/grade/emergency inks on the new
-   cream surfaces). Shadows are soft and warm, geometry is rounder, and the
-   forge grain is off — the mood is a calm clinic waiting room, not a workshop.
-   Currently scoped to the homepage; the spine (evidence grades, copper accent,
-   safety red) is preserved so nothing in the brand's meaning drifts. */
+   warm cream ground, ink goes warm-brown, and a warm vital terracotta stays the
+   one accent (deepened from the light-theme copper so it clears AA on cream).
+   Shadows are soft and warm, geometry is rounder, and the forge grain is off —
+   the mood is a calm clinic waiting room, not a workshop.
+   This is the canonical app theme (set site-wide on <html data-theme="warm">).
+   The spine (evidence grades, copper accent, safety red) is preserved so
+   nothing in the brand's meaning drifts. */
 [data-theme="warm"] {
   --sos-e0: #FAF5EE;   /* warm page — cream, invitational */
   --sos-e1: #F4ECE1;   /* panel */
@@ -138,19 +141,22 @@
   --sos-text-hi: #2A2320;   /* warm near-black, ~13:1 on cream */
   --sos-text-md: #4C433B;   /* body ≥8:1 on E0 */
   --sos-text-lo: #6B5F53;
-  /* accent inks darkened for the warm surfaces: the lighter cream ground
-     needs deeper copper/grades than the cool light theme to clear WCAG AA
-     4.5:1 — each verified ≥4.5:1 on the darkest surface it sits on (E1). */
-  --sos-copper: #A4511E;      /* 5.1:1 on E0, 4.75:1 on E1 */
-  --sos-copper-hot: #8A4519;
-  --sos-copper-deep: #8A4519;
-  --sos-copper-glow: rgba(164, 81, 30, 0.12);
+  /* accent inks tuned for the warm surfaces: the lighter cream ground needs
+     deeper copper/grades than the cool light theme to clear WCAG AA 4.5:1 —
+     each verified ≥4.5:1 on the darkest surface it sits on (E1). The accent is
+     a warm, vital terracotta (healthy blood-flow / warm-oil read, not a muddy
+     brown); the medical-emergency red is pushed to a deeper true-crimson so it
+     stays unmistakably distinct from the accent. */
+  --sos-copper: #B0462A;      /* 5.2:1 on E0, 4.8:1 on E1 — vital terracotta */
+  --sos-copper-hot: #8E3620;  /* darker terracotta for hover / pressed */
+  --sos-copper-deep: #8E3620;
+  --sos-copper-glow: rgba(176, 70, 42, 0.12);
   --sos-grade-established: #37704F;  /* 4.99:1 on E1 */
   --sos-grade-emerging: #83600F;     /* 4.91:1 on E1 */
   --sos-grade-anecdote: #5C6873;
-  --sos-emergency: #B23A22;
-  --sos-emergency-glow: rgba(178, 58, 34, 0.09);
-  --sos-emergency-hot: #9E3220;
+  --sos-emergency: #B81E12;   /* true-crimson, kept distinct from the accent; 6.0:1 on E0 */
+  --sos-emergency-glow: rgba(184, 30, 18, 0.10);
+  --sos-emergency-hot: #981A0F;  /* small emergency text on cards */
 
   /* material depth: warm, low shadows do the lifting on cream; no top highlight */
   --sos-edge-hi: inset 0 0 0 transparent;

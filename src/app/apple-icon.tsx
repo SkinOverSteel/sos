@@ -20,7 +20,7 @@ export const contentType = "image/png";
 
 // Warm-theme tokens (inlined; ImageResponse can't read external CSS).
 // The tile is a saturated copper plate with a cream mark, to pop at icon size.
-const PLATE = "#AE5A24";
+const PLATE = "#B0462A";
 const MARK = "#FAF5EE";
 
 export default async function AppleIcon() {
@@ -40,7 +40,7 @@ export default async function AppleIcon() {
           justifyContent: "center",
           backgroundColor: PLATE,
           backgroundImage:
-            "radial-gradient(200px 150px at 20% 0%, rgba(230,163,104,0.42), rgba(174,90,36,0) 62%)",
+            "radial-gradient(200px 150px at 20% 0%, rgba(230,163,104,0.42), rgba(176,70,42,0) 62%)",
         }}
       >
         <div

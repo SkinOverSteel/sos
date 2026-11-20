@@ -2033,10 +2033,10 @@ a.sos-card:hover {
   font-weight: 600;
 }
 [data-theme="warm"] .sos-btn--primary {
-  box-shadow: 0 2px 8px -2px rgba(177, 92, 36, 0.4);
+  box-shadow: 0 2px 8px -2px rgba(176, 70, 42, 0.4);
 }
 [data-theme="warm"] .sos-btn--primary:hover {
-  box-shadow: 0 6px 18px -4px rgba(177, 92, 36, 0.45);
+  box-shadow: 0 6px 18px -4px rgba(176, 70, 42, 0.45);
   transform: translateY(-1px);
 }
 [data-theme="warm"] .sos-btn--ghost {

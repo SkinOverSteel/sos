@@ -12,7 +12,7 @@ const SIZE = 512;
 
 // Warm-theme tokens (inlined; ImageResponse can't read external CSS).
 const E0 = "#FAF5EE";
-const COPPER = "#A4511E";
+const COPPER = "#B0462A";
 const BONE = "#2A2320";
 
 export function GET() {
@@ -27,7 +27,7 @@ export function GET() {
           justifyContent: "center",
           padding: "56px",
           backgroundColor: E0,
-          backgroundImage: `radial-gradient(520px 360px at 12% -10%, rgba(164,81,30,0.18), rgba(250,245,238,0) 62%)`,
+          backgroundImage: `radial-gradient(520px 360px at 12% -10%, rgba(176,70,42,0.17), rgba(250,245,238,0) 62%)`,
         }}
       >
         <div

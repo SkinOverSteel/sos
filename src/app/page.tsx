@@ -39,7 +39,7 @@ export default function Home() {
         style={{
           backgroundColor: "var(--sos-e0)",
           backgroundImage:
-            "radial-gradient(1100px 620px at 6% -12%, rgba(201,116,56,0.14), rgba(250,245,238,0) 60%)," +
+            "radial-gradient(1100px 620px at 6% -12%, rgba(176,70,42,0.13), rgba(250,245,238,0) 60%)," +
             "radial-gradient(820px 480px at 104% 112%, rgba(62,122,90,0.08), rgba(250,245,238,0) 58%)",
         }}
       >
