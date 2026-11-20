@@ -75,6 +75,10 @@ export default function TreatmentCostPage() {
               Tools
             </Link>
           </li>
+          <li aria-hidden="true">›</li>
+          <li aria-current="page" style={{ color: "var(--sos-text-lo)" }}>
+            Treatment-cost estimator
+          </li>
         </ol>
       </nav>
 
