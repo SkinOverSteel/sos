@@ -5,12 +5,12 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Brand tokens (inlined; ImageResponse can't read external CSS).
-const E0 = "#12161A";
-const COPPER = "#C97438";
-const BONE = "#E8EAEC";
-const MUTED = "#AEB6BD";
-const LOW = "#78828B";
+// Warm-theme tokens (inlined; ImageResponse can't read external CSS).
+const E0 = "#FAF5EE";
+const COPPER = "#B0462A";
+const BONE = "#2A2320";
+const MUTED = "#4C433B";
+const LOW = "#6B5F53";
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -24,7 +24,7 @@ export default function OpengraphImage() {
           justifyContent: "center",
           padding: "80px",
           backgroundColor: E0,
-          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(201,116,56,0.18), rgba(18,22,26,0) 60%)`,
+          backgroundImage: `radial-gradient(900px 520px at 15% -10%, rgba(176,70,42,0.15), rgba(250,245,238,0) 60%)`,
         }}
       >
         <div
