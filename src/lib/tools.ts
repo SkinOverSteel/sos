@@ -35,6 +35,16 @@ export const tools: Tool[] = [
     status: "live",
   },
   {
+    slug: "assay-grader",
+    title: "Blood panel assay grader",
+    blurb:
+      "Grade a testosterone panel on the thing that decides whether the number is worth anything — the assay method — not the price. LC-MS/MS vs. immunoassay, calculated vs. direct free T.",
+    brief:
+      "Is that panel's assay any good? Grade it on method, not price, before you buy.",
+    kind: "Grader",
+    status: "live",
+  },
+  {
     slug: "treatment-cost",
     title: "ED-treatment cost estimator",
     blurb:
