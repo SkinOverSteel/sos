@@ -201,6 +201,72 @@ export default function ReadYourLabsPage() {
         <LabBands />
       </Figure>
 
+      <Section title="Before the draw">
+        <p className="sos-prose" style={{ marginBottom: "14px" }}>
+          A few things you control change the number more than most people
+          realize. Get these right and the result is worth reading.
+        </p>
+        <ul className="sos-prose" style={list}>
+          <li>
+            <strong>Go in the morning, 8–10 AM.</strong>{" "}Testosterone peaks
+            early and drifts down through the day. Guidelines set the diagnostic
+            standard at two early-morning draws for a reason.
+          </li>
+          <li>
+            <strong>Fast 8–12 hours for the metabolic markers.</strong>{" "}Fasting
+            glucose, insulin, HOMA-IR and triglycerides are only meaningful
+            fasted. Water and prescription meds are fine; black coffee is not
+            worth the gamble.
+          </li>
+          <li>
+            <strong>Hold high-dose biotin for a couple of days.</strong>{" "}The
+            B7 in hair, skin and nail supplements can distort hormone
+            immunoassays, throwing results falsely high or low. The FDA flags it
+            for exactly this. If you take a megadose, stop 2–3 days before and
+            tell the lab.
+          </li>
+          <li>
+            <strong>Not during acute illness or on no sleep.</strong>{" "}A fever,
+            a hard crash, or a few wrecked nights can transiently suppress
+            testosterone. A bad week is not your baseline.
+          </li>
+        </ul>
+      </Section>
+
+      <Section title="The assay matters as much as the number">
+        <p className="sos-prose" style={{ marginBottom: "14px" }}>
+          Two labs can run &ldquo;testosterone&rdquo; and mean different tests.
+          At the low end, where a diagnosis is actually made, the method
+          decides whether the number can be trusted. This is the part a cheap
+          panel quietly cuts.
+        </p>
+        <ul className="sos-prose" style={list}>
+          <li>
+            <strong>Total testosterone: ask for LC-MS/MS.</strong>{" "}Liquid
+            chromatography&ndash;mass spectrometry (or a lab certified through
+            the CDC&apos;s HoSt accuracy program) is what guidelines point to.
+            Older direct immunoassays are least reliable precisely at the low
+            concentrations that matter for a workup.
+          </li>
+          <li>
+            <strong>Free testosterone: calculated or equilibrium dialysis, not
+            the &ldquo;direct&rdquo; test.</strong>{" "}The reference method is
+            equilibrium dialysis. The accessible, validated alternative is a{" "}
+            <em>calculated</em> free T from total T, SHBG and albumin &mdash;
+            which you can{" "}
+            <Link href="/tools/free-testosterone">run yourself</Link>. The cheap
+            &ldquo;direct analog&rdquo; free-T immunoassay is widely considered
+            unreliable; don&apos;t pay extra for it.
+          </li>
+          <li>
+            <strong>Read the test name, not just the price.</strong>{" "}If the
+            product page won&apos;t tell you the method, that is information too.{" "}
+            <Link href="/learn/testosterone-test-cost">What a test costs</Link>{" "}
+            lists which labs name their assay.
+          </li>
+        </ul>
+      </Section>
+
       <Section title="How to actually read it">
         <ul className="sos-prose" style={list}>
           <li>
@@ -241,6 +307,19 @@ export default function ReadYourLabsPage() {
           <a href="https://www.ncbi.nlm.nih.gov/books/NBK532933/" target="_blank" rel="noopener noreferrer">StatPearls: Male Hypogonadism</a>;{" "}
           <a href="https://www.ncbi.nlm.nih.gov/books/NBK278954/" target="_blank" rel="noopener noreferrer">Endotext: Assessing Insulin Sensitivity (HOMA-IR)</a>; and{" "}
           <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8280753/" target="_blank" rel="noopener noreferrer">C-reactive protein in risk stratification</a>. Glucose/HbA1c thresholds per the American Diabetes Association.
+        </p>
+        <p className="sos-note" style={{ marginBottom: "12px" }}>
+          On assay method and preparation: the preference for LC-MS/MS or a
+          CDC HoSt&ndash;certified assay for total testosterone, and for
+          equilibrium dialysis or a calculated free testosterone over the
+          direct immunoassay, is from Bhasin S, et al.{" "}
+          <a href="https://doi.org/10.1210/jc.2018-00229" target="_blank" rel="noopener noreferrer">
+            Endocrine Society Clinical Practice Guideline, J Clin Endocrinol
+            Metab. 2018;103(5):1715&ndash;1744
+          </a>. Biotin interference with hormone immunoassays:{" "}
+          <a href="https://www.fda.gov/medical-devices/in-vitro-diagnostics/biotin-interference-troponin-lab-tests-assays-subject-biotin-interference" target="_blank" rel="noopener noreferrer">
+            FDA Safety Communication, updated November 2019
+          </a>.
         </p>
         <p className="sos-note">
           General education, not medical advice, and not a diagnostic tool.
