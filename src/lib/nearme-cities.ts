@@ -40,6 +40,7 @@ function envCap(name: string, fallback: number): number {
 const PRERENDER_CAP: Record<"trt" | "glp1", number> = {
   trt: envCap("NEARME_PRERENDER_TRT", 150),
   glp1: envCap("NEARME_PRERENDER_GLP1", 400),
+  glp1: envCap("NEARME_PRERENDER_GLP1", 150),
 };
 
 /**
