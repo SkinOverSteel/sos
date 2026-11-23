@@ -2,7 +2,7 @@
 //
 // Input:  us-atlas counties-10m TopoJSON (WGS84 lon/lat), which carries the
 //         nation, state, and county objects over one shared arc set.
-// Output: three compact, simplified JSON files in public/geo/ that the app
+// Output: three compact, simplified JSON files in src/data/geo/ that the app
 //         serves same-origin (CSP stays closed, no tile server, no runtime
 //         decoder). All three share the same simplified arcs, so a county
 //         border never drifts from its state border or the coastline.
@@ -21,7 +21,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const SRC = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
-const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "public", "geo");
+const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "geo");
 // Douglas-Peucker tolerance in degrees, per layer. States/nation are only ever
 // seen at national-to-state zoom, so they can be coarse; counties show at metro
 // zoom and need more detail. Coords round to 3 decimals (~110 m), well under a

@@ -10,7 +10,9 @@ import path from "node:path";
 //   vitals.vercel-insights.com.
 // - The Near Me data shards (hex layers, POIs, zips) are fetched from Vercel
 //   Blob in production (NEXT_PUBLIC_NEARME_DATA_BASE), hence its host in
-//   connect-src. Nothing else is fetched cross-origin.
+//   connect-src. The map's geography outlines are fetched from the same Blob
+//   store in production (NEXT_PUBLIC_GEO_BASE) and covered by the same host.
+//   Nothing else is fetched cross-origin.
 const csp = [
   "default-src 'self'",
   "base-uri 'self'",

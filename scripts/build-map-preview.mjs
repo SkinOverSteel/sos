@@ -4,7 +4,7 @@
 //   npm run map:preview        # after the ETL re-exports public/data/nearme
 //
 // Reads the r4 US hex layer (NEXT_PUBLIC_NEARME_DATA_BASE when it is a URL,
-// else the local public/data/nearme copy), the geography in public/geo, the
+// else the local public/data/nearme copy), the geography in src/data/geo, the
 // metro list in src/data/nearme, and the warm palette from brand/tokens.css,
 // then writes public/map/us-preview.svg. Commit the result; it changes only
 // when the data does. Projection and bands match components/nearme/HexMap.
@@ -47,8 +47,8 @@ async function layer(path) {
   return JSON.parse(readFileSync(`public${base}/${path}`, "utf8"));
 }
 const hex = await layer("us/hex-r4.json");
-const nation = JSON.parse(readFileSync("public/geo/us-nation.json", "utf8"));
-const states = JSON.parse(readFileSync("public/geo/us-states.json", "utf8"));
+const nation = JSON.parse(readFileSync("src/data/geo/us-nation.json", "utf8"));
+const states = JSON.parse(readFileSync("src/data/geo/us-states.json", "utf8"));
 const metros = JSON.parse(readFileSync("src/data/nearme/metros.json", "utf8"));
 
 // Integer, relative coordinates with repeated points collapsed: the same

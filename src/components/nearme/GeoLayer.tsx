@@ -21,7 +21,14 @@ type Nation = { polys: Ring[][] };
 type States = { lines: Ring[]; labels: { a: string; lon: number; lat: number }[] };
 type Counties = { lines: Ring[]; major: Ring[] };
 
-const geoUrl = (name: string) => `/geo/${name}`;
+// Where the simplified US geography outlines are served from. Unset (dev and
+// any build without it), the files are staged into public/geo and served
+// same-origin; in production NEXT_PUBLIC_GEO_BASE points at the Vercel Blob
+// store (same store as the data shards) so ~1 MB of outlines stays out of the
+// deployment's build output. The Blob host is already in the CSP connect-src
+// for the shards. See scripts/stage-geo.mjs and scripts/upload-geo.mjs.
+const GEO_BASE = (process.env.NEXT_PUBLIC_GEO_BASE ?? "/geo").replace(/\/$/, "");
+const geoUrl = (name: string) => `${GEO_BASE}/${name}`;
 
 /** Cache across mounts/regions so panning between pages never refetches. */
 const cache = new Map<string, Promise<unknown>>();

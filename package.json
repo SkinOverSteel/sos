@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/stage-geo.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/stage-geo.mjs",
     "build": "next build",
     "postbuild": "node scripts/check-jsx-whitespace.mjs",
     "start": "next start",
@@ -12,6 +14,7 @@
     "gsc:index": "node scripts/gsc-request-indexing.mjs",
     "test:e2e": "playwright test",
     "data:upload": "node scripts/upload-nearme-data.mjs",
+    "geo:upload": "node scripts/upload-geo.mjs",
     "map:preview": "node scripts/build-map-preview.mjs",
     "prices:check": "node scripts/check-lab-prices.mjs",
     "citations:build": "node scripts/build-citations.mjs"

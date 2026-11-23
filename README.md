@@ -88,11 +88,22 @@ CI sets the variable to the public store URL, which needs no token. The small
 build-time summaries (`src/data/nearme/*.json`) stay in git.
 
 The map's geography layer is separate from those shards. Simplified US land,
-state, and county outlines live in `public/geo/` (committed, served
-same-origin so the CSP stays closed — no tile server) and sit under the hex
-grid as a coastline and state-line backdrop. They rarely change; regenerate
-them from us-atlas with `node scripts/build-geo.mjs` if the boundaries need a
-refresh.
+state, and county outlines (~1 MB) sit under the hex grid as a coastline and
+state-line backdrop. The source is committed in `src/data/geo/`; they rarely
+change, so regenerate them from us-atlas with `node scripts/build-geo.mjs` if
+the boundaries need a refresh. Like the shards, they are served from the Blob
+store in production so they stay out of each deployment's build output:
+
+1. `BLOB_READ_WRITE_TOKEN=… npm run geo:upload` (idempotent; `--dry-run`
+   lists changes). Prints the base URL.
+2. Set `NEXT_PUBLIC_GEO_BASE` in Vercel (Production + Preview) to it, e.g.
+   `https://<store>.public.blob.vercel-storage.com/geo`.
+
+Unset, `scripts/stage-geo.mjs` (run on `predev`/`prebuild`) copies the
+outlines into `public/geo/` so they serve same-origin — dev, CI, and any build
+without the variable keep working with no token. `public/geo/` is gitignored.
+The Blob host is already in the CSP `connect-src` for the shards, and the
+outlines are fetched by the browser, so an upload is live without a redeploy.
 
 ## Notes
 

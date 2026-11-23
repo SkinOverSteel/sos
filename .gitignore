@@ -52,3 +52,8 @@ next-env.d.ts
 # Near Me data shards: written by etl/aggregate_h3.py, served from Vercel Blob
 # (NEXT_PUBLIC_NEARME_DATA_BASE; see README "Near Me data"). Never committed.
 /public/data/nearme/
+
+# Map geography outlines: source committed in src/data/geo/, staged here for
+# local serving by scripts/stage-geo.mjs, served from Vercel Blob in production
+# (NEXT_PUBLIC_GEO_BASE; see README "Near Me data"). Never committed.
+/public/geo/
