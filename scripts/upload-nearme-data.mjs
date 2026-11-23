@@ -2,12 +2,16 @@
 // the same relative paths, so NEXT_PUBLIC_NEARME_DATA_BASE can point at the
 // store and the 40+ MB of shards stay out of the repo.
 //
-//   BLOB_READ_WRITE_TOKEN=... node scripts/upload-nearme-data.mjs [--prune] [--dry-run]
+//   BLOB_READ_WRITE_TOKEN=... node scripts/upload-nearme-data.mjs [--no-prune] [--dry-run]
 //
 // Idempotent: a file is skipped when the store already holds the same bytes
 // (compared by size + sha256 recorded in a manifest next to the data).
-// --prune deletes store files that no longer exist locally (a stale state or
-// metro after a region change). Prints the base URL to put in Vercel's env.
+// This is a SYNC: by default it also deletes store files the local shards no
+// longer reference (a stale state/metro after a region change, or orphans left
+// by an earlier run that wrote random-suffixed paths) so the Blob store cannot
+// grow without bound. Pass --no-prune to upload only and leave the store alone.
+// --dry-run previews uploads and prunes without writing (needs the token to
+// read the current store). Prints the base URL to put in Vercel's env.
 //
 // The city pages are prerendered from the shards at build time, so a refresh
 // is only live after a redeploy. Set VERCEL_DEPLOY_HOOK (Vercel → project →
@@ -22,7 +26,8 @@ import { del, list, put } from "@vercel/blob";
 const ROOT = join(process.cwd(), "public", "data", "nearme");
 const PREFIX = "data/nearme/";
 const dry = process.argv.includes("--dry-run");
-const prune = process.argv.includes("--prune");
+// Reconcile by default so orphaned shards can't accumulate; --no-prune opts out.
+const prune = !process.argv.includes("--no-prune");
 
 if (!process.env.BLOB_READ_WRITE_TOKEN && !dry) {
   console.error("BLOB_READ_WRITE_TOKEN is not set (create a Blob store in Vercel → Storage, then pull the token).");
@@ -45,8 +50,10 @@ if (files.length === 0) {
 }
 
 // What the store already holds (size + sha256 from the previous manifest).
+// Listing is read-only, so do it whenever a token is available — this lets a
+// --dry-run with the token preview real skips and the prune set.
 const existing = new Map();
-if (!dry) {
+if (process.env.BLOB_READ_WRITE_TOKEN) {
   let cursor;
   do {
     const page = await list({ prefix: PREFIX, cursor, limit: 1000 });
@@ -108,16 +115,25 @@ if (!dry) {
 }
 
 let pruned = 0;
-if (prune && !dry) {
+let reclaimed = 0;
+if (prune) {
   const keep = new Set([...Object.keys(next).map((r) => PREFIX + r), `${PREFIX}manifest.json`]);
   const stale = [...existing.keys()].filter((p) => !keep.has(p));
+  for (const p of stale) reclaimed += existing.get(p).size ?? 0;
   if (stale.length) {
-    await del(stale.map((p) => existing.get(p).url));
+    if (dry) {
+      for (const p of stale) console.log(`would prune ${p} (${((existing.get(p).size ?? 0) / 1024).toFixed(0)} KB)`);
+    } else {
+      // del accepts up to 1000 urls per call; chunk in case the orphan backlog is large.
+      const urls = stale.map((p) => existing.get(p).url);
+      for (let i = 0; i < urls.length; i += 1000) await del(urls.slice(i, i + 1000));
+    }
     pruned = stale.length;
   }
 }
 
-console.log(`${uploaded} uploaded, ${skipped} unchanged, ${pruned} pruned, ${files.length} files total`);
+const reclaimedMsg = pruned ? `, ${(reclaimed / 1024 / 1024).toFixed(1)} MB ${dry ? "would be " : ""}reclaimed` : "";
+console.log(`${uploaded} uploaded, ${skipped} unchanged, ${pruned} pruned${reclaimedMsg}, ${files.length} files total`);
 if (base) {
   console.log(`\nNEXT_PUBLIC_NEARME_DATA_BASE=${base}`);
 }
