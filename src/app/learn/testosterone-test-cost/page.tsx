@@ -158,6 +158,15 @@ export default function TestosteroneTestCostPage() {
             <Link href="/tools/free-testosterone">estimate free testosterone</Link>{" "}
             yourself, which is what the larger panels are selling.
           </li>
+          <li>
+            <strong>Check the assay, not just the price.</strong>{" "}For total
+            testosterone the method to want is mass spectrometry (LC-MS/MS); for
+            free testosterone, equilibrium dialysis or a calculated value, not
+            the cheaper &ldquo;direct&rdquo; immunoassay. The test names in the
+            table above say which is which, and{" "}
+            <Link href="/learn/read-your-labs">read your labs</Link> explains why
+            the method changes how much the number is worth.
+          </li>
         </ul>
         <p className="sos-prose" style={{ fontSize: "16px", marginTop: "14px" }}>
           The full baseline a clinician wants before talking about therapy is

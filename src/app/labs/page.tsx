@@ -99,10 +99,19 @@ export default function LabsPage() {
             })}
           </ul>
           {panel.id === "baseline" ? (
-            <p className="sos-note">
-              Have total testosterone and SHBG already?{" "}
-              <Link href="/tools/free-testosterone">Estimate free testosterone</Link>.
-            </p>
+            <>
+              <p className="sos-note">
+                Draw it in the morning (8&ndash;10 AM), fast 8&ndash;12 hours for
+                the metabolic markers, and hold high-dose biotin for a couple of
+                days so it can&apos;t skew the hormone assays.{" "}
+                <Link href="/learn/read-your-labs">Read your labs</Link> covers
+                prep and why the assay method matters.
+              </p>
+              <p className="sos-note">
+                Have total testosterone and SHBG already?{" "}
+                <Link href="/tools/free-testosterone">Estimate free testosterone</Link>.
+              </p>
+            </>
           ) : null}
           {panel.id === "on-therapy" ? (
             <p className="sos-note">
