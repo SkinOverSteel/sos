@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { CityPage, cityMetadata, cityStaticParams } from "@/components/nearme/CityPage";
 
-export const dynamicParams = false;
+// Prerender only the busiest cities (generateStaticParams); the rest render on
+// first request and are then cached (ISR), keeping the long tail out of each
+// deployment's build output. Unknown/ineligible slugs still 404 in CityPage.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return cityStaticParams("trt");

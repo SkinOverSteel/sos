@@ -19,7 +19,7 @@ import {
   titleCase,
   type Kind,
 } from "@/lib/nearme";
-import { cityBySlug, citiesWithPages } from "@/lib/nearme-cities";
+import { cityBySlug, citiesToPrerender, citiesWithPages } from "@/lib/nearme-cities";
 import { poisInCity } from "@/lib/nearme-server";
 
 /**
@@ -55,8 +55,14 @@ const COPY: Record<PageKind, { noun: string; article: { href: string; title: str
   },
 };
 
+/**
+ * Params prerendered at build time — the busiest cities per kind only (see
+ * citiesToPrerender). The rest of the eligible cities render on first request
+ * via `dynamicParams = true` on the route, which keeps the long tail out of the
+ * deployment's build output without 404ing or dropping them from the sitemap.
+ */
 export function cityStaticParams(kind: PageKind) {
-  return citiesWithPages(kind).map((c) => ({ state: c.state.toLowerCase(), city: c.slug }));
+  return citiesToPrerender(kind).map((c) => ({ state: c.state.toLowerCase(), city: c.slug }));
 }
 
 export function cityMetadata(kind: PageKind, state: string, slug: string): Metadata {
