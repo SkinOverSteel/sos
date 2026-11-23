@@ -255,6 +255,24 @@ export const faqs: Record<string, Faq[]> = {
       a: "No real evaluation, no labs, no monitoring, and a prescription in ninety seconds. A good visit bridges you toward care; a pill mill just sells.",
     },
   ],
+  "assay-grader": [
+    {
+      q: "What makes one testosterone panel better than another?",
+      a: "Mostly the assay method, not the price. For total testosterone, mass spectrometry (LC-MS/MS) or a CDC HoSt–certified assay is the most reliable at the low levels where a diagnosis is made; older direct immunoassays are weakest there. For free testosterone, a calculated value or equilibrium dialysis beats the cheaper direct analog immunoassay.",
+    },
+    {
+      q: "Is a direct free testosterone test accurate?",
+      a: "The cheap direct (analog) free-testosterone immunoassay is widely considered unreliable. A calculated free testosterone from total T, SHBG and albumin is more trustworthy and costs nothing extra to work out, which is why panels that include SHBG are more useful than ones selling a direct free-T number.",
+    },
+    {
+      q: "Do I need SHBG on my panel?",
+      a: "It is worth having. SHBG lets free testosterone be estimated when a total result is borderline, and low SHBG is also a metabolic signal tied to insulin resistance. It is often sold as an add-on, so check whether your panel includes it.",
+    },
+    {
+      q: "Does this tool diagnose low testosterone?",
+      a: "No. It grades whether a blood panel can support a workup — whether it uses the right tests and methods — not what any result means. Interpreting a value is a clinician's job, based on your symptoms, the trend, and your lab's reference range.",
+    },
+  ],
   "testosterone-test-cost": [
     {
       q: "How much is a testosterone test without insurance?",
