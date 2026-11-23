@@ -1,10 +1,31 @@
 # skinoversteel.com
 
-Website for **Skin Over Steel** (SOS) — a men's health platform covering sexual health, hormonal optimization, and harm reduction, with evidence-graded editorial content and a vetted provider directory.
+Website for **Skin Over Steel** (SOS) — a men's sexual-health platform pairing
+evidence-graded education with a harm-reduction safety layer and a vetted,
+transparent provider directory. "The conversation your urologist doesn't have
+time for" — bridging toward medicine, never around it.
 
 - **Canonical domain:** <https://skinoversteel.com> (www → non-www redirect handled at the host/Vercel level)
 - **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
 - **Hosting:** Vercel
+
+## What's here
+
+- **Open Floor** (`/learn`, `/methodology`, `/tools`) — the free, indexable
+  education library. Every claim carries a visible evidence grade; articles
+  emit `MedicalWebPage`/`FAQPage` structured data for search and AI agents.
+- **Safety layer** (`/support`) — harm-reduction first and permanent in nav:
+  the trimix priapism rescue ladder, "when to go to the ER", and
+  mental-health/crisis resources.
+- **Provider directory** (`/directory`, `/labs`, `/near-me`, `/map`) —
+  licensed blood testing, compounding pharmacies, and telemedicine, ranked on a
+  trust standard that never reads affiliate status (see below).
+- **The Log** (`/log`) — a private n=1 protocol tracker. Baseline →
+  intervention → weekly check-ins → outcome, with a one-page clinician export.
+  Stored entirely in the member's browser (`localStorage`): no account, no
+  sync, no network call.
+
+Project context and the hard content/safety lines live in `CLAUDE.md`.
 
 ## Local development
 
@@ -15,42 +36,71 @@ npm install
 npm run dev
 ```
 
-Open <http://localhost:3000>.
+Open <http://localhost:3000>. No environment variables are needed for local
+development — the Near Me data and map geography are staged locally, and the DB
+and newsletter features degrade gracefully when their variables are unset.
 
 ## Scripts
 
-| Command         | Description                                        |
-| --------------- | -------------------------------------------------- |
-| `npm run dev`   | Start the dev server (Turbopack)                   |
-| `npm run build` | Production build                                   |
-| `npm run start` | Serve the production build                         |
-| `npm run lint`  | Run ESLint                                         |
-| `npm run gsc`   | Google Search Console report (`scripts/gsc-report.mjs`) |
-| `npm run test:e2e` | Playwright browser tests against the production build (`e2e/`) |
-| `npm run data:upload` | Push the Near Me data shards to Vercel Blob (`scripts/upload-nearme-data.mjs`) |
-| `npm run map:preview` | Re-render the homepage's static national map, `public/map/us-preview.svg`, from the r4 shard (`scripts/build-map-preview.mjs`); commit the result after a data refresh |
-| `node scripts/build-geo.mjs` | Rebuild the static map geography in `public/geo/` (`scripts/build-geo.mjs`) |
+| Command                      | Description                                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------------------------ |
+| `npm run dev`                | Start the dev server                                                                             |
+| `npm run build`              | Production build (`postbuild` runs the JSX-whitespace check)                                     |
+| `npm run start`              | Serve the production build                                                                        |
+| `npm run lint`               | Run ESLint                                                                                        |
+| `npm run test:e2e`           | Playwright browser tests against the production build (`e2e/`)                                    |
+| `npm run citations:build`    | Regenerate `src/lib/sources.ts` from each `/learn` article's Sources section (`build-citations.mjs`) |
+| `npm run prices:check`       | Verify published lab prices still appear on the source product pages (`check-lab-prices.mjs`)     |
+| `npm run gsc`                | Google Search Console report (`gsc-report.mjs`)                                                   |
+| `npm run gsc:index`          | Request Google indexing for new/updated sitemap URLs (`gsc-request-indexing.mjs`)                 |
+| `npm run data:upload`        | Push the Near Me data shards to Vercel Blob (`upload-nearme-data.mjs`)                            |
+| `npm run geo:upload`         | Push the map geography outlines to Vercel Blob (`upload-geo.mjs`)                                 |
+| `npm run map:preview`        | Re-render the homepage's static national map, `public/map/us-preview.svg` (`build-map-preview.mjs`); commit the result after a data refresh |
+| `node scripts/build-geo.mjs` | Rebuild the static map geography in `src/data/geo/` from us-atlas (`build-geo.mjs`)               |
+
+## Environment variables
+
+All optional; the site builds and runs without any of them.
+
+| Variable                       | Used by                        | Notes                                                                 |
+| ------------------------------ | ------------------------------ | --------------------------------------------------------------------- |
+| `NEXT_PUBLIC_NEARME_DATA_BASE` | Near Me map/lookup             | Base URL of the Blob store for data shards. Unset → local copies.     |
+| `NEXT_PUBLIC_GEO_BASE`         | Map geography                  | Base URL of the Blob store for outlines. Unset → staged locally.      |
+| `BLOB_READ_WRITE_TOKEN`        | `data:upload`, `geo:upload`    | Vercel Blob write token (scripts only; not needed at runtime).        |
+| `DATABASE_URL`                 | `POST /api/near-me/submit`     | Postgres. Unset → provider-suggestion submissions are accepted no-op. |
+| `BUTTONDOWN_API_KEY`           | `POST /api/subscribe`          | Newsletter (Buttondown). Unset → subscribe is a no-op.                |
+
+`NEXT_PUBLIC_*` values are inlined at build time, so changing them requires a
+redeploy. See the Near Me section below for the Blob setup flow.
+
+## API routes
+
+| Route                   | Purpose                                                               |
+| ----------------------- | --------------------------------------------------------------------- |
+| `GET  /api/health`      | Liveness endpoint for uptime monitors (dynamic, never cached).        |
+| `POST /api/subscribe`   | Newsletter sign-up via Buttondown.                                    |
+| `POST /api/near-me/submit` | Pending provider suggestions → Postgres (`etl/schema.sql`); no email field. |
 
 ## Repository structure
 
-| Path        | Contents                                            |
-| ----------- | --------------------------------------------------- |
-| `src/`      | Application code (App Router pages, components, `lib/`) |
-| `public/`   | Static assets                                       |
-| `brand/`    | Brand assets and design references                  |
-| `scripts/`  | Operational scripts (GSC reporting, indexing requests) |
+| Path        | Contents                                                |
+| ----------- | ------------------------------------------------------- |
+| `src/`      | Application code (App Router pages, components, `lib/`)  |
+| `public/`   | Static assets                                           |
+| `brand/`    | Brand assets, design references, and `tokens.css`       |
+| `scripts/`  | Operational scripts (data, geo, GSC, citations, prices) |
+| `etl/`      | Near Me dataset build + DB schema                       |
 | `e2e/`      | Playwright browser tests (the Log flow, brand-voice copy lint) |
-| `.github/`  | CI: lint, typecheck, build, browser tests on every PR |
-| `.claude/`  | Claude Code configuration                           |
-| `CLAUDE.md` | Project context for Claude Code                     |
-| `AGENTS.md` | Agent instructions, incl. Next.js 16 conventions    |
+| `.github/`  | CI: lint, typecheck, build, browser tests on every PR   |
+| `CLAUDE.md` | Project context for Claude Code                         |
+| `AGENTS.md` | Agent instructions, incl. Next.js 16 conventions        |
 
 ## Affiliate link mechanism
 
 Consumer-facing disclosure lives on the site itself (see `src/lib/providers.ts`
 and the directory components). This section documents the invariants for anyone
-editing that code. Editorial ranking and referral monetization are decoupled by
-design:
+editing that code. **Editorial ranking and referral monetization are decoupled
+by design:**
 
 - A listing renders as a paid referral **only** when its tracking URL is
   present in `src/lib/providers.ts`. The same check drives both the FTC
@@ -60,8 +110,7 @@ design:
 - Issued links live in `src/lib/providers.ts` so they are reviewable in the
   diff. `providerLink()` reads whatever string `affiliateUrl` holds, so a
   `NEXT_PUBLIC_*` environment variable set in Vercel works for links that
-  shouldn't be committed (env vars are inlined at build time — a change
-  requires a redeploy either way).
+  shouldn't be committed.
 - Tracking links are used exactly as issued. Their query params carry the
   attribution — never rewrite them, never route them through an internal
   redirect.
@@ -110,3 +159,5 @@ outlines are fetched by the browser, so an upload is live without a redeploy.
 - This project uses Next.js 16 — see `AGENTS.md`; check the bundled docs in
   `node_modules/next/dist/docs/` before relying on older conventions.
 - SEO canonical URLs are configured via `metadataBase` in `src/app/layout.tsx`.
+- Design tokens are the single source of truth in `brand/tokens.css`; derive
+  new UI colors and type from tokens, never hardcoded hex.
