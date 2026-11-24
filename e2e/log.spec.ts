@@ -242,6 +242,42 @@ test.describe("The Log", () => {
     expect(errors, errors.join("\n")).toEqual([]);
   });
 
+  test("warns about failed saves and recovers when storage becomes writable", async ({ page }) => {
+    await page.addInitScript(() => {
+      const setItem = Storage.prototype.setItem;
+      Storage.prototype.setItem = function (key: string, value: string) {
+        if (key === "sos.log.v1" && document.documentElement.dataset.blockLogStorage !== "false") {
+          throw new DOMException("Storage is full", "QuotaExceededError");
+        }
+        setItem.call(this, key, value);
+      };
+    });
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/log");
+    await page.getByRole("button", { name: "Start a log" }).click();
+
+    const warning = page.getByRole("alert").filter({ hasText: "couldn't save your changes" });
+    await expect(warning).toBeVisible();
+    const sections = page.getByRole("navigation", { name: "Log sections" });
+    await sections.getByRole("link", { name: "Baseline", exact: true }).click();
+    await expect(page).toHaveURL(/#log-step-1$/);
+    await expect(page.getByRole("heading", { name: "Baseline", exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(375);
+
+    const [backup] = await Promise.all([
+      page.waitForEvent("download"),
+      page.getByRole("button", { name: "Download backup" }).click(),
+    ]);
+    expect(backup.suggestedFilename()).toMatch(/^sos-log-/);
+
+    await page.evaluate(() => { document.documentElement.dataset.blockLogStorage = "false"; });
+    await page.getByLabel("Notes").first().fill("Recovered save");
+    await expect(warning).toHaveCount(0);
+    await expect(page.getByText(/saved in this browser/)).toBeVisible();
+    await page.reload();
+    await expect(page.getByLabel("Notes").first()).toHaveValue("Recovered save");
+  });
+
   test("never sends anything over the network", async ({ page }) => {
     const requests: string[] = [];
     page.on("request", (r) => {
