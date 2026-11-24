@@ -213,11 +213,15 @@ function isObject(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null && !Array.isArray(v);
 }
 
+function isScore(v: unknown, min: number, max: number): v is number {
+  return typeof v === "number" && Number.isInteger(v) && v >= min && v <= max;
+}
+
 function isBaseline(v: unknown): v is Baseline {
   if (!isObject(v)) return false;
   return (
     typeof v.date === "string" &&
-    (v.shim === null || typeof v.shim === "number") &&
+    (v.shim === null || isScore(v.shim, 5, 25)) &&
     typeof v.notes === "string"
   );
 }
@@ -227,8 +231,8 @@ function isCheckIn(v: unknown): v is CheckIn {
   return (
     typeof v.id === "string" &&
     typeof v.date === "string" &&
-    typeof v.firmness === "number" &&
-    typeof v.confidence === "number" &&
+    isScore(v.firmness, 1, 5) &&
+    isScore(v.confidence, 1, 5) &&
     typeof v.sideEffects === "string" &&
     typeof v.notes === "string"
   );
@@ -238,7 +242,7 @@ function isIntervention(v: unknown): v is Intervention {
   if (!isObject(v)) return false;
   return (
     typeof v.category === "string" &&
-    v.category in INTERVENTIONS &&
+    Object.hasOwn(INTERVENTIONS, v.category) &&
     typeof v.name === "string" &&
     typeof v.regimen === "string" &&
     typeof v.prescriber === "string" &&
@@ -251,8 +255,8 @@ function isOutcome(v: unknown): v is Outcome {
   return (
     typeof v.date === "string" &&
     typeof v.result === "string" &&
-    v.result in OUTCOME_LABELS &&
-    (v.shim === null || typeof v.shim === "number") &&
+    Object.hasOwn(OUTCOME_LABELS, v.result) &&
+    (v.shim === null || isScore(v.shim, 5, 25)) &&
     typeof v.summary === "string"
   );
 }

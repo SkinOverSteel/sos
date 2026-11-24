@@ -84,6 +84,50 @@ test.describe("The Log", () => {
     expect(errors).toEqual([]);
   });
 
+  test("persists reopening and individual check-in removal", async ({ page }) => {
+    await page.goto("/log");
+    await page.getByRole("button", { name: "Start a log" }).click();
+
+    await expect(page.getByText("Record the intervention first.")).toHaveCount(2);
+    await expect(page.getByRole("button", { name: "Close this log" })).toHaveCount(0);
+    await page.getByLabel("Category").selectOption("lifestyle");
+    const addCheckin = page.getByRole("button", { name: "Add check-in" });
+    await expect(addCheckin).toBeDisabled();
+
+    await page.getByRole("button", { name: "Close this log" }).click();
+    await expect(page.getByText(/Stage · Closed/)).toBeVisible();
+
+    const firmness = page.getByRole("group", { name: "Hard enough for penetration" })
+      .getByRole("button", { name: "3", exact: true });
+    const confidence = page.getByRole("group", { name: "Confidence" })
+      .getByRole("button", { name: "4", exact: true });
+    await page.getByLabel("Date", { exact: true }).nth(1).fill("2026-08-05");
+    await firmness.click();
+    await expect(addCheckin).toBeDisabled();
+    await confidence.click();
+    await addCheckin.click();
+    await expect(page.getByText(/Stage · Closed · 1 check-in/)).toBeVisible();
+
+    await page.getByLabel("Date", { exact: true }).nth(1).fill("2026-08-12");
+    await firmness.click();
+    await confidence.click();
+    await addCheckin.click();
+
+    const firstCheckin = page.getByRole("button", { name: "Remove check-in from Aug 5, 2026" });
+    const secondCheckin = page.getByRole("button", { name: "Remove check-in from Aug 12, 2026" });
+    await page.reload();
+    await expect(page.getByText(/Stage · Closed · 2 check-ins/)).toBeVisible();
+    await firstCheckin.click();
+    await expect(page.getByText(/Stage · Closed · 1 check-in/)).toBeVisible();
+
+    await page.getByRole("button", { name: "Reopen the log" }).click();
+    await page.reload();
+    await expect(page.getByText(/Stage · Active · 1 check-in/)).toBeVisible();
+    await expect(firstCheckin).toHaveCount(0);
+    await expect(secondCheckin).toBeVisible();
+    await expect(page.getByRole("button", { name: "Close this log" })).toBeVisible();
+  });
+
   test("unsupervised compounds get the high-risk badge and a support pointer", async ({ page }) => {
     await page.goto("/log");
     await page.getByRole("button", { name: "Start a log" }).click();
@@ -148,8 +192,7 @@ test.describe("The Log", () => {
     await restore("notjson.json", "this is not json");
     await expect(page.getByText("isn't a Skin Over Steel log backup")).toBeVisible();
 
-    // A real backup loads: the start screen gives way to the tracker.
-    const valid = JSON.stringify({
+    const baselineBackup = {
       version: 1,
       createdAt: "2026-01-01T00:00:00.000Z",
       updatedAt: "2026-01-01T00:00:00.000Z",
@@ -157,8 +200,42 @@ test.describe("The Log", () => {
       intervention: null,
       checkins: [],
       outcome: null,
-    });
-    await restore("good.json", valid);
+    };
+    const intervention = {
+      category: "lifestyle",
+      name: "Synthetic intervention",
+      regimen: "",
+      prescriber: "",
+      started: "2026-01-01",
+    };
+    const invalidBackups = [
+      { ...baselineBackup, intervention: { ...intervention, category: "constructor" } },
+      {
+        ...baselineBackup,
+        intervention,
+        outcome: { date: "2026-01-02", result: "toString", shim: null, summary: "" },
+      },
+      { ...baselineBackup, baseline: { ...baselineBackup.baseline, shim: 26 } },
+      {
+        ...baselineBackup,
+        intervention,
+        checkins: [{
+          id: "synthetic",
+          date: "2026-01-02",
+          firmness: 3,
+          confidence: 0,
+          sideEffects: "",
+          notes: "",
+        }],
+      },
+    ];
+    for (const [index, backup] of invalidBackups.entries()) {
+      await restore(`invalid-${index}.json`, JSON.stringify(backup));
+      await expect(page.getByText("isn't a Skin Over Steel log backup")).toBeVisible();
+      await expect(page.getByRole("button", { name: "Start a log" })).toBeVisible();
+    }
+
+    await restore("good.json", JSON.stringify(baselineBackup));
     await expect(page.getByRole("button", { name: "Start a log" })).toHaveCount(0);
     await expect(page.getByLabel("SHIM score (5–25)")).toHaveValue("14");
 
