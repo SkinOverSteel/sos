@@ -2113,3 +2113,108 @@ a.sos-card:hover {
 [data-theme="warm"] .sos-lib__title {
   font-weight: 700;
 }
+
+/* The Log */
+.sos-log-page { width: 100%; min-width: 0; max-width: 960px; }
+
+.sos-log-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.4fr);
+  gap: clamp(20px, 5vw, 64px);
+  align-items: end;
+  margin: clamp(24px, 6vw, 76px) 0 clamp(24px, 4vw, 44px);
+}
+
+.sos-log-intro .sos-home__section-head { margin: 0; }
+
+.sos-log-privacy {
+  padding: 16px 18px;
+  border-inline-start: 2px solid var(--sos-copper);
+  background: var(--sos-e1);
+}
+
+.sos-log-privacy h2,
+.sos-log-empty h2,
+.sos-log-section-head h2 {
+  color: var(--sos-text-hi);
+  font-family: var(--sos-sans);
+  font-weight: 700;
+}
+
+.sos-log-privacy p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.sos-log-empty {
+  display: grid;
+  gap: 12px;
+  padding: clamp(20px, 5vw, 48px);
+  background: linear-gradient(120deg, var(--sos-e2), var(--sos-e1));
+}
+
+.sos-log-empty h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+.sos-log-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.sos-log-empty .sos-log-actions { margin-top: 4px; }
+
+.sos-log-status,
+.sos-log-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sos-log-status {
+  padding: 14px 16px;
+  border: 1px solid var(--sos-line);
+  background: var(--sos-e1);
+}
+
+.sos-log-status p { margin: 0; }
+.sos-log-status strong { color: var(--sos-text-hi); }
+
+.sos-log-storage-warning {
+  margin: 12px 0 0;
+  padding: 12px 16px;
+  border-inline-start: 2px solid var(--sos-copper);
+  background: var(--sos-e1);
+}
+
+.sos-log-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+
+.sos-log-steps a {
+  display: grid;
+  min-height: 44px;
+  align-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--sos-line);
+  color: var(--sos-text-hi);
+  font: 500 0.8rem var(--sos-mono);
+}
+
+.sos-log-steps a:hover { border-color: var(--sos-copper); }
+
+.sos-log-section { margin-bottom: 18px; scroll-margin-top: 100px; }
+.sos-log-section-head { margin-bottom: 18px; }
+.sos-log-section-head h2 { display: flex; gap: 12px; align-items: center; font-size: 1.3rem; }
+
+.sos-log-section-head h2 span,
+.sos-log-recorded { font: 500 0.75rem var(--sos-mono); }
+
+.sos-log-section-head h2 span { color: var(--sos-copper); }
+.sos-log-recorded { color: var(--sos-grade-established); }
+.sos-log-table { overflow-x: auto; }
+.sos-log-table table { min-width: 28rem; overflow-wrap: anywhere; }
+
+@media (max-width: 640px) {
+  .sos-log-intro { grid-template-columns: 1fr; }
+  .sos-log-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

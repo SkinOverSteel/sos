@@ -3,7 +3,6 @@ import { StepHeader } from "@/components/StepHeader";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { LogTool } from "@/components/LogToolLazy";
-import { MorseSOS } from "@/components/MorseSOS";
 import { SITE } from "@/lib/site";
 import { SignalRail } from "@/components/SignalRail";
 
@@ -32,24 +31,23 @@ const jsonLd = {
 
 export default function LogPage() {
   return (
-    <div className="sos-container">
+    <div className="sos-container sos-log-page">
       <JsonLd data={jsonLd} />
 
-      <StepHeader as="h1" step="track" title="One protocol, start to finish" className="sos-page-head">
-        Baseline, the intervention you and your prescriber chose, a short
-        weekly check-in, and the outcome. Then one page you can hand to a
-        clinician, with the evidence grade attached. It lives in this browser
-        and nowhere else: no account, no sync, nothing sent to us.
-      </StepHeader>
-
-      <p className="sos-note" style={{ maxWidth: "60ch", marginBottom: "18px" }}>
-        That also means it&apos;s only as safe as this device. Download a backup
-        before you clear your browser, and don&apos;t keep a log on a shared
-        computer. Dosing is always your prescriber&apos;s call; the Log records
-        it, it never suggests it.
-      </p>
-
-      <MorseSOS style={{ margin: "28px 0 34px" }} />
+      <div className="sos-log-intro">
+        <StepHeader as="h1" step="track" title="One protocol, start to finish">
+          Record a baseline, an intervention, and weekly check-ins. Print a
+          one-page summary to bring to your clinician.
+        </StepHeader>
+        <aside className="sos-log-privacy" aria-label="Log privacy">
+          <h2>Private to this browser</h2>
+          <p>
+            No account or sync. Download a backup before clearing browser data
+            and avoid keeping a log on a shared device.
+          </p>
+          <p>Dosing is your prescriber&apos;s call. The Log records what you enter.</p>
+        </aside>
+      </div>
 
       <LogTool />
 

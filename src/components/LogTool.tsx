@@ -61,25 +61,13 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="sos-card" style={{ marginBottom: "18px" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "12px",
-          flexWrap: "wrap",
-          marginBottom: "18px",
-        }}
-      >
-        <p className="sos-kicker" style={{ margin: 0 }}>
-          {num} · <b>{title}</b>
-        </p>
-        {done && (
-          <span className="sos-q-num" style={{ color: "var(--sos-grade-established)" }}>
-            Recorded
-          </span>
-        )}
+    <section className="sos-card sos-log-section" id={`log-step-${num}`} aria-labelledby={`log-title-${num}`}>
+      <div className="sos-log-section-head">
+        <h2 id={`log-title-${num}`}>
+          <span aria-hidden="true">{num.padStart(2, "0")}</span>
+          {title}
+        </h2>
+        {done && <span className="sos-log-recorded">Recorded</span>}
       </div>
       {children}
     </section>
@@ -188,12 +176,15 @@ export function LogTool() {
       ? new Date().toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
       : "",
   );
+  const [saved, setSaved] = useState(true);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [importError, setImportError] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
 
   function commit(next: Log) {
-    setLog(saveLog(next));
+    const result = saveLog(next);
+    setLog(result.log);
+    setSaved(result.saved);
   }
 
   // Drafts for the add-a-check-in form.
@@ -213,16 +204,10 @@ export function LogTool() {
 
   if (!log) {
     return (
-      <div className="sos-card sos-card--deep">
-        <p className="sos-kicker" style={{ marginBottom: "12px" }}>
-          No log on this device
-        </p>
-        <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "18px" }}>
-          A log is one protocol, start to finish: where you began, what you and
-          your prescriber chose, a short weekly check-in, and how it ended. It
-          lives in this browser only. Nothing is sent to us.
-        </p>
-        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+      <div className="sos-card sos-log-empty">
+        <h2>Start your log</h2>
+        <p className="sos-note">Start with your baseline or pick up from a backup.</p>
+        <div className="sos-log-actions">
           <button
             type="button"
             className="sos-btn sos-btn--primary"
@@ -369,24 +354,14 @@ export function LogTool() {
 
   return (
     <div>
-      {/* status strip */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "12px",
-          flexWrap: "wrap",
-          marginBottom: "22px",
-        }}
-      >
-        <p className="sos-q-num" style={{ margin: 0 }}>
-          Stage · <span style={{ color: "var(--sos-text-hi)" }}>{stage}</span>
+      <div className="sos-log-status">
+        <p className="sos-q-num" aria-live="polite">
+          Stage · <strong>{stage}</strong>
           {" · "}
           {log.checkins.length} check-in{log.checkins.length === 1 ? "" : "s"}
-          {" · "}saved in this browser
+          {saved && " · saved in this browser"}
         </p>
-        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+        <div className="sos-log-actions">
           <button type="button" className="sos-btn sos-btn--ghost" style={ghostBtn} onClick={download}>
             Download backup
           </button>
@@ -425,6 +400,18 @@ export function LogTool() {
           )}
         </div>
       </div>
+
+      {!saved && (
+        <p className="sos-log-storage-warning" role="alert">
+          This browser couldn&apos;t save your changes. Download a backup before closing or reloading this page.
+        </p>
+      )}
+      <nav className="sos-log-steps" aria-label="Log sections">
+        <a href="#log-step-1">Baseline</a>
+        <a href="#log-step-2">Intervention</a>
+        <a href="#log-step-3">Weekly check-in</a>
+        <a href="#log-step-4">Outcome</a>
+      </nav>
 
       {/* 1 · baseline */}
       <Section num="1" title="Baseline" done={Boolean(log.baseline.notes || log.baseline.shim)}>
@@ -671,54 +658,56 @@ export function LogTool() {
 
             {trendBlock}
             {sorted.length > 0 && (
-              <table
-                style={{
-                  width: "100%",
-                  borderCollapse: "collapse",
-                  fontFamily: "var(--sos-mono)",
-                  fontSize: "13px",
-                  marginTop: "24px",
-                }}
-              >
-                <thead>
-                  <tr style={{ color: "var(--sos-text-lo)", textAlign: "left" }}>
-                    <th style={{ padding: "6px 0", fontWeight: 500 }}>Wk</th>
-                    <th style={{ padding: "6px 0", fontWeight: 500 }}>Date</th>
-                    <th style={{ padding: "6px 0", fontWeight: 500 }}>Firm</th>
-                    <th style={{ padding: "6px 0", fontWeight: 500 }}>Conf</th>
-                    <th style={{ padding: "6px 0", fontWeight: 500 }}>Side effects</th>
-                    <th aria-label="Remove" />
-                  </tr>
-                </thead>
-                <tbody>
-                  {sorted.map((c) => (
-                    <tr key={c.id} style={{ borderTop: "1px solid var(--sos-line)", color: "var(--sos-text-md)" }}>
-                      <td style={{ padding: "8px 8px 8px 0" }}>{weekOf(log, c.date)}</td>
-                      <td style={{ padding: "8px 8px 8px 0" }}>{formatDate(c.date)}</td>
-                      <td style={{ padding: "8px 8px 8px 0", color: "var(--sos-text-hi)" }}>{c.firmness}</td>
-                      <td style={{ padding: "8px 8px 8px 0", color: "var(--sos-text-hi)" }}>{c.confidence}</td>
-                      <td style={{ padding: "8px 8px 8px 0" }}>{c.sideEffects || "—"}</td>
-                      <td style={{ padding: "8px 0", textAlign: "right" }}>
-                        <button
-                          type="button"
-                          onClick={() => removeCheckin(c.id)}
-                          aria-label={`Remove check-in from ${formatDate(c.date)}`}
-                          style={{
-                            background: "none",
-                            border: 0,
-                            color: "var(--sos-text-lo)",
-                            cursor: "pointer",
-                            fontFamily: "var(--sos-mono)",
-                            fontSize: "12px",
-                          }}
-                        >
-                          remove
-                        </button>
-                      </td>
+              <div className="sos-log-table" role="region" aria-label="Recorded check-ins" tabIndex={0}>
+                <table
+                  style={{
+                    width: "100%",
+                    borderCollapse: "collapse",
+                    fontFamily: "var(--sos-mono)",
+                    fontSize: "13px",
+                    marginTop: "24px",
+                  }}
+                >
+                  <thead>
+                    <tr style={{ color: "var(--sos-text-lo)", textAlign: "left" }}>
+                      <th style={{ padding: "6px 0", fontWeight: 500 }}>Wk</th>
+                      <th style={{ padding: "6px 0", fontWeight: 500 }}>Date</th>
+                      <th style={{ padding: "6px 0", fontWeight: 500 }}>Firm</th>
+                      <th style={{ padding: "6px 0", fontWeight: 500 }}>Conf</th>
+                      <th style={{ padding: "6px 0", fontWeight: 500 }}>Side effects</th>
+                      <th aria-label="Remove" />
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {sorted.map((c) => (
+                      <tr key={c.id} style={{ borderTop: "1px solid var(--sos-line)", color: "var(--sos-text-md)" }}>
+                        <td style={{ padding: "8px 8px 8px 0" }}>{weekOf(log, c.date)}</td>
+                        <td style={{ padding: "8px 8px 8px 0" }}>{formatDate(c.date)}</td>
+                        <td style={{ padding: "8px 8px 8px 0", color: "var(--sos-text-hi)" }}>{c.firmness}</td>
+                        <td style={{ padding: "8px 8px 8px 0", color: "var(--sos-text-hi)" }}>{c.confidence}</td>
+                        <td style={{ padding: "8px 8px 8px 0" }}>{c.sideEffects || "—"}</td>
+                        <td style={{ padding: "8px 0", textAlign: "right" }}>
+                          <button
+                            type="button"
+                            onClick={() => removeCheckin(c.id)}
+                            aria-label={`Remove check-in from ${formatDate(c.date)}`}
+                            style={{
+                              background: "none",
+                              border: 0,
+                              color: "var(--sos-text-lo)",
+                              cursor: "pointer",
+                              fontFamily: "var(--sos-mono)",
+                              fontSize: "12px",
+                            }}
+                          >
+                            remove
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
           </>
         )}

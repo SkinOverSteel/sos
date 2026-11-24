@@ -286,15 +286,14 @@ export function loadLog(): Log | null {
   }
 }
 
-export function saveLog(log: Log): Log {
+export function saveLog(log: Log): { log: Log; saved: boolean } {
   const next = { ...log, updatedAt: new Date().toISOString() };
   try {
     window.localStorage.setItem(LOG_STORAGE_KEY, JSON.stringify(next));
+    return { log: next, saved: true };
   } catch {
-    // Private mode or blocked storage: the log still lives in React state for
-    // this session, and the UI says so.
+    return { log: next, saved: false };
   }
-  return next;
 }
 
 export function clearLog(): void {
