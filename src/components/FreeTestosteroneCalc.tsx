@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { trackSafeEvent } from "@/lib/analytics";
+import { parseScenarioPreset } from "@/lib/scenarios";
 
 /**
  * Free & bioavailable testosterone by the Vermeulen method (Vermeulen A, et al.
@@ -100,6 +102,24 @@ export function FreeTestosteroneCalc() {
   const [stamp, setStamp] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const preset = parseScenarioPreset(params.get("scenario"));
+    if (preset && preset.kind === "free-t") {
+      setTotalT(preset.totalT);
+      setTUnit(preset.tUnit);
+      setShbg(preset.shbg);
+      setAlbumin(preset.albumin);
+      setShown(true);
+      trackSafeEvent("tool_launched", {
+        tool: "free-testosterone",
+        scenario: preset.id,
+      });
+    } else {
+      trackSafeEvent("tool_launched", { tool: "free-testosterone" });
+    }
+  }, []);
+
   const tt = parseFloat(totalT);
   const sh = parseFloat(shbg);
   const albRaw = albumin.trim() === "" ? (aUnit === "g/dL" ? 4.3 : 43) : parseFloat(albumin);
@@ -113,6 +133,7 @@ export function FreeTestosteroneCalc() {
   function calculate() {
     if (!valid) return;
     setShown(true);
+    trackSafeEvent("calculator_calculated", { tool: "free-testosterone" });
     setStamp(
       new Date().toLocaleDateString("en-US", {
         year: "numeric",

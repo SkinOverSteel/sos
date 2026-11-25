@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { trackSafeEvent } from "@/lib/analytics";
+import { parseScenarioPreset } from "@/lib/scenarios";
 
 /**
  * ED / TRT treatment-cost estimator. Adds up the real stack (labs, consult,
@@ -207,6 +209,21 @@ export function TreatmentCostCalc() {
   // TRT
   const [weeklyMg, setWeeklyMg] = useState("120");
   const [trtChannel, setTrtChannel] = useState<TrtChannel>("compounding");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const preset = parseScenarioPreset(params.get("scenario"));
+    if (preset && preset.kind === "cost") {
+      setTrack(preset.track);
+      if (preset.edChannel) setEdChannel(preset.edChannel);
+      trackSafeEvent("tool_launched", {
+        tool: "treatment-cost",
+        scenario: preset.id,
+      });
+    } else {
+      trackSafeEvent("tool_launched", { tool: "treatment-cost" });
+    }
+  }, []);
   const [vialRetail, setVialRetail] = useState(String(TRT_VIAL_RETAIL));
   const [compDiscount, setCompDiscount] = useState(String(COMPOUNDING_DISCOUNT_DEFAULT));
   const [clinicMonthly, setClinicMonthly] = useState(String(CLINIC_BUNDLE_MONTHLY));
