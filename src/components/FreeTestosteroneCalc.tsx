@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { trackSafeEvent } from "@/lib/analytics";
+import { parseScenarioPreset } from "@/lib/scenarios";
 import { PrepPacketBanner } from "@/components/PrepPacketBanner";
 import { updatePacket } from "@/lib/prep-packet";
 
@@ -92,15 +94,30 @@ function ExportRow({ k, v }: { k: string; v: string }) {
   );
 }
 
+function getInitialFreeTPreset() {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  const preset = parseScenarioPreset(params.get("scenario"));
+  return preset && preset.kind === "free-t" ? preset : null;
+}
+
 export function FreeTestosteroneCalc() {
-  const [totalT, setTotalT] = useState("");
-  const [tUnit, setTUnit] = useState<TUnit>("ng/dL");
-  const [shbg, setShbg] = useState("");
-  const [albumin, setAlbumin] = useState("");
+  const [initialPreset] = useState(getInitialFreeTPreset);
+  const [totalT, setTotalT] = useState(() => initialPreset?.totalT ?? "");
+  const [tUnit, setTUnit] = useState<TUnit>(() => initialPreset?.tUnit ?? "ng/dL");
+  const [shbg, setShbg] = useState(() => initialPreset?.shbg ?? "");
+  const [albumin, setAlbumin] = useState(() => initialPreset?.albumin ?? "");
   const [aUnit, setAUnit] = useState<AUnit>("g/dL");
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(() => Boolean(initialPreset));
   const [stamp, setStamp] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    trackSafeEvent("tool_launched", {
+      tool: "free-testosterone",
+      ...(initialPreset ? { scenario: initialPreset.id } : {}),
+    });
+  }, [initialPreset]);
 
   const tt = parseFloat(totalT);
   const sh = parseFloat(shbg);
@@ -135,6 +152,14 @@ export function FreeTestosteroneCalc() {
       },
     }));
     setShown(true);
+    trackSafeEvent("calculator_calculated", { tool: "free-testosterone" });
+    setStamp(
+      new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+    );
     setStamp(dateStr);
     requestAnimationFrame(() => resultRef.current?.focus());
   }

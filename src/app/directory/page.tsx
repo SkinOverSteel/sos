@@ -241,14 +241,38 @@ function ProviderCard({ provider: p }: { provider: Provider }) {
           href={link.href}
           target="_blank"
           rel={link.rel}
-          data-track="directory_outbound"
+          data-track={link.isReferral ? "partner_link_clicked" : "directory_outbound"}
           data-track-provider={p.slug}
           data-track-category={p.category}
           data-track-referral={link.isReferral ? "yes" : "no"}
           style={{ fontFamily: "var(--sos-mono)", fontSize: "12px", color: "var(--sos-copper-hot)" }}
         >
-          Visit →
+          {link.isReferral ? "Visit partner →" : "Visit →"}
         </a>
+      </div>
+
+      <div
+        style={{
+          marginTop: "10px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "8px",
+          fontSize: "12px",
+          color: "var(--sos-text-lo)",
+        }}
+      >
+        <span>
+          <strong>Trust criteria:</strong> Licensed &amp; vetted · Paid
+          placements never alter rank
+        </span>
+        <Link
+          href="/tools/treatment-cost?scenario=ed-cash-vs-subscription"
+          style={{ textDecoration: "underline", color: "var(--sos-text-md)" }}
+        >
+          Compare cash vs. subscription cost →
+        </Link>
       </div>
 
       {link.isReferral && (
