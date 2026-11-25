@@ -189,8 +189,16 @@ const num = (s: string, d = 0) => {
   return Number.isFinite(v) && v >= 0 ? v : d;
 };
 
+function getInitialCostPreset() {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  const preset = parseScenarioPreset(params.get("scenario"));
+  return preset && preset.kind === "cost" ? preset : null;
+}
+
 export function TreatmentCostCalc() {
-  const [track, setTrack] = useState<Track>("ed");
+  const [initialPreset] = useState(getInitialCostPreset);
+  const [track, setTrack] = useState<Track>(() => initialPreset?.track ?? "ed");
 
   // Shared: labs + consult
   const [labCost, setLabCost] = useState("150");
@@ -202,7 +210,9 @@ export function TreatmentCostCalc() {
 
   // ED
   const [drug, setDrug] = useState<EdDrug>("sildenafil");
-  const [edChannel, setEdChannel] = useState<EdChannel>("coupon");
+  const [edChannel, setEdChannel] = useState<EdChannel>(
+    () => initialPreset?.edChannel ?? "coupon"
+  );
   const [dosesPerMonth, setDosesPerMonth] = useState("8");
   const [tabOverride, setTabOverride] = useState("");
 
@@ -211,19 +221,11 @@ export function TreatmentCostCalc() {
   const [trtChannel, setTrtChannel] = useState<TrtChannel>("compounding");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const preset = parseScenarioPreset(params.get("scenario"));
-    if (preset && preset.kind === "cost") {
-      setTrack(preset.track);
-      if (preset.edChannel) setEdChannel(preset.edChannel);
-      trackSafeEvent("tool_launched", {
-        tool: "treatment-cost",
-        scenario: preset.id,
-      });
-    } else {
-      trackSafeEvent("tool_launched", { tool: "treatment-cost" });
-    }
-  }, []);
+    trackSafeEvent("tool_launched", {
+      tool: "treatment-cost",
+      ...(initialPreset ? { scenario: initialPreset.id } : {}),
+    });
+  }, [initialPreset]);
   const [vialRetail, setVialRetail] = useState(String(TRT_VIAL_RETAIL));
   const [compDiscount, setCompDiscount] = useState(String(COMPOUNDING_DISCOUNT_DEFAULT));
   const [clinicMonthly, setClinicMonthly] = useState(String(CLINIC_BUNDLE_MONTHLY));

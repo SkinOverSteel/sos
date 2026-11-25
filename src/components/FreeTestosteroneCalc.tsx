@@ -92,33 +92,30 @@ function ExportRow({ k, v }: { k: string; v: string }) {
   );
 }
 
+function getInitialFreeTPreset() {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  const preset = parseScenarioPreset(params.get("scenario"));
+  return preset && preset.kind === "free-t" ? preset : null;
+}
+
 export function FreeTestosteroneCalc() {
-  const [totalT, setTotalT] = useState("");
-  const [tUnit, setTUnit] = useState<TUnit>("ng/dL");
-  const [shbg, setShbg] = useState("");
-  const [albumin, setAlbumin] = useState("");
+  const [initialPreset] = useState(getInitialFreeTPreset);
+  const [totalT, setTotalT] = useState(() => initialPreset?.totalT ?? "");
+  const [tUnit, setTUnit] = useState<TUnit>(() => initialPreset?.tUnit ?? "ng/dL");
+  const [shbg, setShbg] = useState(() => initialPreset?.shbg ?? "");
+  const [albumin, setAlbumin] = useState(() => initialPreset?.albumin ?? "");
   const [aUnit, setAUnit] = useState<AUnit>("g/dL");
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(() => Boolean(initialPreset));
   const [stamp, setStamp] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const preset = parseScenarioPreset(params.get("scenario"));
-    if (preset && preset.kind === "free-t") {
-      setTotalT(preset.totalT);
-      setTUnit(preset.tUnit);
-      setShbg(preset.shbg);
-      setAlbumin(preset.albumin);
-      setShown(true);
-      trackSafeEvent("tool_launched", {
-        tool: "free-testosterone",
-        scenario: preset.id,
-      });
-    } else {
-      trackSafeEvent("tool_launched", { tool: "free-testosterone" });
-    }
-  }, []);
+    trackSafeEvent("tool_launched", {
+      tool: "free-testosterone",
+      ...(initialPreset ? { scenario: initialPreset.id } : {}),
+    });
+  }, [initialPreset]);
 
   const tt = parseFloat(totalT);
   const sh = parseFloat(shbg);
