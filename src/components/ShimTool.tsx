@@ -4,6 +4,8 @@ import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { PrepPacketBanner } from "@/components/PrepPacketBanner";
+import { updatePacket } from "@/lib/prep-packet";
 
 /**
  * The SHIM / IIEF-5 self-check: an interactive, client-only scoring of the
@@ -160,14 +162,22 @@ export function ShimTool() {
 
   function reveal() {
     if (!complete) return;
+    const dateStr = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+    const computedBand = bandFor(total);
+    updatePacket((prev) => ({
+      ...prev,
+      symptomBaseline: {
+        score: total,
+        severity: computedBand.label,
+        date: dateStr,
+      },
+    }));
     setShown(true);
-    setStamp(
-      new Date().toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      }),
-    );
+    setStamp(dateStr);
     // Move focus to the readout so screen readers announce it and keyboard
     // users land on the result. rAF lets the region mount first.
     requestAnimationFrame(() => resultRef.current?.focus());
@@ -331,6 +341,11 @@ export function ShimTool() {
             Start over
           </button>
         </div>
+
+        <PrepPacketBanner
+          visible={Boolean(band)}
+          label="SHIM score added to your Clinician Prep Packet"
+        />
 
         <div className="sos-clinician" style={{ marginTop: "30px" }}>
           <div
