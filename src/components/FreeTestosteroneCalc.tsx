@@ -4,6 +4,8 @@ import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ClinicianLetterhead } from "@/components/ClinicianLetterhead";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
+import { PrepPacketBanner } from "@/components/PrepPacketBanner";
+import { updatePacket } from "@/lib/prep-packet";
 
 /**
  * Free & bioavailable testosterone by the Vermeulen method (Vermeulen A, et al.
@@ -111,15 +113,29 @@ export function FreeTestosteroneCalc() {
   }, [valid, tt, tUnit, sh, albRaw, aUnit]);
 
   function calculate() {
-    if (!valid) return;
+    if (!valid || !result) return;
+    const dateStr = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+    updatePacket((prev) => ({
+      ...prev,
+      labSnapshot: {
+        ...prev.labSnapshot,
+        totalT: tt,
+        totalTUnit: tUnit,
+        shbg: sh,
+        albumin: aUnit === "g/dL" ? albRaw : Number((albRaw / 10).toFixed(2)),
+        freeT: result.freeNgdl,
+        bioavailableT: result.bioNgdl,
+        freeTPct: result.freePct,
+        bioavailableTPct: result.bioPct,
+        date: dateStr,
+      },
+    }));
     setShown(true);
-    setStamp(
-      new Date().toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      }),
-    );
+    setStamp(dateStr);
     requestAnimationFrame(() => resultRef.current?.focus());
   }
   function clear() {
@@ -332,7 +348,12 @@ export function FreeTestosteroneCalc() {
             </Link>
           </div>
 
-          <p className="sos-note" style={{ marginBottom: "16px" }}>
+          <PrepPacketBanner
+            visible={shown && Boolean(result)}
+            label="Lab snapshot added to your Clinician Prep Packet"
+          />
+
+          <p className="sos-note" style={{ marginBottom: "16px", marginTop: "16px" }}>
             An <strong style={{ color: "var(--sos-text-md)" }}>estimate</strong>{" "}
             by the Vermeulen method, not a diagnosis, and not a substitute for your lab&apos;s
             own reference range.
