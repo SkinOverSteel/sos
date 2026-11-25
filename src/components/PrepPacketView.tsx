@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import {
   clearPacket,
@@ -16,17 +16,25 @@ import {
   updatePacket,
 } from "@/lib/prep-packet";
 
+const emptySubscribe = () => () => {};
+
 export function PrepPacketView() {
-  const [packet, setPacket] = useState<ClinicianPrepPacket>(createEmptyPacket);
-  const [logSummary, setLogSummary] = useState<LogSummary | null>(null);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+  const [packet, setPacket] = useState<ClinicianPrepPacket>(() =>
+    typeof window === "undefined" ? createEmptyPacket() : loadPacket()
+  );
+  const logSummary = useMemo<LogSummary | null>(
+    () => (mounted ? readLogSummary() : null),
+    [mounted]
+  );
   const [copied, setCopied] = useState(false);
   const [newQuestion, setNewQuestion] = useState("");
 
   useEffect(() => {
-    setPacket(loadPacket());
-    setLogSummary(readLogSummary());
-    setMounted(true);
     return subscribePacket((next) => setPacket(next));
   }, []);
 
