@@ -1721,6 +1721,162 @@ a.sos-card:hover {
   }
 }
 
+/* the tools, as a table-like list: icon · name · one-line payoff · arrow.
+   Rows on hairlines, aligned on one grid, so the instruments read as a rack
+   rather than a set of floating cards. */
+.sos-home__tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--sos-line);
+}
+.sos-home__tools li {
+  border-bottom: 1px solid var(--sos-line-soft);
+}
+.sos-home__tool {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 20px 6px;
+  text-decoration: none;
+  transition: background var(--sos-dur);
+}
+.sos-home__tool:hover {
+  background: var(--sos-e1);
+}
+.sos-home__tool:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sos-copper-glow);
+  border-radius: 8px;
+}
+.sos-home__tool-ic {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  color: var(--sos-copper);
+  background: var(--sos-e1);
+  border: 1px solid var(--sos-line);
+  border-radius: var(--sos-radius-md);
+  transition: color var(--sos-dur), background var(--sos-dur), border-color var(--sos-dur);
+}
+.sos-home__tool:hover .sos-home__tool-ic {
+  color: var(--sos-e0);
+  background: var(--sos-copper);
+  border-color: var(--sos-copper);
+}
+.sos-home__tool-ic svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.sos-home__tool-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sos-home__tool-name {
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 19px;
+  line-height: 1.2;
+  color: var(--sos-text-hi);
+  transition: color var(--sos-dur);
+}
+.sos-home__tool:hover .sos-home__tool-name {
+  color: var(--sos-copper);
+}
+.sos-home__tool-pay {
+  font-family: var(--sos-serif);
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--sos-text-md);
+}
+.sos-home__tool-arrow {
+  font-family: var(--sos-mono);
+  font-size: 18px;
+  color: var(--sos-copper);
+  flex: none;
+}
+@media (max-width: 560px) {
+  .sos-home__tool {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 16px;
+  }
+  .sos-home__tool-arrow {
+    display: none;
+  }
+}
+
+/* ---- the footer as the steel base: the whole site rests on it ----
+   The warm skin ends and the engineered base begins. Copper is remapped
+   locally so the wordmark, signature, and links read as copper-on-steel. */
+.sos-foot {
+  --sos-copper: var(--sos-copper-on-steel-fill);
+  --sos-copper-hot: var(--sos-copper-on-steel);
+  margin-top: var(--sos-space-8);
+  background-color: var(--sos-steel);
+  background-image: var(--sos-steel-grain);
+  color: var(--sos-on-steel);
+  border-top: 1px solid var(--sos-copper-on-steel-fill);
+}
+.sos-foot__in {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 24px 48px;
+}
+.sos-foot__nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.sos-foot__link {
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--sos-on-steel);
+  text-decoration: none;
+  transition: color var(--sos-dur);
+}
+.sos-foot__link:hover {
+  color: var(--sos-copper-on-steel);
+}
+.sos-foot__copy {
+  font-family: var(--sos-mono);
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--sos-on-steel);
+  max-width: 68ch;
+  margin: 0;
+}
+.sos-foot__sig {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--sos-steel-line-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.sos-foot__sig .sos-morse.dim i {
+  background: var(--sos-copper-on-steel-fill);
+}
+.sos-foot__tag {
+  font-family: var(--sos-serif);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--sos-copper-on-steel);
+  margin: 0;
+}
+
 /* ======================================================================
    THE READING SURFACE — long-form editorial (the Open Floor article page).
    A sticky table-of-contents rail in the left gutter, a reading-progress

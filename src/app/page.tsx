@@ -3,6 +3,7 @@ import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { StepHeader } from "@/components/StepHeader";
 import { UtilityPanel } from "@/components/UtilityPanel";
+import { ToolIcon } from "@/components/ToolIcon";
 import { SignalRail } from "@/components/SignalRail";
 import { articles } from "@/lib/articles";
 import { ROUTES } from "@/lib/routes";
@@ -181,16 +182,25 @@ export default function Home() {
             your browser and nowhere else. Each ends in something you can take
             to an appointment.
           </StepHeader>
-          <div className={`sos-home__grid sos-home__grid--${liveTools.length % 3 === 0 ? 3 : 2}`}>
+          {/* The instruments as a table-like rack: icon · name · payoff · arrow,
+              aligned on one grid rather than stacked as cards. */}
+          <ul className="sos-home__tools">
             {liveTools.map((t) => (
-              <Link key={t.slug} href={`/tools/${t.slug}`} className="sos-home__tile">
-                <span className="sos-kicker">{t.kind}</span>
-                <h3 className="sos-home__tile-title">{t.title}</h3>
-                <p className="sos-home__tile-body">{t.brief ?? t.blurb}</p>
-                <p className="sos-home__tile-foot">Open the {t.kind.toLowerCase()} →</p>
-              </Link>
+              <li key={t.slug}>
+                <Link href={`/tools/${t.slug}`} className="sos-home__tool">
+                  <span className="sos-home__tool-ic">
+                    <ToolIcon slug={t.slug} />
+                  </span>
+                  <span className="sos-home__tool-main">
+                    <span className="sos-kicker">{t.kind}</span>
+                    <span className="sos-home__tool-name">{t.title}</span>
+                    <span className="sos-home__tool-pay">{t.brief ?? t.blurb}</span>
+                  </span>
+                  <span className="sos-home__tool-arrow" aria-hidden="true">→</span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
           <p className="sos-note" style={{ marginTop: "18px" }}>
             Not sure what to have drawn first?{" "}
             <Link href="/labs" data-track="labs_entry" data-track-from="home">
