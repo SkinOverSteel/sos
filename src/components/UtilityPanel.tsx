@@ -66,6 +66,7 @@ export function UtilityPanel({
   idPrefix = "panel",
   heading = "The tools",
   headingHidden = false,
+  steel = false,
   as: Tag = "h2",
 }: {
   rows?: UtilityKey[];
@@ -75,13 +76,18 @@ export function UtilityPanel({
   /** Homepage: suppress the visible title (the h1 already carries the voice)
    *  while keeping the panel's accessible name. */
   headingHidden?: boolean;
+  /** Homepage: render the panel as the machined steel instrument module.
+   *  The article end-matter panel keeps the warm card. */
+  steel?: boolean;
   as?: "h2" | "h3";
 }) {
   const zipId = `${idPrefix}-zip`;
   const headId = `${idPrefix}-head`;
   return (
     <aside
-      className="sos-home__panel"
+      className={
+        steel ? "sos-home__panel sos-home__panel--steel sos-steel--reg" : "sos-home__panel"
+      }
       {...(headingHidden ? { "aria-label": heading } : { "aria-labelledby": headId })}
     >
       <div className="sos-home__panel-head">
