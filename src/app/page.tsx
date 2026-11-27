@@ -17,6 +17,19 @@ import { liveTools } from "@/lib/tools";
  * then track the protocol. The editorial standard that backs all of it is one
  * link in the rail; it earns trust on the article page, not on the front door.
  */
+/**
+ * The four-step journey, surfaced on the front door as a steel rail under the
+ * hero: the rigid spine the whole site runs on. Steps are fixed site-wide and
+ * mirror the section workflow (01 Understand / 02 Measure / 03 Find care /
+ * 04 Track); the notes restate each section's promise in one instrument line.
+ */
+const SPINE: { step: string; verb: string; note: string }[] = [
+  { step: "01", verb: "Understand", note: "Read the page that fits where you're stuck." },
+  { step: "02", verb: "Measure", note: "Turn the worry into a number you can take in." },
+  { step: "03", verb: "Find care", note: "Someone licensed near you, ranked on trust." },
+  { step: "04", verb: "Track", note: "One protocol, baseline to outcome, on a page." },
+];
+
 const LOG_PHASES: { name: string; note: string }[] = [
   { name: "Baseline", note: "Your score and labs, before anything changes." },
   { name: "Intervention", note: "The protocol exactly as prescribed." },
@@ -72,9 +85,27 @@ export default function Home() {
               </div>
             </div>
 
-            {/* The instrument panel: zip finder, self-check, the Log */}
-            <UtilityPanel idPrefix="home" headingHidden />
+            {/* The instrument panel: zip finder, self-check, the Log —
+                rendered as the machined steel instrument module. */}
+            <UtilityPanel idPrefix="home" headingHidden steel />
           </div>
+
+          {/* The journey, as the steel spine under the hero: a measurement
+              ruler marking the handoff from warm copy into the rigid rail the
+              whole site runs on. Decorative only; labelled for assistive tech. */}
+          <div className="sos-ruler" aria-hidden="true" />
+          <ol className="sos-home__spine sos-steel sos-steel--reg" aria-label="How Skin Over Steel works, in four steps">
+            {SPINE.map((s) => (
+              <li key={s.step} className="sos-home__spine-step">
+                <span className="sos-home__spine-ghost" aria-hidden="true">
+                  {s.step}
+                </span>
+                <span className="sos-home__spine-n">{s.step}</span>
+                <span className="sos-home__spine-v">{s.verb}</span>
+                <span className="sos-home__spine-d">{s.note}</span>
+              </li>
+            ))}
+          </ol>
 
           {/* The signal rail: what this is, in instrument voice. The editorial
               standard lives here as one link, not as a section. */}

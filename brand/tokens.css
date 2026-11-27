@@ -59,6 +59,30 @@
   --sos-grade-emerging: #CFA145;
   --sos-grade-anecdote: #8B95A0;
   /* --sos-grade-highrisk: TBD red-family, v2.1 addendum */
+
+  /* ---- steel: the engineered material the warm skin rests on ----
+     "Skin over steel" made literal. A fixed graphite substrate, identical in
+     every theme (it is a material, not a mood): it carries the instruments,
+     the journey rail, and the page's base. Copper — not the warm terracotta
+     accent — is the one warm voice that reads on it. Contrast on #1B2227:
+     bone #E8E4DC ~13:1, mid #AEB4B6 ~7.8:1, copper-text #E08A47 ~5.6:1. */
+  --sos-steel: #1B2227;        /* the material */
+  --sos-steel-2: #242C33;      /* raised steel plane / inset control */
+  --sos-steel-3: #2E373F;      /* hover */
+  --sos-steel-line: #39434C;
+  --sos-steel-line-soft: #2A333B;
+  --sos-on-steel-hi: #E8E4DC;  /* bone, for titles on steel */
+  --sos-on-steel: #AEB4B6;     /* body on steel, ≥7:1 */
+  --sos-on-steel-lo: #9AA1A4;  /* quiet metadata on steel */
+  --sos-copper-on-steel: #E08A47;      /* text-safe copper on steel (~5.6:1) */
+  --sos-copper-on-steel-fill: #C97438; /* solid dots / edges / button face */
+  --sos-steel-edge: inset 0 1px 0 rgba(255, 255, 255, 0.05); /* light catching a raised plane */
+  --sos-steel-shadow: 0 18px 48px -26px rgba(12, 16, 20, 0.55);
+  /* brushed finish: fine vertical grain + a raking sheen, layered on the
+     steel fill so the material reads as machined rather than flat. */
+  --sos-steel-grain:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.020) 0 1px, rgba(0, 0, 0, 0.022) 1px 3px),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 22%, rgba(0, 0, 0, 0.05) 70%);
 }
 
 /* ---- dark (app canonical) ---- */

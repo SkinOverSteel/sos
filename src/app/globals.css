@@ -1489,6 +1489,239 @@ a.sos-card:hover {
 }
 
 /* ======================================================================
+   SKIN OVER STEEL — the engineered layer, made literal on the front door.
+   Warm cream surfaces (the skin) hold machined STEEL instruments: the tool
+   panel, the four-step journey rail, and the Log readout. Steel is a fixed
+   material from tokens.css, the same in every theme; copper (not terracotta)
+   is the warm voice that reads on it. Decoration earns its place — brushed
+   grain, engraved numerals, corner register marks — never mood for its own
+   sake. All static; nothing here animates.
+   ====================================================================== */
+
+/* the material + its machined detailing */
+.sos-steel {
+  position: relative;
+  background-color: var(--sos-steel);
+  background-image: var(--sos-steel-grain);
+  color: var(--sos-on-steel);
+  box-shadow: var(--sos-steel-edge), var(--sos-steel-shadow);
+}
+/* machined corner register marks — copper tick-brackets on opposite corners */
+.sos-steel--reg::before,
+.sos-steel--reg::after {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: 2;
+}
+.sos-steel--reg::before {
+  top: 9px;
+  left: 9px;
+  border-top: 1px solid var(--sos-copper-on-steel);
+  border-left: 1px solid var(--sos-copper-on-steel);
+}
+.sos-steel--reg::after {
+  bottom: 9px;
+  right: 9px;
+  border-bottom: 1px solid var(--sos-copper-on-steel);
+  border-right: 1px solid var(--sos-copper-on-steel);
+}
+
+/* measurement ruler: a fine tick strip (every fifth tick copper) that marks
+   the handoff from the warm hero copy into the steel journey rail */
+.sos-ruler {
+  height: 15px;
+  margin-top: 40px;
+  position: relative;
+  background-image: repeating-linear-gradient(90deg, var(--sos-line) 0 1px, transparent 1px 12px);
+  background-position: bottom;
+  background-size: 12px 9px;
+  background-repeat: repeat-x;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.sos-ruler::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(90deg, var(--sos-copper) 0 1px, transparent 1px 60px);
+  background-position: bottom;
+  background-size: 60px 15px;
+  background-repeat: repeat-x;
+  opacity: 0.45;
+}
+
+/* the four-step journey rail: the rigid spine the whole site runs on */
+.sos-home__spine {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-radius: var(--sos-radius-lg);
+  overflow: hidden;
+}
+.sos-ruler + .sos-home__spine {
+  margin-top: 16px;
+}
+.sos-home__spine-step {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 22px;
+  border-left: 1px solid var(--sos-steel-line-soft);
+}
+.sos-home__spine-step:first-child {
+  border-left: 0;
+}
+/* the engraved ghost numeral milled into each cell, behind the copper label */
+.sos-home__spine-ghost {
+  position: absolute;
+  right: -4px;
+  bottom: -26px;
+  font-family: var(--sos-mono);
+  font-weight: 600;
+  font-size: 94px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.045);
+  pointer-events: none;
+  z-index: 0;
+}
+.sos-home__spine-step > :not(.sos-home__spine-ghost) {
+  position: relative;
+  z-index: 1;
+}
+.sos-home__spine-n {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--sos-copper-on-steel);
+  margin-bottom: 12px;
+}
+.sos-home__spine-n::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--sos-steel-line);
+}
+.sos-home__spine-v {
+  display: block;
+  font-family: var(--sos-sans);
+  font-weight: 750;
+  font-stretch: 88%;
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--sos-on-steel-hi);
+  margin-bottom: 5px;
+}
+.sos-home__spine-d {
+  display: block;
+  font-family: var(--sos-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--sos-on-steel);
+}
+
+/* the instrument panel, re-skinned as a machined steel module (homepage only,
+   via the `steel` prop; the article end-matter panel keeps the warm card) */
+.sos-home__panel--steel {
+  background-color: var(--sos-steel);
+  background-image: var(--sos-steel-grain);
+  border-color: var(--sos-steel-line);
+  color: var(--sos-on-steel);
+  box-shadow: var(--sos-steel-edge), var(--sos-steel-shadow);
+}
+.sos-home__panel--steel .sos-home__panel-head {
+  border-bottom-color: var(--sos-steel-line-soft);
+}
+.sos-home__panel--steel .sos-home__panel-row {
+  border-bottom-color: var(--sos-steel-line-soft);
+}
+.sos-home__panel--steel .sos-home__panel-title {
+  color: var(--sos-on-steel-hi);
+}
+.sos-home__panel--steel .sos-home__panel-link:hover {
+  background: var(--sos-steel-3);
+}
+.sos-home__panel--steel .sos-home__tile-foot {
+  color: var(--sos-copper-on-steel);
+}
+.sos-home__panel--steel .sos-note {
+  color: var(--sos-on-steel);
+}
+.sos-home__panel--steel .sos-label {
+  color: var(--sos-on-steel);
+}
+.sos-home__panel--steel .sos-field {
+  background: var(--sos-steel-2);
+  border-color: var(--sos-steel-line);
+  color: var(--sos-on-steel-hi);
+}
+.sos-home__panel--steel .sos-field::placeholder {
+  color: var(--sos-on-steel-lo);
+}
+
+/* the Log band, re-skinned as the steel readout (track = the measuring device).
+   The warm step-header sits above; the readout below is the engineered thing. */
+.sos-home__log {
+  background-color: var(--sos-steel);
+  background-image: var(--sos-steel-grain);
+  border-color: var(--sos-steel-line);
+  border-left-color: var(--sos-copper-on-steel-fill);
+  box-shadow: var(--sos-steel-edge), var(--sos-steel-shadow);
+  color: var(--sos-on-steel);
+}
+.sos-home__log .sos-prose {
+  color: var(--sos-on-steel);
+}
+.sos-home__log .sos-prose strong {
+  color: var(--sos-on-steel-hi);
+}
+.sos-home__log .sos-home__title {
+  color: var(--sos-on-steel-hi);
+}
+.sos-home__log .sos-home__step {
+  color: var(--sos-on-steel-lo);
+}
+.sos-home__log .sos-home__step b {
+  color: var(--sos-copper-on-steel);
+}
+.sos-home__log-phases li {
+  border-left-color: var(--sos-steel-line);
+}
+.sos-home__log-phases li::before {
+  background: var(--sos-copper-on-steel-fill);
+  box-shadow: 0 0 0 4px var(--sos-steel);
+}
+.sos-home__log-name {
+  color: var(--sos-on-steel-hi);
+}
+.sos-home__log-note {
+  color: var(--sos-on-steel);
+}
+.sos-home__log .sos-home__index {
+  color: var(--sos-copper-on-steel);
+}
+
+@media (max-width: 720px) {
+  .sos-home__spine {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sos-home__spine-step:nth-child(2) {
+    border-left: 0;
+  }
+  .sos-home__spine-step:nth-child(n + 3) {
+    border-top: 1px solid var(--sos-steel-line-soft);
+  }
+}
+
+/* ======================================================================
    THE READING SURFACE — long-form editorial (the Open Floor article page).
    A sticky table-of-contents rail in the left gutter, a reading-progress
    line at the top, and a set of long-form primitives (lede, section marks,
