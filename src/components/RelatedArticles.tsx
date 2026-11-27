@@ -21,7 +21,7 @@ export function RelatedArticles({ slug, max = 3 }: { slug: string; max?: number 
   return (
     <>
       <div style={{ marginTop: "48px" }}>
-        <UtilityPanel rows={utilitiesForSection(current.section)} idPrefix={`article-${slug}`} />
+        <UtilityPanel rows={utilitiesForSection(current.section)} idPrefix={`article-${slug}`} steel />
       </div>
     <nav
       aria-label="Related reading"

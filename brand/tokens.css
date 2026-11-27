@@ -201,6 +201,25 @@
   --sos-radius-lg: 18px;
 }
 
+/* ---- steel on the dark canvas ----
+   When the skin itself is dark, a steel module at the warm-theme value would
+   sit too close to the page to read. Recess it below the page instead, as an
+   inset instrument well with a crisper top edge, so "skin over steel" still
+   reads. Warm and light keep the base steel from :root; copper-on-steel keeps
+   the dark theme's copper. */
+[data-theme="dark"] {
+  --sos-steel: #0E1317;        /* darker than the page (#12161A): a recessed well */
+  --sos-steel-2: #161D23;
+  --sos-steel-3: #202830;
+  --sos-steel-line: #2C353E;
+  --sos-steel-line-soft: #1C242B;
+  --sos-on-steel-hi: #E8EAEC;
+  --sos-on-steel: #AEB6BD;
+  --sos-on-steel-lo: #8F99A3;
+  --sos-steel-edge: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --sos-steel-shadow: 0 18px 48px -26px rgba(0, 0, 0, 0.7);
+}
+
 /* ---- signature: morse SOS divider (··· ––– ···) ---- */
 .sos-morse { display: flex; align-items: center; gap: 9px; }
 .sos-morse i { display: block; height: 5px; border-radius: 3px; background: var(--sos-copper); }

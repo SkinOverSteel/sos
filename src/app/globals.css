@@ -1640,6 +1640,12 @@ a.sos-card:hover {
 .sos-home__panel--steel .sos-home__panel-head {
   border-bottom-color: var(--sos-steel-line-soft);
 }
+/* the article end-matter panel shows a visible "The tools" heading — on steel
+   it needs the bone ink. The extra selector depth outranks the warm theme's
+   own .sos-h2 color (which would otherwise read as low-contrast copper). */
+.sos-home__panel--steel .sos-home__panel-head .sos-h2 {
+  color: var(--sos-on-steel-hi);
+}
 .sos-home__panel--steel .sos-home__panel-row {
   border-bottom-color: var(--sos-steel-line-soft);
 }
