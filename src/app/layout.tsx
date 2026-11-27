@@ -106,94 +106,50 @@ export default function RootLayout({
           </a>
         </header>
         <main id="main" className="flex flex-1 flex-col">{children}</main>
-        <footer
-          style={{
-            borderTop: "1px solid var(--sos-line-soft)",
-            padding: "28px 24px 40px",
-            marginTop: "40px",
-          }}
-        >
-          <nav
-            style={{
-              display: "flex",
-              gap: "20px",
-              flexWrap: "wrap",
-              marginBottom: "16px",
-            }}
-          >
-            {[
-              { href: "/learn", label: "Learn" },
-              { href: "/tools", label: "Tools" },
-              { href: "/near-me", label: "Near me" },
-              { href: "/directory", label: "Directory" },
-              { href: "/log", label: "The Log" },
-              { href: "/labs", label: "Lab checklists" },
-              { href: "/methodology", label: "How we grade" },
-              { href: "/about", label: "About" },
-              { href: "/support", label: "Get support now" },
-            ].map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                // Footer links are low-intent: don't prefetch a tool page's
-                // client chunk just because the reader reached the bottom.
-                prefetch={false}
-                {...(l.href === "/labs" ? { "data-track": "labs_entry", "data-track-from": "footer" } : {})}
-                style={{
-                  fontFamily: "var(--sos-mono)",
-                  fontSize: "12px",
-                  letterSpacing: "0.08em",
-                  color: "var(--sos-text-md)",
-                  textDecoration: "none",
-                }}
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-          <p
-            style={{
-              fontFamily: "var(--sos-mono)",
-              fontSize: "11.5px",
-              lineHeight: 1.7,
-              color: "var(--sos-text-lo)",
-              maxWidth: "68ch",
-            }}
-          >
-            © Skin Over Steel. Education, not medical advice, written to get
-            you to a clinician and never around one. We are not a pharmacy and
-            we sell nothing. Where we list licensed providers we may earn a
-            referral fee, disclosed at the link. A paid relationship never
-            changes an evidence grade or a ranking.
-          </p>
-          <div
-            style={{
-              marginTop: "36px",
-              paddingTop: "24px",
-              borderTop: "1px solid var(--sos-line-soft)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "14px",
-              textAlign: "center",
-            }}
-          >
-            <MorseSOS dim label="Morse code S O S" />
-            <Link href="/" aria-label="Skin Over Steel home" style={{ display: "inline-flex" }}>
-              <WordmarkSvg height={16} />
-            </Link>
-            <p
-              style={{
-                fontFamily: "var(--sos-serif)",
-                fontStyle: "italic",
-                fontSize: "14px",
-                lineHeight: 1.5,
-                color: "var(--sos-copper)",
-                margin: 0,
-              }}
-            >
-              The signal, answered.
+        {/* The footer as the steel base: the warm skin ends and the whole
+            site rests on the engineered material. Copper is remapped to the
+            copper-on-steel tokens inside .sos-foot (see globals.css). */}
+        <footer className="sos-foot">
+          <div className="sos-foot__in">
+            <nav className="sos-foot__nav" aria-label="Footer">
+              {[
+                { href: "/learn", label: "Learn" },
+                { href: "/tools", label: "Tools" },
+                { href: "/near-me", label: "Near me" },
+                { href: "/directory", label: "Directory" },
+                { href: "/log", label: "The Log" },
+                { href: "/labs", label: "Lab checklists" },
+                { href: "/methodology", label: "How we grade" },
+                { href: "/about", label: "About" },
+                { href: "/support", label: "Get support now" },
+              ].map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  // Footer links are low-intent: don't prefetch a tool page's
+                  // client chunk just because the reader reached the bottom.
+                  prefetch={false}
+                  {...(l.href === "/labs" ? { "data-track": "labs_entry", "data-track-from": "footer" } : {})}
+                  className="sos-foot__link"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
+            <p className="sos-foot__copy">
+              © Skin Over Steel. Education, not medical advice, written to get
+              you to a clinician and never around one. We are not a pharmacy and
+              we sell nothing. Where we list licensed providers we may earn a
+              referral fee, disclosed at the link. A paid relationship never
+              changes an evidence grade or a ranking.
             </p>
+            <div className="sos-foot__sig">
+              <MorseSOS dim label="Morse code S O S" />
+              <Link href="/" aria-label="Skin Over Steel home" style={{ display: "inline-flex" }}>
+                <WordmarkSvg height={16} style={{ color: "var(--sos-on-steel-hi)" }} />
+              </Link>
+              <p className="sos-foot__tag">The signal, answered.</p>
+            </div>
           </div>
         </footer>
         <Analytics />
