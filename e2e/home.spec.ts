@@ -64,3 +64,21 @@ test("the Find care map is a static image that links to the full map", async ({ 
   await page.mouse.wheel(0, 2000);
   expect(await shard).toBe(false);
 });
+
+test("the journey rail links to each homepage section on mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 780 });
+  await page.goto("/");
+  const rail = page.getByRole("navigation", { name: "On this page" });
+  const steps = [
+    ["Understand", "home-routes"],
+    ["Measure", "home-tools"],
+    ["Find care", "home-care"],
+    ["Track", "home-log"],
+  ];
+
+  for (const [name, target] of steps) {
+    await rail.getByRole("link", { name: new RegExp(`^${name}`) }).press("Enter");
+    await expect(page).toHaveURL(new RegExp(`#${target}$`));
+    await expect(page.locator(`h2#${target}`)).toBeInViewport();
+  }
+});
