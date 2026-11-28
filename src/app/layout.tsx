@@ -92,10 +92,10 @@ export default function RootLayout({
             {[
               { href: "/learn", label: "Learn" },
               { href: "/tools", label: "Tools" },
-              { href: "/near-me", label: "Near me" },
+              { href: "/near-me", label: "Near me", prefetch: false },
               { href: "/log", label: "The Log" },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="sos-header__link">
+              <Link key={l.href} href={l.href} prefetch={l.prefetch} className="sos-header__link">
                 {l.label}
               </Link>
             ))}
