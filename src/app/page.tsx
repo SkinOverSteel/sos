@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
@@ -143,13 +142,16 @@ export default function Home() {
                 <li key={a.slug} className={hasArtwork ? "sos-home__list-lead" : undefined}>
                   <Link href={`/learn/${a.slug}`} className="sos-home__entry">
                     {hasArtwork && (
-                      <Image
+                      // This pre-sized WebP needs no image optimization or client runtime.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
                         src="/editorial/clinical-signal.webp"
                         width={760}
                         height={304}
                         alt=""
                         className="sos-home__entry-image"
-                        unoptimized
+                        loading="lazy"
+                        decoding="async"
                       />
                     )}
                     <span className="sos-home__entry-body">
