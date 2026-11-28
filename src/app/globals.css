@@ -830,7 +830,7 @@ a.sos-card:hover {
 .sos-home__material {
   height: clamp(66px, 9vw, 106px);
   margin-top: 26px;
-  background: var(--sos-steel) url("/editorial/paper-over-steel.webp") center / cover no-repeat;
+  background: var(--sos-steel) url("/editorial/evening-cuff.webp") center / cover no-repeat;
   border: 1px solid var(--sos-line);
   border-radius: var(--sos-radius-md);
 }
