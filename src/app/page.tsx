@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { EvidenceBadge } from "@/components/EvidenceBadge";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { StepHeader } from "@/components/StepHeader";
+import { STEPS, StepHeader, type StepKey } from "@/components/StepHeader";
 import { UtilityPanel } from "@/components/UtilityPanel";
 import { ToolIcon } from "@/components/ToolIcon";
 import { SignalRail } from "@/components/SignalRail";
@@ -18,17 +18,11 @@ import { liveTools } from "@/lib/tools";
  * then track the protocol. The editorial standard that backs all of it is one
  * link in the rail; it earns trust on the article page, not on the front door.
  */
-/**
- * The four-step journey, surfaced on the front door as a steel rail under the
- * hero: the rigid spine the whole site runs on. Steps are fixed site-wide and
- * mirror the section workflow (01 Understand / 02 Measure / 03 Find care /
- * 04 Track); the notes restate each section's promise in one instrument line.
- */
-const SPINE: { step: string; verb: string; note: string }[] = [
-  { step: "01", verb: "Understand", note: "Read the page that fits where you're stuck." },
-  { step: "02", verb: "Measure", note: "Turn the worry into a number you can take in." },
-  { step: "03", verb: "Find care", note: "Someone licensed near you, ranked on trust." },
-  { step: "04", verb: "Track", note: "One protocol, baseline to outcome, on a page." },
+const SPINE: { key: StepKey; target: string; note: string }[] = [
+  { key: "understand", target: "home-routes", note: "Read the page that fits where you're stuck." },
+  { key: "measure", target: "home-tools", note: "Turn the worry into a number you can take in." },
+  { key: "care", target: "home-care", note: "Someone licensed near you, ranked on trust." },
+  { key: "track", target: "home-log", note: "One protocol, baseline to outcome, on a page." },
 ];
 
 const LOG_PHASES: { name: string; note: string }[] = [
@@ -44,27 +38,15 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero — warm, invitational light on the cream ground: a soft copper
-          sunrise upper-left and a faint warm wash lower-right, so the first
-          screen feels open rather than engineered. The headline sits left; the
-          three highest-demand utilities sit beside it as one panel, so the
-          first screen is already useful. */}
-      <section
-        style={{
-          backgroundColor: "var(--sos-e0)",
-          backgroundImage:
-            "radial-gradient(1100px 620px at 6% -12%, rgba(176,70,42,0.13), rgba(250,245,238,0) 60%)," +
-            "radial-gradient(820px 480px at 104% 112%, rgba(62,122,90,0.08), rgba(250,245,238,0) 58%)",
-        }}
-      >
+      <section className="sos-home__masthead" aria-labelledby="home-title">
         <div className="sos-home">
           <div className="sos-home__hero">
             <div>
               <p className="sos-kicker" style={{ marginBottom: "22px" }}>
                 Men&apos;s sexual health · <b>evidence-graded</b>
               </p>
-              <h1 className="sos-home__h1">
-                The conversation your urologist
+              <h1 id="home-title" className="sos-home__h1">
+                The conversation your urologist{" "}
                 <em>doesn&apos;t have time for.</em>
               </h1>
               <p
@@ -84,6 +66,7 @@ export default function Home() {
                   Get support now
                 </Link>
               </div>
+              <div className="sos-home__material" aria-hidden="true" />
             </div>
 
             {/* The instrument panel: zip finder, self-check, the Log —
@@ -91,22 +74,23 @@ export default function Home() {
             <UtilityPanel idPrefix="home" headingHidden steel />
           </div>
 
-          {/* The journey, as the steel spine under the hero: a measurement
-              ruler marking the handoff from warm copy into the rigid rail the
-              whole site runs on. Decorative only; labelled for assistive tech. */}
           <div className="sos-ruler" aria-hidden="true" />
-          <ol className="sos-home__spine sos-steel sos-steel--reg" aria-label="How Skin Over Steel works, in four steps">
-            {SPINE.map((s) => (
-              <li key={s.step} className="sos-home__spine-step">
-                <span className="sos-home__spine-ghost" aria-hidden="true">
-                  {s.step}
-                </span>
-                <span className="sos-home__spine-n">{s.step}</span>
-                <span className="sos-home__spine-v">{s.verb}</span>
-                <span className="sos-home__spine-d">{s.note}</span>
-              </li>
-            ))}
-          </ol>
+          <nav className="sos-home__journey" aria-label="On this page">
+            <ol className="sos-home__spine sos-steel sos-steel--reg">
+              {SPINE.map(({ key, target, note }) => {
+                const { step, verb } = STEPS[key];
+                return (
+                  <li key={key} className="sos-home__spine-step">
+                    <a className="sos-home__spine-link" href={`#${target}`}>
+                      <span className="sos-home__spine-n" aria-hidden="true">{step}</span>
+                      <span className="sos-home__spine-v">{verb}</span>
+                      <span className="sos-home__spine-d">{note}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
 
           {/* The signal rail: what this is, in instrument voice. The editorial
               standard lives here as one link, not as a section. */}
@@ -152,21 +136,36 @@ export default function Home() {
             <h3 className="sos-h2">Read these first</h3>
           </div>
           <ol className="sos-home__list">
-            {featured.map((a, i) => (
-              <li key={a.slug}>
-                <Link href={`/learn/${a.slug}`} className="sos-home__entry">
-                  <span className="sos-home__index">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="sos-home__entry-body">
-                    <span className="sos-home__tile-meta" style={{ marginBottom: "8px" }}>
-                      <span className="sos-kicker">{a.section}</span>
-                      <EvidenceBadge grade={a.grade} />
+            {featured.map((a) => {
+              const hasArtwork = a.slug === "erectile-function-signal";
+              return (
+                <li key={a.slug} className={hasArtwork ? "sos-home__list-lead" : undefined}>
+                  <Link href={`/learn/${a.slug}`} className="sos-home__entry">
+                    {hasArtwork && (
+                      // This pre-sized WebP needs no image optimization or client runtime.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src="/editorial/clinical-signal.webp"
+                        width={760}
+                        height={304}
+                        alt=""
+                        className="sos-home__entry-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    <span className="sos-home__entry-body">
+                      <span className="sos-home__tile-meta">
+                        <span className="sos-kicker">{a.section}</span>
+                        <EvidenceBadge grade={a.grade} />
+                      </span>
+                      <span className="sos-home__entry-title">{a.title}</span>
+                      <span className="sos-home__tile-body">{a.deck}</span>
                     </span>
-                    <span className="sos-home__entry-title">{a.title}</span>
-                    <span className="sos-home__tile-body">{a.deck}</span>
-                  </span>
-                </Link>
-              </li>
-            ))}
+                  </Link>
+                </li>
+              );
+            })}
           </ol>
         </section>
 
