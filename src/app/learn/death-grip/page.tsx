@@ -10,19 +10,19 @@ import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Death grip is real, and it's fixable",
+  title: "Death grip and delayed orgasm: what the evidence says",
   description:
-    "The internet's rudest search term describes something sexual medicine takes seriously: men who climax easily solo but can't finish with a partner, often because their technique trained them that way. What the evidence actually says, what it doesn't, and the retraining that works.",
+    "Why climax can be easier alone than with a partner, what research says about masturbation habits, and what else a clinician may check.",
   alternates: { canonical: "/learn/death-grip" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "Death grip is real, and it's fixable",
+  name: "Death grip and delayed orgasm: what the evidence says",
   url: `${SITE.url}/learn/death-grip`,
   description:
-    "Delayed ejaculation and anorgasmia linked to idiosyncratic masturbation technique: the evidence base, the sensory-adaptation mechanism, and behavior-based retraining including penile vibratory stimulation.",
+    "Delayed orgasm and ejaculation: what research suggests about masturbation habits and which other contributors a clinician may consider.",
   about: { "@type": "MedicalCondition", name: "Delayed ejaculation" },
   audience: { "@type": "Patient" },
 };
@@ -36,25 +36,19 @@ export default function DeathGripPage() {
         <b>Conditions</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        Death grip is real, and it&apos;s fixable
+        Death grip and delayed orgasm: what the evidence says
       </h1>
       <ArticleMeta slug="death-grip" />
 
       <MorseSOS style={{ margin: "34px 0" }} />
 
       <p className="sos-prose" style={{ marginBottom: "24px" }}>
-        The term is internet slang, the way these things usually are. What it
-        describes is not: a man who climaxes reliably, quickly, on his own,
-        and then can&apos;t get there with a partner, or takes so long that
-        the moment dies of embarrassment first. He&apos;s not broken, his
-        partner isn&apos;t the problem, and there&apos;s nothing to be
-        ashamed of. Somewhere along the way his nervous system learned one
-        very specific route to orgasm, and partnered sex doesn&apos;t offer
-        that route. Sexual medicine has a name for the destination,{" "}
-        <strong>delayed ejaculation</strong>, and it is more common, more
-        treatable, and more thoroughly unstudied than almost any other sexual
-        complaint on this site. Here is what the evidence says, what it
-        doesn&apos;t, and what actually moves the needle.
+        “Death grip” is internet shorthand for one pattern: climax comes easily
+        alone, then takes much longer or never comes with a partner. Some men
+        with delayed orgasm report relying on a specific grip, pace, or type of
+        stimulation. That pattern is worth bringing up at a visit. The research
+        can help frame the conversation, and a clinician can check for other
+        contributors such as medications, anxiety, or changes after surgery.
       </p>
 
       <section>
@@ -73,8 +67,8 @@ export default function DeathGripPage() {
           replicate. Separately, research on sexual behavior finds that men
           who get more pleasure from a specific solo technique than from
           partnered sex tend to keep reinforcing exactly that technique. That
-          loop, practiced thousands of times over years, is the whole
-          mechanism. The slang names the cause; medicine names the effect.
+          pattern is one proposed explanation. The available research cannot
+          establish what is causing an individual reader’s symptoms.
         </p>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
           What the evidence does <em>not</em>{" "}support, and the shame industry

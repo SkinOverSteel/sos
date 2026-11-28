@@ -68,7 +68,7 @@ function buildLlmsTxt(): string {
   );
   lines.push("");
   lines.push(
-    "Skin Over Steel is an independent men's sexual-health education library. Every claim carries a visible evidence grade and links to primary sources. It is education, not medical advice, and it bridges toward a clinician. It is not a pharmacy and not a seller.",
+    "Skin Over Steel is an independent men's sexual-health education library. Articles carry evidence labels and cite named sources. It is education, not medical advice, and it bridges toward a clinician. It is not a pharmacy and not a seller.",
   );
   lines.push("");
 

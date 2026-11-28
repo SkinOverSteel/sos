@@ -26,7 +26,7 @@ const jsonLd = {
 const GRADES: { grade: Grade; def: string }[] = [
   {
     grade: "established",
-    def: "Guideline-level evidence: major clinical guidelines (e.g., the AUA) or strong, consistent peer-reviewed research. Safe to lean on.",
+    def: "Guideline-level evidence: major clinical guidelines (e.g., the AUA) or strong, consistent peer-reviewed research. Individual findings still have limits.",
   },
   {
     grade: "emerging",
@@ -82,8 +82,9 @@ export default function MethodologyPage() {
 
       <Section title="How we grade evidence">
         <p className="sos-prose" style={{ fontSize: "16px", marginBottom: "22px" }}>
-          Every claim carries a visible <strong>evidence grade</strong>, so you
-          always know how much weight it holds before you act on it.
+          Each article has a label for its main takeaway. Individual findings can
+          have different levels of support, which we explain alongside the
+          citations. High Risk flags potential harm.
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           {GRADES.map(({ grade, def }) => (

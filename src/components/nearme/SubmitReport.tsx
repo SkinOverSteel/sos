@@ -142,7 +142,7 @@ export function SubmitReport({ poi, kind, onClose }: Props) {
             <button type="submit" className="sos-btn sos-btn--primary" disabled={state === "sending"} style={{ border: 0, cursor: "pointer" }}>
               {state === "sending" ? "Sending" : "Send to moderation"}
             </button>
-            <span className="sos-note">Share your experience, don&apos;t prescribe to others. Stored with an account id only.</span>
+            <span className="sos-note">Your report and a browser-generated identifier go to our moderation queue. Approved information may be published. Leave out personal details and medical history.</span>
           </div>
           {state === "error" && <p role="alert" className="sos-note" style={{ color: "var(--sos-copper)" }}>{msg}</p>}
         </form>

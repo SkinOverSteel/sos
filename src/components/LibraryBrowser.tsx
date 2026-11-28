@@ -30,6 +30,7 @@ const GRADES: { value: Grade | "all"; label: string }[] = [
   { value: "established", label: "Established" },
   { value: "emerging", label: "Emerging" },
   { value: "anecdote", label: "Anecdote" },
+  { value: "high-risk", label: "High Risk" },
 ];
 
 function sectionRank(s: string) {

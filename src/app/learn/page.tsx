@@ -12,7 +12,7 @@ import { SignalRail } from "@/components/SignalRail";
 export const metadata: Metadata = {
   title: "Learn",
   description:
-    "Plain-language men's sexual-health education on erectile function, testosterone, and treatment. Every claim carries a visible evidence grade and a named source.",
+    "Plain-language men's sexual-health education on erectile function, testosterone, and treatment. Articles carry evidence labels and cite named sources.",
   alternates: { canonical: "/learn" },
 };
 
@@ -23,8 +23,7 @@ export default function LearnHub() {
       <JsonLd data={learnHubJsonLd()} />
       <StepHeader as="h1" step="understand" title="The library, graded" className="sos-page-head">
         Erectile function, testosterone, and treatment, in plain language.
-        Every claim carries a visible grade, so you know how much weight it
-        holds. All of it is written to get you to a clinician, never around
+        An evidence label summarizes each article’s main takeaway. All of it is written to get you to a clinician, never around
         one.
       </StepHeader>
 
@@ -46,6 +45,10 @@ export default function LearnHub() {
             <EvidenceBadge grade="anecdote" />
           </dt>
           <dd>Member n=1 reports, fenced off from the evidence.</dd>
+        </div>
+        <div>
+          <dt><EvidenceBadge grade="high-risk" /></dt>
+          <dd>Potential for harm.</dd>
         </div>
         <div className="sos-lib__legend-link">
           <dd>

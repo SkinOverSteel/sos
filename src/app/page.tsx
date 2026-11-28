@@ -54,7 +54,7 @@ export default function Home() {
                 style={{ maxWidth: "50ch", margin: "26px 0 0", fontSize: "18px" }}
               >
                 Erectile function, testosterone, and the treatments for both,
-                explained plainly, with every claim graded by its evidence.
+                explained plainly, with evidence labels and named sources.
                 Built to get you to a clinician better informed, never around
                 one.
               </p>
@@ -251,8 +251,7 @@ export default function Home() {
                 <span className="sos-kicker">Near me</span>
                 <h3 className="sos-home__tile-title">Who treats this near you</h3>
                 <p className="sos-home__tile-body" style={{ flex: "none" }}>
-                  Sorted by distance from your zip, with the prices members
-                  report paying.
+                  Sorted by distance. Your ZIP is included in the results URL.
                 </p>
                 <div className="sos-home__care-form" style={{ marginTop: "6px" }}>
                   <div style={{ flex: "1 1 120px" }}>
