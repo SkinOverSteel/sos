@@ -11,16 +11,16 @@ import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "After prostatectomy: rebuilding the erection",
+  title: "After prostatectomy: erectile recovery and treatment options",
   description:
-    "Why erections vanish after prostate surgery, what penile rehabilitation actually protects (tissue, not the timetable), what the tadalafil, vacuum, and injection trials showed, a deep dive into pelvic floor muscle training, and the emerging science from NeuroSAFE to stem cells.",
+    "How prostate surgery can affect erections, what rehabilitation studies measured, and which options to discuss with a urologist.",
   alternates: { canonical: "/learn/post-prostatectomy-rehabilitation" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "After prostatectomy: rebuilding the erection",
+  name: "After prostatectomy: erectile recovery and treatment options",
   url: `${SITE.url}/learn/post-prostatectomy-rehabilitation`,
   description:
     "Penile rehabilitation after radical prostatectomy: neuropraxia and cavernosal hypoxia, evidence for PDE5 inhibitors, vacuum erection devices and intracavernosal injections, pelvic floor muscle training for erectile function, continence and climacturia, and emerging approaches including NeuroSAFE, stem cells, nerve grafts and shockwave therapy.",
@@ -42,7 +42,7 @@ export default function PostProstatectomyRehabilitationPage() {
         <b>Treatment &amp; pharmacology</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        After prostatectomy: rebuilding the erection
+        After prostatectomy: erectile recovery and treatment options
       </h1>
       <ArticleMeta slug="post-prostatectomy-rehabilitation" />
 
@@ -375,15 +375,13 @@ export default function PostProstatectomyRehabilitationPage() {
           </div>
           <div className="sos-card">
             <p className="sos-kicker" style={{ marginBottom: "10px" }}>
-              <b>The reliable endpoint</b> · the implant
+              <b>One surgical option</b> · the implant
             </p>
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
-              If eighteen to twenty-four months pass without meaningful
-              recovery, an inflatable penile prosthesis is not a failure of
-              rehabilitation, it is the treatment with the highest
-              satisfaction rates in the whole field. Rehabilitation done well
-              keeps the chambers healthy enough to make that surgery easier
-              and the result better. It is a floor, not a cliff.
+              If erections remain difficult after surgery, an inflatable
+              penile implant is one option to discuss with a urologist. Ask what
+              it could change for you, what recovery involves, and what
+              alternatives still fit your goals.
             </p>
           </div>
         </div>

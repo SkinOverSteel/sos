@@ -194,7 +194,9 @@ export function ShimTool() {
     <div>
       <p className="sos-note" style={{ marginBottom: "24px" }}>
         Answer for the <strong style={{ color: "var(--sos-text-md)" }}>past six months</strong>.
-        Everything runs in your browser. Your answers never leave your device.
+        Showing your result saves the score, severity band, and date in this
+        browser’s <a href="/prep-packet">Clinician Prep Packet</a>. You can clear
+        the saved result there.
       </p>
 
       <form

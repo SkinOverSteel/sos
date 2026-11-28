@@ -44,7 +44,7 @@ export default function AboutPage() {
 
       <Section title="The standard">
         <p className="sos-prose">
-          Every claim carries a visible <strong>evidence grade</strong>{" "}
+          Each article carries a visible <strong>evidence grade</strong>{" "}
           (Established, Emerging, or Anecdote) so you always know how much weight
           it holds. Sources are named. And everything bridges{" "}
           <em>toward</em>{" "}medicine, never around it: the goal is to get you to a
@@ -80,7 +80,7 @@ export default function AboutPage() {
             <p className="sos-prose" style={{ fontSize: "15.5px" }}>
               A validated erectile-function score, a bioavailable testosterone
               calculator, a treatment cost estimator, and a printable
-              appointment sheet. They run in your browser and keep nothing.
+              appointment sheet. They run in your browser. Some results are saved there for visit prep.
             </p>
           </Link>
           <Link href="/near-me" className="sos-card" style={{ display: "block", textDecoration: "none" }}>

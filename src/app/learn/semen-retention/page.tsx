@@ -10,7 +10,7 @@ import { withReview } from "@/lib/jsonld";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Semen retention: the 7-day testosterone spike is real, and it's a trap",
+  title: "Semen retention: where the 7-day testosterone claim came from",
   description:
     "The study behind the famous 7-day testosterone spike was retracted in 2021, the spike was never replicated, and even at face value it describes a blip, not a superpower. What the semen-retention evidence actually says, including the prostate-cancer finding that points the other way.",
   alternates: { canonical: "/learn/semen-retention" },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
-  name: "Semen retention: the 7-day testosterone spike is real, and it's a trap",
+  name: "Semen retention: where the 7-day testosterone claim came from",
   url: `${SITE.url}/learn/semen-retention`,
   description:
     "An evidence check of semen retention claims: the retracted 2003 testosterone-spike study, the unreplicated findings, what ejaculation does and does not do to hormones, and the ejaculation-frequency prostate cancer data.",
@@ -36,7 +36,7 @@ export default function SemenRetentionPage() {
         <b>Foundations</b>
       </p>
       <h1 className="sos-h1" style={{ marginBottom: "18px" }}>
-        Semen retention: the 7-day testosterone spike is real, and it&apos;s a trap
+        Semen retention: where the 7-day testosterone claim came from
       </h1>
       <ArticleMeta slug="semen-retention" />
 

@@ -15,11 +15,11 @@ export function SignalRail({ className }: { className?: string }) {
       <MorseSOS />
       <span>
         <b>{articles.length}</b>{" "}
-        articles, every claim graded
+        articles with evidence labels
       </span>
       <span>
         <b>{liveTools.length}</b>{" "}
-        private tools, nothing leaves your browser
+        tools that calculate or prepare documents in your browser
       </span>
       <span className="sos-home__rail-note">
         We sell nothing: no supplements, no products. Every source is named

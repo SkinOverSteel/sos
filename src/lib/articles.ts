@@ -348,9 +348,9 @@ export const articles: Article[] = [
   },
   {
     slug: "post-prostatectomy-rehabilitation",
-    title: "After prostatectomy: rebuilding the erection",
+    title: "After prostatectomy: erectile recovery and treatment options",
     deck:
-      "Why erections vanish after prostate surgery, what penile rehabilitation actually protects, a deep look at pelvic floor training, and the science arriving next.",
+      "How prostate surgery can affect erections, what rehabilitation studies measured, and which options to discuss with a urologist.",
     summary:
       "Nerve-sparing surgery stuns the erection nerves for a year or more, and tissue that never fills starts to scar. What the rehabilitation trials really showed about daily tadalafil, vacuum devices, and injections; a deep dive into pelvic floor muscle training, the one intervention that helps continence, climacturia, and erections at once; and the emerging frontier from NeuroSAFE to stem cells.",
     grade: "established",
@@ -519,9 +519,9 @@ export const articles: Article[] = [
   },
   {
     slug: "death-grip",
-    title: "Death grip is real, and it's fixable",
+    title: "Death grip and delayed orgasm: what the evidence says",
     deck:
-      "Why some men climax easily alone but not with a partner, and the retraining approach sexual medicine uses.",
+      "Why climax can be easier alone, what research says about masturbation habits, and what else a clinician may check.",
     summary:
       "The internet's rudest search term describes something sexual medicine takes seriously: men who climax easily solo but can't finish with a partner, often because their technique trained them that way. What the evidence actually says, what it doesn't, and the retraining that works.",
     grade: "emerging",
@@ -543,9 +543,9 @@ export const articles: Article[] = [
   },
   {
     slug: "semen-retention",
-    title: "Semen retention: the 7-day testosterone spike is real, and it's a trap",
+    title: "Semen retention: where the 7-day testosterone claim came from",
     deck:
-      "What the science says about abstinence and testosterone, and why the famous 7-day spike is not what it seems.",
+      "Where the day-seven claim came from, why the study was retracted, and what research says about abstinence and testosterone.",
     summary:
       "The study behind the famous 7-day testosterone spike was retracted in 2021, the spike was never replicated, and even at face value it describes a blip, not a superpower. What the semen-retention evidence actually says, including the prostate-cancer finding that points the other way.",
     grade: "emerging",

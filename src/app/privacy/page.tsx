@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const UPDATED = "August 22, 2026";
+const UPDATED = "November 27, 2026";
 const CONTACT = "privacy@skinoversteel.com";
 
 export default function PrivacyPage() {
@@ -25,27 +25,35 @@ export default function PrivacyPage() {
 
       <div className="sos-card sos-card--deep" style={{ marginBottom: "8px" }}>
         <p className="sos-prose" style={{ fontSize: "16px" }}>
-          The short version: the self-check tools run entirely in your browser, so
-          your answers never reach us. We set no advertising or tracking cookies,
-          and we sell nothing. The only personal information we hold is your email
-          address, and only if you hand it to us to join the waitlist.
+          The self-check and testosterone calculator run in your browser. Their
+          results can stay there after the tab closes. ZIP searches, report
+          submissions, and waitlist signups work differently.
         </p>
       </div>
 
-      <Section title="The tools never send us your answers">
+      <Section title="What stays in your browser">
         <p className="sos-prose">
-          The erectile-function self-check and the free-testosterone calculator
-          run completely in your browser. What you enter stays on your device: it
-          is not transmitted to us, logged, or stored, and nothing measures your
-          responses. Close the tab and it is gone. If you print or save the
-          clinician summary, that copy lives on your device, not ours.
+          The self-check saves your erectile-function score, severity band, and
+          date. The testosterone calculator saves entered lab values, estimates,
+          and date. Both save to the Clinician Prep Packet in this browser.
+          Open the packet and choose Clear All Saved Data to remove it.
+          The Log stores its entries separately and has its own delete control.
+          On a shared device, anyone who can open the same browser profile may
+          be able to see saved entries. Printed and downloaded copies are
+          separate from browser storage.
+        </p>
+      </Section>
+
+      <Section title="Near Me searches and reports">
+        <p className="sos-prose">
+          Submitting a ZIP from the homepage includes it in the results URL,
+          which can remain in browser history.
         </p>
         <p className="sos-prose">
-          The Log is the one tool that remembers anything, and it remembers it
-          in your browser&apos;s local storage only. We cannot read it, and it
-          never leaves your device unless you download a backup yourself.
-          Clearing your browser data deletes it; the Delete button on the page
-          does the same.
+          If reporting is open and you submit a report, your report fields and
+          a browser-generated identifier go to our moderation queue. Approved
+          information may appear in the dataset. Keep personal details and
+          medical history out of report notes.
         </p>
       </Section>
 
@@ -76,8 +84,10 @@ export default function PrivacyPage() {
           the ones that lead to the lab checklists and the provider directory,
           and the links out to a lab or provider from the directory and the
           test-cost article. Those counts record
-          which link was used and on which page, never anything you typed, and
-          nothing inside the Log or the appointment sheet is counted. It is
+          which link was used and on which page. We also count actions such as
+          running the testosterone calculator. Its calculation event includes
+          the tool name, without lab values or results. Activity inside the
+          Log and appointment sheet is excluded from custom event tracking. It is
           cookieless, it does not follow you across other sites, and it does
           not build a profile of you. Like any website,
           our host also keeps standard server logs, including IP addresses, to run
@@ -102,10 +112,6 @@ export default function PrivacyPage() {
         <ul className="sos-prose" style={list}>
           <li>We do not sell, rent, or trade your personal information. Ever.</li>
           <li>We set no advertising or cross-site tracking cookies.</li>
-          <li>
-            We do not collect health information. The tools are built so that we
-            could not, even if we wanted to.
-          </li>
           <li>We do not buy email lists, or add anyone who did not opt in.</li>
           <li>
             We do not run accounts or a community yet. If that changes, this

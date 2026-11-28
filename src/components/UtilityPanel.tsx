@@ -8,7 +8,7 @@ import Link from "next/link";
  * "The tools" header. The homepage shows it beside the headline with
  * `headingHidden`: there the h1 already owns the voice, so the panel keeps its
  * accessible name but drops the competing visible title, leaving only the quiet
- * "private · in your browser" instrument tag.
+ * "Tools and care finder" instrument tag.
  */
 export type UtilityKey = "zip" | "selfcheck" | "freet" | "cost" | "log" | "directory";
 
@@ -97,7 +97,7 @@ export function UtilityPanel({
           </Tag>
         )}
         <span className="sos-note" style={{ lineHeight: 1 }}>
-          private · in your browser
+          Tools and care finder
         </span>
       </div>
 
@@ -127,7 +127,7 @@ export function UtilityPanel({
               </button>
             </div>
             <p id={`${zipId}-note`} className="sos-note" style={{ marginTop: "8px", lineHeight: 1.5 }}>
-              Clinics, licensed pharmacies, prescribers. Every US zip.
+              Find clinics, pharmacies, and prescribers. Your ZIP is included in the results URL.
             </p>
           </form>
         ) : (

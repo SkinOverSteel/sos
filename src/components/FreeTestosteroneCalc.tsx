@@ -277,6 +277,11 @@ export function FreeTestosteroneCalc() {
           </div>
         </div>
 
+        <p className="sos-note">
+          Calculating saves the lab values, estimates, and date in this
+          browser’s <a href="/prep-packet">Clinician Prep Packet</a>. You can clear
+          the saved values there.
+        </p>
         <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
           <button
             type="submit"
